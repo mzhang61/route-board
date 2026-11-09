@@ -1,18 +1,36 @@
 
+using Microsoft.EntityFrameworkCore;
+using RouteBoard.Api.Data;
+using RouteBoard.Api.Health;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Register MVC controller services.
+// Register controller services.
 builder.Services.AddControllers();
 
-// Register application health checks.
-builder.Services.AddHealthChecks();
+// Read the connection string from application configuration.
+var connectionString =
+    builder.Configuration.GetConnectionString("RouteBoard")
+    ?? throw new InvalidOperationException(
+        "RouteBoard database connection is not configured.");
+
+// Register the database context with dependency injection.
+builder.Services.AddDbContext<RouteBoardDbContext>(options =>
+    options.UseNpgsql(
+        connectionString,
+        npgsqlOptions => npgsqlOptions.UseNetTopologySuite()
+    )
+);
+
+// Register application and database health checks.
+builder.Services
+    .AddHealthChecks()
+    .AddCheck<PostgresHealthCheck>("postgresql");
 
 var app = builder.Build();
 
-// Map controller-based API endpoints.
 app.MapControllers();
 
-// Health endpoint used by deployment checks.
 app.MapHealthChecks("/healthz");
 
 app.Run();
