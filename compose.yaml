@@ -1,0 +1,35 @@
+services:
+  db:
+    build:
+      context: .
+      dockerfile: db/postgis/Dockerfile
+    image: routeboard-postgis:17-local
+
+    environment:
+      POSTGRES_DB: routeboard_dev
+      POSTGRES_USER: routeboard
+      POSTGRES_PASSWORD_FILE: /run/secrets/postgres_password
+
+    ports:
+      - "127.0.0.1:5433:5432"
+
+    volumes:
+      - routeboard_pg_data:/var/lib/postgresql/data
+      - ./db/init:/docker-entrypoint-initdb.d:ro
+
+    secrets:
+      - postgres_password
+
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U routeboard -d routeboard_dev"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+      start_period: 10s
+
+volumes:
+  routeboard_pg_data:
+
+secrets:
+  postgres_password:
+    file: ./.local-secrets/postgres_password

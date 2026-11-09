@@ -502,3 +502,6 @@ appsettings.Local.json
 
 # Local development data
 .local-data/
+
+# Local Docker credentials
+.local-secrets/
