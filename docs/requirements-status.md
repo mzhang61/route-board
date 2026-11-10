@@ -17,11 +17,11 @@ Status is conservative: code existing is not the same as a grading pass. The sup
 | F11 | Persistent snapshots, SSE cursor replay, browser ID deduplication, backend replay test. Full kill/reconnect multi-event browser demo remains. |
 | F12 | Three read tools, preview and bound confirmed write; explicit tool scopes, tool-call audits, HTTP transport denial tests. OAuth discovery/real host interoperability pending. |
 | F13 | React/TS confirmation App and authenticated MCP resource bundled. Actual host recording and host consent verification pending. |
-| D1 | Planned production mzcampuspulse.net, staging staging.mzcampuspulse.net. No DNS changes or dig evidence. |
-| D2 | Production HTTPS/HSTS middleware exists; real TLS, CAA, redirects, renewal, expiry alert not deployed. |
-| D3 | Student subscription enabled and staging resource group created; separate Compose configuration exists, but neither application environment is deployed. |
+| D1 | Staging A record resolves to Azure; DNS/public HTTP evidence captured. Production DNS and full zone/trace dossier remain pending. |
+| D2 | Real staging certificate, HTTPS health and HTTP redirect verified; automated renewal configured. CAA and fired expiry alert still pending. |
+| D3 | Staging VM, separate vault and application containers deployed. Production and staging-to-production gates are pending. |
 | D4 | CI builds/tests and builds images; local release script has migration and HTTPS health gates. Remote CI, promotion and rollback evidence pending. |
-| D5 | Both container builds and fresh-volume deployment smoke pass; Bicep compiles. Clean-clone/cloud reproduction and full host bootstrap pending. |
+| D5 | ARM images, fresh-volume smoke, Bicep deployment and cloud-init succeeded; host setup and secret retrieval are documented. Independent clean-clone reproduction remains pending. |
 | D6 | API no-store default. CDN and HIT/MISS/304/invalidation evidence pending. |
 | D7 | Security headers and exact-origin CORS; allowed/refused preflight integration tests pass. Deployed frontend CSP and browser/CDN evidence pending. |
 | D8 | No Core Web Vitals before/after claim. Measurement and improvement pending. |
@@ -45,4 +45,4 @@ Status is conservative: code existing is not the same as a grading pass. The sup
 
 ## Next deployment prerequisites
 
-The user owns mzcampuspulse.net through Porkbun and has an enabled Azure for Students subscription. A staging resource group exists and Compute registration is complete. Needed: complete host bootstrap/cost estimate, real OIDC registration and role/scope assignments, Geoapify plan and credentials, and DNS/CDN setup. Secrets belong in secret stores, not this document or chat. No VM or DNS records have been created.
+The user owns mzcampuspulse.com through Porkbun and has an enabled Azure for Students subscription. The staging VM, Key Vault and public HTTPS application are running. The school tenant refused app registration, so a separate identity provider account is needed. Geoapify access, CDN, production, CAA and operational evidence remain pending. Secrets belong in secret stores, not this document or chat.

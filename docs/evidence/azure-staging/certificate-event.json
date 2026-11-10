@@ -1,0 +1,10 @@
+[
+  {
+    "level": "info",
+    "ts": 1794330071.65107,
+    "logger": "tls.obtain",
+    "msg": "certificate obtained successfully",
+    "identifier": "staging.mzcampuspulse.com",
+    "issuer": "acme-v02.api.letsencrypt.org-directory"
+  }
+]

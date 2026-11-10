@@ -1,0 +1,151 @@
+$ curl -i -X GET https://staging.mzcampuspulse.com/healthz
+HTTP/2 200 
+alt-svc: h3=":443"; ma=2592000
+cache-control: no-store, no-cache
+content-security-policy: default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self' https://login.microsoftonline.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'
+content-security-policy: default-src 'none'; frame-ancestors 'none'
+content-type: text/plain
+date: Tue, 10 Nov 2026 17:02:05 GMT
+expires: Thu, 01 Jan 1970 00:00:00 GMT
+pragma: no-cache
+referrer-policy: no-referrer
+referrer-policy: no-referrer
+server: Kestrel
+strict-transport-security: max-age=31536000
+strict-transport-security: max-age=2592000
+via: 1.1 Caddy
+x-content-type-options: nosniff
+x-content-type-options: nosniff
+
+Healthy
+
+$ curl -i -X GET https://staging.mzcampuspulse.com/
+HTTP/2 200 
+accept-ranges: bytes
+alt-svc: h3=":443"; ma=2592000
+cache-control: no-cache
+content-security-policy: default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self' https://login.microsoftonline.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'
+content-type: text/html; charset=utf-8
+etag: "dmr8h6nahurk-at"
+last-modified: Tue, 10 Nov 2026 04:07:50 GMT
+referrer-policy: no-referrer
+server: Caddy
+strict-transport-security: max-age=31536000
+vary: Accept-Encoding
+x-content-type-options: nosniff
+content-length: 389
+date: Tue, 10 Nov 2026 17:02:05 GMT
+
+<!doctype html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>RouteBoard — Synthetic shuttle operations</title>  <script type="module" crossorigin src="/assets/index-C7Nvlc_2.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-zuAR6Yvb.css">
+</head><body><div id="root"></div></body></html>
+
+
+$ curl -i -X GET https://staging.mzcampuspulse.com/api/trips
+HTTP/2 200 
+alt-svc: h3=":443"; ma=2592000
+cache-control: no-store
+content-security-policy: default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self' https://login.microsoftonline.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'
+content-security-policy: default-src 'none'; frame-ancestors 'none'
+content-type: application/json; charset=utf-8
+date: Tue, 10 Nov 2026 17:02:05 GMT
+referrer-policy: no-referrer
+referrer-policy: no-referrer
+server: Kestrel
+strict-transport-security: max-age=31536000
+strict-transport-security: max-age=2592000
+via: 1.1 Caddy
+x-content-type-options: nosniff
+x-content-type-options: nosniff
+
+{"items":[],"total":0,"page":1,"pageSize":20}
+
+$ curl -i -X POST https://staging.mzcampuspulse.com/api/trips
+HTTP/2 401 
+alt-svc: h3=":443"; ma=2592000
+cache-control: no-store
+content-security-policy: default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self' https://login.microsoftonline.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'
+content-security-policy: default-src 'none'; frame-ancestors 'none'
+content-type: application/problem+json; charset=utf-8
+date: Tue, 10 Nov 2026 17:02:05 GMT
+referrer-policy: no-referrer
+referrer-policy: no-referrer
+server: Kestrel
+strict-transport-security: max-age=31536000
+strict-transport-security: max-age=2592000
+via: 1.1 Caddy
+www-authenticate: Bearer
+x-content-type-options: nosniff
+x-content-type-options: nosniff
+
+{"type":"https://tools.ietf.org/html/rfc9110#section-15.5.2","title":"Unauthorized","status":401,"traceId":"00-c813a68aaa5784edc659471ef770b882-b8ef55a7554f8afb-00"}
+
+$ curl -i -X POST https://staging.mzcampuspulse.com/mcp
+HTTP/2 401 
+alt-svc: h3=":443"; ma=2592000
+cache-control: no-store
+content-security-policy: default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self' https://login.microsoftonline.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'
+content-security-policy: default-src 'none'; frame-ancestors 'none'
+content-type: application/problem+json
+date: Tue, 10 Nov 2026 17:02:06 GMT
+referrer-policy: no-referrer
+referrer-policy: no-referrer
+server: Kestrel
+strict-transport-security: max-age=31536000
+strict-transport-security: max-age=2592000
+via: 1.1 Caddy
+www-authenticate: Bearer
+x-content-type-options: nosniff
+x-content-type-options: nosniff
+
+{"type":"https://tools.ietf.org/html/rfc9110#section-15.5.2","title":"Unauthorized","status":401,"traceId":"00-42b89c0c146ee56ee1c895ce1aed3f7f-08738c6e8fa04df9-00"}
+
+$ curl -I http://staging.mzcampuspulse.com
+HTTP/1.1 308 Permanent Redirect
+Connection: close
+Location: https://staging.mzcampuspulse.com/
+Server: Caddy
+Date: Tue, 10 Nov 2026 17:02:06 GMT
+
+
+
+Verified TLS certificate:
+{
+  "subject": [
+    [
+      [
+        "commonName",
+        "staging.mzcampuspulse.com"
+      ]
+    ]
+  ],
+  "issuer": [
+    [
+      [
+        "countryName",
+        "US"
+      ]
+    ],
+    [
+      [
+        "organizationName",
+        "Let's Encrypt"
+      ]
+    ],
+    [
+      [
+        "commonName",
+        "YE1"
+      ]
+    ]
+  ],
+  "notBefore": "Nov 10 16:02:39 2026 GMT",
+  "notAfter": "Feb  8 16:02:38 2027 GMT",
+  "subjectAltName": [
+    [
+      "DNS",
+      "staging.mzcampuspulse.com"
+    ]
+  ]
+}

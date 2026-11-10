@@ -1,0 +1,5 @@
+Application commit: 4a6a94332cec65fbfeb80e66e7eff41fe11950b1
+Infrastructure was an uncommitted working tree during deployment.
+c74cca8e86ec8f2ece64f94a8d5a03cd0af1dde83f3df19e3087c4f16acb32f7  deploy/host.bicep
+c4fb0320b944cbfc7ae11f186750d3316524da63f1595119c46d8a5e6ca2c126  deploy/cloud-init.yaml
+5ce11150c624d5b6c18cbac2c26770b9f2768fd778ff401369ee8bdad986a324  deploy/load-secrets.py

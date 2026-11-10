@@ -1,0 +1,62 @@
+{
+  "disk": [
+    {
+      "productName": "Standard SSD Managed Disks",
+      "skuName": "E4 LRS",
+      "meterName": "E4 LRS Disk",
+      "retailPrice": 2.4,
+      "unitOfMeasure": "1/Month",
+      "currencyCode": "USD"
+    },
+    {
+      "productName": "Standard SSD Managed Disks",
+      "skuName": "E4 LRS",
+      "meterName": "E4 LRS Disk Operations",
+      "retailPrice": 0.002,
+      "unitOfMeasure": "10K",
+      "currencyCode": "USD"
+    },
+    {
+      "productName": "Standard SSD Managed Disks",
+      "skuName": "E4 LRS",
+      "meterName": "E4 LRS Disk Mount",
+      "retailPrice": 0.338,
+      "unitOfMeasure": "1/Month",
+      "currencyCode": "USD"
+    }
+  ],
+  "network": [
+    {
+      "productName": "IP Addresses",
+      "skuName": "Global",
+      "meterName": "Global IPv4 Static Public IP",
+      "retailPrice": 0.01,
+      "unitOfMeasure": "1 Hour",
+      "currencyCode": "USD"
+    },
+    {
+      "productName": "IP Addresses",
+      "skuName": "Basic",
+      "meterName": "Basic IPv4 Dynamic Public IP",
+      "retailPrice": 0.004,
+      "unitOfMeasure": "1 Hour",
+      "currencyCode": "USD"
+    },
+    {
+      "productName": "IP Addresses",
+      "skuName": "Standard",
+      "meterName": "Standard IPv4 Static Public IP",
+      "retailPrice": 0.005,
+      "unitOfMeasure": "1 Hour",
+      "currencyCode": "USD"
+    },
+    {
+      "productName": "IP Addresses",
+      "skuName": "Basic",
+      "meterName": "Basic IPv4 Static Public IP",
+      "retailPrice": 0.0036,
+      "unitOfMeasure": "1 Hour",
+      "currencyCode": "USD"
+    }
+  ]
+}

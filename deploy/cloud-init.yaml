@@ -1,0 +1,41 @@
+#cloud-config
+package_update: true
+packages:
+  - docker.io
+  - docker-compose-v2
+  - python3
+  - ca-certificates
+write_files:
+  - path: /usr/local/sbin/routeboard-block-metadata
+    permissions: '0755'
+    content: |
+      #!/bin/sh
+      set -eu
+      # Only host administration may use the VM identity; application containers may not.
+      iptables -C DOCKER-USER -d 169.254.169.254/32 -j REJECT 2>/dev/null ||
+        iptables -I DOCKER-USER -d 169.254.169.254/32 -j REJECT
+  - path: /etc/systemd/system/routeboard-metadata-guard.service
+    permissions: '0644'
+    content: |
+      [Unit]
+      Description=Block container access to Azure instance metadata
+      After=docker.service
+      Requires=docker.service
+      PartOf=docker.service
+      [Service]
+      Type=oneshot
+      ExecStart=/usr/local/sbin/routeboard-block-metadata
+      RemainAfterExit=yes
+      [Install]
+      WantedBy=docker.service
+runcmd:
+  - [systemctl, enable, --now, docker]
+  - [systemctl, daemon-reload]
+  - [systemctl, enable, --now, routeboard-metadata-guard]
+  - [mkdir, -p, /opt/routeboard/releases, /etc/routeboard]
+  - [chmod, '0700', /etc/routeboard]
+  - [fallocate, -l, 1G, /swapfile]
+  - [chmod, '0600', /swapfile]
+  - [mkswap, /swapfile]
+  - [swapon, /swapfile]
+  - [sh, -c, 'echo "/swapfile none swap sw 0 0" >> /etc/fstab']

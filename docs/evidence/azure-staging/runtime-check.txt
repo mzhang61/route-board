@@ -1,0 +1,11 @@
+routeboard-staging-web-1 Up 52 seconds 0.0.0.0:80->80/tcp, [::]:80->80/tcp, 0.0.0.0:443->443/tcp, [::]:443->443/tcp, 443/udp, 2019/tcp
+routeboard-staging-api-1 Up 52 seconds 8080/tcp
+routeboard-staging-db-1 Up About a minute (healthy) 5432/tcp
+Healthy{"items":[],"total":0,"page":1,"pageSize":20}wget: can't connect to remote host (169.254.169.254): Connection refused
+Container metadata access blocked
+routeboard-staging-web-1 16.42MiB / 944.2MiB
+routeboard-staging-api-1 105.9MiB / 944.2MiB
+routeboard-staging-db-1 41.81MiB / 944.2MiB
+               total        used        free      shared  buff/cache   available
+Mem:             944         453          59          68         591         490
+Swap:           1023          86         937

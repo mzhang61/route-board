@@ -1,0 +1,4 @@
+
+; <<>> DiG 9.10.6 <<>> staging.mzcampuspulse.com A +noall +answer
+;; global options: +cmd
+staging.mzcampuspulse.com. 600	IN	A	20.66.26.140

@@ -17,7 +17,7 @@ The design is a modular monolith. A single student can follow one request withou
 
 ```mermaid
 flowchart LR
-  Browser[Untrusted browser] --> DNS[DNS: mzcampuspulse.net]
+  Browser[Untrusted browser] --> DNS[DNS: mzcampuspulse.com]
   DNS --> CDN[Planned Azure CDN / edge TLS]
   CDN --> Web[Static React bundle]
   Browser --> API[ASP.NET Core API]
@@ -105,3 +105,7 @@ Caddy serves the strict React bundle and forwards API/MCP/SSE requests to a priv
 The explicit `--migrate` command exits after applying versioned migrations. Normal API startup does not migrate. The release process uses the migration credential only for that step and applies explicit table grants afterward. The runtime login cannot modify schema or disable audit protections. The database owner can still bypass those protections; keep its secret outside the API container.
 
 Fresh-volume verification caught two real packaging defects: executable scripts on the local bind mount could not run, and Docker allocated the proxy's fixed IP to a dynamic container. SQL initialization and a separate dynamic address range fixed these. Neither error justifies deleting a persistent environment's database volume.
+
+## First deployed staging environment
+
+Staging now runs on Azure with Caddy ingress, API and PostgreSQL/PostGIS containers. The host managed identity reads an environment-specific Key Vault. Only administrator-side secret loading may access Azure metadata; a Docker forwarding rule blocks application-container access so an API compromise cannot simply request the host's more privileged vault token. Runtime and migration settings are mounted separately. The root administrator and Docker daemon remain privileged trust boundaries. See deploy/azure-staging.md for exact operations and docs/evidence/azure-staging for executed checks.

@@ -1,0 +1,17 @@
+{
+  "outputs": {
+    "identityPrincipalId": {
+      "type": "String",
+      "value": "542beafd-f4bc-4950-aa26-8fffe5689d73"
+    },
+    "publicAddress": {
+      "type": "String",
+      "value": "20.66.26.140"
+    },
+    "vaultName": {
+      "type": "String",
+      "value": "rbzjdytx3kdz7y4s"
+    }
+  },
+  "state": "Succeeded"
+}

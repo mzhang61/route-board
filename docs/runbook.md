@@ -14,8 +14,8 @@
 
 ## Planned Azure layout (not provisioned)
 
-- Production frontend: `https://mzcampuspulse.net`.
-- Staging frontend: `https://staging.mzcampuspulse.net`.
+- Production frontend: `https://mzcampuspulse.com`.
+- Staging frontend: `https://staging.mzcampuspulse.com`.
 - API ingress, database, secret store, identity audiences, storage and configuration separated by environment.
 - Separate migration identity and limited runtime database identity.
 - Use a static-web host for the React bundle and a container host for the API/MCP resource. Disable proxy buffering and verify timeout support for SSE.

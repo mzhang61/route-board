@@ -30,3 +30,7 @@ AI added explicit migration execution, restricted runtime grants and release scr
 ## First remote CI failure
 
 GitHub run 42756859693 failed on Linux because a simulation test expected PostgreSQL to retain 100-nanosecond .NET ticks. The local macOS run did not expose that assumption. Normalizing observation timestamps to database microsecond precision before comparison also prevents a replay within the same stored microsecond from incrementing the sequence. The regression test deliberately includes sub-microsecond ticks and keeps exact assertions. The original remote failure is retained.
+
+## Azure staging milestone
+
+AI provisioned the authorized low-cost ARM environment and Key Vault, verified the SSH host key through Azure Run Command, loaded secrets without printing values, and deployed immutable local image IDs. The user's registrar screenshots corrected the domain from .net to .com. Actual public TLS, health and anonymous write denials were verified. Initial certificate checks failed during issuance; the successful release log retains those errors. The school directory refused app registration; no fake login or authorization bypass was introduced.
