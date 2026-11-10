@@ -1,0 +1,455 @@
+
+> routeboard-web@1.0.0 build
+> tsc --noEmit && vite build
+
+vite v8.3.7 building client environment for production...
+transforming...
+✓ 117 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                   0.38 kB │ gzip:  0.28 kB
+dist/assets/index-zuAR6Yvb.css    1.05 kB │ gzip:  0.56 kB
+dist/assets/index-C7Nvlc_2.js   321.75 kB │ gzip: 97.91 kB
+
+✓ built in 148ms
+
+> routeboard-web@1.0.0 build:mcp
+> vite build --config vite.mcp.config.ts
+
+vite v8.3.7 building client environment for production...
+transforming...
+✓ 176 modules transformed.
+rendering chunks...
+[plugin vite:singlefile] 
+
+[plugin vite:singlefile] Inlining: mcp-app-CRdKAN7k.js
+[plugin vite:singlefile] Inlining: style-zuAR6Yvb.css
+computing gzip size...
+dist-mcp/mcp-app.html  457.37 kB │ gzip: 130.48 kB
+
+✓ built in 151ms
+
+> routeboard-web@1.0.0 test
+> playwright test
+
+[WebServer] (node:26289) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 2 tests using 1 worker
+
+(node:26304) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 tests/board.spec.ts:10:1 › shows an empty board and has no serious accessibility violations (1.1s)
+  ✓  2 tests/board.spec.ts:22:1 › shows loading and recoverable error states (188ms)
+
+  2 passed (4.2s)
+  Determining projects to restore...
+  All projects are up-to-date for restore.
+  RouteBoard.Api -> /Users/mmm/Documents/route-board/backend/RouteBoard.Api/bin/Debug/net10.0/RouteBoard.Api.dll
+  RouteBoard.Api.Tests -> /Users/mmm/Documents/route-board/tests/RouteBoard.Api.Tests/bin/Debug/net10.0/RouteBoard.Api.Tests.dll
+Test run for /Users/mmm/Documents/route-board/tests/RouteBoard.Api.Tests/bin/Debug/net10.0/RouteBoard.Api.Tests.dll (.NETCoreApp,Version=v10.0)
+A total of 1 test files matched the specified pattern.
+[xUnit.net 00:00:00.00] xUnit.net VSTest Adapter v3.1.4+50e68bbb8b (64-bit .NET 10.0.14)
+[xUnit.net 00:00:00.07]   Discovering: RouteBoard.Api.Tests
+[xUnit.net 00:00:00.13]   Discovered:  RouteBoard.Api.Tests
+[xUnit.net 00:00:00.16]   Starting:    RouteBoard.Api.Tests
+  Passed RouteBoard.Api.Tests.ArrivalCalculatorTests.Arrival_matches_hand_prediction(delay: 4, expectedMinute: 27) [4 ms]
+  Passed RouteBoard.Api.Tests.ArrivalCalculatorTests.Arrival_matches_hand_prediction(delay: 0, expectedMinute: 23) [< 1 ms]
+  Passed RouteBoard.Api.Tests.ArrivalCalculatorTests.Negative_travel_time_is_rejected [1 ms]
+  Passed RouteBoard.Api.Tests.SimulationTests.Position_follows_dwell_then_travel_without_extrapolation(elapsed: 20, expected: 1) [9 ms]
+  Passed RouteBoard.Api.Tests.SimulationTests.Position_follows_dwell_then_travel_without_extrapolation(elapsed: 15, expected: 1) [< 1 ms]
+  Passed RouteBoard.Api.Tests.SimulationTests.Position_follows_dwell_then_travel_without_extrapolation(elapsed: 0, expected: 0) [< 1 ms]
+  Passed RouteBoard.Api.Tests.SimulationTests.Position_follows_dwell_then_travel_without_extrapolation(elapsed: 9, expected: 0.5) [< 1 ms]
+  Passed RouteBoard.Api.Tests.SimulationTests.Position_follows_dwell_then_travel_without_extrapolation(elapsed: 3, expected: 0) [< 1 ms]
+  Passed RouteBoard.Api.Tests.RouteEstimateTests.Provider_response_is_validated_and_retries_are_bounded(status: 200, body: "{\"features\":[{\"properties\":{\"time\":600,\"dis"···, expectedStatus: "fresh", expectedCalls: 1) [31 ms]
+  Passed RouteBoard.Api.Tests.RouteEstimateTests.Provider_response_is_validated_and_retries_are_bounded(status: 429, body: "{}", expectedStatus: "unavailable", expectedCalls: 1) [< 1 ms]
+  Passed RouteBoard.Api.Tests.RouteEstimateTests.Provider_response_is_validated_and_retries_are_bounded(status: 200, body: "{\"features\":[{\"properties\":{\"time\":-1,\"dist"···, expectedStatus: "unavailable", expectedCalls: 1) [< 1 ms]
+  Passed RouteBoard.Api.Tests.RouteEstimateTests.Provider_response_is_validated_and_retries_are_bounded(status: 503, body: "{}", expectedStatus: "unavailable", expectedCalls: 2) [< 1 ms]
+info: Microsoft.Hosting.Lifetime[0]
+      Application started. Press Ctrl+C to shut down.
+info: Microsoft.Hosting.Lifetime[0]
+      Application started. Press Ctrl+C to shut down.
+info: Microsoft.Hosting.Lifetime[0]
+      Hosting environment: Testing
+info: Microsoft.Hosting.Lifetime[0]
+      Content root path: /Users/mmm/Documents/route-board/backend/RouteBoard.Api
+info: Microsoft.Hosting.Lifetime[0]
+      Hosting environment: Testing
+info: Microsoft.Hosting.Lifetime[0]
+      Content root path: /Users/mmm/Documents/route-board/backend/RouteBoard.Api
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (testhost 15.0.0.0), Client (testhost 15.0.0.0) method 'server/discover' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (testhost 15.0.0.0), Client (testhost 15.0.0.0) method 'server/discover' request handler completed in 24.4862ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (testhost 15.0.0.0), Client (testhost 15.0.0.0) method 'tools/call' request handler called.
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT pg_advisory_xact_lock(7218401)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (5ms) [Parameters=[@p0='?', @p1='?', @p2='?' (DbType = Object), @p3='?' (DbType = Object), @p4='?' (DbType = DateTime), @p5='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO audit_events ("Action", "Actor", "After", "Before", "OccurredAt", "TripId")
+      VALUES (@p0, @p1, @p2, @p3, @p4, @p5)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (30ms) [Parameters=[@request_RouteId='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      SELECT r1."Id", r1."Code", r1."IsActive", r1."Name", s0."Id", s0."DwellMinutes", s0."RouteId", s0."StopId", s0."StopOrder", s0."TravelMinutesFromPreviousStop", s0."Id0", s0."Code", s0."Location", s0."Name"
+      FROM (
+          SELECT r."Id", r."Code", r."IsActive", r."Name"
+          FROM routes AS r
+          WHERE r."Id" = @request_RouteId AND r."IsActive"
+          LIMIT 2
+      ) AS r1
+      LEFT JOIN (
+          SELECT r0."Id", r0."DwellMinutes", r0."RouteId", r0."StopId", r0."StopOrder", r0."TravelMinutesFromPreviousStop", s."Id" AS "Id0", s."Code", s."Location", s."Name"
+          FROM route_stops AS r0
+          INNER JOIN stops AS s ON r0."StopId" = s."Id"
+      ) AS s0 ON r1."Id" = s0."RouteId"
+      ORDER BY r1."Id", s0."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (11ms) [Parameters=[@search_contains='?', @p='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT s."Id", s."DelayMinutes", s."LastStopOrder", s."ObservedDeparture", s."RouteId", s."ScheduledDeparture", s."Status", s."VehicleId", s."Version", s."Id0", s."Code", s."IsActive", s."Name", v."Id", s1."Id", s1."DwellMinutes", s1."RouteId", s1."StopId", s1."StopOrder", s1."TravelMinutesFromPreviousStop", s1."Id0", s1."Code", s1."Location", s1."Name", v."Capacity", v."Code", v."IsActive"
+      FROM (
+          SELECT t."Id", t."DelayMinutes", t."LastStopOrder", t."ObservedDeparture", t."RouteId", t."ScheduledDeparture", t."Status", t."VehicleId", t."Version", r."Id" AS "Id0", r."Code", r."IsActive", r."Name"
+          FROM trips AS t
+          INNER JOIN routes AS r ON t."RouteId" = r."Id"
+          WHERE r."Name" LIKE @search_contains
+          ORDER BY t."ScheduledDeparture", t."Id"
+          LIMIT @p
+      ) AS s
+      INNER JOIN vehicles AS v ON s."VehicleId" = v."Id"
+      LEFT JOIN (
+          SELECT r0."Id", r0."DwellMinutes", r0."RouteId", r0."StopId", r0."StopOrder", r0."TravelMinutesFromPreviousStop", s0."Id" AS "Id0", s0."Code", s0."Location", s0."Name"
+          FROM route_stops AS r0
+          INNER JOIN stops AS s0 ON r0."StopId" = s0."Id"
+      ) AS s1 ON s."Id0" = s1."RouteId"
+      ORDER BY s."ScheduledDeparture", s."Id", s."Id0", v."Id", s1."Id"
+info: ModelContextProtocol.Server.McpServer[2065726448]
+      "search_trips" completed. IsError = False.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (testhost 15.0.0.0), Client (testhost 15.0.0.0) method 'tools/call' request handler completed in 187.8155ms.
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (3ms) [Parameters=[@request_VehicleId='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      SELECT v."Id", v."Capacity", v."Code", v."IsActive"
+      FROM vehicles AS v
+      WHERE v."Id" = @request_VehicleId AND v."IsActive"
+      LIMIT 2
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (testhost 15.0.0.0), Client (testhost 15.0.0.0) method 'tools/call' request handler called.
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (3ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = DateTime), @p3='?' (DbType = Int64), @p4='?' (DbType = DateTime), @p5='?', @p6='?' (DbType = Int64), @p7='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO trips ("DelayMinutes", "LastStopOrder", "ObservedDeparture", "RouteId", "ScheduledDeparture", "Status", "VehicleId", "Version")
+      VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[@trip_Id='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      SELECT t."Id", t."Kind", t."OccurredAt", t."Snapshot", t."StopOrder", t."TripId"
+      FROM trip_events AS t
+      WHERE t."TripId" = @trip_Id AND t."Kind" = 'arrive'
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[@p0='?', @p1='?', @p2='?' (DbType = Object), @p3='?' (DbType = Object), @p4='?' (DbType = DateTime), @p5='?' (DbType = Int64), @p6='?', @p7='?' (DbType = DateTime), @p8='?' (DbType = Object), @p9='?' (DbType = Int32), @p10='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO audit_events ("Action", "Actor", "After", "Before", "OccurredAt", "TripId")
+      VALUES (@p0, @p1, @p2, @p3, @p4, @p5)
+      RETURNING "Id";
+      INSERT INTO trip_events ("Kind", "OccurredAt", "Snapshot", "StopOrder", "TripId")
+      VALUES (@p6, @p7, @p8, @p9, @p10)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[@p0='?', @p1='?', @p2='?' (DbType = Object), @p3='?' (DbType = Object), @p4='?' (DbType = DateTime), @p5='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO audit_events ("Action", "Actor", "After", "Before", "OccurredAt", "TripId")
+      VALUES (@p0, @p1, @p2, @p3, @p4, @p5)
+      RETURNING "Id";
+fail: ModelContextProtocol.Server.McpServer[1433779783]
+      "record_trip_update" threw an unhandled exception.
+      ModelContextProtocol.McpException: This tool requires its explicit scope and role.
+         at RouteBoard.Api.Features.Mcp.TripTools.AuthorizeAndAuditAsync(ClaimsPrincipal user, String tool, Boolean writes, CancellationToken ct) in /Users/mmm/Documents/route-board/backend/RouteBoard.Api/Features/Mcp/TripTools.cs:line 125
+         at RouteBoard.Api.Features.Mcp.TripTools.RecordUpdate(ClaimsPrincipal user, String confirmationToken, Boolean confirmed, CancellationToken ct) in /Users/mmm/Documents/route-board/backend/RouteBoard.Api/Features/Mcp/TripTools.cs:line 80
+         at Microsoft.Extensions.AI.AIFunctionFactory.ReflectionAIFunctionDescriptor.<>c__DisplayClass41_1.<<GetReturnParameterMarshaller>b__10>d.MoveNext()
+      --- End of stack trace from previous location ---
+         at Microsoft.Extensions.AI.AIFunctionFactory.ReflectionAIFunction.InvokeCoreAsync(AIFunctionArguments arguments, CancellationToken cancellationToken)
+         at Microsoft.Extensions.AI.AIFunctionFactory.ReflectionAIFunction.InvokeCoreAsync(AIFunctionArguments arguments, CancellationToken cancellationToken)
+         at ModelContextProtocol.Server.AIFunctionMcpServerTool.InvokeAsync(RequestContext`1 request, CancellationToken cancellationToken)
+         at ModelContextProtocol.Server.McpServerImpl.<>c__DisplayClass85_1.<<BuildComposedCallToolHandler>g__InvokeOrdinaryPipelineAsync|1>d.MoveNext()
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (testhost 15.0.0.0), Client (testhost 15.0.0.0) method 'tools/call' request handler completed in 44.7709ms.
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT pg_advisory_xact_lock(7218401)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[@8__locals1_id='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      SELECT s0."Id", s0."DelayMinutes", s0."LastStopOrder", s0."ObservedDeparture", s0."RouteId", s0."ScheduledDeparture", s0."Status", s0."VehicleId", s0."Version", s0."Id0", s0."Code", s0."IsActive", s0."Name", s0."Id1", s1."Id", s1."DwellMinutes", s1."RouteId", s1."StopId", s1."StopOrder", s1."TravelMinutesFromPreviousStop", s1."Id0", s1."Code", s1."Location", s1."Name", s0."Capacity", s0."Code0", s0."IsActive0"
+      FROM (
+          SELECT t."Id", t."DelayMinutes", t."LastStopOrder", t."ObservedDeparture", t."RouteId", t."ScheduledDeparture", t."Status", t."VehicleId", t."Version", r."Id" AS "Id0", r."Code", r."IsActive", r."Name", v."Id" AS "Id1", v."Capacity", v."Code" AS "Code0", v."IsActive" AS "IsActive0"
+          FROM trips AS t
+          INNER JOIN routes AS r ON t."RouteId" = r."Id"
+          INNER JOIN vehicles AS v ON t."VehicleId" = v."Id"
+          WHERE t."Id" = @8__locals1_id
+          LIMIT 2
+      ) AS s0
+      LEFT JOIN (
+          SELECT r0."Id", r0."DwellMinutes", r0."RouteId", r0."StopId", r0."StopOrder", r0."TravelMinutesFromPreviousStop", s."Id" AS "Id0", s."Code", s."Location", s."Name"
+          FROM route_stops AS r0
+          INNER JOIN stops AS s ON r0."StopId" = s."Id"
+      ) AS s1 ON s0."Id0" = s1."RouteId"
+      ORDER BY s0."Id", s0."Id0", s0."Id1", s1."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (4ms) [Parameters=[@trip_Id='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      SELECT t."Id", t."Kind", t."OccurredAt", t."Snapshot", t."StopOrder", t."TripId"
+      FROM trip_events AS t
+      WHERE t."TripId" = @trip_Id AND t."Kind" = 'arrive'
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (6ms) [Parameters=[@p3='?' (DbType = Int64), @p0='?' (DbType = Int32), @p1='?', @p2='?' (DbType = Int64), @p4='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      UPDATE trips SET "DelayMinutes" = @p0, "Status" = @p1, "Version" = @p2
+      WHERE "Id" = @p3 AND "Version" = @p4;
+  Passed RouteBoard.Api.Tests.TripApiTests.Invalid_query_is_400(url: "/api/trips?page=0") [589 ms]
+  Passed RouteBoard.Api.Tests.TripApiTests.Invalid_query_is_400(url: "/api/events?after=-1") [18 ms]
+  Passed RouteBoard.Api.Tests.TripApiTests.Invalid_query_is_400(url: "/api/trips?pageSize=101") [5 ms]
+  Passed RouteBoard.Api.Tests.TripApiTests.Invalid_query_is_400(url: "/api/trips?status=unknown") [2 ms]
+  Passed RouteBoard.Api.Tests.TripApiTests.Anonymous_write_is_401 [14 ms]
+  Passed RouteBoard.Api.Tests.SimulationPersistenceTests.Older_and_replayed_ticks_do_not_replace_persisted_positions [882 ms]
+  Passed RouteBoard.Api.Tests.McpAuthorizationTests.Transport_checks_scopes_for_read_and_write_tools [1 s]
+  Passed RouteBoard.Api.Tests.RuntimePermissionsTests.Runtime_can_append_audit_but_cannot_mutate_history_or_schema [8 s]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (4ms) [Parameters=[@trip_Id='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      SELECT t."Id", t."Kind", t."OccurredAt", t."Snapshot", t."StopOrder", t."TripId"
+      FROM trip_events AS t
+      WHERE t."TripId" = @trip_Id AND t."Kind" = 'arrive'
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (3ms) [Parameters=[@p0='?', @p1='?', @p2='?' (DbType = Object), @p3='?' (DbType = Object), @p4='?' (DbType = DateTime), @p5='?' (DbType = Int64), @p6='?', @p7='?' (DbType = DateTime), @p8='?' (DbType = Object), @p9='?' (DbType = Int32), @p10='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO audit_events ("Action", "Actor", "After", "Before", "OccurredAt", "TripId")
+      VALUES (@p0, @p1, @p2, @p3, @p4, @p5)
+      RETURNING "Id";
+      INSERT INTO trip_events ("Kind", "OccurredAt", "Snapshot", "StopOrder", "TripId")
+      VALUES (@p6, @p7, @p8, @p9, @p10)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[@cursor='?' (DbType = Int64), @p='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT t."Id", t."Kind", t."OccurredAt", t."Snapshot", t."StopOrder", t."TripId"
+      FROM trip_events AS t
+      WHERE t."Id" > @cursor
+      ORDER BY t."Id"
+      LIMIT @p
+  Passed RouteBoard.Api.Tests.TripApiTests.Replay_starts_after_last_event_id_and_contains_no_actor [724 ms]
+  Passed RouteBoard.Api.Tests.TripApiTests.Cors_allows_only_the_configured_exact_origin(origin: "https://untrusted.example.test", allowed: False) [4 ms]
+  Passed RouteBoard.Api.Tests.TripApiTests.Cors_allows_only_the_configured_exact_origin(origin: "https://board.example.test", allowed: True) [1 ms]
+  Passed RouteBoard.Api.Tests.TripApiTests.Missing_role_or_scope_is_403(role: "dispatcher", scope: "trips.read") [5 ms]
+  Passed RouteBoard.Api.Tests.TripApiTests.Missing_role_or_scope_is_403(role: "viewer", scope: "trips.write") [3 ms]
+  Passed RouteBoard.Api.Tests.MigrationTests.Migrations_apply_revert_and_reapply_on_disposable_database [8 s]
+  Passed RouteBoard.Api.Tests.TripApiTests.Write_requests_are_rate_limited [31 ms]
+  Passed RouteBoard.Api.Tests.McpAuthorizationTests.Confirmation_is_bound_to_actor_operation_and_version [163 ms]
+info: Microsoft.Hosting.Lifetime[0]
+      Application is shutting down...
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT pg_advisory_xact_lock(7218401)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (3ms) [Parameters=[@request_RouteId='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      SELECT r1."Id", r1."Code", r1."IsActive", r1."Name", s0."Id", s0."DwellMinutes", s0."RouteId", s0."StopId", s0."StopOrder", s0."TravelMinutesFromPreviousStop", s0."Id0", s0."Code", s0."Location", s0."Name"
+      FROM (
+          SELECT r."Id", r."Code", r."IsActive", r."Name"
+          FROM routes AS r
+          WHERE r."Id" = @request_RouteId AND r."IsActive"
+          LIMIT 2
+      ) AS r1
+      LEFT JOIN (
+          SELECT r0."Id", r0."DwellMinutes", r0."RouteId", r0."StopId", r0."StopOrder", r0."TravelMinutesFromPreviousStop", s."Id" AS "Id0", s."Code", s."Location", s."Name"
+          FROM route_stops AS r0
+          INNER JOIN stops AS s ON r0."StopId" = s."Id"
+      ) AS s0 ON r1."Id" = s0."RouteId"
+      ORDER BY r1."Id", s0."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@request_VehicleId='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      SELECT v."Id", v."Capacity", v."Code", v."IsActive"
+      FROM vehicles AS v
+      WHERE v."Id" = @request_VehicleId AND v."IsActive"
+      LIMIT 2
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = DateTime), @p3='?' (DbType = Int64), @p4='?' (DbType = DateTime), @p5='?', @p6='?' (DbType = Int64), @p7='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO trips ("DelayMinutes", "LastStopOrder", "ObservedDeparture", "RouteId", "ScheduledDeparture", "Status", "VehicleId", "Version")
+      VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@trip_Id='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      SELECT t."Id", t."Kind", t."OccurredAt", t."Snapshot", t."StopOrder", t."TripId"
+      FROM trip_events AS t
+      WHERE t."TripId" = @trip_Id AND t."Kind" = 'arrive'
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@p0='?', @p1='?', @p2='?' (DbType = Object), @p3='?' (DbType = Object), @p4='?' (DbType = DateTime), @p5='?' (DbType = Int64), @p6='?', @p7='?' (DbType = DateTime), @p8='?' (DbType = Object), @p9='?' (DbType = Int32), @p10='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO audit_events ("Action", "Actor", "After", "Before", "OccurredAt", "TripId")
+      VALUES (@p0, @p1, @p2, @p3, @p4, @p5)
+      RETURNING "Id";
+      INSERT INTO trip_events ("Kind", "OccurredAt", "Snapshot", "StopOrder", "TripId")
+      VALUES (@p6, @p7, @p8, @p9, @p10)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (6ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT pg_advisory_xact_lock(7218401)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[@8__locals1_id='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      SELECT s0."Id", s0."DelayMinutes", s0."LastStopOrder", s0."ObservedDeparture", s0."RouteId", s0."ScheduledDeparture", s0."Status", s0."VehicleId", s0."Version", s0."Id0", s0."Code", s0."IsActive", s0."Name", s0."Id1", s1."Id", s1."DwellMinutes", s1."RouteId", s1."StopId", s1."StopOrder", s1."TravelMinutesFromPreviousStop", s1."Id0", s1."Code", s1."Location", s1."Name", s0."Capacity", s0."Code0", s0."IsActive0"
+      FROM (
+          SELECT t."Id", t."DelayMinutes", t."LastStopOrder", t."ObservedDeparture", t."RouteId", t."ScheduledDeparture", t."Status", t."VehicleId", t."Version", r."Id" AS "Id0", r."Code", r."IsActive", r."Name", v."Id" AS "Id1", v."Capacity", v."Code" AS "Code0", v."IsActive" AS "IsActive0"
+          FROM trips AS t
+          INNER JOIN routes AS r ON t."RouteId" = r."Id"
+          INNER JOIN vehicles AS v ON t."VehicleId" = v."Id"
+          WHERE t."Id" = @8__locals1_id
+          LIMIT 2
+      ) AS s0
+      LEFT JOIN (
+          SELECT r0."Id", r0."DwellMinutes", r0."RouteId", r0."StopId", r0."StopOrder", r0."TravelMinutesFromPreviousStop", s."Id" AS "Id0", s."Code", s."Location", s."Name"
+          FROM route_stops AS r0
+          INNER JOIN stops AS s ON r0."StopId" = s."Id"
+      ) AS s1 ON s0."Id0" = s1."RouteId"
+      ORDER BY s0."Id", s0."Id0", s0."Id1", s1."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@trip_Id='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      SELECT t."Id", t."Kind", t."OccurredAt", t."Snapshot", t."StopOrder", t."TripId"
+      FROM trip_events AS t
+      WHERE t."TripId" = @trip_Id AND t."Kind" = 'arrive'
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@p3='?' (DbType = Int64), @p0='?' (DbType = Int32), @p1='?', @p2='?' (DbType = Int64), @p4='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      UPDATE trips SET "DelayMinutes" = @p0, "Status" = @p1, "Version" = @p2
+      WHERE "Id" = @p3 AND "Version" = @p4;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[@trip_Id='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      SELECT t."Id", t."Kind", t."OccurredAt", t."Snapshot", t."StopOrder", t."TripId"
+      FROM trip_events AS t
+      WHERE t."TripId" = @trip_Id AND t."Kind" = 'arrive'
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[@p0='?', @p1='?', @p2='?' (DbType = Object), @p3='?' (DbType = Object), @p4='?' (DbType = DateTime), @p5='?' (DbType = Int64), @p6='?', @p7='?' (DbType = DateTime), @p8='?' (DbType = Object), @p9='?' (DbType = Int32), @p10='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO audit_events ("Action", "Actor", "After", "Before", "OccurredAt", "TripId")
+      VALUES (@p0, @p1, @p2, @p3, @p4, @p5)
+      RETURNING "Id";
+      INSERT INTO trip_events ("Kind", "OccurredAt", "Snapshot", "StopOrder", "TripId")
+      VALUES (@p6, @p7, @p8, @p9, @p10)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (8ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT pg_advisory_xact_lock(7218401)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (25ms) [Parameters=[@8__locals1_id='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      SELECT s0."Id", s0."DelayMinutes", s0."LastStopOrder", s0."ObservedDeparture", s0."RouteId", s0."ScheduledDeparture", s0."Status", s0."VehicleId", s0."Version", s0."Id0", s0."Code", s0."IsActive", s0."Name", s0."Id1", s1."Id", s1."DwellMinutes", s1."RouteId", s1."StopId", s1."StopOrder", s1."TravelMinutesFromPreviousStop", s1."Id0", s1."Code", s1."Location", s1."Name", s0."Capacity", s0."Code0", s0."IsActive0"
+      FROM (
+          SELECT t."Id", t."DelayMinutes", t."LastStopOrder", t."ObservedDeparture", t."RouteId", t."ScheduledDeparture", t."Status", t."VehicleId", t."Version", r."Id" AS "Id0", r."Code", r."IsActive", r."Name", v."Id" AS "Id1", v."Capacity", v."Code" AS "Code0", v."IsActive" AS "IsActive0"
+          FROM trips AS t
+          INNER JOIN routes AS r ON t."RouteId" = r."Id"
+          INNER JOIN vehicles AS v ON t."VehicleId" = v."Id"
+          WHERE t."Id" = @8__locals1_id
+          LIMIT 2
+      ) AS s0
+      LEFT JOIN (
+          SELECT r0."Id", r0."DwellMinutes", r0."RouteId", r0."StopId", r0."StopOrder", r0."TravelMinutesFromPreviousStop", s."Id" AS "Id0", s."Code", s."Location", s."Name"
+          FROM route_stops AS r0
+          INNER JOIN stops AS s ON r0."StopId" = s."Id"
+      ) AS s1 ON s0."Id0" = s1."RouteId"
+      ORDER BY s0."Id", s0."Id0", s0."Id1", s1."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (5ms) [Parameters=[@trip_Id='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      SELECT t."Id", t."Kind", t."OccurredAt", t."Snapshot", t."StopOrder", t."TripId"
+      FROM trip_events AS t
+      WHERE t."TripId" = @trip_Id AND t."Kind" = 'arrive'
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (5ms) [Parameters=[@id='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      SELECT s0."Id", s0."DelayMinutes", s0."LastStopOrder", s0."ObservedDeparture", s0."RouteId", s0."ScheduledDeparture", s0."Status", s0."VehicleId", s0."Version", s0."Id0", s0."Code", s0."IsActive", s0."Name", s0."Id1", s1."Id", s1."DwellMinutes", s1."RouteId", s1."StopId", s1."StopOrder", s1."TravelMinutesFromPreviousStop", s1."Id0", s1."Code", s1."Location", s1."Name", s0."Capacity", s0."Code0", s0."IsActive0"
+      FROM (
+          SELECT t."Id", t."DelayMinutes", t."LastStopOrder", t."ObservedDeparture", t."RouteId", t."ScheduledDeparture", t."Status", t."VehicleId", t."Version", r."Id" AS "Id0", r."Code", r."IsActive", r."Name", v."Id" AS "Id1", v."Capacity", v."Code" AS "Code0", v."IsActive" AS "IsActive0"
+          FROM trips AS t
+          INNER JOIN routes AS r ON t."RouteId" = r."Id"
+          INNER JOIN vehicles AS v ON t."VehicleId" = v."Id"
+          WHERE t."Id" = @id
+          LIMIT 2
+      ) AS s0
+      LEFT JOIN (
+          SELECT r0."Id", r0."DwellMinutes", r0."RouteId", r0."StopId", r0."StopOrder", r0."TravelMinutesFromPreviousStop", s."Id" AS "Id0", s."Code", s."Location", s."Name"
+          FROM route_stops AS r0
+          INNER JOIN stops AS s ON r0."StopId" = s."Id"
+      ) AS s1 ON s0."Id0" = s1."RouteId"
+      ORDER BY s0."Id", s0."Id0", s0."Id1", s1."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (3ms) [Parameters=[@trip_Id='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      SELECT t."Id", t."Kind", t."OccurredAt", t."Snapshot", t."StopOrder", t."TripId"
+      FROM trip_events AS t
+      WHERE t."TripId" = @trip_Id AND t."Kind" = 'arrive'
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT pg_advisory_xact_lock(7218401)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[@request_RouteId='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      SELECT r1."Id", r1."Code", r1."IsActive", r1."Name", s0."Id", s0."DwellMinutes", s0."RouteId", s0."StopId", s0."StopOrder", s0."TravelMinutesFromPreviousStop", s0."Id0", s0."Code", s0."Location", s0."Name"
+      FROM (
+          SELECT r."Id", r."Code", r."IsActive", r."Name"
+          FROM routes AS r
+          WHERE r."Id" = @request_RouteId AND r."IsActive"
+          LIMIT 2
+      ) AS r1
+      LEFT JOIN (
+          SELECT r0."Id", r0."DwellMinutes", r0."RouteId", r0."StopId", r0."StopOrder", r0."TravelMinutesFromPreviousStop", s."Id" AS "Id0", s."Code", s."Location", s."Name"
+          FROM route_stops AS r0
+          INNER JOIN stops AS s ON r0."StopId" = s."Id"
+      ) AS s0 ON r1."Id" = s0."RouteId"
+      ORDER BY r1."Id", s0."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@request_VehicleId='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      SELECT v."Id", v."Capacity", v."Code", v."IsActive"
+      FROM vehicles AS v
+      WHERE v."Id" = @request_VehicleId AND v."IsActive"
+      LIMIT 2
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = DateTime), @p3='?' (DbType = Int64), @p4='?' (DbType = DateTime), @p5='?', @p6='?' (DbType = Int64), @p7='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO trips ("DelayMinutes", "LastStopOrder", "ObservedDeparture", "RouteId", "ScheduledDeparture", "Status", "VehicleId", "Version")
+      VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@trip_Id='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      SELECT t."Id", t."Kind", t."OccurredAt", t."Snapshot", t."StopOrder", t."TripId"
+      FROM trip_events AS t
+      WHERE t."TripId" = @trip_Id AND t."Kind" = 'arrive'
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@p0='?', @p1='?', @p2='?' (DbType = Object), @p3='?' (DbType = Object), @p4='?' (DbType = DateTime), @p5='?' (DbType = Int64), @p6='?', @p7='?' (DbType = DateTime), @p8='?' (DbType = Object), @p9='?' (DbType = Int32), @p10='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO audit_events ("Action", "Actor", "After", "Before", "OccurredAt", "TripId")
+      VALUES (@p0, @p1, @p2, @p3, @p4, @p5)
+      RETURNING "Id";
+      INSERT INTO trip_events ("Kind", "OccurredAt", "Snapshot", "StopOrder", "TripId")
+      VALUES (@p6, @p7, @p8, @p9, @p10)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT pg_advisory_xact_lock(7218401)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[@8__locals1_id='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      SELECT s0."Id", s0."DelayMinutes", s0."LastStopOrder", s0."ObservedDeparture", s0."RouteId", s0."ScheduledDeparture", s0."Status", s0."VehicleId", s0."Version", s0."Id0", s0."Code", s0."IsActive", s0."Name", s0."Id1", s1."Id", s1."DwellMinutes", s1."RouteId", s1."StopId", s1."StopOrder", s1."TravelMinutesFromPreviousStop", s1."Id0", s1."Code", s1."Location", s1."Name", s0."Capacity", s0."Code0", s0."IsActive0"
+      FROM (
+          SELECT t."Id", t."DelayMinutes", t."LastStopOrder", t."ObservedDeparture", t."RouteId", t."ScheduledDeparture", t."Status", t."VehicleId", t."Version", r."Id" AS "Id0", r."Code", r."IsActive", r."Name", v."Id" AS "Id1", v."Capacity", v."Code" AS "Code0", v."IsActive" AS "IsActive0"
+          FROM trips AS t
+          INNER JOIN routes AS r ON t."RouteId" = r."Id"
+          INNER JOIN vehicles AS v ON t."VehicleId" = v."Id"
+          WHERE t."Id" = @8__locals1_id
+          LIMIT 2
+      ) AS s0
+      LEFT JOIN (
+          SELECT r0."Id", r0."DwellMinutes", r0."RouteId", r0."StopId", r0."StopOrder", r0."TravelMinutesFromPreviousStop", s."Id" AS "Id0", s."Code", s."Location", s."Name"
+          FROM route_stops AS r0
+          INNER JOIN stops AS s ON r0."StopId" = s."Id"
+      ) AS s1 ON s0."Id0" = s1."RouteId"
+      ORDER BY s0."Id", s0."Id0", s0."Id1", s1."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@trip_Id='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      SELECT t."Id", t."Kind", t."OccurredAt", t."Snapshot", t."StopOrder", t."TripId"
+      FROM trip_events AS t
+      WHERE t."TripId" = @trip_Id AND t."Kind" = 'arrive'
+info: Microsoft.Hosting.Lifetime[0]
+      Application is shutting down...
+[xUnit.net 00:00:09.13]   Finished:    RouteBoard.Api.Tests
+  Passed RouteBoard.Api.Tests.TripApiTests.Invalid_token_is_401(failure: "expiry") [11 ms]
+  Passed RouteBoard.Api.Tests.TripApiTests.Invalid_token_is_401(failure: "audience") [3 ms]
+  Passed RouteBoard.Api.Tests.McpAuthorizationTests.Read_scope_cannot_write_or_call_another_read_tool [32 ms]
+  Passed RouteBoard.Api.Tests.McpAuthorizationTests.Anonymous_transport_is_rejected [10 ms]
+  Passed RouteBoard.Api.Tests.TripApiTests.Invalid_token_is_401(failure: "signature") [86 ms]
+  Passed RouteBoard.Api.Tests.TripApiTests.Invalid_token_is_401(failure: "issuer") [3 ms]
+  Passed RouteBoard.Api.Tests.TripApiTests.Create_returns_location_and_concurrent_updates_have_one_winner [148 ms]
+  Passed RouteBoard.Api.Tests.TripApiTests.Out_of_order_arrival_is_rejected_without_audit_or_event [27 ms]
+
+Test Run Successful.
+Total tests: 36
+     Passed: 36
+ Total time: 9.5465 Seconds

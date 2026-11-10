@@ -1,0 +1,4 @@
+Pre-fix base commit: 0d7db353b0bd9c00322cd920145e6dbe094fda75
+Local test ran on the uncommitted fix below.
+65cff71b7fecd5f68be1a8cadd8e1ba22c9069c41310456daf4149f741809827  backend/RouteBoard.Api/Features/Simulation/VehicleSimulation.cs
+2907090574490049ecb6118bf705005b181745c3f77a6af4355fee7cab6f7233  tests/RouteBoard.Api.Tests/SimulationTests.cs

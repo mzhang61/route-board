@@ -26,3 +26,7 @@ AI authored ingress, Compose and Bicep scaffolding and ran real builds and local
 ## Fresh-volume release increment
 
 AI added explicit migration execution, restricted runtime grants and release scripts. Actual testing exposed bind-mount script execution and dynamic/static IP collision failures; SQL initialization and a reserved dynamic range corrected them. The permission test rejects audit tampering, trigger disabling, schema creation and replay deletion. A North Central US B1ms quota did not prove SKU availability: the subscription SKU API explicitly restricted it, challenging the assumption that quota alone means a machine can deploy. West US ARM alternatives were checked instead.
+
+## First remote CI failure
+
+GitHub run 42756859693 failed on Linux because a simulation test expected PostgreSQL to retain 100-nanosecond .NET ticks. The local macOS run did not expose that assumption. Normalizing observation timestamps to database microsecond precision before comparison also prevents a replay within the same stored microsecond from incrementing the sequence. The regression test deliberately includes sub-microsecond ticks and keeps exact assertions. The original remote failure is retained.

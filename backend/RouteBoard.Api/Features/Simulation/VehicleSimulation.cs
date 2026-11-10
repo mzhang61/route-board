@@ -8,6 +8,9 @@ public sealed class VehicleSimulation(RouteBoardDbContext db)
 {
     public async Task TickAsync(DateTimeOffset now, CancellationToken ct)
     {
+        // PostgreSQL timestamps store microseconds. Normalize before comparison so a replay
+        // cannot look newer merely because its in-memory value has sub-microsecond ticks.
+        now = new DateTimeOffset(now.UtcTicks - now.UtcTicks % TimeSpan.TicksPerMicrosecond, TimeSpan.Zero);
         await using var transaction = await db.Database.BeginTransactionAsync(ct);
         // One generator at a time, including when more than one app instance is running.
         await db.Database.ExecuteSqlRawAsync("SELECT pg_advisory_xact_lock(7218402)", ct);

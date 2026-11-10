@@ -1,0 +1,481 @@
+verify	Build and test	﻿2026-11-10T04:38:08.4172853Z ##[group]Run set -o pipefail
+verify	Build and test	2026-11-10T04:38:08.4173376Z [36;1mset -o pipefail[0m
+verify	Build and test	2026-11-10T04:38:08.4173756Z [36;1mmkdir -p evidence[0m
+verify	Build and test	2026-11-10T04:38:08.4174063Z [36;1mgit rev-parse HEAD > evidence/commit.txt[0m
+verify	Build and test	2026-11-10T04:38:08.4174482Z [36;1mbash scripts/test.sh 2>&1 | tee evidence/test-output.txt[0m
+verify	Build and test	2026-11-10T04:38:08.4225620Z shell: /usr/bin/bash -e {0}
+verify	Build and test	2026-11-10T04:38:08.4225917Z env:
+verify	Build and test	2026-11-10T04:38:08.4226127Z   DOTNET_ROOT: /usr/share/dotnet
+verify	Build and test	2026-11-10T04:38:08.4226829Z   ROUTEBOARD_TEST_ADMIN_CONNECTION: Host=127.0.0.1;Port=5433;Database=postgres;Username=routeboard;***
+verify	Build and test	2026-11-10T04:38:08.4227330Z ##[endgroup]
+verify	Build and test	2026-11-10T04:38:08.5653809Z 
+verify	Build and test	2026-11-10T04:38:08.5654530Z > routeboard-web@1.0.0 build
+verify	Build and test	2026-11-10T04:38:08.5655201Z > tsc --noEmit && vite build
+verify	Build and test	2026-11-10T04:38:08.5655514Z 
+verify	Build and test	2026-11-10T04:38:09.5821239Z [36mvite v8.3.7 [32mbuilding client environment for production...[36m[39m
+verify	Build and test	2026-11-10T04:38:09.5957199Z transforming...
+verify	Build and test	2026-11-10T04:38:09.7045381Z ✓ 117 modules transformed.
+verify	Build and test	2026-11-10T04:38:09.7329724Z rendering chunks...
+verify	Build and test	2026-11-10T04:38:09.8094364Z computing gzip size...
+verify	Build and test	2026-11-10T04:38:09.8153210Z dist/index.html                   0.38 kB │ gzip:  0.28 kB
+verify	Build and test	2026-11-10T04:38:09.8154410Z dist/assets/index-zuAR6Yvb.css    1.05 kB │ gzip:  0.56 kB
+verify	Build and test	2026-11-10T04:38:09.8155481Z dist/assets/index-C7Nvlc_2.js   321.75 kB │ gzip: 97.91 kB
+verify	Build and test	2026-11-10T04:38:09.8156035Z 
+verify	Build and test	2026-11-10T04:38:09.8157739Z [32m✓ built in 234ms[39m
+verify	Build and test	2026-11-10T04:38:09.9683151Z 
+verify	Build and test	2026-11-10T04:38:09.9683984Z > routeboard-web@1.0.0 build:mcp
+verify	Build and test	2026-11-10T04:38:09.9684676Z > vite build --config vite.mcp.config.ts
+verify	Build and test	2026-11-10T04:38:09.9685024Z 
+verify	Build and test	2026-11-10T04:38:10.1560976Z [36mvite v8.3.7 [32mbuilding client environment for production...[36m[39m
+verify	Build and test	2026-11-10T04:38:10.1703087Z transforming...
+verify	Build and test	2026-11-10T04:38:10.2808357Z ✓ 176 modules transformed.
+verify	Build and test	2026-11-10T04:38:10.3128488Z rendering chunks...
+verify	Build and test	2026-11-10T04:38:10.4302984Z [plugin vite:singlefile] 
+verify	Build and test	2026-11-10T04:38:10.4303444Z 
+verify	Build and test	2026-11-10T04:38:10.4304515Z [plugin vite:singlefile] Inlining: mcp-app-CRdKAN7k.js
+verify	Build and test	2026-11-10T04:38:10.4310793Z [plugin vite:singlefile] Inlining: style-zuAR6Yvb.css
+verify	Build and test	2026-11-10T04:38:10.4361383Z computing gzip size...
+verify	Build and test	2026-11-10T04:38:10.4419557Z dist-mcp/mcp-app.html  457.37 kB │ gzip: 130.48 kB
+verify	Build and test	2026-11-10T04:38:10.4420346Z 
+verify	Build and test	2026-11-10T04:38:10.4423489Z [32m✓ built in 285ms[39m
+verify	Build and test	2026-11-10T04:38:10.5695128Z 
+verify	Build and test	2026-11-10T04:38:10.5695837Z > routeboard-web@1.0.0 test
+verify	Build and test	2026-11-10T04:38:10.5696421Z > playwright test
+verify	Build and test	2026-11-10T04:38:10.5696688Z 
+verify	Build and test	2026-11-10T04:38:11.7434294Z 
+verify	Build and test	2026-11-10T04:38:11.7449802Z Running 2 tests using 1 worker
+verify	Build and test	2026-11-10T04:38:13.9049646Z ··
+verify	Build and test	2026-11-10T04:38:13.9054498Z   2 passed (2.7s)
+verify	Build and test	2026-11-10T04:38:18.9775628Z   Determining projects to restore...
+verify	Build and test	2026-11-10T04:38:23.4072478Z   Restored /home/runner/work/route-board/route-board/backend/RouteBoard.Api/RouteBoard.Api.csproj (in 3.77 sec).
+verify	Build and test	2026-11-10T04:38:23.4091658Z   Restored /home/runner/work/route-board/route-board/tests/RouteBoard.Api.Tests/RouteBoard.Api.Tests.csproj (in 3.77 sec).
+verify	Build and test	2026-11-10T04:38:31.2773574Z   RouteBoard.Api -> /home/runner/work/route-board/route-board/backend/RouteBoard.Api/bin/Debug/net10.0/RouteBoard.Api.dll
+verify	Build and test	2026-11-10T04:38:32.7901250Z   RouteBoard.Api.Tests -> /home/runner/work/route-board/route-board/tests/RouteBoard.Api.Tests/bin/Debug/net10.0/RouteBoard.Api.Tests.dll
+verify	Build and test	2026-11-10T04:38:32.8704631Z Test run for /home/runner/work/route-board/route-board/tests/RouteBoard.Api.Tests/bin/Debug/net10.0/RouteBoard.Api.Tests.dll (.NETCoreApp,Version=v10.0)
+verify	Build and test	2026-11-10T04:38:33.4442109Z A total of 1 test files matched the specified pattern.
+verify	Build and test	2026-11-10T04:38:33.8892630Z [xUnit.net 00:00:00.00] xUnit.net VSTest Adapter v3.1.4+50e68bbb8b (64-bit .NET 10.0.14)
+verify	Build and test	2026-11-10T04:38:34.0042330Z [xUnit.net 00:00:00.12]   Discovering: RouteBoard.Api.Tests
+verify	Build and test	2026-11-10T04:38:34.1382367Z [xUnit.net 00:00:00.26]   Discovered:  RouteBoard.Api.Tests
+verify	Build and test	2026-11-10T04:38:34.1928907Z [xUnit.net 00:00:00.31]   Starting:    RouteBoard.Api.Tests
+verify	Build and test	2026-11-10T04:38:35.6429131Z   Passed RouteBoard.Api.Tests.ArrivalCalculatorTests.Arrival_matches_hand_prediction(delay: 4, expectedMinute: 27) [6 ms]
+verify	Build and test	2026-11-10T04:38:35.6447418Z   Passed RouteBoard.Api.Tests.ArrivalCalculatorTests.Arrival_matches_hand_prediction(delay: 0, expectedMinute: 23) [< 1 ms]
+verify	Build and test	2026-11-10T04:38:35.6454866Z   Passed RouteBoard.Api.Tests.ArrivalCalculatorTests.Negative_travel_time_is_rejected [1 ms]
+verify	Build and test	2026-11-10T04:38:35.6457053Z   Passed RouteBoard.Api.Tests.SimulationTests.Position_follows_dwell_then_travel_without_extrapolation(elapsed: 20, expected: 1) [27 ms]
+verify	Build and test	2026-11-10T04:38:35.6459207Z   Passed RouteBoard.Api.Tests.SimulationTests.Position_follows_dwell_then_travel_without_extrapolation(elapsed: 15, expected: 1) [< 1 ms]
+verify	Build and test	2026-11-10T04:38:35.6461475Z   Passed RouteBoard.Api.Tests.SimulationTests.Position_follows_dwell_then_travel_without_extrapolation(elapsed: 0, expected: 0) [< 1 ms]
+verify	Build and test	2026-11-10T04:38:35.6463620Z   Passed RouteBoard.Api.Tests.SimulationTests.Position_follows_dwell_then_travel_without_extrapolation(elapsed: 9, expected: 0.5) [< 1 ms]
+verify	Build and test	2026-11-10T04:38:35.6466878Z   Passed RouteBoard.Api.Tests.SimulationTests.Position_follows_dwell_then_travel_without_extrapolation(elapsed: 3, expected: 0) [< 1 ms]
+verify	Build and test	2026-11-10T04:38:39.7823668Z [xUnit.net 00:00:05.90]     RouteBoard.Api.Tests.SimulationPersistenceTests.Older_ticks_do_not_replace_newer_persisted_positions [FAIL]
+verify	Build and test	2026-11-10T04:38:39.7825786Z [xUnit.net 00:00:05.90]       Assert.Equal() Failure: Values differ
+verify	Build and test	2026-11-10T04:38:39.7893351Z [xUnit.net 00:00:05.90]       Expected: 2026-11-10T04:47:39.5459727+00:00
+verify	Build and test	2026-11-10T04:38:39.7894984Z [xUnit.net 00:00:05.90]       Actual:   2026-11-10T04:47:39.5459720+00:00
+verify	Build and test	2026-11-10T04:38:39.7896124Z [xUnit.net 00:00:05.90]       Stack Trace:
+verify	Build and test	2026-11-10T04:38:39.7898946Z [xUnit.net 00:00:05.90]         /home/runner/work/route-board/route-board/tests/RouteBoard.Api.Tests/SimulationTests.cs(48,0): at RouteBoard.Api.Tests.SimulationPersistenceTests.Older_ticks_do_not_replace_newer_persisted_positions()
+verify	Build and test	2026-11-10T04:38:39.7902986Z [xUnit.net 00:00:05.90]         /home/runner/work/route-board/route-board/tests/RouteBoard.Api.Tests/SimulationTests.cs(49,0): at RouteBoard.Api.Tests.SimulationPersistenceTests.Older_ticks_do_not_replace_newer_persisted_positions()
+verify	Build and test	2026-11-10T04:38:39.7905221Z [xUnit.net 00:00:05.90]         --- End of stack trace from previous location ---
+verify	Build and test	2026-11-10T04:38:40.2363994Z   Passed RouteBoard.Api.Tests.MigrationTests.Migrations_apply_revert_and_reapply_on_disposable_database [5 s]
+verify	Build and test	2026-11-10T04:38:40.2365745Z   Failed RouteBoard.Api.Tests.SimulationPersistenceTests.Older_ticks_do_not_replace_newer_persisted_positions [1 s]
+verify	Build and test	2026-11-10T04:38:40.2366728Z   Error Message:
+verify	Build and test	2026-11-10T04:38:40.2367165Z    Assert.Equal() Failure: Values differ
+verify	Build and test	2026-11-10T04:38:40.2367807Z Expected: 2026-11-10T04:47:39.5459727+00:00
+verify	Build and test	2026-11-10T04:38:40.2368342Z Actual:   2026-11-10T04:47:39.5459720+00:00
+verify	Build and test	2026-11-10T04:38:40.2368655Z   Stack Trace:
+verify	Build and test	2026-11-10T04:38:40.2369704Z      at RouteBoard.Api.Tests.SimulationPersistenceTests.Older_ticks_do_not_replace_newer_persisted_positions() in /home/runner/work/route-board/route-board/tests/RouteBoard.Api.Tests/SimulationTests.cs:line 48
+verify	Build and test	2026-11-10T04:38:40.2372426Z    at RouteBoard.Api.Tests.SimulationPersistenceTests.Older_ticks_do_not_replace_newer_persisted_positions() in /home/runner/work/route-board/route-board/tests/RouteBoard.Api.Tests/SimulationTests.cs:line 49
+verify	Build and test	2026-11-10T04:38:40.2374136Z --- End of stack trace from previous location ---
+verify	Build and test	2026-11-10T04:38:40.2375657Z   Passed RouteBoard.Api.Tests.RouteEstimateTests.Provider_response_is_validated_and_retries_are_bounded(status: 200, body: "{\"features\":[{\"properties\":{\"time\":600,\"dis"···, expectedStatus: "fresh", expectedCalls: 1) [22 ms]
+verify	Build and test	2026-11-10T04:38:40.2377268Z   Passed RouteBoard.Api.Tests.RouteEstimateTests.Provider_response_is_validated_and_retries_are_bounded(status: 429, body: "{}", expectedStatus: "unavailable", expectedCalls: 1) [< 1 ms]
+verify	Build and test	2026-11-10T04:38:40.2379042Z   Passed RouteBoard.Api.Tests.RouteEstimateTests.Provider_response_is_validated_and_retries_are_bounded(status: 200, body: "{\"features\":[{\"properties\":{\"time\":-1,\"dist"···, expectedStatus: "unavailable", expectedCalls: 1) [< 1 ms]
+verify	Build and test	2026-11-10T04:38:40.2381108Z   Passed RouteBoard.Api.Tests.RouteEstimateTests.Provider_response_is_validated_and_retries_are_bounded(status: 503, body: "{}", expectedStatus: "unavailable", expectedCalls: 2) [< 1 ms]
+verify	Build and test	2026-11-10T04:38:40.2382330Z   Passed RouteBoard.Api.Tests.RuntimePermissionsTests.Runtime_can_append_audit_but_cannot_mutate_history_or_schema [783 ms]
+verify	Build and test	2026-11-10T04:38:41.1041238Z warn: Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager[35]
+verify	Build and test	2026-11-10T04:38:41.1042782Z       No XML encryptor configured. Key {35690819-1618-4e0b-83e7-0f4fcfefa837} may be persisted to storage in unencrypted form.
+verify	Build and test	2026-11-10T04:38:41.1044103Z warn: Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager[35]
+verify	Build and test	2026-11-10T04:38:41.1045135Z       No XML encryptor configured. Key {7debee57-a0bd-4c7d-87d2-9d684bedd58b} may be persisted to storage in unencrypted form.
+verify	Build and test	2026-11-10T04:38:41.1861567Z info: Microsoft.Hosting.Lifetime[0]
+verify	Build and test	2026-11-10T04:38:41.1862716Z       Application started. Press Ctrl+C to shut down.
+verify	Build and test	2026-11-10T04:38:41.1863570Z info: Microsoft.Hosting.Lifetime[0]
+verify	Build and test	2026-11-10T04:38:41.1864283Z       Application started. Press Ctrl+C to shut down.
+verify	Build and test	2026-11-10T04:38:41.1867453Z info: Microsoft.Hosting.Lifetime[0]
+verify	Build and test	2026-11-10T04:38:41.1868133Z       Hosting environment: Testing
+verify	Build and test	2026-11-10T04:38:41.1868751Z info: Microsoft.Hosting.Lifetime[0]
+verify	Build and test	2026-11-10T04:38:41.1869538Z       Content root path: /home/runner/work/route-board/route-board/backend/RouteBoard.Api
+verify	Build and test	2026-11-10T04:38:41.1872509Z info: Microsoft.Hosting.Lifetime[0]
+verify	Build and test	2026-11-10T04:38:41.1873050Z       Hosting environment: Testing
+verify	Build and test	2026-11-10T04:38:41.1873645Z info: Microsoft.Hosting.Lifetime[0]
+verify	Build and test	2026-11-10T04:38:41.1874513Z       Content root path: /home/runner/work/route-board/route-board/backend/RouteBoard.Api
+verify	Build and test	2026-11-10T04:38:41.6002600Z info: ModelContextProtocol.Server.McpServer[570385771]
+verify	Build and test	2026-11-10T04:38:41.6004138Z       Server (testhost 15.0.0.0), Client (testhost 15.0.0.0) method 'server/discover' request handler called.
+verify	Build and test	2026-11-10T04:38:41.6029027Z info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+verify	Build and test	2026-11-10T04:38:41.6030363Z       Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+verify	Build and test	2026-11-10T04:38:41.6031998Z       SELECT pg_advisory_xact_lock(7218401)
+verify	Build and test	2026-11-10T04:38:41.6303094Z info: ModelContextProtocol.Server.McpServer[1867955179]
+verify	Build and test	2026-11-10T04:38:41.6322529Z       Server (testhost 15.0.0.0), Client (testhost 15.0.0.0) method 'server/discover' request handler completed in 20.5123ms.
+verify	Build and test	2026-11-10T04:38:41.6412197Z info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+verify	Build and test	2026-11-10T04:38:41.6414111Z       Executed DbCommand (13ms) [Parameters=[@request_RouteId='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+verify	Build and test	2026-11-10T04:38:41.6416880Z       SELECT r1."Id", r1."Code", r1."IsActive", r1."Name", s0."Id", s0."DwellMinutes", s0."RouteId", s0."StopId", s0."StopOrder", s0."TravelMinutesFromPreviousStop", s0."Id0", s0."Code", s0."Location", s0."Name"
+verify	Build and test	2026-11-10T04:38:41.6419002Z       FROM (
+verify	Build and test	2026-11-10T04:38:41.6420085Z           SELECT r."Id", r."Code", r."IsActive", r."Name"
+verify	Build and test	2026-11-10T04:38:41.6421620Z           FROM routes AS r
+verify	Build and test	2026-11-10T04:38:41.6423133Z           WHERE r."Id" = @request_RouteId AND r."IsActive"
+verify	Build and test	2026-11-10T04:38:41.6424392Z           LIMIT 2
+verify	Build and test	2026-11-10T04:38:41.6425337Z       ) AS r1
+verify	Build and test	2026-11-10T04:38:41.6426179Z       LEFT JOIN (
+verify	Build and test	2026-11-10T04:38:41.6428192Z           SELECT r0."Id", r0."DwellMinutes", r0."RouteId", r0."StopId", r0."StopOrder", r0."TravelMinutesFromPreviousStop", s."Id" AS "Id0", s."Code", s."Location", s."Name"
+verify	Build and test	2026-11-10T04:38:41.6430064Z           FROM route_stops AS r0
+verify	Build and test	2026-11-10T04:38:41.6431543Z           INNER JOIN stops AS s ON r0."StopId" = s."Id"
+verify	Build and test	2026-11-10T04:38:41.6432823Z       ) AS s0 ON r1."Id" = s0."RouteId"
+verify	Build and test	2026-11-10T04:38:41.6453098Z       ORDER BY r1."Id", s0."Id"
+verify	Build and test	2026-11-10T04:38:41.6733657Z info: ModelContextProtocol.Server.McpServer[570385771]
+verify	Build and test	2026-11-10T04:38:41.6735687Z       Server (testhost 15.0.0.0), Client (testhost 15.0.0.0) method 'tools/call' request handler called.
+verify	Build and test	2026-11-10T04:38:41.6942790Z info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+verify	Build and test	2026-11-10T04:38:41.6944260Z       Executed DbCommand (1ms) [Parameters=[@request_VehicleId='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+verify	Build and test	2026-11-10T04:38:41.6945887Z       SELECT v."Id", v."Capacity", v."Code", v."IsActive"
+verify	Build and test	2026-11-10T04:38:41.6946663Z       FROM vehicles AS v
+verify	Build and test	2026-11-10T04:38:41.6947368Z       WHERE v."Id" = @request_VehicleId AND v."IsActive"
+verify	Build and test	2026-11-10T04:38:41.6947962Z       LIMIT 2
+verify	Build and test	2026-11-10T04:38:41.7348534Z   Passed RouteBoard.Api.Tests.TripApiTests.Invalid_query_is_400(url: "/api/trips?page=0") [2 s]
+verify	Build and test	2026-11-10T04:38:41.7350951Z   Passed RouteBoard.Api.Tests.TripApiTests.Invalid_query_is_400(url: "/api/events?after=-1") [36 ms]
+verify	Build and test	2026-11-10T04:38:41.7352767Z   Passed RouteBoard.Api.Tests.TripApiTests.Invalid_query_is_400(url: "/api/trips?pageSize=101") [5 ms]
+verify	Build and test	2026-11-10T04:38:41.7354583Z   Passed RouteBoard.Api.Tests.TripApiTests.Invalid_query_is_400(url: "/api/trips?status=unknown") [4 ms]
+verify	Build and test	2026-11-10T04:38:41.7356025Z   Passed RouteBoard.Api.Tests.TripApiTests.Anonymous_write_is_401 [12 ms]
+verify	Build and test	2026-11-10T04:38:41.7363633Z info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+verify	Build and test	2026-11-10T04:38:41.7366074Z       Executed DbCommand (4ms) [Parameters=[@p0='?', @p1='?', @p2='?' (DbType = Object), @p3='?' (DbType = Object), @p4='?' (DbType = DateTime), @p5='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+verify	Build and test	2026-11-10T04:38:41.7368292Z       INSERT INTO audit_events ("Action", "Actor", "After", "Before", "OccurredAt", "TripId")
+verify	Build and test	2026-11-10T04:38:41.7369456Z       VALUES (@p0, @p1, @p2, @p3, @p4, @p5)
+verify	Build and test	2026-11-10T04:38:41.7370311Z       RETURNING "Id";
+verify	Build and test	2026-11-10T04:38:41.7383674Z info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+verify	Build and test	2026-11-10T04:38:41.7385706Z       Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = DateTime), @p3='?' (DbType = Int64), @p4='?' (DbType = DateTime), @p5='?', @p6='?' (DbType = Int64), @p7='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+verify	Build and test	2026-11-10T04:38:41.7387647Z       INSERT INTO trips ("DelayMinutes", "LastStopOrder", "ObservedDeparture", "RouteId", "ScheduledDeparture", "Status", "VehicleId", "Version")
+verify	Build and test	2026-11-10T04:38:41.7388725Z       VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7)
+verify	Build and test	2026-11-10T04:38:41.7389395Z       RETURNING "Id";
+verify	Build and test	2026-11-10T04:38:41.7473349Z info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+verify	Build and test	2026-11-10T04:38:41.7475187Z       Executed DbCommand (1ms) [Parameters=[@trip_Id='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+verify	Build and test	2026-11-10T04:38:41.7476419Z       SELECT t."Id", t."Kind", t."OccurredAt", t."Snapshot", t."StopOrder", t."TripId"
+verify	Build and test	2026-11-10T04:38:41.7477236Z       FROM trip_events AS t
+verify	Build and test	2026-11-10T04:38:41.7478019Z       WHERE t."TripId" = @trip_Id AND t."Kind" = 'arrive'
+verify	Build and test	2026-11-10T04:38:41.7663135Z info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+verify	Build and test	2026-11-10T04:38:41.7665487Z       Executed DbCommand (2ms) [Parameters=[@p0='?', @p1='?', @p2='?' (DbType = Object), @p3='?' (DbType = Object), @p4='?' (DbType = DateTime), @p5='?' (DbType = Int64), @p6='?', @p7='?' (DbType = DateTime), @p8='?' (DbType = Object), @p9='?' (DbType = Int32), @p10='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+verify	Build and test	2026-11-10T04:38:41.7667211Z       INSERT INTO audit_events ("Action", "Actor", "After", "Before", "OccurredAt", "TripId")
+verify	Build and test	2026-11-10T04:38:41.7667701Z       VALUES (@p0, @p1, @p2, @p3, @p4, @p5)
+verify	Build and test	2026-11-10T04:38:41.7668000Z       RETURNING "Id";
+verify	Build and test	2026-11-10T04:38:41.7668421Z       INSERT INTO trip_events ("Kind", "OccurredAt", "Snapshot", "StopOrder", "TripId")
+verify	Build and test	2026-11-10T04:38:41.7668866Z       VALUES (@p6, @p7, @p8, @p9, @p10)
+verify	Build and test	2026-11-10T04:38:41.7669128Z       RETURNING "Id";
+verify	Build and test	2026-11-10T04:38:41.7833961Z info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+verify	Build and test	2026-11-10T04:38:41.7842133Z       Executed DbCommand (2ms) [Parameters=[@search_contains='?', @p='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+verify	Build and test	2026-11-10T04:38:41.7846107Z       SELECT s."Id", s."DelayMinutes", s."LastStopOrder", s."ObservedDeparture", s."RouteId", s."ScheduledDeparture", s."Status", s."VehicleId", s."Version", s."Id0", s."Code", s."IsActive", s."Name", v."Id", s1."Id", s1."DwellMinutes", s1."RouteId", s1."StopId", s1."StopOrder", s1."TravelMinutesFromPreviousStop", s1."Id0", s1."Code", s1."Location", s1."Name", v."Capacity", v."Code", v."IsActive"
+verify	Build and test	2026-11-10T04:38:41.7848867Z       FROM (
+verify	Build and test	2026-11-10T04:38:41.7850909Z           SELECT t."Id", t."DelayMinutes", t."LastStopOrder", t."ObservedDeparture", t."RouteId", t."ScheduledDeparture", t."Status", t."VehicleId", t."Version", r."Id" AS "Id0", r."Code", r."IsActive", r."Name"
+verify	Build and test	2026-11-10T04:38:41.7852807Z           FROM trips AS t
+verify	Build and test	2026-11-10T04:38:41.7853796Z           INNER JOIN routes AS r ON t."RouteId" = r."Id"
+verify	Build and test	2026-11-10T04:38:41.7855086Z           WHERE r."Name" LIKE @search_contains
+verify	Build and test	2026-11-10T04:38:41.7856169Z           ORDER BY t."ScheduledDeparture", t."Id"
+verify	Build and test	2026-11-10T04:38:41.7857015Z           LIMIT @p
+verify	Build and test	2026-11-10T04:38:41.7857640Z       ) AS s
+verify	Build and test	2026-11-10T04:38:41.7858391Z       INNER JOIN vehicles AS v ON s."VehicleId" = v."Id"
+verify	Build and test	2026-11-10T04:38:41.7859199Z       LEFT JOIN (
+verify	Build and test	2026-11-10T04:38:41.7860947Z           SELECT r0."Id", r0."DwellMinutes", r0."RouteId", r0."StopId", r0."StopOrder", r0."TravelMinutesFromPreviousStop", s0."Id" AS "Id0", s0."Code", s0."Location", s0."Name"
+verify	Build and test	2026-11-10T04:38:41.7862691Z           FROM route_stops AS r0
+verify	Build and test	2026-11-10T04:38:41.7863594Z           INNER JOIN stops AS s0 ON r0."StopId" = s0."Id"
+verify	Build and test	2026-11-10T04:38:41.7864471Z       ) AS s1 ON s."Id0" = s1."RouteId"
+verify	Build and test	2026-11-10T04:38:41.7865426Z       ORDER BY s."ScheduledDeparture", s."Id", s."Id0", v."Id", s1."Id"
+verify	Build and test	2026-11-10T04:38:41.7942025Z info: ModelContextProtocol.Server.McpServer[2065726448]
+verify	Build and test	2026-11-10T04:38:41.7942784Z       "search_trips" completed. IsError = False.
+verify	Build and test	2026-11-10T04:38:41.7999099Z info: ModelContextProtocol.Server.McpServer[1867955179]
+verify	Build and test	2026-11-10T04:38:41.8003690Z       Server (testhost 15.0.0.0), Client (testhost 15.0.0.0) method 'tools/call' request handler completed in 126.4978ms.
+verify	Build and test	2026-11-10T04:38:41.8100310Z info: ModelContextProtocol.Server.McpServer[570385771]
+verify	Build and test	2026-11-10T04:38:41.8101568Z       Server (testhost 15.0.0.0), Client (testhost 15.0.0.0) method 'tools/call' request handler called.
+verify	Build and test	2026-11-10T04:38:41.8746682Z info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+verify	Build and test	2026-11-10T04:38:41.8747747Z       Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+verify	Build and test	2026-11-10T04:38:41.8748573Z       SELECT pg_advisory_xact_lock(7218401)
+verify	Build and test	2026-11-10T04:38:41.8760762Z info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+verify	Build and test	2026-11-10T04:38:41.8762377Z       Executed DbCommand (1ms) [Parameters=[@p0='?', @p1='?', @p2='?' (DbType = Object), @p3='?' (DbType = Object), @p4='?' (DbType = DateTime), @p5='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+verify	Build and test	2026-11-10T04:38:41.8764070Z       INSERT INTO audit_events ("Action", "Actor", "After", "Before", "OccurredAt", "TripId")
+verify	Build and test	2026-11-10T04:38:41.8764899Z       VALUES (@p0, @p1, @p2, @p3, @p4, @p5)
+verify	Build and test	2026-11-10T04:38:41.8765909Z       RETURNING "Id";
+verify	Build and test	2026-11-10T04:38:41.8798919Z fail: ModelContextProtocol.Server.McpServer[1433779783]
+verify	Build and test	2026-11-10T04:38:41.8800906Z       "record_trip_update" threw an unhandled exception.
+verify	Build and test	2026-11-10T04:38:41.8801944Z       ModelContextProtocol.McpException: This tool requires its explicit scope and role.
+verify	Build and test	2026-11-10T04:38:41.8804380Z          at RouteBoard.Api.Features.Mcp.TripTools.AuthorizeAndAuditAsync(ClaimsPrincipal user, String tool, Boolean writes, CancellationToken ct) in /home/runner/work/route-board/route-board/backend/RouteBoard.Api/Features/Mcp/TripTools.cs:line 125
+verify	Build and test	2026-11-10T04:38:41.8807633Z          at RouteBoard.Api.Features.Mcp.TripTools.RecordUpdate(ClaimsPrincipal user, String confirmationToken, Boolean confirmed, CancellationToken ct) in /home/runner/work/route-board/route-board/backend/RouteBoard.Api/Features/Mcp/TripTools.cs:line 80
+verify	Build and test	2026-11-10T04:38:41.8811093Z          at Microsoft.Extensions.AI.AIFunctionFactory.ReflectionAIFunctionDescriptor.<>c__DisplayClass41_1.<<GetReturnParameterMarshaller>b__10>d.MoveNext()
+verify	Build and test	2026-11-10T04:38:41.8812657Z       --- End of stack trace from previous location ---
+verify	Build and test	2026-11-10T04:38:41.8814242Z          at Microsoft.Extensions.AI.AIFunctionFactory.ReflectionAIFunction.InvokeCoreAsync(AIFunctionArguments arguments, CancellationToken cancellationToken)
+verify	Build and test	2026-11-10T04:38:41.8816666Z          at Microsoft.Extensions.AI.AIFunctionFactory.ReflectionAIFunction.InvokeCoreAsync(AIFunctionArguments arguments, CancellationToken cancellationToken)
+verify	Build and test	2026-11-10T04:38:41.8818580Z          at ModelContextProtocol.Server.AIFunctionMcpServerTool.InvokeAsync(RequestContext`1 request, CancellationToken cancellationToken)
+verify	Build and test	2026-11-10T04:38:41.8821531Z          at ModelContextProtocol.Server.McpServerImpl.<>c__DisplayClass85_1.<<BuildComposedCallToolHandler>g__InvokeOrdinaryPipelineAsync|1>d.MoveNext()
+verify	Build and test	2026-11-10T04:38:41.8829675Z info: ModelContextProtocol.Server.McpServer[1867955179]
+verify	Build and test	2026-11-10T04:38:41.8831003Z       Server (testhost 15.0.0.0), Client (testhost 15.0.0.0) method 'tools/call' request handler completed in 72.7908ms.
+verify	Build and test	2026-11-10T04:38:41.9048315Z info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+verify	Build and test	2026-11-10T04:38:41.9049356Z       Executed DbCommand (2ms) [Parameters=[@8__locals1_id='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+verify	Build and test	2026-11-10T04:38:41.9052400Z       SELECT s0."Id", s0."DelayMinutes", s0."LastStopOrder", s0."ObservedDeparture", s0."RouteId", s0."ScheduledDeparture", s0."Status", s0."VehicleId", s0."Version", s0."Id0", s0."Code", s0."IsActive", s0."Name", s0."Id1", s1."Id", s1."DwellMinutes", s1."RouteId", s1."StopId", s1."StopOrder", s1."TravelMinutesFromPreviousStop", s1."Id0", s1."Code", s1."Location", s1."Name", s0."Capacity", s0."Code0", s0."IsActive0"
+verify	Build and test	2026-11-10T04:38:41.9054253Z       FROM (
+verify	Build and test	2026-11-10T04:38:41.9056032Z           SELECT t."Id", t."DelayMinutes", t."LastStopOrder", t."ObservedDeparture", t."RouteId", t."ScheduledDeparture", t."Status", t."VehicleId", t."Version", r."Id" AS "Id0", r."Code", r."IsActive", r."Name", v."Id" AS "Id1", v."Capacity", v."Code" AS "Code0", v."IsActive" AS "IsActive0"
+verify	Build and test	2026-11-10T04:38:41.9057136Z           FROM trips AS t
+verify	Build and test	2026-11-10T04:38:41.9057462Z           INNER JOIN routes AS r ON t."RouteId" = r."Id"
+verify	Build and test	2026-11-10T04:38:41.9057869Z           INNER JOIN vehicles AS v ON t."VehicleId" = v."Id"
+verify	Build and test	2026-11-10T04:38:41.9058240Z           WHERE t."Id" = @8__locals1_id
+verify	Build and test	2026-11-10T04:38:41.9058522Z           LIMIT 2
+verify	Build and test	2026-11-10T04:38:41.9058725Z       ) AS s0
+verify	Build and test	2026-11-10T04:38:41.9058933Z       LEFT JOIN (
+verify	Build and test	2026-11-10T04:38:41.9059680Z           SELECT r0."Id", r0."DwellMinutes", r0."RouteId", r0."StopId", r0."StopOrder", r0."TravelMinutesFromPreviousStop", s."Id" AS "Id0", s."Code", s."Location", s."Name"
+verify	Build and test	2026-11-10T04:38:41.9060426Z           FROM route_stops AS r0
+verify	Build and test	2026-11-10T04:38:41.9061012Z           INNER JOIN stops AS s ON r0."StopId" = s."Id"
+verify	Build and test	2026-11-10T04:38:41.9061365Z       ) AS s1 ON s0."Id0" = s1."RouteId"
+verify	Build and test	2026-11-10T04:38:41.9061701Z       ORDER BY s0."Id", s0."Id0", s0."Id1", s1."Id"
+verify	Build and test	2026-11-10T04:38:41.9113156Z info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+verify	Build and test	2026-11-10T04:38:41.9122751Z       Executed DbCommand (1ms) [Parameters=[@trip_Id='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+verify	Build and test	2026-11-10T04:38:41.9123953Z       SELECT t."Id", t."Kind", t."OccurredAt", t."Snapshot", t."StopOrder", t."TripId"
+verify	Build and test	2026-11-10T04:38:41.9124571Z       FROM trip_events AS t
+verify	Build and test	2026-11-10T04:38:41.9124930Z       WHERE t."TripId" = @trip_Id AND t."Kind" = 'arrive'
+verify	Build and test	2026-11-10T04:38:41.9125471Z info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+verify	Build and test	2026-11-10T04:38:41.9126594Z       Executed DbCommand (1ms) [Parameters=[@p3='?' (DbType = Int64), @p0='?' (DbType = Int32), @p1='?', @p2='?' (DbType = Int64), @p4='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+verify	Build and test	2026-11-10T04:38:41.9128646Z       UPDATE trips SET "DelayMinutes" = @p0, "Status" = @p1, "Version" = @p2
+verify	Build and test	2026-11-10T04:38:41.9129263Z       WHERE "Id" = @p3 AND "Version" = @p4;
+verify	Build and test	2026-11-10T04:38:41.9132311Z info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+verify	Build and test	2026-11-10T04:38:41.9133166Z       Executed DbCommand (0ms) [Parameters=[@trip_Id='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+verify	Build and test	2026-11-10T04:38:41.9133884Z       SELECT t."Id", t."Kind", t."OccurredAt", t."Snapshot", t."StopOrder", t."TripId"
+verify	Build and test	2026-11-10T04:38:41.9134302Z       FROM trip_events AS t
+verify	Build and test	2026-11-10T04:38:41.9134623Z       WHERE t."TripId" = @trip_Id AND t."Kind" = 'arrive'
+verify	Build and test	2026-11-10T04:38:41.9154265Z info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+verify	Build and test	2026-11-10T04:38:41.9156516Z       Executed DbCommand (1ms) [Parameters=[@p0='?', @p1='?', @p2='?' (DbType = Object), @p3='?' (DbType = Object), @p4='?' (DbType = DateTime), @p5='?' (DbType = Int64), @p6='?', @p7='?' (DbType = DateTime), @p8='?' (DbType = Object), @p9='?' (DbType = Int32), @p10='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+verify	Build and test	2026-11-10T04:38:41.9159085Z       INSERT INTO audit_events ("Action", "Actor", "After", "Before", "OccurredAt", "TripId")
+verify	Build and test	2026-11-10T04:38:41.9160028Z       VALUES (@p0, @p1, @p2, @p3, @p4, @p5)
+verify	Build and test	2026-11-10T04:38:41.9160500Z       RETURNING "Id";
+verify	Build and test	2026-11-10T04:38:41.9161563Z       INSERT INTO trip_events ("Kind", "OccurredAt", "Snapshot", "StopOrder", "TripId")
+verify	Build and test	2026-11-10T04:38:41.9162251Z       VALUES (@p6, @p7, @p8, @p9, @p10)
+verify	Build and test	2026-11-10T04:38:41.9162534Z       RETURNING "Id";
+verify	Build and test	2026-11-10T04:38:41.9251474Z info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+verify	Build and test	2026-11-10T04:38:41.9253001Z       Executed DbCommand (1ms) [Parameters=[@cursor='?' (DbType = Int64), @p='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+verify	Build and test	2026-11-10T04:38:41.9254466Z       SELECT t."Id", t."Kind", t."OccurredAt", t."Snapshot", t."StopOrder", t."TripId"
+verify	Build and test	2026-11-10T04:38:41.9255218Z       FROM trip_events AS t
+verify	Build and test	2026-11-10T04:38:41.9255673Z       WHERE t."Id" > @cursor
+verify	Build and test	2026-11-10T04:38:41.9256177Z       ORDER BY t."Id"
+verify	Build and test	2026-11-10T04:38:41.9256572Z       LIMIT @p
+verify	Build and test	2026-11-10T04:38:42.0103846Z   Passed RouteBoard.Api.Tests.McpAuthorizationTests.Transport_checks_scopes_for_read_and_write_tools [3 s]
+verify	Build and test	2026-11-10T04:38:42.0107651Z   Passed RouteBoard.Api.Tests.TripApiTests.Replay_starts_after_last_event_id_and_contains_no_actor [469 ms]
+verify	Build and test	2026-11-10T04:38:42.0109565Z   Passed RouteBoard.Api.Tests.TripApiTests.Cors_allows_only_the_configured_exact_origin(origin: "https://untrusted.example.test", allowed: False) [6 ms]
+verify	Build and test	2026-11-10T04:38:42.0111620Z   Passed RouteBoard.Api.Tests.TripApiTests.Cors_allows_only_the_configured_exact_origin(origin: "https://board.example.test", allowed: True) [4 ms]
+verify	Build and test	2026-11-10T04:38:42.0112786Z   Passed RouteBoard.Api.Tests.TripApiTests.Missing_role_or_scope_is_403(role: "dispatcher", scope: "trips.read") [7 ms]
+verify	Build and test	2026-11-10T04:38:42.0114418Z   Passed RouteBoard.Api.Tests.TripApiTests.Missing_role_or_scope_is_403(role: "viewer", scope: "trips.write") [3 ms]
+verify	Build and test	2026-11-10T04:38:42.0116041Z   Passed RouteBoard.Api.Tests.McpAuthorizationTests.Confirmation_is_bound_to_actor_operation_and_version [88 ms]
+verify	Build and test	2026-11-10T04:38:42.0117749Z   Passed RouteBoard.Api.Tests.TripApiTests.Write_requests_are_rate_limited [48 ms]
+verify	Build and test	2026-11-10T04:38:42.0315229Z info: Microsoft.Hosting.Lifetime[0]
+verify	Build and test	2026-11-10T04:38:42.0316020Z       Application is shutting down...
+verify	Build and test	2026-11-10T04:38:42.2204506Z info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+verify	Build and test	2026-11-10T04:38:42.2206325Z       Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+verify	Build and test	2026-11-10T04:38:42.2207600Z       SELECT pg_advisory_xact_lock(7218401)
+verify	Build and test	2026-11-10T04:38:42.2223825Z info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+verify	Build and test	2026-11-10T04:38:42.2226187Z       Executed DbCommand (1ms) [Parameters=[@request_RouteId='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+verify	Build and test	2026-11-10T04:38:42.2228591Z       SELECT r1."Id", r1."Code", r1."IsActive", r1."Name", s0."Id", s0."DwellMinutes", s0."RouteId", s0."StopId", s0."StopOrder", s0."TravelMinutesFromPreviousStop", s0."Id0", s0."Code", s0."Location", s0."Name"
+verify	Build and test	2026-11-10T04:38:42.2230127Z       FROM (
+verify	Build and test	2026-11-10T04:38:42.2230800Z           SELECT r."Id", r."Code", r."IsActive", r."Name"
+verify	Build and test	2026-11-10T04:38:42.2231377Z           FROM routes AS r
+verify	Build and test	2026-11-10T04:38:42.2231933Z           WHERE r."Id" = @request_RouteId AND r."IsActive"
+verify	Build and test	2026-11-10T04:38:42.2232488Z           LIMIT 2
+verify	Build and test	2026-11-10T04:38:42.2232837Z       ) AS r1
+verify	Build and test	2026-11-10T04:38:42.2233178Z       LEFT JOIN (
+verify	Build and test	2026-11-10T04:38:42.2234464Z           SELECT r0."Id", r0."DwellMinutes", r0."RouteId", r0."StopId", r0."StopOrder", r0."TravelMinutesFromPreviousStop", s."Id" AS "Id0", s."Code", s."Location", s."Name"
+verify	Build and test	2026-11-10T04:38:42.2235801Z           FROM route_stops AS r0
+verify	Build and test	2026-11-10T04:38:42.2236395Z           INNER JOIN stops AS s ON r0."StopId" = s."Id"
+verify	Build and test	2026-11-10T04:38:42.2236993Z       ) AS s0 ON r1."Id" = s0."RouteId"
+verify	Build and test	2026-11-10T04:38:42.2237586Z       ORDER BY r1."Id", s0."Id"
+verify	Build and test	2026-11-10T04:38:42.2238395Z info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+verify	Build and test	2026-11-10T04:38:42.2239741Z       Executed DbCommand (1ms) [Parameters=[@request_VehicleId='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+verify	Build and test	2026-11-10T04:38:42.2240743Z       SELECT v."Id", v."Capacity", v."Code", v."IsActive"
+verify	Build and test	2026-11-10T04:38:42.2241374Z       FROM vehicles AS v
+verify	Build and test	2026-11-10T04:38:42.2241917Z       WHERE v."Id" = @request_VehicleId AND v."IsActive"
+verify	Build and test	2026-11-10T04:38:42.2242411Z       LIMIT 2
+verify	Build and test	2026-11-10T04:38:42.2251353Z info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+verify	Build and test	2026-11-10T04:38:42.2253445Z       Executed DbCommand (1ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = DateTime), @p3='?' (DbType = Int64), @p4='?' (DbType = DateTime), @p5='?', @p6='?' (DbType = Int64), @p7='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+verify	Build and test	2026-11-10T04:38:42.2255845Z       INSERT INTO trips ("DelayMinutes", "LastStopOrder", "ObservedDeparture", "RouteId", "ScheduledDeparture", "Status", "VehicleId", "Version")
+verify	Build and test	2026-11-10T04:38:42.2257107Z       VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7)
+verify	Build and test	2026-11-10T04:38:42.2257650Z       RETURNING "Id";
+verify	Build and test	2026-11-10T04:38:42.2269676Z info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+verify	Build and test	2026-11-10T04:38:42.2271228Z       Executed DbCommand (0ms) [Parameters=[@trip_Id='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+verify	Build and test	2026-11-10T04:38:42.2273023Z       SELECT t."Id", t."Kind", t."OccurredAt", t."Snapshot", t."StopOrder", t."TripId"
+verify	Build and test	2026-11-10T04:38:42.2273735Z       FROM trip_events AS t
+verify	Build and test	2026-11-10T04:38:42.2274313Z       WHERE t."TripId" = @trip_Id AND t."Kind" = 'arrive'
+verify	Build and test	2026-11-10T04:38:42.2286984Z info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+verify	Build and test	2026-11-10T04:38:42.2289324Z       Executed DbCommand (1ms) [Parameters=[@p0='?', @p1='?', @p2='?' (DbType = Object), @p3='?' (DbType = Object), @p4='?' (DbType = DateTime), @p5='?' (DbType = Int64), @p6='?', @p7='?' (DbType = DateTime), @p8='?' (DbType = Object), @p9='?' (DbType = Int32), @p10='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+verify	Build and test	2026-11-10T04:38:42.2292058Z       INSERT INTO audit_events ("Action", "Actor", "After", "Before", "OccurredAt", "TripId")
+verify	Build and test	2026-11-10T04:38:42.2292730Z       VALUES (@p0, @p1, @p2, @p3, @p4, @p5)
+verify	Build and test	2026-11-10T04:38:42.2293031Z       RETURNING "Id";
+verify	Build and test	2026-11-10T04:38:42.2293692Z       INSERT INTO trip_events ("Kind", "OccurredAt", "Snapshot", "StopOrder", "TripId")
+verify	Build and test	2026-11-10T04:38:42.2294416Z       VALUES (@p6, @p7, @p8, @p9, @p10)
+verify	Build and test	2026-11-10T04:38:42.2294694Z       RETURNING "Id";
+verify	Build and test	2026-11-10T04:38:42.2364993Z info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+verify	Build and test	2026-11-10T04:38:42.2366069Z       Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+verify	Build and test	2026-11-10T04:38:42.2367365Z       SELECT pg_advisory_xact_lock(7218401)
+verify	Build and test	2026-11-10T04:38:42.2389698Z info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+verify	Build and test	2026-11-10T04:38:42.2391174Z       Executed DbCommand (2ms) [Parameters=[@8__locals1_id='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+verify	Build and test	2026-11-10T04:38:42.2394566Z       SELECT s0."Id", s0."DelayMinutes", s0."LastStopOrder", s0."ObservedDeparture", s0."RouteId", s0."ScheduledDeparture", s0."Status", s0."VehicleId", s0."Version", s0."Id0", s0."Code", s0."IsActive", s0."Name", s0."Id1", s1."Id", s1."DwellMinutes", s1."RouteId", s1."StopId", s1."StopOrder", s1."TravelMinutesFromPreviousStop", s1."Id0", s1."Code", s1."Location", s1."Name", s0."Capacity", s0."Code0", s0."IsActive0"
+verify	Build and test	2026-11-10T04:38:42.2397085Z       FROM (
+verify	Build and test	2026-11-10T04:38:42.2398966Z           SELECT t."Id", t."DelayMinutes", t."LastStopOrder", t."ObservedDeparture", t."RouteId", t."ScheduledDeparture", t."Status", t."VehicleId", t."Version", r."Id" AS "Id0", r."Code", r."IsActive", r."Name", v."Id" AS "Id1", v."Capacity", v."Code" AS "Code0", v."IsActive" AS "IsActive0"
+verify	Build and test	2026-11-10T04:38:42.2400910Z           FROM trips AS t
+verify	Build and test	2026-11-10T04:38:42.2401492Z           INNER JOIN routes AS r ON t."RouteId" = r."Id"
+verify	Build and test	2026-11-10T04:38:42.2402164Z           INNER JOIN vehicles AS v ON t."VehicleId" = v."Id"
+verify	Build and test	2026-11-10T04:38:42.2402754Z           WHERE t."Id" = @8__locals1_id
+verify	Build and test	2026-11-10T04:38:42.2403185Z           LIMIT 2
+verify	Build and test	2026-11-10T04:38:42.2403525Z       ) AS s0
+verify	Build and test	2026-11-10T04:38:42.2403849Z       LEFT JOIN (
+verify	Build and test	2026-11-10T04:38:42.2405055Z           SELECT r0."Id", r0."DwellMinutes", r0."RouteId", r0."StopId", r0."StopOrder", r0."TravelMinutesFromPreviousStop", s."Id" AS "Id0", s."Code", s."Location", s."Name"
+verify	Build and test	2026-11-10T04:38:42.2406254Z           FROM route_stops AS r0
+verify	Build and test	2026-11-10T04:38:42.2406793Z           INNER JOIN stops AS s ON r0."StopId" = s."Id"
+verify	Build and test	2026-11-10T04:38:42.2407357Z       ) AS s1 ON s0."Id0" = s1."RouteId"
+verify	Build and test	2026-11-10T04:38:42.2407903Z       ORDER BY s0."Id", s0."Id0", s0."Id1", s1."Id"
+verify	Build and test	2026-11-10T04:38:42.2408742Z info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+verify	Build and test	2026-11-10T04:38:42.2409748Z       Executed DbCommand (1ms) [Parameters=[@trip_Id='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+verify	Build and test	2026-11-10T04:38:42.2410452Z       SELECT t."Id", t."Kind", t."OccurredAt", t."Snapshot", t."StopOrder", t."TripId"
+verify	Build and test	2026-11-10T04:38:42.2411556Z       FROM trip_events AS t
+verify	Build and test	2026-11-10T04:38:42.2412080Z       WHERE t."TripId" = @trip_Id AND t."Kind" = 'arrive'
+verify	Build and test	2026-11-10T04:38:42.2428015Z info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+verify	Build and test	2026-11-10T04:38:42.2429811Z       Executed DbCommand (1ms) [Parameters=[@p3='?' (DbType = Int64), @p0='?' (DbType = Int32), @p1='?', @p2='?' (DbType = Int64), @p4='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+verify	Build and test	2026-11-10T04:38:42.2431513Z       UPDATE trips SET "DelayMinutes" = @p0, "Status" = @p1, "Version" = @p2
+verify	Build and test	2026-11-10T04:38:42.2432303Z       WHERE "Id" = @p3 AND "Version" = @p4;
+verify	Build and test	2026-11-10T04:38:42.2438278Z info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+verify	Build and test	2026-11-10T04:38:42.2440131Z       Executed DbCommand (0ms) [Parameters=[@trip_Id='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+verify	Build and test	2026-11-10T04:38:42.2441805Z       SELECT t."Id", t."Kind", t."OccurredAt", t."Snapshot", t."StopOrder", t."TripId"
+verify	Build and test	2026-11-10T04:38:42.2442976Z       FROM trip_events AS t
+verify	Build and test	2026-11-10T04:38:42.2443668Z       WHERE t."TripId" = @trip_Id AND t."Kind" = 'arrive'
+verify	Build and test	2026-11-10T04:38:42.2456385Z info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+verify	Build and test	2026-11-10T04:38:42.2458943Z       Executed DbCommand (1ms) [Parameters=[@p0='?', @p1='?', @p2='?' (DbType = Object), @p3='?' (DbType = Object), @p4='?' (DbType = DateTime), @p5='?' (DbType = Int64), @p6='?', @p7='?' (DbType = DateTime), @p8='?' (DbType = Object), @p9='?' (DbType = Int32), @p10='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+verify	Build and test	2026-11-10T04:38:42.2460753Z       INSERT INTO audit_events ("Action", "Actor", "After", "Before", "OccurredAt", "TripId")
+verify	Build and test	2026-11-10T04:38:42.2461851Z       VALUES (@p0, @p1, @p2, @p3, @p4, @p5)
+verify	Build and test	2026-11-10T04:38:42.2462403Z       RETURNING "Id";
+verify	Build and test	2026-11-10T04:38:42.2463128Z       INSERT INTO trip_events ("Kind", "OccurredAt", "Snapshot", "StopOrder", "TripId")
+verify	Build and test	2026-11-10T04:38:42.2463891Z       VALUES (@p6, @p7, @p8, @p9, @p10)
+verify	Build and test	2026-11-10T04:38:42.2464358Z       RETURNING "Id";
+verify	Build and test	2026-11-10T04:38:42.2465642Z info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+verify	Build and test	2026-11-10T04:38:42.2466572Z       Executed DbCommand (4ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+verify	Build and test	2026-11-10T04:38:42.2467368Z       SELECT pg_advisory_xact_lock(7218401)
+verify	Build and test	2026-11-10T04:38:42.2584854Z info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+verify	Build and test	2026-11-10T04:38:42.2591799Z       Executed DbCommand (11ms) [Parameters=[@8__locals1_id='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+verify	Build and test	2026-11-10T04:38:42.2594288Z       SELECT s0."Id", s0."DelayMinutes", s0."LastStopOrder", s0."ObservedDeparture", s0."RouteId", s0."ScheduledDeparture", s0."Status", s0."VehicleId", s0."Version", s0."Id0", s0."Code", s0."IsActive", s0."Name", s0."Id1", s1."Id", s1."DwellMinutes", s1."RouteId", s1."StopId", s1."StopOrder", s1."TravelMinutesFromPreviousStop", s1."Id0", s1."Code", s1."Location", s1."Name", s0."Capacity", s0."Code0", s0."IsActive0"
+verify	Build and test	2026-11-10T04:38:42.2595750Z       FROM (
+verify	Build and test	2026-11-10T04:38:42.2596853Z           SELECT t."Id", t."DelayMinutes", t."LastStopOrder", t."ObservedDeparture", t."RouteId", t."ScheduledDeparture", t."Status", t."VehicleId", t."Version", r."Id" AS "Id0", r."Code", r."IsActive", r."Name", v."Id" AS "Id1", v."Capacity", v."Code" AS "Code0", v."IsActive" AS "IsActive0"
+verify	Build and test	2026-11-10T04:38:42.2597883Z           FROM trips AS t
+verify	Build and test	2026-11-10T04:38:42.2598195Z           INNER JOIN routes AS r ON t."RouteId" = r."Id"
+verify	Build and test	2026-11-10T04:38:42.2598583Z           INNER JOIN vehicles AS v ON t."VehicleId" = v."Id"
+verify	Build and test	2026-11-10T04:38:42.2598938Z           WHERE t."Id" = @8__locals1_id
+verify	Build and test	2026-11-10T04:38:42.2599237Z           LIMIT 2
+verify	Build and test	2026-11-10T04:38:42.2599433Z       ) AS s0
+verify	Build and test	2026-11-10T04:38:42.2599624Z       LEFT JOIN (
+verify	Build and test	2026-11-10T04:38:42.2600888Z           SELECT r0."Id", r0."DwellMinutes", r0."RouteId", r0."StopId", r0."StopOrder", r0."TravelMinutesFromPreviousStop", s."Id" AS "Id0", s."Code", s."Location", s."Name"
+verify	Build and test	2026-11-10T04:38:42.2602121Z           FROM route_stops AS r0
+verify	Build and test	2026-11-10T04:38:42.2602685Z           INNER JOIN stops AS s ON r0."StopId" = s."Id"
+verify	Build and test	2026-11-10T04:38:42.2603199Z       ) AS s1 ON s0."Id0" = s1."RouteId"
+verify	Build and test	2026-11-10T04:38:42.2603703Z       ORDER BY s0."Id", s0."Id0", s0."Id1", s1."Id"
+verify	Build and test	2026-11-10T04:38:42.2612588Z info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+verify	Build and test	2026-11-10T04:38:42.2613829Z       Executed DbCommand (1ms) [Parameters=[@trip_Id='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+verify	Build and test	2026-11-10T04:38:42.2615110Z       SELECT t."Id", t."Kind", t."OccurredAt", t."Snapshot", t."StopOrder", t."TripId"
+verify	Build and test	2026-11-10T04:38:42.2615882Z       FROM trip_events AS t
+verify	Build and test	2026-11-10T04:38:42.2616497Z       WHERE t."TripId" = @trip_Id AND t."Kind" = 'arrive'
+verify	Build and test	2026-11-10T04:38:42.3017873Z info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+verify	Build and test	2026-11-10T04:38:42.3018907Z       Executed DbCommand (1ms) [Parameters=[@id='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+verify	Build and test	2026-11-10T04:38:42.3021806Z       SELECT s0."Id", s0."DelayMinutes", s0."LastStopOrder", s0."ObservedDeparture", s0."RouteId", s0."ScheduledDeparture", s0."Status", s0."VehicleId", s0."Version", s0."Id0", s0."Code", s0."IsActive", s0."Name", s0."Id1", s1."Id", s1."DwellMinutes", s1."RouteId", s1."StopId", s1."StopOrder", s1."TravelMinutesFromPreviousStop", s1."Id0", s1."Code", s1."Location", s1."Name", s0."Capacity", s0."Code0", s0."IsActive0"
+verify	Build and test	2026-11-10T04:38:42.3024150Z       FROM (
+verify	Build and test	2026-11-10T04:38:42.3025736Z           SELECT t."Id", t."DelayMinutes", t."LastStopOrder", t."ObservedDeparture", t."RouteId", t."ScheduledDeparture", t."Status", t."VehicleId", t."Version", r."Id" AS "Id0", r."Code", r."IsActive", r."Name", v."Id" AS "Id1", v."Capacity", v."Code" AS "Code0", v."IsActive" AS "IsActive0"
+verify	Build and test	2026-11-10T04:38:42.3027375Z           FROM trips AS t
+verify	Build and test	2026-11-10T04:38:42.3027823Z           INNER JOIN routes AS r ON t."RouteId" = r."Id"
+verify	Build and test	2026-11-10T04:38:42.3028398Z           INNER JOIN vehicles AS v ON t."VehicleId" = v."Id"
+verify	Build and test	2026-11-10T04:38:42.3028855Z           WHERE t."Id" = @id
+verify	Build and test	2026-11-10T04:38:42.3029193Z           LIMIT 2
+verify	Build and test	2026-11-10T04:38:42.3029519Z       ) AS s0
+verify	Build and test	2026-11-10T04:38:42.3029788Z       LEFT JOIN (
+verify	Build and test	2026-11-10T04:38:42.3031041Z           SELECT r0."Id", r0."DwellMinutes", r0."RouteId", r0."StopId", r0."StopOrder", r0."TravelMinutesFromPreviousStop", s."Id" AS "Id0", s."Code", s."Location", s."Name"
+verify	Build and test	2026-11-10T04:38:42.3032064Z           FROM route_stops AS r0
+verify	Build and test	2026-11-10T04:38:42.3032517Z           INNER JOIN stops AS s ON r0."StopId" = s."Id"
+verify	Build and test	2026-11-10T04:38:42.3032978Z       ) AS s1 ON s0."Id0" = s1."RouteId"
+verify	Build and test	2026-11-10T04:38:42.3033334Z       ORDER BY s0."Id", s0."Id0", s0."Id1", s1."Id"
+verify	Build and test	2026-11-10T04:38:42.3049894Z info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+verify	Build and test	2026-11-10T04:38:42.3051126Z       Executed DbCommand (1ms) [Parameters=[@trip_Id='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+verify	Build and test	2026-11-10T04:38:42.3052337Z       SELECT t."Id", t."Kind", t."OccurredAt", t."Snapshot", t."StopOrder", t."TripId"
+verify	Build and test	2026-11-10T04:38:42.3053089Z       FROM trip_events AS t
+verify	Build and test	2026-11-10T04:38:42.3053687Z       WHERE t."TripId" = @trip_Id AND t."Kind" = 'arrive'
+verify	Build and test	2026-11-10T04:38:42.3609230Z info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+verify	Build and test	2026-11-10T04:38:42.3610480Z       Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+verify	Build and test	2026-11-10T04:38:42.3617904Z       SELECT pg_advisory_xact_lock(7218401)
+verify	Build and test	2026-11-10T04:38:42.3621907Z info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+verify	Build and test	2026-11-10T04:38:42.3623114Z       Executed DbCommand (1ms) [Parameters=[@request_RouteId='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+verify	Build and test	2026-11-10T04:38:42.3625392Z       SELECT r1."Id", r1."Code", r1."IsActive", r1."Name", s0."Id", s0."DwellMinutes", s0."RouteId", s0."StopId", s0."StopOrder", s0."TravelMinutesFromPreviousStop", s0."Id0", s0."Code", s0."Location", s0."Name"
+verify	Build and test	2026-11-10T04:38:42.3626898Z       FROM (
+verify	Build and test	2026-11-10T04:38:42.3627505Z           SELECT r."Id", r."Code", r."IsActive", r."Name"
+verify	Build and test	2026-11-10T04:38:42.3628250Z           FROM routes AS r
+verify	Build and test	2026-11-10T04:38:42.3629297Z           WHERE r."Id" = @request_RouteId AND r."IsActive"
+verify	Build and test	2026-11-10T04:38:42.3629845Z           LIMIT 2
+verify	Build and test	2026-11-10T04:38:42.3630178Z       ) AS r1
+verify	Build and test	2026-11-10T04:38:42.3630467Z       LEFT JOIN (
+verify	Build and test	2026-11-10T04:38:42.3631972Z           SELECT r0."Id", r0."DwellMinutes", r0."RouteId", r0."StopId", r0."StopOrder", r0."TravelMinutesFromPreviousStop", s."Id" AS "Id0", s."Code", s."Location", s."Name"
+verify	Build and test	2026-11-10T04:38:42.3633205Z           FROM route_stops AS r0
+verify	Build and test	2026-11-10T04:38:42.3633790Z           INNER JOIN stops AS s ON r0."StopId" = s."Id"
+verify	Build and test	2026-11-10T04:38:42.3634356Z       ) AS s0 ON r1."Id" = s0."RouteId"
+verify	Build and test	2026-11-10T04:38:42.3634832Z       ORDER BY r1."Id", s0."Id"
+verify	Build and test	2026-11-10T04:38:42.3644189Z info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+verify	Build and test	2026-11-10T04:38:42.3645925Z       Executed DbCommand (0ms) [Parameters=[@request_VehicleId='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+verify	Build and test	2026-11-10T04:38:42.3647755Z       SELECT v."Id", v."Capacity", v."Code", v."IsActive"
+verify	Build and test	2026-11-10T04:38:42.3648747Z       FROM vehicles AS v
+verify	Build and test	2026-11-10T04:38:42.3649683Z       WHERE v."Id" = @request_VehicleId AND v."IsActive"
+verify	Build and test	2026-11-10T04:38:42.3650524Z       LIMIT 2
+verify	Build and test	2026-11-10T04:38:42.3663614Z info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+verify	Build and test	2026-11-10T04:38:42.3666174Z       Executed DbCommand (1ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = DateTime), @p3='?' (DbType = Int64), @p4='?' (DbType = DateTime), @p5='?', @p6='?' (DbType = Int64), @p7='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+verify	Build and test	2026-11-10T04:38:42.3680453Z       INSERT INTO trips ("DelayMinutes", "LastStopOrder", "ObservedDeparture", "RouteId", "ScheduledDeparture", "Status", "VehicleId", "Version")
+verify	Build and test	2026-11-10T04:38:42.3681933Z       VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7)
+verify	Build and test	2026-11-10T04:38:42.3682476Z       RETURNING "Id";
+verify	Build and test	2026-11-10T04:38:42.3683206Z info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+verify	Build and test	2026-11-10T04:38:42.3684364Z       Executed DbCommand (1ms) [Parameters=[@trip_Id='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+verify	Build and test	2026-11-10T04:38:42.3685521Z       SELECT t."Id", t."Kind", t."OccurredAt", t."Snapshot", t."StopOrder", t."TripId"
+verify	Build and test	2026-11-10T04:38:42.3686224Z       FROM trip_events AS t
+verify	Build and test	2026-11-10T04:38:42.3686819Z       WHERE t."TripId" = @trip_Id AND t."Kind" = 'arrive'
+verify	Build and test	2026-11-10T04:38:42.3699081Z info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+verify	Build and test	2026-11-10T04:38:42.3702227Z       Executed DbCommand (1ms) [Parameters=[@p0='?', @p1='?', @p2='?' (DbType = Object), @p3='?' (DbType = Object), @p4='?' (DbType = DateTime), @p5='?' (DbType = Int64), @p6='?', @p7='?' (DbType = DateTime), @p8='?' (DbType = Object), @p9='?' (DbType = Int32), @p10='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+verify	Build and test	2026-11-10T04:38:42.3705132Z       INSERT INTO audit_events ("Action", "Actor", "After", "Before", "OccurredAt", "TripId")
+verify	Build and test	2026-11-10T04:38:42.3706468Z       VALUES (@p0, @p1, @p2, @p3, @p4, @p5)
+verify	Build and test	2026-11-10T04:38:42.3706992Z       RETURNING "Id";
+verify	Build and test	2026-11-10T04:38:42.3707571Z       INSERT INTO trip_events ("Kind", "OccurredAt", "Snapshot", "StopOrder", "TripId")
+verify	Build and test	2026-11-10T04:38:42.3708172Z       VALUES (@p6, @p7, @p8, @p9, @p10)
+verify	Build and test	2026-11-10T04:38:42.3708598Z       RETURNING "Id";
+verify	Build and test	2026-11-10T04:38:42.3759736Z info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+verify	Build and test	2026-11-10T04:38:42.3761099Z       Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+verify	Build and test	2026-11-10T04:38:42.3761798Z       SELECT pg_advisory_xact_lock(7218401)
+verify	Build and test	2026-11-10T04:38:42.3782805Z info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+verify	Build and test	2026-11-10T04:38:42.3784205Z       Executed DbCommand (1ms) [Parameters=[@8__locals1_id='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+verify	Build and test	2026-11-10T04:38:42.3787551Z       SELECT s0."Id", s0."DelayMinutes", s0."LastStopOrder", s0."ObservedDeparture", s0."RouteId", s0."ScheduledDeparture", s0."Status", s0."VehicleId", s0."Version", s0."Id0", s0."Code", s0."IsActive", s0."Name", s0."Id1", s1."Id", s1."DwellMinutes", s1."RouteId", s1."StopId", s1."StopOrder", s1."TravelMinutesFromPreviousStop", s1."Id0", s1."Code", s1."Location", s1."Name", s0."Capacity", s0."Code0", s0."IsActive0"
+verify	Build and test	2026-11-10T04:38:42.3790184Z       FROM (
+verify	Build and test	2026-11-10T04:38:42.3792478Z           SELECT t."Id", t."DelayMinutes", t."LastStopOrder", t."ObservedDeparture", t."RouteId", t."ScheduledDeparture", t."Status", t."VehicleId", t."Version", r."Id" AS "Id0", r."Code", r."IsActive", r."Name", v."Id" AS "Id1", v."Capacity", v."Code" AS "Code0", v."IsActive" AS "IsActive0"
+verify	Build and test	2026-11-10T04:38:42.3794256Z           FROM trips AS t
+verify	Build and test	2026-11-10T04:38:42.3795198Z           INNER JOIN routes AS r ON t."RouteId" = r."Id"
+verify	Build and test	2026-11-10T04:38:42.3795940Z           INNER JOIN vehicles AS v ON t."VehicleId" = v."Id"
+verify	Build and test	2026-11-10T04:38:42.3796717Z           WHERE t."Id" = @8__locals1_id
+verify	Build and test	2026-11-10T04:38:42.3798453Z           LIMIT 2
+verify	Build and test	2026-11-10T04:38:42.3799323Z       ) AS s0
+verify	Build and test	2026-11-10T04:38:42.3799888Z       LEFT JOIN (
+verify	Build and test	2026-11-10T04:38:42.3801782Z           SELECT r0."Id", r0."DwellMinutes", r0."RouteId", r0."StopId", r0."StopOrder", r0."TravelMinutesFromPreviousStop", s."Id" AS "Id0", s."Code", s."Location", s."Name"
+verify	Build and test	2026-11-10T04:38:42.3802925Z           FROM route_stops AS r0
+verify	Build and test	2026-11-10T04:38:42.3803457Z           INNER JOIN stops AS s ON r0."StopId" = s."Id"
+verify	Build and test	2026-11-10T04:38:42.3803972Z       ) AS s1 ON s0."Id0" = s1."RouteId"
+verify	Build and test	2026-11-10T04:38:42.3804463Z       ORDER BY s0."Id", s0."Id0", s0."Id1", s1."Id"
+verify	Build and test	2026-11-10T04:38:42.3805165Z info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+verify	Build and test	2026-11-10T04:38:42.3806237Z       Executed DbCommand (1ms) [Parameters=[@trip_Id='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+verify	Build and test	2026-11-10T04:38:42.3807078Z       SELECT t."Id", t."Kind", t."OccurredAt", t."Snapshot", t."StopOrder", t."TripId"
+verify	Build and test	2026-11-10T04:38:42.3807636Z       FROM trip_events AS t
+verify	Build and test	2026-11-10T04:38:42.3808115Z       WHERE t."TripId" = @trip_Id AND t."Kind" = 'arrive'
+verify	Build and test	2026-11-10T04:38:42.3844442Z info: Microsoft.Hosting.Lifetime[0]
+verify	Build and test	2026-11-10T04:38:42.3846015Z       Application is shutting down...
+verify	Build and test	2026-11-10T04:38:42.5326162Z [xUnit.net 00:00:08.65]   Finished:    RouteBoard.Api.Tests
+verify	Build and test	2026-11-10T04:38:42.6091761Z   Passed RouteBoard.Api.Tests.TripApiTests.Invalid_token_is_401(failure: "expiry") [7 ms]
+verify	Build and test	2026-11-10T04:38:42.6093684Z   Passed RouteBoard.Api.Tests.TripApiTests.Invalid_token_is_401(failure: "audience") [4 ms]
+verify	Build and test	2026-11-10T04:38:42.6095002Z   Passed RouteBoard.Api.Tests.McpAuthorizationTests.Read_scope_cannot_write_or_call_another_read_tool [43 ms]
+verify	Build and test	2026-11-10T04:38:42.6096308Z   Passed RouteBoard.Api.Tests.McpAuthorizationTests.Anonymous_transport_is_rejected [6 ms]
+verify	Build and test	2026-11-10T04:38:42.6097520Z   Passed RouteBoard.Api.Tests.TripApiTests.Invalid_token_is_401(failure: "signature") [180 ms]
+verify	Build and test	2026-11-10T04:38:42.6098631Z   Passed RouteBoard.Api.Tests.TripApiTests.Invalid_token_is_401(failure: "issuer") [3 ms]
+verify	Build and test	2026-11-10T04:38:42.6099778Z   Passed RouteBoard.Api.Tests.TripApiTests.Create_returns_location_and_concurrent_updates_have_one_winner [152 ms]
+verify	Build and test	2026-11-10T04:38:42.6101210Z   Passed RouteBoard.Api.Tests.TripApiTests.Out_of_order_arrival_is_rejected_without_audit_or_event [28 ms]
+verify	Build and test	2026-11-10T04:38:42.6127690Z 
+verify	Build and test	2026-11-10T04:38:42.6165526Z Test Run Failed.
+verify	Build and test	2026-11-10T04:38:42.6166005Z Total tests: 36
+verify	Build and test	2026-11-10T04:38:42.6166388Z      Passed: 35
+verify	Build and test	2026-11-10T04:38:42.6166735Z      Failed: 1
+verify	Build and test	2026-11-10T04:38:42.6167777Z  Total time: 9.1698 Seconds
+verify	Build and test	2026-11-10T04:38:42.6920122Z ##[error]Process completed with exit code 1.

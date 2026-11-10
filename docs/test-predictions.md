@@ -20,3 +20,7 @@ The fixture tokens, provider bodies, and operational records are synthetic. Real
 ## Restricted runtime database identity
 
 Before execution: the runtime role can read the public catalog and append an audit event. Updating/deleting/truncating audit history, disabling its trigger, creating tables, and deleting replay events must each fail with PostgreSQL insufficient_privilege (42501). This uses a disposable database and a unique temporary role; it does not modify the development role.
+
+## Cross-platform timestamp precision regression
+
+PostgreSQL stores microseconds (10 .NET ticks). Given a sample at a whole microsecond plus seven ticks, persist the whole microsecond. Replaying a sample one tick later in that same microsecond must not increment its sequence; an older sample must not replace it. Assert exact persisted values rather than adding a permissive tolerance.
