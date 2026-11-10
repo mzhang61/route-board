@@ -1,0 +1,4 @@
+Stopped the task-owned API process and started a new process on port 5088.
+GET /api/trips returned exactly the same JSON after application restart.
+Synthetic trip IDs: [1]
+This proves application-process restart persistence, not database-container restart or cloud redeploy.

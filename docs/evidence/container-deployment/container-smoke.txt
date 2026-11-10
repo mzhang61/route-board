@@ -1,0 +1,7 @@
+GET /healthz: 200, database reachable through HTTPS proxy
+GET /: 200, HTML revalidation and CSP present
+Hashed JavaScript: immutable cache; If-None-Match: 304
+POST /api/trips: anonymous 401, no-store
+POST /mcp: anonymous 401, no-store
+HTTP ingress: 308 HTTPS redirect
+Local development certificate used with curl -k; public certificate validity is NOT verified.

@@ -1,0 +1,6 @@
+GET /healthz: 200, database reachable through HTTPS proxy
+Traceback (most recent call last):
+  File "/Users/mmm/Documents/Codex/2026-11-09/referenced-chatgpt-conversation-this-is-an-2/work/package_smoke.py", line 24, in <module>
+    assert '200 OK' in page and 'cache-control: no-cache' in page.lower()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

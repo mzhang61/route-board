@@ -1,0 +1,527 @@
+  Determining projects to restore...
+  All projects are up-to-date for restore.
+  RouteBoard.Api -> /Users/mmm/Documents/route-board/backend/RouteBoard.Api/bin/Debug/net10.0/RouteBoard.Api.dll
+  RouteBoard.Api.Tests -> /Users/mmm/Documents/route-board/tests/RouteBoard.Api.Tests/bin/Debug/net10.0/RouteBoard.Api.Tests.dll
+Test run for /Users/mmm/Documents/route-board/tests/RouteBoard.Api.Tests/bin/Debug/net10.0/RouteBoard.Api.Tests.dll (.NETCoreApp,Version=v10.0)
+A total of 1 test files matched the specified pattern.
+[xUnit.net 00:00:00.00] xUnit.net VSTest Adapter v3.1.4+50e68bbb8b (64-bit .NET 10.0.14)
+[xUnit.net 00:00:00.06]   Discovering: RouteBoard.Api.Tests
+[xUnit.net 00:00:00.11]   Discovered:  RouteBoard.Api.Tests
+[xUnit.net 00:00:00.13]   Starting:    RouteBoard.Api.Tests
+  Passed RouteBoard.Api.Tests.ArrivalCalculatorTests.Arrival_matches_hand_prediction(delay: 4, expectedMinute: 27) [6 ms]
+  Passed RouteBoard.Api.Tests.ArrivalCalculatorTests.Arrival_matches_hand_prediction(delay: 0, expectedMinute: 23) [< 1 ms]
+  Passed RouteBoard.Api.Tests.ArrivalCalculatorTests.Negative_travel_time_is_rejected [< 1 ms]
+  Passed RouteBoard.Api.Tests.RouteEstimateTests.Provider_response_is_validated_and_retries_are_bounded(status: 200, body: "{\"features\":[{\"properties\":{\"time\":600,\"dis"···, expectedStatus: "fresh", expectedCalls: 1) [25 ms]
+  Passed RouteBoard.Api.Tests.RouteEstimateTests.Provider_response_is_validated_and_retries_are_bounded(status: 429, body: "{}", expectedStatus: "unavailable", expectedCalls: 1) [< 1 ms]
+  Passed RouteBoard.Api.Tests.RouteEstimateTests.Provider_response_is_validated_and_retries_are_bounded(status: 200, body: "{\"features\":[{\"properties\":{\"time\":-1,\"dist"···, expectedStatus: "unavailable", expectedCalls: 1) [< 1 ms]
+  Passed RouteBoard.Api.Tests.RouteEstimateTests.Provider_response_is_validated_and_retries_are_bounded(status: 503, body: "{}", expectedStatus: "unavailable", expectedCalls: 2) [< 1 ms]
+[xUnit.net 00:00:03.02]     RouteBoard.Api.Tests.TripApiTests.Invalid_query_is_400(url: "/api/trips?page=0") [FAIL]
+[xUnit.net 00:00:03.02]       System.InvalidOperationException : JsonSerializerOptions instance must specify a TypeInfoResolver setting before being marked as read-only.
+[xUnit.net 00:00:03.02]       Stack Trace:
+[xUnit.net 00:00:03.02]            at System.Text.Json.ThrowHelper.ThrowInvalidOperationException_JsonSerializerOptionsNoTypeInfoResolverSpecified()
+[xUnit.net 00:00:03.02]            at System.Text.Json.JsonSerializerOptions.MakeReadOnly()
+[xUnit.net 00:00:03.02]            at Microsoft.Extensions.AI.AIFunctionFactory.ReflectionAIFunctionDescriptor.GetOrCreate(MethodInfo method, AIFunctionFactoryOptions options)
+[xUnit.net 00:00:03.02]            at Microsoft.Extensions.AI.AIFunctionFactory.ReflectionAIFunction.Build(MethodInfo method, Func`2 createInstanceFunc, AIFunctionFactoryOptions options)
+[xUnit.net 00:00:03.02]            at Microsoft.Extensions.AI.AIFunctionFactory.Create(MethodInfo method, Func`2 createInstanceFunc, AIFunctionFactoryOptions options)
+[xUnit.net 00:00:03.02]            at ModelContextProtocol.Server.AIFunctionMcpServerTool.Create(MethodInfo method, Func`2 createTargetFunc, McpServerToolCreateOptions options)
+[xUnit.net 00:00:03.02]            at ModelContextProtocol.Server.McpServerTool.Create(MethodInfo method, Func`2 createTargetFunc, McpServerToolCreateOptions options)
+[xUnit.net 00:00:03.02]            at Microsoft.Extensions.DependencyInjection.McpServerBuilderExtensions.<>c__DisplayClass1_1`1.<WithTools>b__1(IServiceProvider services)
+[xUnit.net 00:00:03.02]            at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitRootCache(ServiceCallSite callSite, RuntimeResolverContext context)
+[xUnit.net 00:00:03.02]            at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitIEnumerable(IEnumerableCallSite enumerableCallSite, RuntimeResolverContext context)
+[xUnit.net 00:00:03.02]            at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitRootCache(ServiceCallSite callSite, RuntimeResolverContext context)
+[xUnit.net 00:00:03.02]            at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
+[xUnit.net 00:00:03.02]            at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+[xUnit.net 00:00:03.02]            at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitIEnumerable(IEnumerableCallSite enumerableCallSite, RuntimeResolverContext context)
+[xUnit.net 00:00:03.02]            at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
+[xUnit.net 00:00:03.02]            at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+[xUnit.net 00:00:03.02]            at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
+[xUnit.net 00:00:03.02]            at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitRootCache(ServiceCallSite callSite, RuntimeResolverContext context)
+[xUnit.net 00:00:03.02]            at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
+[xUnit.net 00:00:03.02]            at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitRootCache(ServiceCallSite callSite, RuntimeResolverContext context)
+[xUnit.net 00:00:03.02]            at Microsoft.Extensions.DependencyInjection.ServiceProvider.CreateServiceAccessor(ServiceIdentifier serviceIdentifier)
+[xUnit.net 00:00:03.02]            at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+[xUnit.net 00:00:03.02]            at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(ServiceIdentifier serviceIdentifier, ServiceProviderEngineScope serviceProviderEngineScope)
+[xUnit.net 00:00:03.02]            at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetService[T](IServiceProvider provider)
+[xUnit.net 00:00:03.02]            at Microsoft.AspNetCore.Builder.McpEndpointRouteBuilderExtensions.MapMcp(IEndpointRouteBuilder endpoints, String pattern)
+[xUnit.net 00:00:03.02]         /Users/mmm/Documents/route-board/backend/RouteBoard.Api/Program.cs(115,0): at Program.<Main>$(String[] args)
+[xUnit.net 00:00:03.02]            at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+[xUnit.net 00:00:03.02]            at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+[xUnit.net 00:00:03.02]            at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+[xUnit.net 00:00:03.02]            at System.Reflection.MethodBaseInvoker.InvokeDirectByRefWithFewArgs(Object obj, Span`1 copyOfArgs, BindingFlags invokeAttr)
+[xUnit.net 00:00:03.02]         --- End of stack trace from previous location ---
+[xUnit.net 00:00:03.02]            at Microsoft.AspNetCore.Mvc.Testing.DeferredHostBuilder.DeferredHost.StartAsync(CancellationToken cancellationToken)
+[xUnit.net 00:00:03.02]            at Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.Start(IHost host)
+[xUnit.net 00:00:03.02]            at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateHost(IHostBuilder builder)
+[xUnit.net 00:00:03.02]            at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.ConfigureHostBuilder(IHostBuilder hostBuilder)
+[xUnit.net 00:00:03.02]            at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.StartServer()
+[xUnit.net 00:00:03.02]            at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateDefaultClient(DelegatingHandler[] handlers)
+[xUnit.net 00:00:03.02]            at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateDefaultClient(Uri baseAddress, DelegatingHandler[] handlers)
+[xUnit.net 00:00:03.02]            at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateClient(WebApplicationFactoryClientOptions options)
+[xUnit.net 00:00:03.02]            at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateClient()
+[xUnit.net 00:00:03.02]         /Users/mmm/Documents/route-board/tests/RouteBoard.Api.Tests/TripApiTests.cs(14,0): at RouteBoard.Api.Tests.TripApiTests.Client(String token)
+[xUnit.net 00:00:03.02]         /Users/mmm/Documents/route-board/tests/RouteBoard.Api.Tests/TripApiTests.cs(61,0): at RouteBoard.Api.Tests.TripApiTests.Invalid_query_is_400(String url)
+[xUnit.net 00:00:03.02]         --- End of stack trace from previous location ---
+[xUnit.net 00:00:03.07]     RouteBoard.Api.Tests.TripApiTests.Invalid_query_is_400(url: "/api/events?after=-1") [FAIL]
+[xUnit.net 00:00:03.07]       System.InvalidOperationException : JsonSerializerOptions instance must specify a TypeInfoResolver setting before being marked as read-only.
+[xUnit.net 00:00:03.07]       Stack Trace:
+[xUnit.net 00:00:03.07]            at System.Text.Json.ThrowHelper.ThrowInvalidOperationException_JsonSerializerOptionsNoTypeInfoResolverSpecified()
+[xUnit.net 00:00:03.07]            at System.Text.Json.JsonSerializerOptions.MakeReadOnly()
+[xUnit.net 00:00:03.07]            at Microsoft.Extensions.AI.AIFunctionFactory.ReflectionAIFunctionDescriptor.GetOrCreate(MethodInfo method, AIFunctionFactoryOptions options)
+[xUnit.net 00:00:03.07]            at Microsoft.Extensions.AI.AIFunctionFactory.ReflectionAIFunction.Build(MethodInfo method, Func`2 createInstanceFunc, AIFunctionFactoryOptions options)
+[xUnit.net 00:00:03.07]            at Microsoft.Extensions.AI.AIFunctionFactory.Create(MethodInfo method, Func`2 createInstanceFunc, AIFunctionFactoryOptions options)
+[xUnit.net 00:00:03.07]            at ModelContextProtocol.Server.AIFunctionMcpServerTool.Create(MethodInfo method, Func`2 createTargetFunc, McpServerToolCreateOptions options)
+[xUnit.net 00:00:03.07]            at ModelContextProtocol.Server.McpServerTool.Create(MethodInfo method, Func`2 createTargetFunc, McpServerToolCreateOptions options)
+[xUnit.net 00:00:03.07]            at Microsoft.Extensions.DependencyInjection.McpServerBuilderExtensions.<>c__DisplayClass1_1`1.<WithTools>b__1(IServiceProvider services)
+[xUnit.net 00:00:03.07]            at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitRootCache(ServiceCallSite callSite, RuntimeResolverContext context)
+[xUnit.net 00:00:03.07]            at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitIEnumerable(IEnumerableCallSite enumerableCallSite, RuntimeResolverContext context)
+[xUnit.net 00:00:03.07]            at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitRootCache(ServiceCallSite callSite, RuntimeResolverContext context)
+[xUnit.net 00:00:03.07]            at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
+[xUnit.net 00:00:03.07]            at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+[xUnit.net 00:00:03.07]            at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitIEnumerable(IEnumerableCallSite enumerableCallSite, RuntimeResolverContext context)
+[xUnit.net 00:00:03.07]            at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
+[xUnit.net 00:00:03.07]            at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+[xUnit.net 00:00:03.07]            at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
+[xUnit.net 00:00:03.07]            at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitRootCache(ServiceCallSite callSite, RuntimeResolverContext context)
+[xUnit.net 00:00:03.07]            at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
+[xUnit.net 00:00:03.07]            at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitRootCache(ServiceCallSite callSite, RuntimeResolverContext context)
+[xUnit.net 00:00:03.07]            at Microsoft.Extensions.DependencyInjection.ServiceProvider.CreateServiceAccessor(ServiceIdentifier serviceIdentifier)
+[xUnit.net 00:00:03.07]            at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+[xUnit.net 00:00:03.07]            at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(ServiceIdentifier serviceIdentifier, ServiceProviderEngineScope serviceProviderEngineScope)
+[xUnit.net 00:00:03.07]            at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetService[T](IServiceProvider provider)
+[xUnit.net 00:00:03.07]            at Microsoft.AspNetCore.Builder.McpEndpointRouteBuilderExtensions.MapMcp(IEndpointRouteBuilder endpoints, String pattern)
+[xUnit.net 00:00:03.07]         /Users/mmm/Documents/route-board/backend/RouteBoard.Api/Program.cs(115,0): at Program.<Main>$(String[] args)
+[xUnit.net 00:00:03.07]            at InvokeStub_Program.<Main>$(Object, Span`1)
+[xUnit.net 00:00:03.07]            at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+[xUnit.net 00:00:03.07]         --- End of stack trace from previous location ---
+[xUnit.net 00:00:03.07]            at Microsoft.AspNetCore.Mvc.Testing.DeferredHostBuilder.DeferredHost.StartAsync(CancellationToken cancellationToken)
+[xUnit.net 00:00:03.07]            at Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.Start(IHost host)
+[xUnit.net 00:00:03.07]            at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateHost(IHostBuilder builder)
+[xUnit.net 00:00:03.07]            at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.ConfigureHostBuilder(IHostBuilder hostBuilder)
+[xUnit.net 00:00:03.07]            at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.StartServer()
+[xUnit.net 00:00:03.07]            at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateDefaultClient(DelegatingHandler[] handlers)
+[xUnit.net 00:00:03.07]            at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateDefaultClient(Uri baseAddress, DelegatingHandler[] handlers)
+[xUnit.net 00:00:03.07]            at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateClient(WebApplicationFactoryClientOptions options)
+[xUnit.net 00:00:03.07]            at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateClient()
+[xUnit.net 00:00:03.07]         /Users/mmm/Documents/route-board/tests/RouteBoard.Api.Tests/TripApiTests.cs(14,0): at RouteBoard.Api.Tests.TripApiTests.Client(String token)
+[xUnit.net 00:00:03.07]         /Users/mmm/Documents/route-board/tests/RouteBoard.Api.Tests/TripApiTests.cs(61,0): at RouteBoard.Api.Tests.TripApiTests.Invalid_query_is_400(String url)
+[xUnit.net 00:00:03.07]         --- End of stack trace from previous location ---
+info: Microsoft.Hosting.Lifetime[0]
+      Application started. Press Ctrl+C to shut down.
+info: Microsoft.Hosting.Lifetime[0]
+      Hosting environment: Testing
+info: Microsoft.Hosting.Lifetime[0]
+      Content root path: /Users/mmm/Documents/route-board/backend/RouteBoard.Api
+  Failed RouteBoard.Api.Tests.TripApiTests.Invalid_query_is_400(url: "/api/trips?page=0") [156 ms]
+  Error Message:
+   System.InvalidOperationException : JsonSerializerOptions instance must specify a TypeInfoResolver setting before being marked as read-only.
+  Stack Trace:
+     at System.Text.Json.ThrowHelper.ThrowInvalidOperationException_JsonSerializerOptionsNoTypeInfoResolverSpecified()
+   at System.Text.Json.JsonSerializerOptions.MakeReadOnly()
+   at Microsoft.Extensions.AI.AIFunctionFactory.ReflectionAIFunctionDescriptor.GetOrCreate(MethodInfo method, AIFunctionFactoryOptions options)
+   at Microsoft.Extensions.AI.AIFunctionFactory.ReflectionAIFunction.Build(MethodInfo method, Func`2 createInstanceFunc, AIFunctionFactoryOptions options)
+   at Microsoft.Extensions.AI.AIFunctionFactory.Create(MethodInfo method, Func`2 createInstanceFunc, AIFunctionFactoryOptions options)
+   at ModelContextProtocol.Server.AIFunctionMcpServerTool.Create(MethodInfo method, Func`2 createTargetFunc, McpServerToolCreateOptions options)
+   at ModelContextProtocol.Server.McpServerTool.Create(MethodInfo method, Func`2 createTargetFunc, McpServerToolCreateOptions options)
+   at Microsoft.Extensions.DependencyInjection.McpServerBuilderExtensions.<>c__DisplayClass1_1`1.<WithTools>b__1(IServiceProvider services)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitRootCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitIEnumerable(IEnumerableCallSite enumerableCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitRootCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitIEnumerable(IEnumerableCallSite enumerableCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitRootCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitRootCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.CreateServiceAccessor(ServiceIdentifier serviceIdentifier)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(ServiceIdentifier serviceIdentifier, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetService[T](IServiceProvider provider)
+   at Microsoft.AspNetCore.Builder.McpEndpointRouteBuilderExtensions.MapMcp(IEndpointRouteBuilder endpoints, String pattern)
+   at Program.<Main>$(String[] args) in /Users/mmm/Documents/route-board/backend/RouteBoard.Api/Program.cs:line 115
+   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeDirectByRefWithFewArgs(Object obj, Span`1 copyOfArgs, BindingFlags invokeAttr)
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Testing.DeferredHostBuilder.DeferredHost.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.Start(IHost host)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateHost(IHostBuilder builder)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.ConfigureHostBuilder(IHostBuilder hostBuilder)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.StartServer()
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateDefaultClient(DelegatingHandler[] handlers)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateDefaultClient(Uri baseAddress, DelegatingHandler[] handlers)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateClient(WebApplicationFactoryClientOptions options)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateClient()
+   at RouteBoard.Api.Tests.TripApiTests.Client(String token) in /Users/mmm/Documents/route-board/tests/RouteBoard.Api.Tests/TripApiTests.cs:line 14
+   at RouteBoard.Api.Tests.TripApiTests.Invalid_query_is_400(String url) in /Users/mmm/Documents/route-board/tests/RouteBoard.Api.Tests/TripApiTests.cs:line 61
+--- End of stack trace from previous location ---
+  Failed RouteBoard.Api.Tests.TripApiTests.Invalid_query_is_400(url: "/api/events?after=-1") [55 ms]
+  Error Message:
+   System.InvalidOperationException : JsonSerializerOptions instance must specify a TypeInfoResolver setting before being marked as read-only.
+  Stack Trace:
+     at System.Text.Json.ThrowHelper.ThrowInvalidOperationException_JsonSerializerOptionsNoTypeInfoResolverSpecified()
+   at System.Text.Json.JsonSerializerOptions.MakeReadOnly()
+   at Microsoft.Extensions.AI.AIFunctionFactory.ReflectionAIFunctionDescriptor.GetOrCreate(MethodInfo method, AIFunctionFactoryOptions options)
+   at Microsoft.Extensions.AI.AIFunctionFactory.ReflectionAIFunction.Build(MethodInfo method, Func`2 createInstanceFunc, AIFunctionFactoryOptions options)
+   at Microsoft.Extensions.AI.AIFunctionFactory.Create(MethodInfo method, Func`2 createInstanceFunc, AIFunctionFactoryOptions options)
+   at ModelContextProtocol.Server.AIFunctionMcpServerTool.Create(MethodInfo method, Func`2 createTargetFunc, McpServerToolCreateOptions options)
+   at ModelContextProtocol.Server.McpServerTool.Create(MethodInfo method, Func`2 createTargetFunc, McpServerToolCreateOptions options)
+   at Microsoft.Extensions.DependencyInjection.McpServerBuilderExtensions.<>c__DisplayClass1_1`1.<WithTools>b__1(IServiceProvider services)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitRootCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitIEnumerable(IEnumerableCallSite enumerableCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitRootCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitIEnumerable(IEnumerableCallSite enumerableCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitRootCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitRootCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.CreateServiceAccessor(ServiceIdentifier serviceIdentifier)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(ServiceIdentifier serviceIdentifier, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetService[T](IServiceProvider provider)
+   at Microsoft.AspNetCore.Builder.McpEndpointRouteBuilderExtensions.MapMcp(IEndpointRouteBuilder endpoints, String pattern)
+   at Program.<Main>$(String[] args) in /Users/mmm/Documents/route-board/backend/RouteBoard.Api/Program.cs:line 115
+   at InvokeStub_Program.<Main>$(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Testing.DeferredHostBuilder.DeferredHost.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.Start(IHost host)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateHost(IHostBuilder builder)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.ConfigureHostBuilder(IHostBuilder hostBuilder)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.StartServer()
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateDefaultClient(DelegatingHandler[] handlers)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateDefaultClient(Uri baseAddress, DelegatingHandler[] handlers)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateClient(WebApplicationFactoryClientOptions options)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateClient()
+   at RouteBoard.Api.Tests.TripApiTests.Client(String token) in /Users/mmm/Documents/route-board/tests/RouteBoard.Api.Tests/TripApiTests.cs:line 14
+   at RouteBoard.Api.Tests.TripApiTests.Invalid_query_is_400(String url) in /Users/mmm/Documents/route-board/tests/RouteBoard.Api.Tests/TripApiTests.cs:line 61
+--- End of stack trace from previous location ---
+  Passed RouteBoard.Api.Tests.McpAuthorizationTests.Confirmation_is_bound_to_actor_operation_and_version [439 ms]
+  Passed RouteBoard.Api.Tests.TripApiTests.Invalid_query_is_400(url: "/api/trips?pageSize=101") [248 ms]
+  Passed RouteBoard.Api.Tests.TripApiTests.Invalid_query_is_400(url: "/api/trips?status=unknown") [3 ms]
+  Passed RouteBoard.Api.Tests.McpAuthorizationTests.Read_scope_cannot_write_or_call_another_read_tool [36 ms]
+  Passed RouteBoard.Api.Tests.TripApiTests.Anonymous_write_is_401 [13 ms]
+  Passed RouteBoard.Api.Tests.MigrationTests.Migrations_apply_revert_and_reapply_on_disposable_database [3 s]
+info: Microsoft.Hosting.Lifetime[0]
+      Application started. Press Ctrl+C to shut down.
+info: Microsoft.Hosting.Lifetime[0]
+      Hosting environment: Testing
+info: Microsoft.Hosting.Lifetime[0]
+      Content root path: /Users/mmm/Documents/route-board/backend/RouteBoard.Api
+info: Microsoft.Hosting.Lifetime[0]
+      Application is shutting down...
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT pg_advisory_xact_lock(7218401)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (23ms) [Parameters=[@request_RouteId='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      SELECT r1."Id", r1."Code", r1."IsActive", r1."Name", s0."Id", s0."DwellMinutes", s0."RouteId", s0."StopId", s0."StopOrder", s0."TravelMinutesFromPreviousStop", s0."Id0", s0."Code", s0."Location", s0."Name"
+      FROM (
+          SELECT r."Id", r."Code", r."IsActive", r."Name"
+          FROM routes AS r
+          WHERE r."Id" = @request_RouteId AND r."IsActive"
+          LIMIT 2
+      ) AS r1
+      LEFT JOIN (
+          SELECT r0."Id", r0."DwellMinutes", r0."RouteId", r0."StopId", r0."StopOrder", r0."TravelMinutesFromPreviousStop", s."Id" AS "Id0", s."Code", s."Location", s."Name"
+          FROM route_stops AS r0
+          INNER JOIN stops AS s ON r0."StopId" = s."Id"
+      ) AS s0 ON r1."Id" = s0."RouteId"
+      ORDER BY r1."Id", s0."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@request_VehicleId='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      SELECT v."Id", v."Capacity", v."Code", v."IsActive"
+      FROM vehicles AS v
+      WHERE v."Id" = @request_VehicleId AND v."IsActive"
+      LIMIT 2
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = DateTime), @p3='?' (DbType = Int64), @p4='?' (DbType = DateTime), @p5='?', @p6='?' (DbType = Int64), @p7='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO trips ("DelayMinutes", "LastStopOrder", "ObservedDeparture", "RouteId", "ScheduledDeparture", "Status", "VehicleId", "Version")
+      VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@trip_Id='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      SELECT t."Id", t."Kind", t."OccurredAt", t."Snapshot", t."StopOrder", t."TripId"
+      FROM trip_events AS t
+      WHERE t."TripId" = @trip_Id AND t."Kind" = 'arrive'
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (3ms) [Parameters=[@p0='?', @p1='?', @p2='?' (DbType = Object), @p3='?' (DbType = Object), @p4='?' (DbType = DateTime), @p5='?' (DbType = Int64), @p6='?', @p7='?' (DbType = DateTime), @p8='?' (DbType = Object), @p9='?' (DbType = Int32), @p10='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO audit_events ("Action", "Actor", "After", "Before", "OccurredAt", "TripId")
+      VALUES (@p0, @p1, @p2, @p3, @p4, @p5)
+      RETURNING "Id";
+      INSERT INTO trip_events ("Kind", "OccurredAt", "Snapshot", "StopOrder", "TripId")
+      VALUES (@p6, @p7, @p8, @p9, @p10)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT pg_advisory_xact_lock(7218401)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[@8__locals1_id='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      SELECT s0."Id", s0."DelayMinutes", s0."LastStopOrder", s0."ObservedDeparture", s0."RouteId", s0."ScheduledDeparture", s0."Status", s0."VehicleId", s0."Version", s0."Id0", s0."Code", s0."IsActive", s0."Name", s0."Id1", s1."Id", s1."DwellMinutes", s1."RouteId", s1."StopId", s1."StopOrder", s1."TravelMinutesFromPreviousStop", s1."Id0", s1."Code", s1."Location", s1."Name", s0."Capacity", s0."Code0", s0."IsActive0"
+      FROM (
+          SELECT t."Id", t."DelayMinutes", t."LastStopOrder", t."ObservedDeparture", t."RouteId", t."ScheduledDeparture", t."Status", t."VehicleId", t."Version", r."Id" AS "Id0", r."Code", r."IsActive", r."Name", v."Id" AS "Id1", v."Capacity", v."Code" AS "Code0", v."IsActive" AS "IsActive0"
+          FROM trips AS t
+          INNER JOIN routes AS r ON t."RouteId" = r."Id"
+          INNER JOIN vehicles AS v ON t."VehicleId" = v."Id"
+          WHERE t."Id" = @8__locals1_id
+          LIMIT 2
+      ) AS s0
+      LEFT JOIN (
+          SELECT r0."Id", r0."DwellMinutes", r0."RouteId", r0."StopId", r0."StopOrder", r0."TravelMinutesFromPreviousStop", s."Id" AS "Id0", s."Code", s."Location", s."Name"
+          FROM route_stops AS r0
+          INNER JOIN stops AS s ON r0."StopId" = s."Id"
+      ) AS s1 ON s0."Id0" = s1."RouteId"
+      ORDER BY s0."Id", s0."Id0", s0."Id1", s1."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[@trip_Id='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      SELECT t."Id", t."Kind", t."OccurredAt", t."Snapshot", t."StopOrder", t."TripId"
+      FROM trip_events AS t
+      WHERE t."TripId" = @trip_Id AND t."Kind" = 'arrive'
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@p3='?' (DbType = Int64), @p0='?' (DbType = Int32), @p1='?', @p2='?' (DbType = Int64), @p4='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      UPDATE trips SET "DelayMinutes" = @p0, "Status" = @p1, "Version" = @p2
+      WHERE "Id" = @p3 AND "Version" = @p4;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@trip_Id='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      SELECT t."Id", t."Kind", t."OccurredAt", t."Snapshot", t."StopOrder", t."TripId"
+      FROM trip_events AS t
+      WHERE t."TripId" = @trip_Id AND t."Kind" = 'arrive'
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[@p0='?', @p1='?', @p2='?' (DbType = Object), @p3='?' (DbType = Object), @p4='?' (DbType = DateTime), @p5='?' (DbType = Int64), @p6='?', @p7='?' (DbType = DateTime), @p8='?' (DbType = Object), @p9='?' (DbType = Int32), @p10='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO audit_events ("Action", "Actor", "After", "Before", "OccurredAt", "TripId")
+      VALUES (@p0, @p1, @p2, @p3, @p4, @p5)
+      RETURNING "Id";
+      INSERT INTO trip_events ("Kind", "OccurredAt", "Snapshot", "StopOrder", "TripId")
+      VALUES (@p6, @p7, @p8, @p9, @p10)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[@cursor='?' (DbType = Int64), @p='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT t."Id", t."Kind", t."OccurredAt", t."Snapshot", t."StopOrder", t."TripId"
+      FROM trip_events AS t
+      WHERE t."Id" > @cursor
+      ORDER BY t."Id"
+      LIMIT @p
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (3ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT pg_advisory_xact_lock(7218401)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[@request_RouteId='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      SELECT r1."Id", r1."Code", r1."IsActive", r1."Name", s0."Id", s0."DwellMinutes", s0."RouteId", s0."StopId", s0."StopOrder", s0."TravelMinutesFromPreviousStop", s0."Id0", s0."Code", s0."Location", s0."Name"
+      FROM (
+          SELECT r."Id", r."Code", r."IsActive", r."Name"
+          FROM routes AS r
+          WHERE r."Id" = @request_RouteId AND r."IsActive"
+          LIMIT 2
+      ) AS r1
+      LEFT JOIN (
+          SELECT r0."Id", r0."DwellMinutes", r0."RouteId", r0."StopId", r0."StopOrder", r0."TravelMinutesFromPreviousStop", s."Id" AS "Id0", s."Code", s."Location", s."Name"
+          FROM route_stops AS r0
+          INNER JOIN stops AS s ON r0."StopId" = s."Id"
+      ) AS s0 ON r1."Id" = s0."RouteId"
+      ORDER BY r1."Id", s0."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (8ms) [Parameters=[@request_VehicleId='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      SELECT v."Id", v."Capacity", v."Code", v."IsActive"
+      FROM vehicles AS v
+      WHERE v."Id" = @request_VehicleId AND v."IsActive"
+      LIMIT 2
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (3ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = DateTime), @p3='?' (DbType = Int64), @p4='?' (DbType = DateTime), @p5='?', @p6='?' (DbType = Int64), @p7='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO trips ("DelayMinutes", "LastStopOrder", "ObservedDeparture", "RouteId", "ScheduledDeparture", "Status", "VehicleId", "Version")
+      VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@trip_Id='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      SELECT t."Id", t."Kind", t."OccurredAt", t."Snapshot", t."StopOrder", t."TripId"
+      FROM trip_events AS t
+      WHERE t."TripId" = @trip_Id AND t."Kind" = 'arrive'
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@p0='?', @p1='?', @p2='?' (DbType = Object), @p3='?' (DbType = Object), @p4='?' (DbType = DateTime), @p5='?' (DbType = Int64), @p6='?', @p7='?' (DbType = DateTime), @p8='?' (DbType = Object), @p9='?' (DbType = Int32), @p10='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO audit_events ("Action", "Actor", "After", "Before", "OccurredAt", "TripId")
+      VALUES (@p0, @p1, @p2, @p3, @p4, @p5)
+      RETURNING "Id";
+      INSERT INTO trip_events ("Kind", "OccurredAt", "Snapshot", "StopOrder", "TripId")
+      VALUES (@p6, @p7, @p8, @p9, @p10)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT pg_advisory_xact_lock(7218401)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[@8__locals1_id='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      SELECT s0."Id", s0."DelayMinutes", s0."LastStopOrder", s0."ObservedDeparture", s0."RouteId", s0."ScheduledDeparture", s0."Status", s0."VehicleId", s0."Version", s0."Id0", s0."Code", s0."IsActive", s0."Name", s0."Id1", s1."Id", s1."DwellMinutes", s1."RouteId", s1."StopId", s1."StopOrder", s1."TravelMinutesFromPreviousStop", s1."Id0", s1."Code", s1."Location", s1."Name", s0."Capacity", s0."Code0", s0."IsActive0"
+      FROM (
+          SELECT t."Id", t."DelayMinutes", t."LastStopOrder", t."ObservedDeparture", t."RouteId", t."ScheduledDeparture", t."Status", t."VehicleId", t."Version", r."Id" AS "Id0", r."Code", r."IsActive", r."Name", v."Id" AS "Id1", v."Capacity", v."Code" AS "Code0", v."IsActive" AS "IsActive0"
+          FROM trips AS t
+          INNER JOIN routes AS r ON t."RouteId" = r."Id"
+          INNER JOIN vehicles AS v ON t."VehicleId" = v."Id"
+          WHERE t."Id" = @8__locals1_id
+          LIMIT 2
+      ) AS s0
+      LEFT JOIN (
+          SELECT r0."Id", r0."DwellMinutes", r0."RouteId", r0."StopId", r0."StopOrder", r0."TravelMinutesFromPreviousStop", s."Id" AS "Id0", s."Code", s."Location", s."Name"
+          FROM route_stops AS r0
+          INNER JOIN stops AS s ON r0."StopId" = s."Id"
+      ) AS s1 ON s0."Id0" = s1."RouteId"
+      ORDER BY s0."Id", s0."Id0", s0."Id1", s1."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@trip_Id='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      SELECT t."Id", t."Kind", t."OccurredAt", t."Snapshot", t."StopOrder", t."TripId"
+      FROM trip_events AS t
+      WHERE t."TripId" = @trip_Id AND t."Kind" = 'arrive'
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (3ms) [Parameters=[@p3='?' (DbType = Int64), @p0='?' (DbType = Int32), @p1='?', @p2='?' (DbType = Int64), @p4='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      UPDATE trips SET "DelayMinutes" = @p0, "Status" = @p1, "Version" = @p2
+      WHERE "Id" = @p3 AND "Version" = @p4;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@trip_Id='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      SELECT t."Id", t."Kind", t."OccurredAt", t."Snapshot", t."StopOrder", t."TripId"
+      FROM trip_events AS t
+      WHERE t."TripId" = @trip_Id AND t."Kind" = 'arrive'
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (3ms) [Parameters=[@p0='?', @p1='?', @p2='?' (DbType = Object), @p3='?' (DbType = Object), @p4='?' (DbType = DateTime), @p5='?' (DbType = Int64), @p6='?', @p7='?' (DbType = DateTime), @p8='?' (DbType = Object), @p9='?' (DbType = Int32), @p10='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO audit_events ("Action", "Actor", "After", "Before", "OccurredAt", "TripId")
+      VALUES (@p0, @p1, @p2, @p3, @p4, @p5)
+      RETURNING "Id";
+      INSERT INTO trip_events ("Kind", "OccurredAt", "Snapshot", "StopOrder", "TripId")
+      VALUES (@p6, @p7, @p8, @p9, @p10)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (3ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT pg_advisory_xact_lock(7218401)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (22ms) [Parameters=[@8__locals1_id='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      SELECT s0."Id", s0."DelayMinutes", s0."LastStopOrder", s0."ObservedDeparture", s0."RouteId", s0."ScheduledDeparture", s0."Status", s0."VehicleId", s0."Version", s0."Id0", s0."Code", s0."IsActive", s0."Name", s0."Id1", s1."Id", s1."DwellMinutes", s1."RouteId", s1."StopId", s1."StopOrder", s1."TravelMinutesFromPreviousStop", s1."Id0", s1."Code", s1."Location", s1."Name", s0."Capacity", s0."Code0", s0."IsActive0"
+      FROM (
+          SELECT t."Id", t."DelayMinutes", t."LastStopOrder", t."ObservedDeparture", t."RouteId", t."ScheduledDeparture", t."Status", t."VehicleId", t."Version", r."Id" AS "Id0", r."Code", r."IsActive", r."Name", v."Id" AS "Id1", v."Capacity", v."Code" AS "Code0", v."IsActive" AS "IsActive0"
+          FROM trips AS t
+          INNER JOIN routes AS r ON t."RouteId" = r."Id"
+          INNER JOIN vehicles AS v ON t."VehicleId" = v."Id"
+          WHERE t."Id" = @8__locals1_id
+          LIMIT 2
+      ) AS s0
+      LEFT JOIN (
+          SELECT r0."Id", r0."DwellMinutes", r0."RouteId", r0."StopId", r0."StopOrder", r0."TravelMinutesFromPreviousStop", s."Id" AS "Id0", s."Code", s."Location", s."Name"
+          FROM route_stops AS r0
+          INNER JOIN stops AS s ON r0."StopId" = s."Id"
+      ) AS s1 ON s0."Id0" = s1."RouteId"
+      ORDER BY s0."Id", s0."Id0", s0."Id1", s1."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[@trip_Id='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      SELECT t."Id", t."Kind", t."OccurredAt", t."Snapshot", t."StopOrder", t."TripId"
+      FROM trip_events AS t
+      WHERE t."TripId" = @trip_Id AND t."Kind" = 'arrive'
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[@id='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      SELECT s0."Id", s0."DelayMinutes", s0."LastStopOrder", s0."ObservedDeparture", s0."RouteId", s0."ScheduledDeparture", s0."Status", s0."VehicleId", s0."Version", s0."Id0", s0."Code", s0."IsActive", s0."Name", s0."Id1", s1."Id", s1."DwellMinutes", s1."RouteId", s1."StopId", s1."StopOrder", s1."TravelMinutesFromPreviousStop", s1."Id0", s1."Code", s1."Location", s1."Name", s0."Capacity", s0."Code0", s0."IsActive0"
+      FROM (
+          SELECT t."Id", t."DelayMinutes", t."LastStopOrder", t."ObservedDeparture", t."RouteId", t."ScheduledDeparture", t."Status", t."VehicleId", t."Version", r."Id" AS "Id0", r."Code", r."IsActive", r."Name", v."Id" AS "Id1", v."Capacity", v."Code" AS "Code0", v."IsActive" AS "IsActive0"
+          FROM trips AS t
+          INNER JOIN routes AS r ON t."RouteId" = r."Id"
+          INNER JOIN vehicles AS v ON t."VehicleId" = v."Id"
+          WHERE t."Id" = @id
+          LIMIT 2
+      ) AS s0
+      LEFT JOIN (
+          SELECT r0."Id", r0."DwellMinutes", r0."RouteId", r0."StopId", r0."StopOrder", r0."TravelMinutesFromPreviousStop", s."Id" AS "Id0", s."Code", s."Location", s."Name"
+          FROM route_stops AS r0
+          INNER JOIN stops AS s ON r0."StopId" = s."Id"
+      ) AS s1 ON s0."Id0" = s1."RouteId"
+      ORDER BY s0."Id", s0."Id0", s0."Id1", s1."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@trip_Id='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      SELECT t."Id", t."Kind", t."OccurredAt", t."Snapshot", t."StopOrder", t."TripId"
+      FROM trip_events AS t
+      WHERE t."TripId" = @trip_Id AND t."Kind" = 'arrive'
+  Passed RouteBoard.Api.Tests.McpAuthorizationTests.Anonymous_transport_is_rejected [73 ms]
+  Passed RouteBoard.Api.Tests.TripApiTests.Replay_starts_after_last_event_id_and_contains_no_actor [343 ms]
+  Passed RouteBoard.Api.Tests.TripApiTests.Missing_role_or_scope_is_403(role: "dispatcher", scope: "trips.read") [2 ms]
+  Passed RouteBoard.Api.Tests.TripApiTests.Missing_role_or_scope_is_403(role: "viewer", scope: "trips.write") [1 ms]
+  Passed RouteBoard.Api.Tests.TripApiTests.Invalid_token_is_401(failure: "expiry") [3 ms]
+  Passed RouteBoard.Api.Tests.TripApiTests.Invalid_token_is_401(failure: "audience") [2 ms]
+  Passed RouteBoard.Api.Tests.TripApiTests.Invalid_token_is_401(failure: "signature") [77 ms]
+  Passed RouteBoard.Api.Tests.TripApiTests.Invalid_token_is_401(failure: "issuer") [2 ms]
+  Passed RouteBoard.Api.Tests.TripApiTests.Create_returns_location_and_concurrent_updates_have_one_winner [124 ms]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT pg_advisory_xact_lock(7218401)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@request_RouteId='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      SELECT r1."Id", r1."Code", r1."IsActive", r1."Name", s0."Id", s0."DwellMinutes", s0."RouteId", s0."StopId", s0."StopOrder", s0."TravelMinutesFromPreviousStop", s0."Id0", s0."Code", s0."Location", s0."Name"
+      FROM (
+          SELECT r."Id", r."Code", r."IsActive", r."Name"
+          FROM routes AS r
+          WHERE r."Id" = @request_RouteId AND r."IsActive"
+          LIMIT 2
+      ) AS r1
+      LEFT JOIN (
+          SELECT r0."Id", r0."DwellMinutes", r0."RouteId", r0."StopId", r0."StopOrder", r0."TravelMinutesFromPreviousStop", s."Id" AS "Id0", s."Code", s."Location", s."Name"
+          FROM route_stops AS r0
+          INNER JOIN stops AS s ON r0."StopId" = s."Id"
+      ) AS s0 ON r1."Id" = s0."RouteId"
+      ORDER BY r1."Id", s0."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@request_VehicleId='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      SELECT v."Id", v."Capacity", v."Code", v."IsActive"
+      FROM vehicles AS v
+      WHERE v."Id" = @request_VehicleId AND v."IsActive"
+      LIMIT 2
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = DateTime), @p3='?' (DbType = Int64), @p4='?' (DbType = DateTime), @p5='?', @p6='?' (DbType = Int64), @p7='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO trips ("DelayMinutes", "LastStopOrder", "ObservedDeparture", "RouteId", "ScheduledDeparture", "Status", "VehicleId", "Version")
+      VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@trip_Id='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      SELECT t."Id", t."Kind", t."OccurredAt", t."Snapshot", t."StopOrder", t."TripId"
+      FROM trip_events AS t
+      WHERE t."TripId" = @trip_Id AND t."Kind" = 'arrive'
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@p0='?', @p1='?', @p2='?' (DbType = Object), @p3='?' (DbType = Object), @p4='?' (DbType = DateTime), @p5='?' (DbType = Int64), @p6='?', @p7='?' (DbType = DateTime), @p8='?' (DbType = Object), @p9='?' (DbType = Int32), @p10='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO audit_events ("Action", "Actor", "After", "Before", "OccurredAt", "TripId")
+      VALUES (@p0, @p1, @p2, @p3, @p4, @p5)
+      RETURNING "Id";
+      INSERT INTO trip_events ("Kind", "OccurredAt", "Snapshot", "StopOrder", "TripId")
+      VALUES (@p6, @p7, @p8, @p9, @p10)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT pg_advisory_xact_lock(7218401)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (3ms) [Parameters=[@8__locals1_id='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      SELECT s0."Id", s0."DelayMinutes", s0."LastStopOrder", s0."ObservedDeparture", s0."RouteId", s0."ScheduledDeparture", s0."Status", s0."VehicleId", s0."Version", s0."Id0", s0."Code", s0."IsActive", s0."Name", s0."Id1", s1."Id", s1."DwellMinutes", s1."RouteId", s1."StopId", s1."StopOrder", s1."TravelMinutesFromPreviousStop", s1."Id0", s1."Code", s1."Location", s1."Name", s0."Capacity", s0."Code0", s0."IsActive0"
+      FROM (
+          SELECT t."Id", t."DelayMinutes", t."LastStopOrder", t."ObservedDeparture", t."RouteId", t."ScheduledDeparture", t."Status", t."VehicleId", t."Version", r."Id" AS "Id0", r."Code", r."IsActive", r."Name", v."Id" AS "Id1", v."Capacity", v."Code" AS "Code0", v."IsActive" AS "IsActive0"
+          FROM trips AS t
+          INNER JOIN routes AS r ON t."RouteId" = r."Id"
+          INNER JOIN vehicles AS v ON t."VehicleId" = v."Id"
+          WHERE t."Id" = @8__locals1_id
+          LIMIT 2
+      ) AS s0
+      LEFT JOIN (
+          SELECT r0."Id", r0."DwellMinutes", r0."RouteId", r0."StopId", r0."StopOrder", r0."TravelMinutesFromPreviousStop", s."Id" AS "Id0", s."Code", s."Location", s."Name"
+          FROM route_stops AS r0
+          INNER JOIN stops AS s ON r0."StopId" = s."Id"
+      ) AS s1 ON s0."Id0" = s1."RouteId"
+      ORDER BY s0."Id", s0."Id0", s0."Id1", s1."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@trip_Id='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      SELECT t."Id", t."Kind", t."OccurredAt", t."Snapshot", t."StopOrder", t."TripId"
+      FROM trip_events AS t
+      WHERE t."TripId" = @trip_Id AND t."Kind" = 'arrive'
+info: Microsoft.Hosting.Lifetime[0]
+      Application is shutting down...
+[xUnit.net 00:00:04.08]   Finished:    RouteBoard.Api.Tests
+  Passed RouteBoard.Api.Tests.TripApiTests.Out_of_order_arrival_is_rejected_without_audit_or_event [26 ms]
+
+Test Run Failed.
+Total tests: 25
+     Passed: 23
+     Failed: 2
+ Total time: 4.5239 Seconds

@@ -1,0 +1,52 @@
+name: Build and verify
+on:
+  pull_request:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgis/postgis:17-3.5
+        env:
+          POSTGRES_DB: postgres
+          POSTGRES_USER: routeboard
+          POSTGRES_PASSWORD: disposable-ci-only
+        ports: ['5433:5432']
+        options: >-
+          --health-cmd "pg_isready -U routeboard -d postgres"
+          --health-interval 5s --health-timeout 3s --health-retries 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '26'
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+      - run: npm ci --prefix frontend
+      - run: npx --prefix frontend playwright install --with-deps chromium
+      - name: Build and test
+        env:
+          ROUTEBOARD_TEST_ADMIN_CONNECTION: 'Host=127.0.0.1;Port=5433;Database=postgres;Username=routeboard;Password=disposable-ci-only'
+        run: |
+          set -o pipefail
+          mkdir -p evidence
+          git rev-parse HEAD > evidence/commit.txt
+          bash scripts/test.sh 2>&1 | tee evidence/test-output.txt
+      - name: Build deployment images
+        run: |
+          set -o pipefail
+          docker build -t routeboard-api:${{ github.sha }} . 2>&1 | tee evidence/api-image-build.txt
+          docker build -f deploy/web.Dockerfile -t routeboard-web:${{ github.sha }} . 2>&1 | tee evidence/web-image-build.txt
+          docker image inspect routeboard-api:${{ github.sha }} routeboard-web:${{ github.sha }} --format '{{.Id}}' > evidence/image-ids.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: verification-${{ github.sha }}
+          path: evidence/

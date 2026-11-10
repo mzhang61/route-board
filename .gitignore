@@ -505,3 +505,8 @@ appsettings.Local.json
 
 # Local Docker credentials
 .local-secrets/
+# Generated web and MCP bundles
+frontend/dist/
+frontend/dist-mcp/
+frontend/playwright-report/
+backend/RouteBoard.Api/Assets/mcp-app.html

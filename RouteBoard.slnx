@@ -2,4 +2,7 @@
   <Folder Name="/backend/">
     <Project Path="backend/RouteBoard.Api/RouteBoard.Api.csproj" />
   </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/RouteBoard.Api.Tests/RouteBoard.Api.Tests.csproj" />
+  </Folder>
 </Solution>

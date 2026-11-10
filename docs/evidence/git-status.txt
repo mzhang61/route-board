@@ -1,0 +1,25 @@
+ M .gitignore
+ M README.md
+ M RouteBoard.slnx
+ M backend/RouteBoard.Api/Data/RouteBoardDbContext.cs
+ M backend/RouteBoard.Api/Program.cs
+ M backend/RouteBoard.Api/RouteBoard.Api.csproj
+?? .dockerignore
+?? .github/
+?? AGENTS.md
+?? Dockerfile
+?? backend/RouteBoard.Api/Controllers/CatalogController.cs
+?? backend/RouteBoard.Api/Controllers/EventsController.cs
+?? backend/RouteBoard.Api/Controllers/PositionsController.cs
+?? backend/RouteBoard.Api/Controllers/RouteEstimatesController.cs
+?? backend/RouteBoard.Api/Controllers/TripsController.cs
+?? backend/RouteBoard.Api/Data/DemoSeeder.cs
+?? backend/RouteBoard.Api/Data/Migrations/
+?? backend/RouteBoard.Api/Domain/
+?? backend/RouteBoard.Api/Features/
+?? backend/RouteBoard.Api/Infrastructure/
+?? docs/
+?? dotnet-tools.json
+?? frontend/
+?? scripts/
+?? tests/

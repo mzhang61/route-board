@@ -1,0 +1,108 @@
+GET /healthz
+HTTP 200
+Connection: close
+Content-Type: text/plain
+Date: Tue, 10 Nov 2026 02:26:03 GMT
+Server: Kestrel
+Cache-Control: no-store, no-cache
+Expires: Thu, 01 Jan 1970 00:00:00 GMT
+Pragma: no-cache
+Transfer-Encoding: chunked
+X-Content-Type-Options: nosniff
+Referrer-Policy: no-referrer
+Content-Security-Policy: default-src 'none'; frame-ancestors 'none'
+
+
+Healthy
+
+GET /api/trips
+HTTP 200
+Connection: close
+Content-Type: application/json; charset=utf-8
+Date: Tue, 10 Nov 2026 02:26:03 GMT
+Server: Kestrel
+Cache-Control: no-store
+Transfer-Encoding: chunked
+X-Content-Type-Options: nosniff
+Referrer-Policy: no-referrer
+Content-Security-Policy: default-src 'none'; frame-ancestors 'none'
+
+
+{"items":[{"id":1,"routeId":1,"routeName":"Synthetic River Loop","vehicleId":1,"vehicleCode":"RB-SYN-01","status":"scheduled","scheduledDeparture":"2026-11-10T03:25:08.003561+00:00","simulatedDeparture":null,"delayMinutes":0,"version":1,"isSynthetic":true,"stops":[{"stopId":1,"name":"Demo North","order":1,"scheduled":"2026-11-10T03:33:08.003561+00:00","estimated":"2026-11-10T03:33:08.003561+00:00","simulatedObserved":null},{"stopId":2,"name":"Demo South","order":2,"scheduled":"2026-11-10T03:48:08.003561+00:00","estimated":"2026-11-10T03:48:08.003561+00:00","simulatedObserved":null}]}],"total":1,"page":1,"pageSize":20}
+
+GET /api/trips?page=0
+HTTP 400
+Connection: close
+Content-Type: application/problem+json; charset=utf-8
+Date: Tue, 10 Nov 2026 02:26:03 GMT
+Server: Kestrel
+Cache-Control: no-store
+Transfer-Encoding: chunked
+X-Content-Type-Options: nosniff
+Referrer-Policy: no-referrer
+Content-Security-Policy: default-src 'none'; frame-ancestors 'none'
+
+
+{"type":"https://tools.ietf.org/html/rfc9110#section-15.5.1","title":"One or more validation errors occurred.","status":400,"errors":{"page":["The field page must be between 1 and 10000."]},"traceId":"00-9cb5a4f3d645cce1de0ccce7b889564d-d3f7f732ebba18ae-00"}
+
+GET /api/trips/999999999
+HTTP 404
+Connection: close
+Content-Type: application/problem+json; charset=utf-8
+Date: Tue, 10 Nov 2026 02:26:03 GMT
+Server: Kestrel
+Cache-Control: no-store
+Transfer-Encoding: chunked
+X-Content-Type-Options: nosniff
+Referrer-Policy: no-referrer
+Content-Security-Policy: default-src 'none'; frame-ancestors 'none'
+
+
+{"type":"https://tools.ietf.org/html/rfc9110#section-15.5.5","title":"Not Found","status":404,"traceId":"00-280c08cdca359e58c881ff3cacafd1f6-d82af02ccc301a99-00"}
+
+POST /api/trips
+HTTP 401
+Connection: close
+Content-Type: application/problem+json; charset=utf-8
+Date: Tue, 10 Nov 2026 02:26:03 GMT
+Server: Kestrel
+Cache-Control: no-store
+Transfer-Encoding: chunked
+WWW-Authenticate: Bearer
+X-Content-Type-Options: nosniff
+Referrer-Policy: no-referrer
+Content-Security-Policy: default-src 'none'; frame-ancestors 'none'
+
+
+{"type":"https://tools.ietf.org/html/rfc9110#section-15.5.2","title":"Unauthorized","status":401,"traceId":"00-466ec727cb1afef6ccfde4dc1e7842c2-bc7eb3cd18695e4c-00"}
+
+POST /mcp
+HTTP 401
+Connection: close
+Content-Type: application/problem+json
+Date: Tue, 10 Nov 2026 02:26:03 GMT
+Server: Kestrel
+Cache-Control: no-store
+Transfer-Encoding: chunked
+WWW-Authenticate: Bearer
+X-Content-Type-Options: nosniff
+Referrer-Policy: no-referrer
+Content-Security-Policy: default-src 'none'; frame-ancestors 'none'
+
+
+{"type":"https://tools.ietf.org/html/rfc9110#section-15.5.2","title":"Unauthorized","status":401,"traceId":"00-a2077649772cdba48864f7eac7e5a76c-003ef3380fea1c62-00"}
+
+GET /api/positions
+HTTP 200
+Connection: close
+Content-Type: application/json; charset=utf-8
+Date: Tue, 10 Nov 2026 02:26:03 GMT
+Server: Kestrel
+Cache-Control: no-store
+Transfer-Encoding: chunked
+X-Content-Type-Options: nosniff
+Referrer-Policy: no-referrer
+Content-Security-Policy: default-src 'none'; frame-ancestors 'none'
+
+
+{"source":"Synthetic linear interpolation between fixed stops; not real GPS or a road-following model","items":[]}

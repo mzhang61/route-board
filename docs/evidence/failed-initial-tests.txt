@@ -1,0 +1,595 @@
+  Determining projects to restore...
+  All projects are up-to-date for restore.
+  RouteBoard.Api -> /Users/mmm/Documents/route-board/backend/RouteBoard.Api/bin/Debug/net10.0/RouteBoard.Api.dll
+  RouteBoard.Api.Tests -> /Users/mmm/Documents/route-board/tests/RouteBoard.Api.Tests/bin/Debug/net10.0/RouteBoard.Api.Tests.dll
+Test run for /Users/mmm/Documents/route-board/tests/RouteBoard.Api.Tests/bin/Debug/net10.0/RouteBoard.Api.Tests.dll (.NETCoreApp,Version=v10.0)
+A total of 1 test files matched the specified pattern.
+[xUnit.net 00:00:00.00] xUnit.net VSTest Adapter v3.1.4+50e68bbb8b (64-bit .NET 10.0.14)
+[xUnit.net 00:00:00.09]   Discovering: RouteBoard.Api.Tests
+[xUnit.net 00:00:00.14]   Discovered:  RouteBoard.Api.Tests
+[xUnit.net 00:00:00.16]   Starting:    RouteBoard.Api.Tests
+  Passed RouteBoard.Api.Tests.ArrivalCalculatorTests.Arrival_matches_hand_prediction(delay: 4, expectedMinute: 27) [3 ms]
+  Passed RouteBoard.Api.Tests.ArrivalCalculatorTests.Arrival_matches_hand_prediction(delay: 0, expectedMinute: 23) [< 1 ms]
+  Passed RouteBoard.Api.Tests.ArrivalCalculatorTests.Negative_travel_time_is_rejected [< 1 ms]
+[xUnit.net 00:00:04.78]     RouteBoard.Api.Tests.TripApiTests.Invalid_query_is_400(url: "/api/trips?page=0") [FAIL]
+[xUnit.net 00:00:04.78]       System.InvalidOperationException : RouteBoard database connection is not configured.
+[xUnit.net 00:00:04.81]       Stack Trace:
+[xUnit.net 00:00:04.81]         /Users/mmm/Documents/route-board/backend/RouteBoard.Api/Program.cs(17,0): at Program.<Main>$(String[] args)
+[xUnit.net 00:00:04.81]            at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+[xUnit.net 00:00:04.81]            at System.Reflection.MethodBaseInvoker.InvokeDirectByRefWithFewArgs(Object obj, Span`1 copyOfArgs, BindingFlags invokeAttr)
+[xUnit.net 00:00:04.81]         --- End of stack trace from previous location ---
+[xUnit.net 00:00:04.81]            at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.CreateHost()
+[xUnit.net 00:00:04.81]            at Microsoft.Extensions.Hosting.HostFactoryResolver.<>c__DisplayClass10_0.<ResolveHostFactory>b__0(String[] args)
+[xUnit.net 00:00:04.81]            at Microsoft.AspNetCore.Mvc.Testing.DeferredHostBuilder.Build()
+[xUnit.net 00:00:04.81]            at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateHost(IHostBuilder builder)
+[xUnit.net 00:00:04.81]            at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.ConfigureHostBuilder(IHostBuilder hostBuilder)
+[xUnit.net 00:00:04.81]            at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.StartServer()
+[xUnit.net 00:00:04.81]            at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateDefaultClient(DelegatingHandler[] handlers)
+[xUnit.net 00:00:04.81]            at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateDefaultClient(Uri baseAddress, DelegatingHandler[] handlers)
+[xUnit.net 00:00:04.81]            at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateClient(WebApplicationFactoryClientOptions options)
+[xUnit.net 00:00:04.81]            at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateClient()
+[xUnit.net 00:00:04.81]         /Users/mmm/Documents/route-board/tests/RouteBoard.Api.Tests/TripApiTests.cs(14,0): at RouteBoard.Api.Tests.TripApiTests.Client(String token)
+[xUnit.net 00:00:04.81]         /Users/mmm/Documents/route-board/tests/RouteBoard.Api.Tests/TripApiTests.cs(61,0): at RouteBoard.Api.Tests.TripApiTests.Invalid_query_is_400(String url)
+[xUnit.net 00:00:04.81]         --- End of stack trace from previous location ---
+[xUnit.net 00:00:04.82]     RouteBoard.Api.Tests.TripApiTests.Invalid_query_is_400(url: "/api/events?after=-1") [FAIL]
+[xUnit.net 00:00:04.82]       System.InvalidOperationException : RouteBoard database connection is not configured.
+[xUnit.net 00:00:04.82]       Stack Trace:
+[xUnit.net 00:00:04.82]         /Users/mmm/Documents/route-board/backend/RouteBoard.Api/Program.cs(17,0): at Program.<Main>$(String[] args)
+[xUnit.net 00:00:04.82]            at InvokeStub_Program.<Main>$(Object, Span`1)
+[xUnit.net 00:00:04.82]            at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+[xUnit.net 00:00:04.82]         --- End of stack trace from previous location ---
+[xUnit.net 00:00:04.82]            at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.CreateHost()
+[xUnit.net 00:00:04.82]            at Microsoft.Extensions.Hosting.HostFactoryResolver.<>c__DisplayClass10_0.<ResolveHostFactory>b__0(String[] args)
+[xUnit.net 00:00:04.82]            at Microsoft.AspNetCore.Mvc.Testing.DeferredHostBuilder.Build()
+[xUnit.net 00:00:04.82]            at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateHost(IHostBuilder builder)
+[xUnit.net 00:00:04.82]            at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.ConfigureHostBuilder(IHostBuilder hostBuilder)
+[xUnit.net 00:00:04.82]            at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.StartServer()
+[xUnit.net 00:00:04.82]            at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateDefaultClient(DelegatingHandler[] handlers)
+[xUnit.net 00:00:04.82]            at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateDefaultClient(Uri baseAddress, DelegatingHandler[] handlers)
+[xUnit.net 00:00:04.82]            at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateClient(WebApplicationFactoryClientOptions options)
+[xUnit.net 00:00:04.82]            at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateClient()
+[xUnit.net 00:00:04.82]         /Users/mmm/Documents/route-board/tests/RouteBoard.Api.Tests/TripApiTests.cs(14,0): at RouteBoard.Api.Tests.TripApiTests.Client(String token)
+[xUnit.net 00:00:04.82]         /Users/mmm/Documents/route-board/tests/RouteBoard.Api.Tests/TripApiTests.cs(61,0): at RouteBoard.Api.Tests.TripApiTests.Invalid_query_is_400(String url)
+[xUnit.net 00:00:04.82]         --- End of stack trace from previous location ---
+[xUnit.net 00:00:04.85]     RouteBoard.Api.Tests.TripApiTests.Invalid_query_is_400(url: "/api/trips?pageSize=101") [FAIL]
+[xUnit.net 00:00:04.85]       System.InvalidOperationException : RouteBoard database connection is not configured.
+[xUnit.net 00:00:04.85]       Stack Trace:
+[xUnit.net 00:00:04.85]         /Users/mmm/Documents/route-board/backend/RouteBoard.Api/Program.cs(17,0): at Program.<Main>$(String[] args)
+[xUnit.net 00:00:04.85]            at InvokeStub_Program.<Main>$(Object, Span`1)
+[xUnit.net 00:00:04.85]            at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+[xUnit.net 00:00:04.85]         --- End of stack trace from previous location ---
+[xUnit.net 00:00:04.85]            at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.CreateHost()
+[xUnit.net 00:00:04.85]            at Microsoft.Extensions.Hosting.HostFactoryResolver.<>c__DisplayClass10_0.<ResolveHostFactory>b__0(String[] args)
+[xUnit.net 00:00:04.85]            at Microsoft.AspNetCore.Mvc.Testing.DeferredHostBuilder.Build()
+[xUnit.net 00:00:04.85]            at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateHost(IHostBuilder builder)
+[xUnit.net 00:00:04.85]            at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.ConfigureHostBuilder(IHostBuilder hostBuilder)
+[xUnit.net 00:00:04.85]            at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.StartServer()
+[xUnit.net 00:00:04.85]            at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateDefaultClient(DelegatingHandler[] handlers)
+[xUnit.net 00:00:04.85]            at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateDefaultClient(Uri baseAddress, DelegatingHandler[] handlers)
+[xUnit.net 00:00:04.85]            at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateClient(WebApplicationFactoryClientOptions options)
+[xUnit.net 00:00:04.85]            at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateClient()
+[xUnit.net 00:00:04.85]         /Users/mmm/Documents/route-board/tests/RouteBoard.Api.Tests/TripApiTests.cs(14,0): at RouteBoard.Api.Tests.TripApiTests.Client(String token)
+[xUnit.net 00:00:04.85]         /Users/mmm/Documents/route-board/tests/RouteBoard.Api.Tests/TripApiTests.cs(61,0): at RouteBoard.Api.Tests.TripApiTests.Invalid_query_is_400(String url)
+[xUnit.net 00:00:04.85]         --- End of stack trace from previous location ---
+[xUnit.net 00:00:04.88]     RouteBoard.Api.Tests.TripApiTests.Invalid_query_is_400(url: "/api/trips?status=unknown") [FAIL]
+[xUnit.net 00:00:04.88]       System.InvalidOperationException : RouteBoard database connection is not configured.
+[xUnit.net 00:00:04.88]       Stack Trace:
+[xUnit.net 00:00:04.88]         /Users/mmm/Documents/route-board/backend/RouteBoard.Api/Program.cs(17,0): at Program.<Main>$(String[] args)
+[xUnit.net 00:00:04.88]            at InvokeStub_Program.<Main>$(Object, Span`1)
+[xUnit.net 00:00:04.88]            at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+[xUnit.net 00:00:04.88]         --- End of stack trace from previous location ---
+[xUnit.net 00:00:04.88]            at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.CreateHost()
+[xUnit.net 00:00:04.88]            at Microsoft.Extensions.Hosting.HostFactoryResolver.<>c__DisplayClass10_0.<ResolveHostFactory>b__0(String[] args)
+[xUnit.net 00:00:04.88]            at Microsoft.AspNetCore.Mvc.Testing.DeferredHostBuilder.Build()
+[xUnit.net 00:00:04.88]            at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateHost(IHostBuilder builder)
+[xUnit.net 00:00:04.88]            at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.ConfigureHostBuilder(IHostBuilder hostBuilder)
+[xUnit.net 00:00:04.88]            at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.StartServer()
+[xUnit.net 00:00:04.88]            at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateDefaultClient(DelegatingHandler[] handlers)
+[xUnit.net 00:00:04.88]            at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateDefaultClient(Uri baseAddress, DelegatingHandler[] handlers)
+[xUnit.net 00:00:04.88]            at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateClient(WebApplicationFactoryClientOptions options)
+[xUnit.net 00:00:04.88]            at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateClient()
+[xUnit.net 00:00:04.88]         /Users/mmm/Documents/route-board/tests/RouteBoard.Api.Tests/TripApiTests.cs(14,0): at RouteBoard.Api.Tests.TripApiTests.Client(String token)
+[xUnit.net 00:00:04.88]         /Users/mmm/Documents/route-board/tests/RouteBoard.Api.Tests/TripApiTests.cs(61,0): at RouteBoard.Api.Tests.TripApiTests.Invalid_query_is_400(String url)
+[xUnit.net 00:00:04.88]         --- End of stack trace from previous location ---
+[xUnit.net 00:00:04.91]     RouteBoard.Api.Tests.TripApiTests.Anonymous_write_is_401 [FAIL]
+[xUnit.net 00:00:04.91]       System.InvalidOperationException : RouteBoard database connection is not configured.
+[xUnit.net 00:00:04.91]       Stack Trace:
+[xUnit.net 00:00:04.91]         /Users/mmm/Documents/route-board/backend/RouteBoard.Api/Program.cs(17,0): at Program.<Main>$(String[] args)
+[xUnit.net 00:00:04.91]            at InvokeStub_Program.<Main>$(Object, Span`1)
+[xUnit.net 00:00:04.91]            at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+[xUnit.net 00:00:04.91]         --- End of stack trace from previous location ---
+[xUnit.net 00:00:04.91]            at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.CreateHost()
+[xUnit.net 00:00:04.91]            at Microsoft.Extensions.Hosting.HostFactoryResolver.<>c__DisplayClass10_0.<ResolveHostFactory>b__0(String[] args)
+[xUnit.net 00:00:04.91]            at Microsoft.AspNetCore.Mvc.Testing.DeferredHostBuilder.Build()
+[xUnit.net 00:00:04.91]            at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateHost(IHostBuilder builder)
+[xUnit.net 00:00:04.91]            at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.ConfigureHostBuilder(IHostBuilder hostBuilder)
+[xUnit.net 00:00:04.91]            at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.StartServer()
+[xUnit.net 00:00:04.91]            at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateDefaultClient(DelegatingHandler[] handlers)
+[xUnit.net 00:00:04.91]            at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateDefaultClient(Uri baseAddress, DelegatingHandler[] handlers)
+[xUnit.net 00:00:04.91]            at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateClient(WebApplicationFactoryClientOptions options)
+[xUnit.net 00:00:04.91]            at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateClient()
+[xUnit.net 00:00:04.91]         /Users/mmm/Documents/route-board/tests/RouteBoard.Api.Tests/TripApiTests.cs(14,0): at RouteBoard.Api.Tests.TripApiTests.Client(String token)
+[xUnit.net 00:00:04.91]         /Users/mmm/Documents/route-board/tests/RouteBoard.Api.Tests/TripApiTests.cs(25,0): at RouteBoard.Api.Tests.TripApiTests.Anonymous_write_is_401()
+[xUnit.net 00:00:04.91]         --- End of stack trace from previous location ---
+[xUnit.net 00:00:05.02]     RouteBoard.Api.Tests.TripApiTests.Replay_starts_after_last_event_id_and_contains_no_actor [FAIL]
+[xUnit.net 00:00:05.02]       System.InvalidOperationException : RouteBoard database connection is not configured.
+[xUnit.net 00:00:05.02]       Stack Trace:
+[xUnit.net 00:00:05.02]         /Users/mmm/Documents/route-board/backend/RouteBoard.Api/Program.cs(17,0): at Program.<Main>$(String[] args)
+[xUnit.net 00:00:05.02]            at InvokeStub_Program.<Main>$(Object, Span`1)
+[xUnit.net 00:00:05.02]            at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+[xUnit.net 00:00:05.02]         --- End of stack trace from previous location ---
+[xUnit.net 00:00:05.02]            at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.CreateHost()
+[xUnit.net 00:00:05.02]            at Microsoft.Extensions.Hosting.HostFactoryResolver.<>c__DisplayClass10_0.<ResolveHostFactory>b__0(String[] args)
+[xUnit.net 00:00:05.02]            at Microsoft.AspNetCore.Mvc.Testing.DeferredHostBuilder.Build()
+[xUnit.net 00:00:05.02]            at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateHost(IHostBuilder builder)
+[xUnit.net 00:00:05.02]            at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.ConfigureHostBuilder(IHostBuilder hostBuilder)
+[xUnit.net 00:00:05.02]            at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.StartServer()
+[xUnit.net 00:00:05.02]            at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateDefaultClient(DelegatingHandler[] handlers)
+[xUnit.net 00:00:05.02]            at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateDefaultClient(Uri baseAddress, DelegatingHandler[] handlers)
+[xUnit.net 00:00:05.02]            at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateClient(WebApplicationFactoryClientOptions options)
+[xUnit.net 00:00:05.02]            at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateClient()
+[xUnit.net 00:00:05.02]         /Users/mmm/Documents/route-board/tests/RouteBoard.Api.Tests/TripApiTests.cs(14,0): at RouteBoard.Api.Tests.TripApiTests.Client(String token)
+[xUnit.net 00:00:05.02]         /Users/mmm/Documents/route-board/tests/RouteBoard.Api.Tests/TripApiTests.cs(110,0): at RouteBoard.Api.Tests.TripApiTests.Replay_starts_after_last_event_id_and_contains_no_actor()
+[xUnit.net 00:00:05.02]         --- End of stack trace from previous location ---
+[xUnit.net 00:00:05.06]     RouteBoard.Api.Tests.TripApiTests.Missing_role_or_scope_is_403(role: "dispatcher", scope: "trips.read") [FAIL]
+[xUnit.net 00:00:05.06]       System.InvalidOperationException : RouteBoard database connection is not configured.
+[xUnit.net 00:00:05.06]       Stack Trace:
+[xUnit.net 00:00:05.06]         /Users/mmm/Documents/route-board/backend/RouteBoard.Api/Program.cs(17,0): at Program.<Main>$(String[] args)
+[xUnit.net 00:00:05.06]            at InvokeStub_Program.<Main>$(Object, Span`1)
+[xUnit.net 00:00:05.06]            at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+[xUnit.net 00:00:05.06]         --- End of stack trace from previous location ---
+[xUnit.net 00:00:05.06]            at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.CreateHost()
+[xUnit.net 00:00:05.06]            at Microsoft.Extensions.Hosting.HostFactoryResolver.<>c__DisplayClass10_0.<ResolveHostFactory>b__0(String[] args)
+[xUnit.net 00:00:05.06]            at Microsoft.AspNetCore.Mvc.Testing.DeferredHostBuilder.Build()
+[xUnit.net 00:00:05.06]            at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateHost(IHostBuilder builder)
+[xUnit.net 00:00:05.06]            at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.ConfigureHostBuilder(IHostBuilder hostBuilder)
+[xUnit.net 00:00:05.06]            at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.StartServer()
+[xUnit.net 00:00:05.06]            at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateDefaultClient(DelegatingHandler[] handlers)
+[xUnit.net 00:00:05.06]            at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateDefaultClient(Uri baseAddress, DelegatingHandler[] handlers)
+[xUnit.net 00:00:05.06]            at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateClient(WebApplicationFactoryClientOptions options)
+[xUnit.net 00:00:05.06]            at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateClient()
+[xUnit.net 00:00:05.06]         /Users/mmm/Documents/route-board/tests/RouteBoard.Api.Tests/TripApiTests.cs(14,0): at RouteBoard.Api.Tests.TripApiTests.Client(String token)
+[xUnit.net 00:00:05.06]         /Users/mmm/Documents/route-board/tests/RouteBoard.Api.Tests/TripApiTests.cs(36,0): at RouteBoard.Api.Tests.TripApiTests.Missing_role_or_scope_is_403(String role, String scope)
+[xUnit.net 00:00:05.06]         --- End of stack trace from previous location ---
+[xUnit.net 00:00:05.08]     RouteBoard.Api.Tests.TripApiTests.Missing_role_or_scope_is_403(role: "viewer", scope: "trips.write") [FAIL]
+[xUnit.net 00:00:05.08]       System.InvalidOperationException : RouteBoard database connection is not configured.
+[xUnit.net 00:00:05.08]       Stack Trace:
+[xUnit.net 00:00:05.08]         /Users/mmm/Documents/route-board/backend/RouteBoard.Api/Program.cs(17,0): at Program.<Main>$(String[] args)
+[xUnit.net 00:00:05.08]            at InvokeStub_Program.<Main>$(Object, Span`1)
+[xUnit.net 00:00:05.08]            at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+[xUnit.net 00:00:05.08]         --- End of stack trace from previous location ---
+[xUnit.net 00:00:05.08]            at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.CreateHost()
+[xUnit.net 00:00:05.08]            at Microsoft.Extensions.Hosting.HostFactoryResolver.<>c__DisplayClass10_0.<ResolveHostFactory>b__0(String[] args)
+[xUnit.net 00:00:05.08]            at Microsoft.AspNetCore.Mvc.Testing.DeferredHostBuilder.Build()
+[xUnit.net 00:00:05.08]            at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateHost(IHostBuilder builder)
+[xUnit.net 00:00:05.08]            at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.ConfigureHostBuilder(IHostBuilder hostBuilder)
+[xUnit.net 00:00:05.08]            at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.StartServer()
+[xUnit.net 00:00:05.08]            at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateDefaultClient(DelegatingHandler[] handlers)
+[xUnit.net 00:00:05.08]            at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateDefaultClient(Uri baseAddress, DelegatingHandler[] handlers)
+[xUnit.net 00:00:05.08]            at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateClient(WebApplicationFactoryClientOptions options)
+[xUnit.net 00:00:05.08]            at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateClient()
+[xUnit.net 00:00:05.08]         /Users/mmm/Documents/route-board/tests/RouteBoard.Api.Tests/TripApiTests.cs(14,0): at RouteBoard.Api.Tests.TripApiTests.Client(String token)
+[xUnit.net 00:00:05.08]         /Users/mmm/Documents/route-board/tests/RouteBoard.Api.Tests/TripApiTests.cs(36,0): at RouteBoard.Api.Tests.TripApiTests.Missing_role_or_scope_is_403(String role, String scope)
+[xUnit.net 00:00:05.08]         --- End of stack trace from previous location ---
+  Failed RouteBoard.Api.Tests.TripApiTests.Invalid_query_is_400(url: "/api/trips?page=0") [130 ms]
+  Error Message:
+   System.InvalidOperationException : RouteBoard database connection is not configured.
+  Stack Trace:
+     at Program.<Main>$(String[] args) in /Users/mmm/Documents/route-board/backend/RouteBoard.Api/Program.cs:line 17
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeDirectByRefWithFewArgs(Object obj, Span`1 copyOfArgs, BindingFlags invokeAttr)
+--- End of stack trace from previous location ---
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.CreateHost()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.<>c__DisplayClass10_0.<ResolveHostFactory>b__0(String[] args)
+   at Microsoft.AspNetCore.Mvc.Testing.DeferredHostBuilder.Build()
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateHost(IHostBuilder builder)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.ConfigureHostBuilder(IHostBuilder hostBuilder)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.StartServer()
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateDefaultClient(DelegatingHandler[] handlers)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateDefaultClient(Uri baseAddress, DelegatingHandler[] handlers)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateClient(WebApplicationFactoryClientOptions options)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateClient()
+   at RouteBoard.Api.Tests.TripApiTests.Client(String token) in /Users/mmm/Documents/route-board/tests/RouteBoard.Api.Tests/TripApiTests.cs:line 14
+   at RouteBoard.Api.Tests.TripApiTests.Invalid_query_is_400(String url) in /Users/mmm/Documents/route-board/tests/RouteBoard.Api.Tests/TripApiTests.cs:line 61
+--- End of stack trace from previous location ---
+  Failed RouteBoard.Api.Tests.TripApiTests.Invalid_query_is_400(url: "/api/events?after=-1") [38 ms]
+  Error Message:
+   System.InvalidOperationException : RouteBoard database connection is not configured.
+  Stack Trace:
+     at Program.<Main>$(String[] args) in /Users/mmm/Documents/route-board/backend/RouteBoard.Api/Program.cs:line 17
+   at InvokeStub_Program.<Main>$(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+--- End of stack trace from previous location ---
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.CreateHost()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.<>c__DisplayClass10_0.<ResolveHostFactory>b__0(String[] args)
+   at Microsoft.AspNetCore.Mvc.Testing.DeferredHostBuilder.Build()
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateHost(IHostBuilder builder)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.ConfigureHostBuilder(IHostBuilder hostBuilder)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.StartServer()
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateDefaultClient(DelegatingHandler[] handlers)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateDefaultClient(Uri baseAddress, DelegatingHandler[] handlers)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateClient(WebApplicationFactoryClientOptions options)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateClient()
+   at RouteBoard.Api.Tests.TripApiTests.Client(String token) in /Users/mmm/Documents/route-board/tests/RouteBoard.Api.Tests/TripApiTests.cs:line 14
+   at RouteBoard.Api.Tests.TripApiTests.Invalid_query_is_400(String url) in /Users/mmm/Documents/route-board/tests/RouteBoard.Api.Tests/TripApiTests.cs:line 61
+--- End of stack trace from previous location ---
+  Failed RouteBoard.Api.Tests.TripApiTests.Invalid_query_is_400(url: "/api/trips?pageSize=101") [32 ms]
+  Error Message:
+   System.InvalidOperationException : RouteBoard database connection is not configured.
+  Stack Trace:
+     at Program.<Main>$(String[] args) in /Users/mmm/Documents/route-board/backend/RouteBoard.Api/Program.cs:line 17
+   at InvokeStub_Program.<Main>$(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+--- End of stack trace from previous location ---
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.CreateHost()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.<>c__DisplayClass10_0.<ResolveHostFactory>b__0(String[] args)
+   at Microsoft.AspNetCore.Mvc.Testing.DeferredHostBuilder.Build()
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateHost(IHostBuilder builder)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.ConfigureHostBuilder(IHostBuilder hostBuilder)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.StartServer()
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateDefaultClient(DelegatingHandler[] handlers)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateDefaultClient(Uri baseAddress, DelegatingHandler[] handlers)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateClient(WebApplicationFactoryClientOptions options)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateClient()
+   at RouteBoard.Api.Tests.TripApiTests.Client(String token) in /Users/mmm/Documents/route-board/tests/RouteBoard.Api.Tests/TripApiTests.cs:line 14
+   at RouteBoard.Api.Tests.TripApiTests.Invalid_query_is_400(String url) in /Users/mmm/Documents/route-board/tests/RouteBoard.Api.Tests/TripApiTests.cs:line 61
+--- End of stack trace from previous location ---
+  Failed RouteBoard.Api.Tests.TripApiTests.Invalid_query_is_400(url: "/api/trips?status=unknown") [26 ms]
+  Error Message:
+   System.InvalidOperationException : RouteBoard database connection is not configured.
+  Stack Trace:
+     at Program.<Main>$(String[] args) in /Users/mmm/Documents/route-board/backend/RouteBoard.Api/Program.cs:line 17
+   at InvokeStub_Program.<Main>$(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+--- End of stack trace from previous location ---
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.CreateHost()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.<>c__DisplayClass10_0.<ResolveHostFactory>b__0(String[] args)
+   at Microsoft.AspNetCore.Mvc.Testing.DeferredHostBuilder.Build()
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateHost(IHostBuilder builder)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.ConfigureHostBuilder(IHostBuilder hostBuilder)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.StartServer()
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateDefaultClient(DelegatingHandler[] handlers)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateDefaultClient(Uri baseAddress, DelegatingHandler[] handlers)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateClient(WebApplicationFactoryClientOptions options)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateClient()
+   at RouteBoard.Api.Tests.TripApiTests.Client(String token) in /Users/mmm/Documents/route-board/tests/RouteBoard.Api.Tests/TripApiTests.cs:line 14
+   at RouteBoard.Api.Tests.TripApiTests.Invalid_query_is_400(String url) in /Users/mmm/Documents/route-board/tests/RouteBoard.Api.Tests/TripApiTests.cs:line 61
+--- End of stack trace from previous location ---
+  Failed RouteBoard.Api.Tests.TripApiTests.Anonymous_write_is_401 [31 ms]
+  Error Message:
+   System.InvalidOperationException : RouteBoard database connection is not configured.
+  Stack Trace:
+     at Program.<Main>$(String[] args) in /Users/mmm/Documents/route-board/backend/RouteBoard.Api/Program.cs:line 17
+   at InvokeStub_Program.<Main>$(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+--- End of stack trace from previous location ---
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.CreateHost()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.<>c__DisplayClass10_0.<ResolveHostFactory>b__0(String[] args)
+   at Microsoft.AspNetCore.Mvc.Testing.DeferredHostBuilder.Build()
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateHost(IHostBuilder builder)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.ConfigureHostBuilder(IHostBuilder hostBuilder)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.StartServer()
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateDefaultClient(DelegatingHandler[] handlers)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateDefaultClient(Uri baseAddress, DelegatingHandler[] handlers)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateClient(WebApplicationFactoryClientOptions options)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateClient()
+   at RouteBoard.Api.Tests.TripApiTests.Client(String token) in /Users/mmm/Documents/route-board/tests/RouteBoard.Api.Tests/TripApiTests.cs:line 14
+   at RouteBoard.Api.Tests.TripApiTests.Anonymous_write_is_401() in /Users/mmm/Documents/route-board/tests/RouteBoard.Api.Tests/TripApiTests.cs:line 25
+--- End of stack trace from previous location ---
+  Passed RouteBoard.Api.Tests.MigrationTests.Migrations_apply_revert_and_reapply_on_disposable_database [4 s]
+  Failed RouteBoard.Api.Tests.TripApiTests.Replay_starts_after_last_event_id_and_contains_no_actor [111 ms]
+  Error Message:
+   System.InvalidOperationException : RouteBoard database connection is not configured.
+  Stack Trace:
+     at Program.<Main>$(String[] args) in /Users/mmm/Documents/route-board/backend/RouteBoard.Api/Program.cs:line 17
+   at InvokeStub_Program.<Main>$(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+--- End of stack trace from previous location ---
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.CreateHost()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.<>c__DisplayClass10_0.<ResolveHostFactory>b__0(String[] args)
+   at Microsoft.AspNetCore.Mvc.Testing.DeferredHostBuilder.Build()
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateHost(IHostBuilder builder)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.ConfigureHostBuilder(IHostBuilder hostBuilder)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.StartServer()
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateDefaultClient(DelegatingHandler[] handlers)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateDefaultClient(Uri baseAddress, DelegatingHandler[] handlers)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateClient(WebApplicationFactoryClientOptions options)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateClient()
+   at RouteBoard.Api.Tests.TripApiTests.Client(String token) in /Users/mmm/Documents/route-board/tests/RouteBoard.Api.Tests/TripApiTests.cs:line 14
+   at RouteBoard.Api.Tests.TripApiTests.Replay_starts_after_last_event_id_and_contains_no_actor() in /Users/mmm/Documents/route-board/tests/RouteBoard.Api.Tests/TripApiTests.cs:line 110
+--- End of stack trace from previous location ---
+  Failed RouteBoard.Api.Tests.TripApiTests.Missing_role_or_scope_is_403(role: "dispatcher", scope: "trips.read") [30 ms]
+  Error Message:
+   System.InvalidOperationException : RouteBoard database connection is not configured.
+  Stack Trace:
+     at Program.<Main>$(String[] args) in /Users/mmm/Documents/route-board/backend/RouteBoard.Api/Program.cs:line 17
+   at InvokeStub_Program.<Main>$(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+--- End of stack trace from previous location ---
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.CreateHost()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.<>c__DisplayClass10_0.<ResolveHostFactory>b__0(String[] args)
+   at Microsoft.AspNetCore.Mvc.Testing.DeferredHostBuilder.Build()
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateHost(IHostBuilder builder)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.ConfigureHostBuilder(IHostBuilder hostBuilder)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.StartServer()
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateDefaultClient(DelegatingHandler[] handlers)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateDefaultClient(Uri baseAddress, DelegatingHandler[] handlers)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateClient(WebApplicationFactoryClientOptions options)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateClient()
+   at RouteBoard.Api.Tests.TripApiTests.Client(String token) in /Users/mmm/Documents/route-board/tests/RouteBoard.Api.Tests/TripApiTests.cs:line 14
+   at RouteBoard.Api.Tests.TripApiTests.Missing_role_or_scope_is_403(String role, String scope) in /Users/mmm/Documents/route-board/tests/RouteBoard.Api.Tests/TripApiTests.cs:line 36
+--- End of stack trace from previous location ---
+  Failed RouteBoard.Api.Tests.TripApiTests.Missing_role_or_scope_is_403(role: "viewer", scope: "trips.write") [28 ms]
+  Error Message:
+   System.InvalidOperationException : RouteBoard database connection is not configured.
+  Stack Trace:
+     at Program.<Main>$(String[] args) in /Users/mmm/Documents/route-board/backend/RouteBoard.Api/Program.cs:line 17
+   at InvokeStub_Program.<Main>$(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+--- End of stack trace from previous location ---
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.CreateHost()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.<>c__DisplayClass10_0.<ResolveHostFactory>b__0(String[] args)
+   at Microsoft.AspNetCore.Mvc.Testing.DeferredHostBuilder.Build()
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateHost(IHostBuilder builder)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.ConfigureHostBuilder(IHostBuilder hostBuilder)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.StartServer()
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateDefaultClient(DelegatingHandler[] handlers)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateDefaultClient(Uri baseAddress, DelegatingHandler[] handlers)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateClient(WebApplicationFactoryClientOptions options)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateClient()
+   at RouteBoard.Api.Tests.TripApiTests.Client(String token) in /Users/mmm/Documents/route-board/tests/RouteBoard.Api.Tests/TripApiTests.cs:line 14
+   at RouteBoard.Api.Tests.TripApiTests.Missing_role_or_scope_is_403(String role, String scope) in /Users/mmm/Documents/route-board/tests/RouteBoard.Api.Tests/TripApiTests.cs:line 36
+--- End of stack trace from previous location ---
+[xUnit.net 00:00:05.11]     RouteBoard.Api.Tests.TripApiTests.Invalid_token_is_401(failure: "expiry") [FAIL]
+[xUnit.net 00:00:05.11]       System.InvalidOperationException : RouteBoard database connection is not configured.
+[xUnit.net 00:00:05.11]       Stack Trace:
+[xUnit.net 00:00:05.11]         /Users/mmm/Documents/route-board/backend/RouteBoard.Api/Program.cs(17,0): at Program.<Main>$(String[] args)
+[xUnit.net 00:00:05.11]            at InvokeStub_Program.<Main>$(Object, Span`1)
+[xUnit.net 00:00:05.11]            at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+[xUnit.net 00:00:05.11]         --- End of stack trace from previous location ---
+[xUnit.net 00:00:05.11]            at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.CreateHost()
+[xUnit.net 00:00:05.11]            at Microsoft.Extensions.Hosting.HostFactoryResolver.<>c__DisplayClass10_0.<ResolveHostFactory>b__0(String[] args)
+[xUnit.net 00:00:05.11]            at Microsoft.AspNetCore.Mvc.Testing.DeferredHostBuilder.Build()
+[xUnit.net 00:00:05.11]            at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateHost(IHostBuilder builder)
+[xUnit.net 00:00:05.11]            at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.ConfigureHostBuilder(IHostBuilder hostBuilder)
+[xUnit.net 00:00:05.11]            at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.StartServer()
+[xUnit.net 00:00:05.11]            at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateDefaultClient(DelegatingHandler[] handlers)
+[xUnit.net 00:00:05.11]            at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateDefaultClient(Uri baseAddress, DelegatingHandler[] handlers)
+[xUnit.net 00:00:05.11]            at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateClient(WebApplicationFactoryClientOptions options)
+[xUnit.net 00:00:05.11]            at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateClient()
+[xUnit.net 00:00:05.11]         /Users/mmm/Documents/route-board/tests/RouteBoard.Api.Tests/TripApiTests.cs(14,0): at RouteBoard.Api.Tests.TripApiTests.Client(String token)
+[xUnit.net 00:00:05.11]         /Users/mmm/Documents/route-board/tests/RouteBoard.Api.Tests/TripApiTests.cs(50,0): at RouteBoard.Api.Tests.TripApiTests.Invalid_token_is_401(String failure)
+[xUnit.net 00:00:05.11]         --- End of stack trace from previous location ---
+[xUnit.net 00:00:05.14]     RouteBoard.Api.Tests.TripApiTests.Invalid_token_is_401(failure: "audience") [FAIL]
+[xUnit.net 00:00:05.14]       System.InvalidOperationException : RouteBoard database connection is not configured.
+[xUnit.net 00:00:05.14]       Stack Trace:
+[xUnit.net 00:00:05.14]         /Users/mmm/Documents/route-board/backend/RouteBoard.Api/Program.cs(17,0): at Program.<Main>$(String[] args)
+[xUnit.net 00:00:05.14]            at InvokeStub_Program.<Main>$(Object, Span`1)
+[xUnit.net 00:00:05.14]            at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+[xUnit.net 00:00:05.14]         --- End of stack trace from previous location ---
+[xUnit.net 00:00:05.14]            at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.CreateHost()
+[xUnit.net 00:00:05.14]            at Microsoft.Extensions.Hosting.HostFactoryResolver.<>c__DisplayClass10_0.<ResolveHostFactory>b__0(String[] args)
+[xUnit.net 00:00:05.14]            at Microsoft.AspNetCore.Mvc.Testing.DeferredHostBuilder.Build()
+[xUnit.net 00:00:05.14]            at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateHost(IHostBuilder builder)
+[xUnit.net 00:00:05.14]            at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.ConfigureHostBuilder(IHostBuilder hostBuilder)
+[xUnit.net 00:00:05.14]            at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.StartServer()
+[xUnit.net 00:00:05.14]            at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateDefaultClient(DelegatingHandler[] handlers)
+[xUnit.net 00:00:05.14]            at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateDefaultClient(Uri baseAddress, DelegatingHandler[] handlers)
+[xUnit.net 00:00:05.14]            at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateClient(WebApplicationFactoryClientOptions options)
+[xUnit.net 00:00:05.14]            at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateClient()
+[xUnit.net 00:00:05.14]         /Users/mmm/Documents/route-board/tests/RouteBoard.Api.Tests/TripApiTests.cs(14,0): at RouteBoard.Api.Tests.TripApiTests.Client(String token)
+[xUnit.net 00:00:05.14]         /Users/mmm/Documents/route-board/tests/RouteBoard.Api.Tests/TripApiTests.cs(50,0): at RouteBoard.Api.Tests.TripApiTests.Invalid_token_is_401(String failure)
+[xUnit.net 00:00:05.14]         --- End of stack trace from previous location ---
+[xUnit.net 00:00:05.25]     RouteBoard.Api.Tests.TripApiTests.Invalid_token_is_401(failure: "signature") [FAIL]
+[xUnit.net 00:00:05.25]       System.InvalidOperationException : RouteBoard database connection is not configured.
+[xUnit.net 00:00:05.25]       Stack Trace:
+[xUnit.net 00:00:05.25]         /Users/mmm/Documents/route-board/backend/RouteBoard.Api/Program.cs(17,0): at Program.<Main>$(String[] args)
+[xUnit.net 00:00:05.25]            at InvokeStub_Program.<Main>$(Object, Span`1)
+[xUnit.net 00:00:05.25]            at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+[xUnit.net 00:00:05.25]         --- End of stack trace from previous location ---
+[xUnit.net 00:00:05.25]            at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.CreateHost()
+[xUnit.net 00:00:05.25]            at Microsoft.Extensions.Hosting.HostFactoryResolver.<>c__DisplayClass10_0.<ResolveHostFactory>b__0(String[] args)
+[xUnit.net 00:00:05.25]            at Microsoft.AspNetCore.Mvc.Testing.DeferredHostBuilder.Build()
+[xUnit.net 00:00:05.25]            at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateHost(IHostBuilder builder)
+[xUnit.net 00:00:05.25]            at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.ConfigureHostBuilder(IHostBuilder hostBuilder)
+[xUnit.net 00:00:05.25]            at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.StartServer()
+[xUnit.net 00:00:05.25]            at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateDefaultClient(DelegatingHandler[] handlers)
+[xUnit.net 00:00:05.25]            at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateDefaultClient(Uri baseAddress, DelegatingHandler[] handlers)
+[xUnit.net 00:00:05.25]            at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateClient(WebApplicationFactoryClientOptions options)
+[xUnit.net 00:00:05.25]            at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateClient()
+[xUnit.net 00:00:05.25]         /Users/mmm/Documents/route-board/tests/RouteBoard.Api.Tests/TripApiTests.cs(14,0): at RouteBoard.Api.Tests.TripApiTests.Client(String token)
+[xUnit.net 00:00:05.25]         /Users/mmm/Documents/route-board/tests/RouteBoard.Api.Tests/TripApiTests.cs(50,0): at RouteBoard.Api.Tests.TripApiTests.Invalid_token_is_401(String failure)
+[xUnit.net 00:00:05.25]         --- End of stack trace from previous location ---
+[xUnit.net 00:00:05.28]     RouteBoard.Api.Tests.TripApiTests.Invalid_token_is_401(failure: "issuer") [FAIL]
+[xUnit.net 00:00:05.28]       System.InvalidOperationException : RouteBoard database connection is not configured.
+[xUnit.net 00:00:05.28]       Stack Trace:
+[xUnit.net 00:00:05.28]         /Users/mmm/Documents/route-board/backend/RouteBoard.Api/Program.cs(17,0): at Program.<Main>$(String[] args)
+[xUnit.net 00:00:05.28]            at InvokeStub_Program.<Main>$(Object, Span`1)
+[xUnit.net 00:00:05.28]            at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+[xUnit.net 00:00:05.28]         --- End of stack trace from previous location ---
+[xUnit.net 00:00:05.28]            at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.CreateHost()
+[xUnit.net 00:00:05.28]            at Microsoft.Extensions.Hosting.HostFactoryResolver.<>c__DisplayClass10_0.<ResolveHostFactory>b__0(String[] args)
+[xUnit.net 00:00:05.28]            at Microsoft.AspNetCore.Mvc.Testing.DeferredHostBuilder.Build()
+[xUnit.net 00:00:05.28]            at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateHost(IHostBuilder builder)
+[xUnit.net 00:00:05.28]            at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.ConfigureHostBuilder(IHostBuilder hostBuilder)
+[xUnit.net 00:00:05.28]            at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.StartServer()
+[xUnit.net 00:00:05.28]            at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateDefaultClient(DelegatingHandler[] handlers)
+[xUnit.net 00:00:05.28]            at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateDefaultClient(Uri baseAddress, DelegatingHandler[] handlers)
+[xUnit.net 00:00:05.28]            at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateClient(WebApplicationFactoryClientOptions options)
+[xUnit.net 00:00:05.28]            at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateClient()
+[xUnit.net 00:00:05.28]         /Users/mmm/Documents/route-board/tests/RouteBoard.Api.Tests/TripApiTests.cs(14,0): at RouteBoard.Api.Tests.TripApiTests.Client(String token)
+[xUnit.net 00:00:05.28]         /Users/mmm/Documents/route-board/tests/RouteBoard.Api.Tests/TripApiTests.cs(50,0): at RouteBoard.Api.Tests.TripApiTests.Invalid_token_is_401(String failure)
+[xUnit.net 00:00:05.28]         --- End of stack trace from previous location ---
+[xUnit.net 00:00:05.31]     RouteBoard.Api.Tests.TripApiTests.Create_returns_location_and_concurrent_updates_have_one_winner [FAIL]
+[xUnit.net 00:00:05.31]       System.InvalidOperationException : RouteBoard database connection is not configured.
+[xUnit.net 00:00:05.31]       Stack Trace:
+[xUnit.net 00:00:05.31]         /Users/mmm/Documents/route-board/backend/RouteBoard.Api/Program.cs(17,0): at Program.<Main>$(String[] args)
+[xUnit.net 00:00:05.31]            at InvokeStub_Program.<Main>$(Object, Span`1)
+[xUnit.net 00:00:05.31]            at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+[xUnit.net 00:00:05.31]         --- End of stack trace from previous location ---
+[xUnit.net 00:00:05.31]            at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.CreateHost()
+[xUnit.net 00:00:05.31]            at Microsoft.Extensions.Hosting.HostFactoryResolver.<>c__DisplayClass10_0.<ResolveHostFactory>b__0(String[] args)
+[xUnit.net 00:00:05.32]            at Microsoft.AspNetCore.Mvc.Testing.DeferredHostBuilder.Build()
+[xUnit.net 00:00:05.32]            at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateHost(IHostBuilder builder)
+[xUnit.net 00:00:05.32]            at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.ConfigureHostBuilder(IHostBuilder hostBuilder)
+[xUnit.net 00:00:05.32]            at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.StartServer()
+[xUnit.net 00:00:05.32]            at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateDefaultClient(DelegatingHandler[] handlers)
+[xUnit.net 00:00:05.32]            at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateDefaultClient(Uri baseAddress, DelegatingHandler[] handlers)
+[xUnit.net 00:00:05.32]            at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateClient(WebApplicationFactoryClientOptions options)
+[xUnit.net 00:00:05.32]            at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateClient()
+[xUnit.net 00:00:05.32]         /Users/mmm/Documents/route-board/tests/RouteBoard.Api.Tests/TripApiTests.cs(14,0): at RouteBoard.Api.Tests.TripApiTests.Client(String token)
+[xUnit.net 00:00:05.32]         /Users/mmm/Documents/route-board/tests/RouteBoard.Api.Tests/TripApiTests.cs(70,0): at RouteBoard.Api.Tests.TripApiTests.Create_returns_location_and_concurrent_updates_have_one_winner()
+[xUnit.net 00:00:05.32]         --- End of stack trace from previous location ---
+[xUnit.net 00:00:05.35]     RouteBoard.Api.Tests.TripApiTests.Out_of_order_arrival_is_rejected_without_audit_or_event [FAIL]
+[xUnit.net 00:00:05.35]       System.InvalidOperationException : RouteBoard database connection is not configured.
+[xUnit.net 00:00:05.35]       Stack Trace:
+[xUnit.net 00:00:05.35]         /Users/mmm/Documents/route-board/backend/RouteBoard.Api/Program.cs(17,0): at Program.<Main>$(String[] args)
+[xUnit.net 00:00:05.35]            at InvokeStub_Program.<Main>$(Object, Span`1)
+[xUnit.net 00:00:05.35]            at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+[xUnit.net 00:00:05.35]         --- End of stack trace from previous location ---
+[xUnit.net 00:00:05.36]            at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.CreateHost()
+[xUnit.net 00:00:05.36]            at Microsoft.Extensions.Hosting.HostFactoryResolver.<>c__DisplayClass10_0.<ResolveHostFactory>b__0(String[] args)
+[xUnit.net 00:00:05.36]            at Microsoft.AspNetCore.Mvc.Testing.DeferredHostBuilder.Build()
+[xUnit.net 00:00:05.36]            at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateHost(IHostBuilder builder)
+[xUnit.net 00:00:05.36]            at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.ConfigureHostBuilder(IHostBuilder hostBuilder)
+[xUnit.net 00:00:05.36]            at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.StartServer()
+[xUnit.net 00:00:05.36]            at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateDefaultClient(DelegatingHandler[] handlers)
+[xUnit.net 00:00:05.36]            at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateDefaultClient(Uri baseAddress, DelegatingHandler[] handlers)
+[xUnit.net 00:00:05.36]            at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateClient(WebApplicationFactoryClientOptions options)
+[xUnit.net 00:00:05.36]            at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateClient()
+[xUnit.net 00:00:05.36]         /Users/mmm/Documents/route-board/tests/RouteBoard.Api.Tests/TripApiTests.cs(14,0): at RouteBoard.Api.Tests.TripApiTests.Client(String token)
+[xUnit.net 00:00:05.36]         /Users/mmm/Documents/route-board/tests/RouteBoard.Api.Tests/TripApiTests.cs(97,0): at RouteBoard.Api.Tests.TripApiTests.Out_of_order_arrival_is_rejected_without_audit_or_event()
+[xUnit.net 00:00:05.36]         --- End of stack trace from previous location ---
+[xUnit.net 00:00:05.52]   Finished:    RouteBoard.Api.Tests
+  Failed RouteBoard.Api.Tests.TripApiTests.Invalid_token_is_401(failure: "expiry") [27 ms]
+  Error Message:
+   System.InvalidOperationException : RouteBoard database connection is not configured.
+  Stack Trace:
+     at Program.<Main>$(String[] args) in /Users/mmm/Documents/route-board/backend/RouteBoard.Api/Program.cs:line 17
+   at InvokeStub_Program.<Main>$(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+--- End of stack trace from previous location ---
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.CreateHost()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.<>c__DisplayClass10_0.<ResolveHostFactory>b__0(String[] args)
+   at Microsoft.AspNetCore.Mvc.Testing.DeferredHostBuilder.Build()
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateHost(IHostBuilder builder)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.ConfigureHostBuilder(IHostBuilder hostBuilder)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.StartServer()
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateDefaultClient(DelegatingHandler[] handlers)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateDefaultClient(Uri baseAddress, DelegatingHandler[] handlers)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateClient(WebApplicationFactoryClientOptions options)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateClient()
+   at RouteBoard.Api.Tests.TripApiTests.Client(String token) in /Users/mmm/Documents/route-board/tests/RouteBoard.Api.Tests/TripApiTests.cs:line 14
+   at RouteBoard.Api.Tests.TripApiTests.Invalid_token_is_401(String failure) in /Users/mmm/Documents/route-board/tests/RouteBoard.Api.Tests/TripApiTests.cs:line 50
+--- End of stack trace from previous location ---
+  Failed RouteBoard.Api.Tests.TripApiTests.Invalid_token_is_401(failure: "audience") [27 ms]
+  Error Message:
+   System.InvalidOperationException : RouteBoard database connection is not configured.
+  Stack Trace:
+     at Program.<Main>$(String[] args) in /Users/mmm/Documents/route-board/backend/RouteBoard.Api/Program.cs:line 17
+   at InvokeStub_Program.<Main>$(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+--- End of stack trace from previous location ---
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.CreateHost()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.<>c__DisplayClass10_0.<ResolveHostFactory>b__0(String[] args)
+   at Microsoft.AspNetCore.Mvc.Testing.DeferredHostBuilder.Build()
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateHost(IHostBuilder builder)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.ConfigureHostBuilder(IHostBuilder hostBuilder)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.StartServer()
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateDefaultClient(DelegatingHandler[] handlers)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateDefaultClient(Uri baseAddress, DelegatingHandler[] handlers)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateClient(WebApplicationFactoryClientOptions options)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateClient()
+   at RouteBoard.Api.Tests.TripApiTests.Client(String token) in /Users/mmm/Documents/route-board/tests/RouteBoard.Api.Tests/TripApiTests.cs:line 14
+   at RouteBoard.Api.Tests.TripApiTests.Invalid_token_is_401(String failure) in /Users/mmm/Documents/route-board/tests/RouteBoard.Api.Tests/TripApiTests.cs:line 50
+--- End of stack trace from previous location ---
+  Failed RouteBoard.Api.Tests.TripApiTests.Invalid_token_is_401(failure: "signature") [113 ms]
+  Error Message:
+   System.InvalidOperationException : RouteBoard database connection is not configured.
+  Stack Trace:
+     at Program.<Main>$(String[] args) in /Users/mmm/Documents/route-board/backend/RouteBoard.Api/Program.cs:line 17
+   at InvokeStub_Program.<Main>$(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+--- End of stack trace from previous location ---
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.CreateHost()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.<>c__DisplayClass10_0.<ResolveHostFactory>b__0(String[] args)
+   at Microsoft.AspNetCore.Mvc.Testing.DeferredHostBuilder.Build()
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateHost(IHostBuilder builder)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.ConfigureHostBuilder(IHostBuilder hostBuilder)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.StartServer()
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateDefaultClient(DelegatingHandler[] handlers)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateDefaultClient(Uri baseAddress, DelegatingHandler[] handlers)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateClient(WebApplicationFactoryClientOptions options)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateClient()
+   at RouteBoard.Api.Tests.TripApiTests.Client(String token) in /Users/mmm/Documents/route-board/tests/RouteBoard.Api.Tests/TripApiTests.cs:line 14
+   at RouteBoard.Api.Tests.TripApiTests.Invalid_token_is_401(String failure) in /Users/mmm/Documents/route-board/tests/RouteBoard.Api.Tests/TripApiTests.cs:line 50
+--- End of stack trace from previous location ---
+  Failed RouteBoard.Api.Tests.TripApiTests.Invalid_token_is_401(failure: "issuer") [27 ms]
+  Error Message:
+   System.InvalidOperationException : RouteBoard database connection is not configured.
+  Stack Trace:
+     at Program.<Main>$(String[] args) in /Users/mmm/Documents/route-board/backend/RouteBoard.Api/Program.cs:line 17
+   at InvokeStub_Program.<Main>$(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+--- End of stack trace from previous location ---
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.CreateHost()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.<>c__DisplayClass10_0.<ResolveHostFactory>b__0(String[] args)
+   at Microsoft.AspNetCore.Mvc.Testing.DeferredHostBuilder.Build()
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateHost(IHostBuilder builder)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.ConfigureHostBuilder(IHostBuilder hostBuilder)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.StartServer()
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateDefaultClient(DelegatingHandler[] handlers)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateDefaultClient(Uri baseAddress, DelegatingHandler[] handlers)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateClient(WebApplicationFactoryClientOptions options)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateClient()
+   at RouteBoard.Api.Tests.TripApiTests.Client(String token) in /Users/mmm/Documents/route-board/tests/RouteBoard.Api.Tests/TripApiTests.cs:line 14
+   at RouteBoard.Api.Tests.TripApiTests.Invalid_token_is_401(String failure) in /Users/mmm/Documents/route-board/tests/RouteBoard.Api.Tests/TripApiTests.cs:line 50
+--- End of stack trace from previous location ---
+  Failed RouteBoard.Api.Tests.TripApiTests.Create_returns_location_and_concurrent_updates_have_one_winner [30 ms]
+  Error Message:
+   System.InvalidOperationException : RouteBoard database connection is not configured.
+  Stack Trace:
+     at Program.<Main>$(String[] args) in /Users/mmm/Documents/route-board/backend/RouteBoard.Api/Program.cs:line 17
+   at InvokeStub_Program.<Main>$(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+--- End of stack trace from previous location ---
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.CreateHost()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.<>c__DisplayClass10_0.<ResolveHostFactory>b__0(String[] args)
+   at Microsoft.AspNetCore.Mvc.Testing.DeferredHostBuilder.Build()
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateHost(IHostBuilder builder)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.ConfigureHostBuilder(IHostBuilder hostBuilder)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.StartServer()
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateDefaultClient(DelegatingHandler[] handlers)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateDefaultClient(Uri baseAddress, DelegatingHandler[] handlers)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateClient(WebApplicationFactoryClientOptions options)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateClient()
+   at RouteBoard.Api.Tests.TripApiTests.Client(String token) in /Users/mmm/Documents/route-board/tests/RouteBoard.Api.Tests/TripApiTests.cs:line 14
+   at RouteBoard.Api.Tests.TripApiTests.Create_returns_location_and_concurrent_updates_have_one_winner() in /Users/mmm/Documents/route-board/tests/RouteBoard.Api.Tests/TripApiTests.cs:line 70
+--- End of stack trace from previous location ---
+  Failed RouteBoard.Api.Tests.TripApiTests.Out_of_order_arrival_is_rejected_without_audit_or_event [42 ms]
+  Error Message:
+   System.InvalidOperationException : RouteBoard database connection is not configured.
+  Stack Trace:
+     at Program.<Main>$(String[] args) in /Users/mmm/Documents/route-board/backend/RouteBoard.Api/Program.cs:line 17
+   at InvokeStub_Program.<Main>$(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+--- End of stack trace from previous location ---
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.CreateHost()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.<>c__DisplayClass10_0.<ResolveHostFactory>b__0(String[] args)
+   at Microsoft.AspNetCore.Mvc.Testing.DeferredHostBuilder.Build()
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateHost(IHostBuilder builder)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.ConfigureHostBuilder(IHostBuilder hostBuilder)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.StartServer()
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateDefaultClient(DelegatingHandler[] handlers)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateDefaultClient(Uri baseAddress, DelegatingHandler[] handlers)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateClient(WebApplicationFactoryClientOptions options)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateClient()
+   at RouteBoard.Api.Tests.TripApiTests.Client(String token) in /Users/mmm/Documents/route-board/tests/RouteBoard.Api.Tests/TripApiTests.cs:line 14
+   at RouteBoard.Api.Tests.TripApiTests.Out_of_order_arrival_is_rejected_without_audit_or_event() in /Users/mmm/Documents/route-board/tests/RouteBoard.Api.Tests/TripApiTests.cs:line 97
+--- End of stack trace from previous location ---
+
+Test Run Failed.
+Total tests: 18
+     Passed: 4
+     Failed: 14
+ Total time: 5.9149 Seconds

@@ -1,0 +1,143 @@
+  Determining projects to restore...
+  All projects are up-to-date for restore.
+  RouteBoard.Api -> /Users/mmm/Documents/route-board/backend/RouteBoard.Api/bin/Debug/net10.0/RouteBoard.Api.dll
+  RouteBoard.Api.Tests -> /Users/mmm/Documents/route-board/tests/RouteBoard.Api.Tests/bin/Debug/net10.0/RouteBoard.Api.Tests.dll
+Test run for /Users/mmm/Documents/route-board/tests/RouteBoard.Api.Tests/bin/Debug/net10.0/RouteBoard.Api.Tests.dll (.NETCoreApp,Version=v10.0)
+A total of 1 test files matched the specified pattern.
+[xUnit.net 00:00:00.00] xUnit.net VSTest Adapter v3.1.4+50e68bbb8b (64-bit .NET 10.0.14)
+[xUnit.net 00:00:00.08]   Discovering: RouteBoard.Api.Tests
+[xUnit.net 00:00:00.12]   Discovered:  RouteBoard.Api.Tests
+[xUnit.net 00:00:00.13]   Starting:    RouteBoard.Api.Tests
+  Passed RouteBoard.Api.Tests.ArrivalCalculatorTests.Arrival_matches_hand_prediction(delay: 4, expectedMinute: 27) [5 ms]
+  Passed RouteBoard.Api.Tests.ArrivalCalculatorTests.Arrival_matches_hand_prediction(delay: 0, expectedMinute: 23) [< 1 ms]
+  Passed RouteBoard.Api.Tests.ArrivalCalculatorTests.Negative_travel_time_is_rejected [< 1 ms]
+warn: Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager[35]
+      No XML encryptor configured. Key {4c9a6692-ac31-40d2-8244-dda6b1c2eda0} may be persisted to storage in unencrypted form.
+info: Microsoft.Hosting.Lifetime[0]
+      Application started. Press Ctrl+C to shut down.
+info: Microsoft.Hosting.Lifetime[0]
+      Hosting environment: Testing
+info: Microsoft.Hosting.Lifetime[0]
+      Content root path: /Users/mmm/Documents/route-board/backend/RouteBoard.Api
+[xUnit.net 00:00:02.96]     RouteBoard.Api.Tests.TripApiTests.Replay_starts_after_last_event_id_and_contains_no_actor [FAIL]
+[xUnit.net 00:00:02.96]       System.Text.Json.JsonException : The JSON value could not be converted to RouteBoard.Api.Features.Trips.TripView. Path: $.status | LineNumber: 0 | BytePositionInLine: 119.
+[xUnit.net 00:00:02.96]       ---- System.InvalidOperationException : Cannot get the value of a token type 'Number' as a string.
+[xUnit.net 00:00:02.96]       Stack Trace:
+[xUnit.net 00:00:02.96]            at System.Text.Json.ThrowHelper.ReThrowWithPath(ReadStack& state, Utf8JsonReader& reader, Exception ex)
+[xUnit.net 00:00:02.96]            at System.Text.Json.Serialization.JsonConverter`1.ReadCore(Utf8JsonReader& reader, T& value, JsonSerializerOptions options, ReadStack& state)
+[xUnit.net 00:00:02.96]            at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.ContinueDeserialize[TReadBufferState,TStream](TReadBufferState& bufferState, JsonReaderState& jsonReaderState, ReadStack& readStack, T& value)
+[xUnit.net 00:00:02.96]            at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.DeserializeAsync[TReadBufferState,TStream](TStream utf8Json, TReadBufferState bufferState, CancellationToken cancellationToken)
+[xUnit.net 00:00:02.96]            at System.Net.Http.Json.HttpContentJsonExtensions.ReadFromJsonAsyncCore[T](HttpContent content, JsonSerializerOptions options, CancellationToken cancellationToken)
+[xUnit.net 00:00:02.96]         /Users/mmm/Documents/route-board/tests/RouteBoard.Api.Tests/TripApiTests.cs(112,0): at RouteBoard.Api.Tests.TripApiTests.Replay_starts_after_last_event_id_and_contains_no_actor()
+[xUnit.net 00:00:02.96]         --- End of stack trace from previous location ---
+[xUnit.net 00:00:02.96]         ----- Inner Stack Trace -----
+[xUnit.net 00:00:02.96]            at System.Text.Json.ThrowHelper.ThrowInvalidOperationException_ExpectedString(JsonTokenType tokenType)
+[xUnit.net 00:00:02.96]            at System.Text.Json.Utf8JsonReader.GetString()
+[xUnit.net 00:00:02.96]            at System.Text.Json.Serialization.JsonConverter`1.TryRead(Utf8JsonReader& reader, Type typeToConvert, JsonSerializerOptions options, ReadStack& state, T& value, Boolean& isPopulatedValue)
+[xUnit.net 00:00:02.96]            at System.Text.Json.Serialization.JsonConverter`1.TryReadAsObject(Utf8JsonReader& reader, Type typeToConvert, JsonSerializerOptions options, ReadStack& state, Object& value)
+[xUnit.net 00:00:02.96]            at System.Text.Json.Serialization.Converters.LargeObjectWithParameterizedConstructorConverter`1.ReadAndCacheConstructorArgument(ReadStack& state, Utf8JsonReader& reader, JsonParameterInfo jsonParameterInfo)
+[xUnit.net 00:00:02.96]            at System.Text.Json.Serialization.Converters.ObjectWithParameterizedConstructorConverter`1.ReadConstructorArgumentsWithContinuation(ReadStack& state, Utf8JsonReader& reader, JsonSerializerOptions options)
+[xUnit.net 00:00:02.96]            at System.Text.Json.Serialization.Converters.ObjectWithParameterizedConstructorConverter`1.OnTryRead(Utf8JsonReader& reader, Type typeToConvert, JsonSerializerOptions options, ReadStack& state, T& value)
+[xUnit.net 00:00:02.96]            at System.Text.Json.Serialization.JsonConverter`1.TryRead(Utf8JsonReader& reader, Type typeToConvert, JsonSerializerOptions options, ReadStack& state, T& value, Boolean& isPopulatedValue)
+[xUnit.net 00:00:02.96]            at System.Text.Json.Serialization.JsonConverter`1.ReadCore(Utf8JsonReader& reader, T& value, JsonSerializerOptions options, ReadStack& state)
+  Passed RouteBoard.Api.Tests.TripApiTests.Invalid_query_is_400(url: "/api/trips?page=0") [258 ms]
+  Passed RouteBoard.Api.Tests.TripApiTests.Invalid_query_is_400(url: "/api/events?after=-1") [13 ms]
+  Passed RouteBoard.Api.Tests.TripApiTests.Invalid_query_is_400(url: "/api/trips?pageSize=101") [3 ms]
+  Passed RouteBoard.Api.Tests.TripApiTests.Invalid_query_is_400(url: "/api/trips?status=unknown") [2 ms]
+  Passed RouteBoard.Api.Tests.TripApiTests.Anonymous_write_is_401 [13 ms]
+  Passed RouteBoard.Api.Tests.MigrationTests.Migrations_apply_revert_and_reapply_on_disposable_database [2 s]
+  Failed RouteBoard.Api.Tests.TripApiTests.Replay_starts_after_last_event_id_and_contains_no_actor [137 ms]
+  Error Message:
+   System.Text.Json.JsonException : The JSON value could not be converted to RouteBoard.Api.Features.Trips.TripView. Path: $.status | LineNumber: 0 | BytePositionInLine: 119.
+---- System.InvalidOperationException : Cannot get the value of a token type 'Number' as a string.
+  Stack Trace:
+     at System.Text.Json.ThrowHelper.ReThrowWithPath(ReadStack& state, Utf8JsonReader& reader, Exception ex)
+   at System.Text.Json.Serialization.JsonConverter`1.ReadCore(Utf8JsonReader& reader, T& value, JsonSerializerOptions options, ReadStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.ContinueDeserialize[TReadBufferState,TStream](TReadBufferState& bufferState, JsonReaderState& jsonReaderState, ReadStack& readStack, T& value)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.DeserializeAsync[TReadBufferState,TStream](TStream utf8Json, TReadBufferState bufferState, CancellationToken cancellationToken)
+   at System.Net.Http.Json.HttpContentJsonExtensions.ReadFromJsonAsyncCore[T](HttpContent content, JsonSerializerOptions options, CancellationToken cancellationToken)
+   at RouteBoard.Api.Tests.TripApiTests.Replay_starts_after_last_event_id_and_contains_no_actor() in /Users/mmm/Documents/route-board/tests/RouteBoard.Api.Tests/TripApiTests.cs:line 112
+--- End of stack trace from previous location ---
+----- Inner Stack Trace -----
+   at System.Text.Json.ThrowHelper.ThrowInvalidOperationException_ExpectedString(JsonTokenType tokenType)
+   at System.Text.Json.Utf8JsonReader.GetString()
+   at System.Text.Json.Serialization.JsonConverter`1.TryRead(Utf8JsonReader& reader, Type typeToConvert, JsonSerializerOptions options, ReadStack& state, T& value, Boolean& isPopulatedValue)
+   at System.Text.Json.Serialization.JsonConverter`1.TryReadAsObject(Utf8JsonReader& reader, Type typeToConvert, JsonSerializerOptions options, ReadStack& state, Object& value)
+   at System.Text.Json.Serialization.Converters.LargeObjectWithParameterizedConstructorConverter`1.ReadAndCacheConstructorArgument(ReadStack& state, Utf8JsonReader& reader, JsonParameterInfo jsonParameterInfo)
+   at System.Text.Json.Serialization.Converters.ObjectWithParameterizedConstructorConverter`1.ReadConstructorArgumentsWithContinuation(ReadStack& state, Utf8JsonReader& reader, JsonSerializerOptions options)
+   at System.Text.Json.Serialization.Converters.ObjectWithParameterizedConstructorConverter`1.OnTryRead(Utf8JsonReader& reader, Type typeToConvert, JsonSerializerOptions options, ReadStack& state, T& value)
+   at System.Text.Json.Serialization.JsonConverter`1.TryRead(Utf8JsonReader& reader, Type typeToConvert, JsonSerializerOptions options, ReadStack& state, T& value, Boolean& isPopulatedValue)
+   at System.Text.Json.Serialization.JsonConverter`1.ReadCore(Utf8JsonReader& reader, T& value, JsonSerializerOptions options, ReadStack& state)
+  Passed RouteBoard.Api.Tests.TripApiTests.Missing_role_or_scope_is_403(role: "dispatcher", scope: "trips.read") [6 ms]
+  Passed RouteBoard.Api.Tests.TripApiTests.Missing_role_or_scope_is_403(role: "viewer", scope: "trips.write") [2 ms]
+[xUnit.net 00:00:03.02]     RouteBoard.Api.Tests.TripApiTests.Create_returns_location_and_concurrent_updates_have_one_winner [FAIL]
+[xUnit.net 00:00:03.02]       Assert.Equal() Failure: Values differ
+[xUnit.net 00:00:03.02]       Expected: Created
+[xUnit.net 00:00:03.02]       Actual:   InternalServerError
+[xUnit.net 00:00:03.02]       Stack Trace:
+[xUnit.net 00:00:03.02]         /Users/mmm/Documents/route-board/tests/RouteBoard.Api.Tests/TripApiTests.cs(72,0): at RouteBoard.Api.Tests.TripApiTests.Create_returns_location_and_concurrent_updates_have_one_winner()
+[xUnit.net 00:00:03.02]         --- End of stack trace from previous location ---
+[xUnit.net 00:00:03.02]     RouteBoard.Api.Tests.TripApiTests.Out_of_order_arrival_is_rejected_without_audit_or_event [FAIL]
+[xUnit.net 00:00:03.02]       System.Text.Json.JsonException : The JSON value could not be converted to RouteBoard.Api.Features.Trips.TripView. Path: $.status | LineNumber: 0 | BytePositionInLine: 119.
+[xUnit.net 00:00:03.02]       ---- System.InvalidOperationException : Cannot get the value of a token type 'Number' as a string.
+[xUnit.net 00:00:03.02]       Stack Trace:
+[xUnit.net 00:00:03.02]            at System.Text.Json.ThrowHelper.ReThrowWithPath(ReadStack& state, Utf8JsonReader& reader, Exception ex)
+[xUnit.net 00:00:03.02]            at System.Text.Json.Serialization.JsonConverter`1.ReadCore(Utf8JsonReader& reader, T& value, JsonSerializerOptions options, ReadStack& state)
+[xUnit.net 00:00:03.02]            at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.ContinueDeserialize[TReadBufferState,TStream](TReadBufferState& bufferState, JsonReaderState& jsonReaderState, ReadStack& readStack, T& value)
+[xUnit.net 00:00:03.02]            at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.DeserializeAsync[TReadBufferState,TStream](TStream utf8Json, TReadBufferState bufferState, CancellationToken cancellationToken)
+[xUnit.net 00:00:03.02]            at System.Net.Http.Json.HttpContentJsonExtensions.ReadFromJsonAsyncCore[T](HttpContent content, JsonSerializerOptions options, CancellationToken cancellationToken)
+[xUnit.net 00:00:03.02]         /Users/mmm/Documents/route-board/tests/RouteBoard.Api.Tests/TripApiTests.cs(99,0): at RouteBoard.Api.Tests.TripApiTests.Out_of_order_arrival_is_rejected_without_audit_or_event()
+[xUnit.net 00:00:03.02]         --- End of stack trace from previous location ---
+[xUnit.net 00:00:03.02]         ----- Inner Stack Trace -----
+[xUnit.net 00:00:03.02]            at System.Text.Json.ThrowHelper.ThrowInvalidOperationException_ExpectedString(JsonTokenType tokenType)
+[xUnit.net 00:00:03.02]            at System.Text.Json.Utf8JsonReader.GetString()
+[xUnit.net 00:00:03.02]            at System.Text.Json.Serialization.JsonConverter`1.TryRead(Utf8JsonReader& reader, Type typeToConvert, JsonSerializerOptions options, ReadStack& state, T& value, Boolean& isPopulatedValue)
+[xUnit.net 00:00:03.02]            at System.Text.Json.Serialization.JsonConverter`1.TryReadAsObject(Utf8JsonReader& reader, Type typeToConvert, JsonSerializerOptions options, ReadStack& state, Object& value)
+[xUnit.net 00:00:03.02]            at System.Text.Json.Serialization.Converters.LargeObjectWithParameterizedConstructorConverter`1.ReadAndCacheConstructorArgument(ReadStack& state, Utf8JsonReader& reader, JsonParameterInfo jsonParameterInfo)
+[xUnit.net 00:00:03.02]            at System.Text.Json.Serialization.Converters.ObjectWithParameterizedConstructorConverter`1.ReadConstructorArgumentsWithContinuation(ReadStack& state, Utf8JsonReader& reader, JsonSerializerOptions options)
+[xUnit.net 00:00:03.02]            at System.Text.Json.Serialization.Converters.ObjectWithParameterizedConstructorConverter`1.OnTryRead(Utf8JsonReader& reader, Type typeToConvert, JsonSerializerOptions options, ReadStack& state, T& value)
+[xUnit.net 00:00:03.02]            at System.Text.Json.Serialization.JsonConverter`1.TryRead(Utf8JsonReader& reader, Type typeToConvert, JsonSerializerOptions options, ReadStack& state, T& value, Boolean& isPopulatedValue)
+[xUnit.net 00:00:03.02]            at System.Text.Json.Serialization.JsonConverter`1.ReadCore(Utf8JsonReader& reader, T& value, JsonSerializerOptions options, ReadStack& state)
+info: Microsoft.Hosting.Lifetime[0]
+      Application is shutting down...
+[xUnit.net 00:00:03.17]   Finished:    RouteBoard.Api.Tests
+  Passed RouteBoard.Api.Tests.TripApiTests.Invalid_token_is_401(failure: "expiry") [3 ms]
+  Passed RouteBoard.Api.Tests.TripApiTests.Invalid_token_is_401(failure: "audience") [2 ms]
+  Passed RouteBoard.Api.Tests.TripApiTests.Invalid_token_is_401(failure: "signature") [36 ms]
+  Passed RouteBoard.Api.Tests.TripApiTests.Invalid_token_is_401(failure: "issuer") [2 ms]
+  Failed RouteBoard.Api.Tests.TripApiTests.Create_returns_location_and_concurrent_updates_have_one_winner [5 ms]
+  Error Message:
+   Assert.Equal() Failure: Values differ
+Expected: Created
+Actual:   InternalServerError
+  Stack Trace:
+     at RouteBoard.Api.Tests.TripApiTests.Create_returns_location_and_concurrent_updates_have_one_winner() in /Users/mmm/Documents/route-board/tests/RouteBoard.Api.Tests/TripApiTests.cs:line 72
+--- End of stack trace from previous location ---
+  Failed RouteBoard.Api.Tests.TripApiTests.Out_of_order_arrival_is_rejected_without_audit_or_event [3 ms]
+  Error Message:
+   System.Text.Json.JsonException : The JSON value could not be converted to RouteBoard.Api.Features.Trips.TripView. Path: $.status | LineNumber: 0 | BytePositionInLine: 119.
+---- System.InvalidOperationException : Cannot get the value of a token type 'Number' as a string.
+  Stack Trace:
+     at System.Text.Json.ThrowHelper.ReThrowWithPath(ReadStack& state, Utf8JsonReader& reader, Exception ex)
+   at System.Text.Json.Serialization.JsonConverter`1.ReadCore(Utf8JsonReader& reader, T& value, JsonSerializerOptions options, ReadStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.ContinueDeserialize[TReadBufferState,TStream](TReadBufferState& bufferState, JsonReaderState& jsonReaderState, ReadStack& readStack, T& value)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.DeserializeAsync[TReadBufferState,TStream](TStream utf8Json, TReadBufferState bufferState, CancellationToken cancellationToken)
+   at System.Net.Http.Json.HttpContentJsonExtensions.ReadFromJsonAsyncCore[T](HttpContent content, JsonSerializerOptions options, CancellationToken cancellationToken)
+   at RouteBoard.Api.Tests.TripApiTests.Out_of_order_arrival_is_rejected_without_audit_or_event() in /Users/mmm/Documents/route-board/tests/RouteBoard.Api.Tests/TripApiTests.cs:line 99
+--- End of stack trace from previous location ---
+----- Inner Stack Trace -----
+   at System.Text.Json.ThrowHelper.ThrowInvalidOperationException_ExpectedString(JsonTokenType tokenType)
+   at System.Text.Json.Utf8JsonReader.GetString()
+   at System.Text.Json.Serialization.JsonConverter`1.TryRead(Utf8JsonReader& reader, Type typeToConvert, JsonSerializerOptions options, ReadStack& state, T& value, Boolean& isPopulatedValue)
+   at System.Text.Json.Serialization.JsonConverter`1.TryReadAsObject(Utf8JsonReader& reader, Type typeToConvert, JsonSerializerOptions options, ReadStack& state, Object& value)
+   at System.Text.Json.Serialization.Converters.LargeObjectWithParameterizedConstructorConverter`1.ReadAndCacheConstructorArgument(ReadStack& state, Utf8JsonReader& reader, JsonParameterInfo jsonParameterInfo)
+   at System.Text.Json.Serialization.Converters.ObjectWithParameterizedConstructorConverter`1.ReadConstructorArgumentsWithContinuation(ReadStack& state, Utf8JsonReader& reader, JsonSerializerOptions options)
+   at System.Text.Json.Serialization.Converters.ObjectWithParameterizedConstructorConverter`1.OnTryRead(Utf8JsonReader& reader, Type typeToConvert, JsonSerializerOptions options, ReadStack& state, T& value)
+   at System.Text.Json.Serialization.JsonConverter`1.TryRead(Utf8JsonReader& reader, Type typeToConvert, JsonSerializerOptions options, ReadStack& state, T& value, Boolean& isPopulatedValue)
+   at System.Text.Json.Serialization.JsonConverter`1.ReadCore(Utf8JsonReader& reader, T& value, JsonSerializerOptions options, ReadStack& state)
+
+Test Run Failed.
+Total tests: 18
+     Passed: 15
+     Failed: 3
+ Total time: 3.6020 Seconds
