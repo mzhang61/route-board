@@ -1,3 +1,5 @@
+Current committed verification: [Milestone 1](milestone-1/README.md).
+
 # Historical local verification evidence
 
 Base commit: `63cfda1e3d546d5dfcbf9c4aad67b945f307c6be` (also the observed remote HEAD).

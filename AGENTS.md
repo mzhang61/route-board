@@ -9,3 +9,4 @@
 - Label vehicle positions as synthetic. External traffic is reference data, not real vehicle GPS.
 - Verify each increment with relevant builds and tests. Record failures and unavailable checks honestly.
 - Maintain architecture and oral-defense notes alongside implemented features.
+- At completed milestones, record relevant verification, use English commit messages, and push to the verified origin as requested by the user. Check for secrets and remote changes first; never force-push.

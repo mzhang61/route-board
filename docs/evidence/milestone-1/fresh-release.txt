@@ -1,0 +1,6 @@
+Fresh isolated database is accepting connections.
+Migration command run 1: successful.
+Migration command run 2: successful.
+Restricted runtime API: health 200 and empty board 200 over local HTTPS.
+Local certificate bypass is test-only; public TLS remains unverified.
+Only disposable release-check containers and volumes were removed.

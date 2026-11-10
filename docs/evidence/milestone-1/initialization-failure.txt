@@ -1,0 +1,82 @@
+Fresh isolated database initialized with separate runtime login.
+Migration command run 1: successful.
+Migration command run 2: successful.
+ERROR:  role "routeboard_runtime" does not exist
+routeboard-release-check-db-1  | The files belonging to this database system will be owned by user "postgres".
+routeboard-release-check-db-1  | This user must also own the server process.
+routeboard-release-check-db-1  | 
+routeboard-release-check-db-1  | The database cluster will be initialized with locale "en_US.utf8".
+routeboard-release-check-db-1  | The default database encoding has accordingly been set to "UTF8".
+routeboard-release-check-db-1  | The default text search configuration will be set to "english".
+routeboard-release-check-db-1  | 
+routeboard-release-check-db-1  | Data page checksums are disabled.
+routeboard-release-check-db-1  | 
+routeboard-release-check-db-1  | fixing permissions on existing directory /var/lib/postgresql/data ... ok
+routeboard-release-check-db-1  | creating subdirectories ... ok
+routeboard-release-check-db-1  | selecting dynamic shared memory implementation ... posix
+routeboard-release-check-db-1  | selecting default "max_connections" ... 100
+routeboard-release-check-db-1  | selecting default "shared_buffers" ... 128MB
+routeboard-release-check-db-1  | selecting default time zone ... Etc/UTC
+routeboard-release-check-db-1  | creating configuration files ... ok
+routeboard-release-check-db-1  | running bootstrap script ... ok
+routeboard-release-check-db-1  | performing post-bootstrap initialization ... ok
+routeboard-release-check-db-1  | initdb: warning: enabling "trust" authentication for local connections
+routeboard-release-check-db-1  | initdb: hint: You can change this by editing pg_hba.conf or using the option -A, or --auth-local and --auth-host, the next time you run initdb.
+routeboard-release-check-db-1  | syncing data to disk ... ok
+routeboard-release-check-db-1  | 
+routeboard-release-check-db-1  | 
+routeboard-release-check-db-1  | Success. You can now start the database server using:
+routeboard-release-check-db-1  | 
+routeboard-release-check-db-1  |     pg_ctl -D /var/lib/postgresql/data -l logfile start
+routeboard-release-check-db-1  | 
+routeboard-release-check-db-1  | waiting for server to start....2026-11-10 04:27:32.114 UTC [47] LOG:  starting PostgreSQL 17.11 (Debian 17.11-1.pgdg12+2) on aarch64-unknown-linux-gnu, compiled by gcc (Debian 12.2.0-14+deb12u1) 12.2.0, 64-bit
+routeboard-release-check-db-1  | 2026-11-10 04:27:32.115 UTC [47] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+routeboard-release-check-db-1  | 2026-11-10 04:27:32.121 UTC [50] LOG:  database system was shut down at 2026-11-10 04:27:31 UTC
+routeboard-release-check-db-1  | 2026-11-10 04:27:32.127 UTC [47] LOG:  database system is ready to accept connections
+routeboard-release-check-db-1  |  done
+routeboard-release-check-db-1  | server started
+routeboard-release-check-db-1  | CREATE DATABASE
+routeboard-release-check-db-1  | 
+routeboard-release-check-db-1  | 
+routeboard-release-check-db-1  | /usr/local/bin/docker-entrypoint.sh: running /docker-entrypoint-initdb.d/10-runtime.sh
+routeboard-release-check-db-1  | /usr/local/bin/docker-entrypoint.sh: /docker-entrypoint-initdb.d/10-runtime.sh: /usr/bin/env: bad interpreter: Permission denied
+routeboard-release-check-db-1  | 
+routeboard-release-check-db-1  | PostgreSQL Database directory appears to contain a database; Skipping initialization
+routeboard-release-check-db-1  | 
+routeboard-release-check-db-1  | 2026-11-10 04:27:32.805 UTC [1] LOG:  starting PostgreSQL 17.11 (Debian 17.11-1.pgdg12+2) on aarch64-unknown-linux-gnu, compiled by gcc (Debian 12.2.0-14+deb12u1) 12.2.0, 64-bit
+routeboard-release-check-db-1  | 2026-11-10 04:27:32.805 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+routeboard-release-check-db-1  | 2026-11-10 04:27:32.805 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+routeboard-release-check-db-1  | 2026-11-10 04:27:32.808 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+routeboard-release-check-db-1  | 2026-11-10 04:27:32.813 UTC [29] LOG:  database system was interrupted; last known up at 2026-11-10 04:27:32 UTC
+routeboard-release-check-db-1  | 2026-11-10 04:27:32.928 UTC [29] LOG:  database system was not properly shut down; automatic recovery in progress
+routeboard-release-check-db-1  | 2026-11-10 04:27:32.931 UTC [29] LOG:  redo starts at 0/14E6FE8
+routeboard-release-check-db-1  | 2026-11-10 04:27:32.946 UTC [29] LOG:  invalid record length at 0/190A9A8: expected at least 24, got 0
+routeboard-release-check-db-1  | 2026-11-10 04:27:32.946 UTC [29] LOG:  redo done at 0/190A960 system usage: CPU: user: 0.00 s, system: 0.01 s, elapsed: 0.01 s
+routeboard-release-check-db-1  | 2026-11-10 04:27:32.950 UTC [27] LOG:  checkpoint starting: end-of-recovery immediate wait
+routeboard-release-check-db-1  | 2026-11-10 04:27:33.007 UTC [27] LOG:  checkpoint complete: wrote 921 buffers (5.6%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.034 s, sync=0.022 s, total=0.058 s; sync files=301, longest=0.006 s, average=0.001 s; distance=4238 kB, estimate=4238 kB; lsn=0/190A9A8, redo lsn=0/190A9A8
+routeboard-release-check-db-1  | 2026-11-10 04:27:33.012 UTC [1] LOG:  database system is ready to accept connections
+routeboard-release-check-db-1  | 2026-11-10 04:27:40.100 UTC [41] ERROR:  relation "__EFMigrationsHistory" does not exist at character 45
+routeboard-release-check-db-1  | 2026-11-10 04:27:40.100 UTC [41] STATEMENT:  SELECT "MigrationId", "ProductVersion"
+routeboard-release-check-db-1  | 	FROM "__EFMigrationsHistory"
+routeboard-release-check-db-1  | 	ORDER BY "MigrationId"
+routeboard-release-check-db-1  | 2026-11-10 04:27:45.928 UTC [57] ERROR:  role "routeboard_runtime" does not exist
+routeboard-release-check-db-1  | 2026-11-10 04:27:45.928 UTC [57] STATEMENT:  REVOKE ALL ON ALL TABLES IN SCHEMA public FROM routeboard_runtime;
+
+Only disposable release-check containers and volumes were removed.
+Traceback (most recent call last):
+  File "/Users/mmm/Documents/route-board/scripts/release-smoke.py", line 95, in <module>
+    main()
+    ~~~~^^
+  File "/Users/mmm/Documents/route-board/scripts/release-smoke.py", line 65, in main
+    run(compose + ["exec", "-T", "db", "psql", "-U", "routeboard_migrator",
+    ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                   "-d", "routeboard", "--set", "ON_ERROR_STOP=1"],
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        input=(ROOT / "deploy/runtime-grants.sql").read_text(), env=environment)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/mmm/Documents/route-board/scripts/release-smoke.py", line 15, in run
+    result = subprocess.run(arguments, check=True, capture_output=True, text=True, **options)
+  File "/opt/homebrew/Cellar/python@3.14/3.14.5/Frameworks/Python.framework/Versions/3.14/lib/python3.14/subprocess.py", line 578, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['docker', 'compose', '--project-name', 'routeboard-release-check', '-f', '/Users/mmm/Documents/route-board/deploy/compose.yaml', 'exec', '-T', 'db', 'psql', '-U', 'routeboard_migrator', '-d', 'routeboard', '--set', 'ON_ERROR_STOP=1']' returned non-zero exit status 3.

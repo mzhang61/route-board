@@ -1,0 +1,2 @@
+# Preserve raw verification output exactly, including tool-generated whitespace.
+docs/evidence/** -whitespace
