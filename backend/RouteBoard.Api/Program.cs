@@ -70,7 +70,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
         RequireSignedTokens = true,
         RequireExpirationTime = true,
         ClockSkew = TimeSpan.FromSeconds(30),
-        RoleClaimType = "roles",
+        RoleClaimType = builder.Configuration["Authentication:RoleClaimType"] ?? "roles",
         NameClaimType = "sub",
         ValidAlgorithms = [SecurityAlgorithms.RsaSha256]
     };

@@ -60,3 +60,7 @@ No. The local test deliberately accepts a development certificate. Public DNS, a
 ## Why separate migration and runtime identities?
 
 Migrations need schema-changing permissions that an API handling untrusted input must not have. The runtime receives only the data operations used by application services. A real PostgreSQL test shows it cannot rewrite audit history, disable triggers, create a table or delete replay events. The privileged migration owner remains a trust boundary.
+
+## How does a viewer authenticate successfully but receive 403?
+
+The identity provider authenticates the person and issues an access token for the RouteBoard API. Authorization then checks the signed role and delegated permissions for the requested operation. Both synthetic users completed the same staging login flow. The API refused the viewer's POST and accepted the dispatcher's POST.

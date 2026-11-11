@@ -46,3 +46,7 @@ Status is conservative: code existing is not the same as a grading pass. The sup
 ## Next deployment prerequisites
 
 The user owns mzcampuspulse.com through Porkbun and has an enabled Azure for Students subscription. The staging VM, Key Vault and public HTTPS application are running. The school tenant refused app registration, so a separate identity provider account is needed. Geoapify access, CDN, production, CAA and operational evidence remain pending. Secrets belong in secret stores, not this document or chat.
+
+## Staging identity update
+
+Real browser login is deployed through Auth0. Two synthetic users completed the flow. A viewer write returned 403 and a dispatcher write returned 201. See docs/evidence/staging-oidc. Real MCP-host authorization and the redacted login HAR still need evidence.

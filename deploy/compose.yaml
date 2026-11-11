@@ -23,6 +23,9 @@ services:
     restart: unless-stopped
     environment:
       ASPNETCORE_ENVIRONMENT: Production
+      Authentication__Authority: ${OIDC_AUTHORITY:-}
+      Authentication__Audience: ${OIDC_AUDIENCE:-}
+      Authentication__RoleClaimType: ${OIDC_ROLE_CLAIM:-roles}
       ReverseProxy__Address: ${PROXY_IP:-172.29.0.2}
     volumes:
       - ${SETTINGS_FILE:?Set a protected settings JSON path}:/app/appsettings.Production.json:ro
