@@ -1,0 +1,5 @@
+Public board disconnected at {"id":"5","version":1} trip 3
+Dispatcher committed version 2 total delay 2
+Dispatcher committed version 3 total delay 4
+Reconnect cursors ["5"] events [{"id":"5","version":1},{"id":"6","version":2},{"id":"7","version":3}]
+Public detail verified: version 3, delay 4 minutes, final ETA 10:27 UTC.
