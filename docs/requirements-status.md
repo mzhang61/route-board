@@ -15,8 +15,8 @@ Status is conservative: code existing is not the same as a grading pass. The sup
 | F9 | Server dispatcher role + write scope; viewer/anonymous denial tests. Real provider role assignment pending. |
 | F10 | Server Geoapify client and stub tests; no live API key/access/quota/cost confirmation. Cache stampede control and outage demo remain. |
 | F11 | Persistent snapshots, SSE cursor replay, browser ID deduplication, backend replay test. Full kill/reconnect multi-event browser demo remains. |
-| F12 | Three read tools, preview and bound confirmed write; explicit tool scopes, tool-call audits, HTTP transport denial tests. OAuth discovery/real host interoperability pending. |
-| F13 | React/TS confirmation App and authenticated MCP resource bundled. Actual host recording and host consent verification pending. |
+| F12 | Three read tools, preview and bound confirmed write; explicit tool scopes, tool-call audits, HTTP transport denial tests. Real staging role, scope, override and replay checks passed. Independent host OAuth discovery remains pending. |
+| F13 | React/TS confirmation App and authenticated MCP resource bundled. Staging test-host recording and persisted confirmation verified in docs/evidence/staging-mcp. Independent host consent remains pending. |
 | D1 | Staging A record resolves to Azure; DNS/public HTTP evidence captured. Production DNS and full zone/trace dossier remain pending. |
 | D2 | Real staging certificate, HTTPS health and HTTP redirect verified; automated renewal configured. CAA and fired expiry alert still pending. |
 | D3 | Staging VM, separate vault and application containers deployed. Production and staging-to-production gates are pending. |
@@ -49,4 +49,4 @@ The user owns mzcampuspulse.com through Porkbun and has an enabled Azure for Stu
 
 ## Staging identity update
 
-Real browser login is deployed through Auth0. Two synthetic users completed the flow. A viewer write returned 403 and a dispatcher write returned 201. See docs/evidence/staging-oidc. Real MCP-host authorization and the redacted login HAR still need evidence.
+Real browser login is deployed through Auth0. Two synthetic users completed the flow. A viewer write returned 403 and a dispatcher write returned 201. See docs/evidence/staging-oidc. The redacted login HAR is in docs/evidence/staging-replay. The interactive staging test-host recording and OAuth checks are in docs/evidence/staging-mcp.

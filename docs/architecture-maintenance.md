@@ -109,3 +109,5 @@ Fresh-volume verification caught two real packaging defects: executable scripts 
 ## First deployed staging environment
 
 Staging now runs on Azure with Caddy ingress, API and PostgreSQL/PostGIS containers. The host managed identity reads an environment-specific Key Vault. Only administrator-side secret loading may access Azure metadata; a Docker forwarding rule blocks application-container access so an API compromise cannot simply request the host's more privileged vault token. Runtime and migration settings are mounted separately. The root administrator and Docker daemon remain privileged trust boundaries. See deploy/azure-staging.md for exact operations and docs/evidence/azure-staging for executed checks.
+
+For a change to MCP permissions, update the identity provider's API permission list, role assignments, TripTools scope checks and transport tests together. Audit entries for preview and record identify which tool was authorized. Authorization evidence alone does not establish that a trip changed; check the committed trip version and event row as well.

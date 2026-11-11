@@ -52,9 +52,11 @@ public sealed class McpAuthorizationTests(ApiFixture fixture) : IClassFixture<Ap
         await using var db = fixture.Database.OpenContext();
         var service = new TripService(db, TimeProvider.System);
         var tools = new TripTools(db, service, new EphemeralDataProtectionProvider(), TimeProvider.System);
-        var user = Principal("mcp.record_trip_update trips.write", "dispatcher");
+        var commitOnly = Principal("mcp.record_trip_update trips.write", "dispatcher");
+        var user = Principal("mcp.preview_trip_update mcp.record_trip_update trips.write", "dispatcher");
         var trip = await service.CreateAsync(new CreateTripRequest(fixture.RouteId, fixture.VehicleId,
             new DateTimeOffset(2026, 1, 1, 10, 0, 0, TimeSpan.Zero)), "test", default);
+        await Assert.ThrowsAsync<McpException>(() => tools.PreviewUpdate(commitOnly, trip.Id, trip.Version, "delay", 4));
         var preview = await tools.PreviewUpdate(user, trip.Id, trip.Version, "delay", 4);
         await Assert.ThrowsAsync<McpException>(() => tools.RecordUpdate(user, preview.ConfirmationToken, false));
         await Assert.ThrowsAsync<McpException>(() => tools.RecordUpdate(

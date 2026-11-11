@@ -1,0 +1,13 @@
+Anonymous read HTTP 401
+Synthetic trip 5 initial version 1
+search_trips succeeded
+get_trip succeeded
+get_stop_arrivals succeeded
+preview_trip_update denied
+preview_trip_update succeeded
+record_trip_update denied
+record_trip_update denied
+Persisted trip 5 version 1 total delay 0
+record_trip_update succeeded
+record_trip_update denied
+Persisted trip 5 version 2 total delay 4

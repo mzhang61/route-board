@@ -1,0 +1,24 @@
+ Id |          Action           | scope_and_role_allowed 
+----+---------------------------+------------------------
+ 17 | create                    | 
+ 18 | mcp.search_trips          | true
+ 19 | mcp.get_trip              | true
+ 20 | mcp.get_stop_arrivals     | true
+ 21 | mcp.preview_trip_update   | false
+ 22 | mcp.preview_trip_update   | true
+ 23 | mcp.record_trip_update    | false
+ 24 | mcp.record_trip_update    | true
+ 25 | mcp.read_confirmation_app | true
+ 26 | mcp.record_trip_update    | true
+ 27 | delay                     | 
+ 28 | mcp.record_trip_update    | true
+(12 rows)
+
+ TripId |  Kind  | version | total_delay 
+--------+--------+---------+-------------
+      4 | create | 1       | 0
+      4 | delay  | 2       | 4
+      5 | create | 1       | 0
+      5 | delay  | 2       | 4
+(4 rows)
+

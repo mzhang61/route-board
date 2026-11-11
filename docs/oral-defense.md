@@ -64,3 +64,7 @@ Migrations need schema-changing permissions that an API handling untrusted input
 ## How does a viewer authenticate successfully but receive 403?
 
 The identity provider authenticates the person and issues an access token for the RouteBoard API. Authorization then checks the signed role and delegated permissions for the requested operation. Both synthetic users completed the same staging login flow. The API refused the viewer's POST and accepted the dispatcher's POST.
+
+### Why do preview and commit have separate MCP permissions?
+
+A preview discloses the trip and produces a five-minute confirmation bound to the actor, version and proposed change. Executing it also requires dispatcher role, trips.write and the record tool scope. The App passes the protected confirmation back through its host; the host keeps the OAuth bearer token. The API rejects extra override arguments. Replaying a successfully used confirmation fails the version check in the trip write transaction.

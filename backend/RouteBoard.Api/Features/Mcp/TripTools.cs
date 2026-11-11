@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.DataProtection;
 using Microsoft.EntityFrameworkCore;
 using ModelContextProtocol;
 using ModelContextProtocol.Server;
+using ModelContextProtocol.Protocol;
 using RouteBoard.Api.Data;
 using RouteBoard.Api.Domain.Entities;
 using RouteBoard.Api.Features.Trips;
@@ -57,7 +58,7 @@ public sealed class TripTools(RouteBoardDbContext db, TripService trips, IDataPr
     public async Task<UpdatePreview> PreviewUpdate(ClaimsPrincipal user, long tripId, long version,
         string kind, int delayMinutes = 0, int? stopOrder = null, CancellationToken ct = default)
     {
-        await AuthorizeAndAuditAsync(user, "record_trip_update", true, ct);
+        await AuthorizeAndAuditAsync(user, "preview_trip_update", true, ct);
         var current = await FindAsync(tripId, ct);
         var update = new UpdateTripRequest(version, kind, delayMinutes, stopOrder);
         var candidate = new Trip { Version = current.Version, Status = current.Status,
@@ -75,9 +76,11 @@ public sealed class TripTools(RouteBoardDbContext db, TripService trips, IDataPr
 
     [McpServerTool(Name = "record_trip_update", Destructive = true), Description("Execute a preview only after explicit confirmation of that exact proposed update.")]
     public async Task<TripView> RecordUpdate(ClaimsPrincipal user, string confirmationToken,
-        bool confirmed, CancellationToken ct = default)
+        bool confirmed, CancellationToken ct = default, RequestContext<CallToolRequestParams>? context = null)
     {
         await AuthorizeAndAuditAsync(user, "record_trip_update", true, ct);
+        if (context?.Params?.Arguments?.Keys.Any(key => key is not ("confirmationToken" or "confirmed")) == true)
+            throw new McpException("The confirmation cannot override the preview. Request a new preview.");
         if (!confirmed) throw new McpException("Explicit confirmation is required.");
         if (confirmationToken.Length > 8192) throw new McpException("Invalid confirmation.");
         UpdateProposal proposal;
@@ -98,7 +101,7 @@ public sealed class TripTools(RouteBoardDbContext db, TripService trips, IDataPr
     [McpServerResource(UriTemplate = "ui://routeboard/mcp-app.html", MimeType = "text/html;profile=mcp-app")]
     public async Task<string> ReadConfirmationApp(ClaimsPrincipal user, CancellationToken ct)
     {
-        await AuthorizeAndAuditAsync(user, "record_trip_update", true, ct);
+        await AuthorizeAndAuditAsync(user, "preview_trip_update", true, ct, "mcp.read_confirmation_app");
         var path = Path.Combine(AppContext.BaseDirectory, "Assets", "mcp-app.html");
         if (!File.Exists(path)) throw new McpException("Build the MCP App before running the server.");
         return await File.ReadAllTextAsync(path, ct);
@@ -111,7 +114,7 @@ public sealed class TripTools(RouteBoardDbContext db, TripService trips, IDataPr
         return await trips.ViewAsync(trip, ct);
     }
 
-    private async Task AuthorizeAndAuditAsync(ClaimsPrincipal user, string tool, bool writes, CancellationToken ct)
+    private async Task AuthorizeAndAuditAsync(ClaimsPrincipal user, string tool, bool writes, CancellationToken ct, string? auditAction = null)
     {
         var scopes = user.FindAll("scp").Concat(user.FindAll("scope"))
             .SelectMany(c => c.Value.Split(' ', StringSplitOptions.RemoveEmptyEntries)).ToHashSet(StringComparer.Ordinal);
@@ -119,7 +122,7 @@ public sealed class TripTools(RouteBoardDbContext db, TripService trips, IDataPr
             && user.HasClaim(c => c.Type == "iss") && scopes.Contains("mcp." + tool)
             && (writes ? user.IsInRole("dispatcher") && scopes.Contains("trips.write")
                 : user.IsInRole("viewer") || user.IsInRole("dispatcher"));
-        db.AuditEvents.Add(new AuditEvent { Actor = Actor(user), Action = "mcp." + tool,
+        db.AuditEvents.Add(new AuditEvent { Actor = Actor(user), Action = auditAction ?? "mcp." + tool,
             OccurredAt = clock.GetUtcNow(), After = allowed ? "{\"authorized\":true}" : "{\"authorized\":false}" });
         await db.SaveChangesAsync(ct);
         if (!allowed) throw new McpException("This tool requires its explicit scope and role.");
