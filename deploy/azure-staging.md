@@ -41,3 +41,11 @@ Create a Geoapify project and store its API key under the name geoapify-api-key 
     sudo python3 <release>/deploy/load-secrets.py <vault-name> /etc/routeboard/staging --with-geoapify
 
 Recreate the API container with the environment's compose file and release.env after loading secrets. The runtime settings file is replaced atomically, so an existing single-file bind mount may still point to the previous file. The migration and web containers do not need the routing key. For grading, use your own Geoapify project and vault or access the configured staging site. Select the route ID from /api/catalog and request /api/routes/{id}/estimate twice.
+
+## Automatic application releases
+
+On main, the verification job must pass before the staging job builds ARM64 API and web images. The web build includes the commit SHA at /release.txt and public staging OIDC settings. The workflow publishes both images together in a prerelease named staging-<commit>. Public release assets contain application images only. The VM uses outbound HTTPS and its existing environment-specific configuration.
+
+Bootstrap the existing staging host with deploy/compose.yaml, release.sh, runtime-grants.sql, apply-staging.sh and pull-staging.sh under /opt/routeboard/releases/staging-oidc/deploy. Install routeboard-staging.service and routeboard-staging.timer under /etc/systemd/system, run systemctl daemon-reload, then systemctl enable --now routeboard-staging.timer. Inspect journalctl -u routeboard-staging.service for exact image IDs. Changes to the host bootstrap, Compose, SQL grants or infrastructure require a separate reviewed host update.
+
+The timer checks main every three minutes, verifies the GitHub asset digest, loads images, locks the deployment and prepares a private candidate configuration. A failed health or revision check triggers the previous image configuration. The workflow verifies both the public revision and /healthz. Use backward-compatible migrations because application rollback preserves database contents. Retain the previous images during the rollback window and check free disk before repeated releases. Production promotion is a separate deployment step.

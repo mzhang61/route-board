@@ -50,3 +50,43 @@ jobs:
         with:
           name: verification-${{ github.sha }}
           path: evidence/
+  staging:
+    needs: verify
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-24.04-arm
+    permissions:
+      contents: write
+    concurrency:
+      group: staging-release
+      cancel-in-progress: false
+    env:
+      GH_TOKEN: ${{ github.token }}
+      SITE: https://staging.mzcampuspulse.com
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build staging images for the ARM host
+        run: |
+          docker build -t "routeboard-api:$GITHUB_SHA" .
+          mkdir -p frontend/public
+          echo "$GITHUB_SHA" > frontend/public/release.txt
+          docker build -f deploy/web.Dockerfile -t "routeboard-web:$GITHUB_SHA" \
+            --build-arg VITE_OIDC_AUTHORITY=https://dev-okl8jqszwoasg244.us.auth0.com \
+            --build-arg VITE_OIDC_CLIENT_ID=7RxLaeq6FzsyZey6iPig0RA6OmEWLgFX \
+            --build-arg VITE_OIDC_AUDIENCE="$SITE/api" --build-arg VITE_OIDC_SCOPE=trips.write .
+          docker image inspect "routeboard-api:$GITHUB_SHA" "routeboard-web:$GITHUB_SHA" --format '{{.Id}}'
+          docker save "routeboard-api:$GITHUB_SHA" "routeboard-web:$GITHUB_SHA" | gzip > images.tar.gz
+      - name: Publish versioned staging images
+        run: |
+          if ! gh release view "staging-$GITHUB_SHA" >/dev/null 2>&1; then
+            gh release create "staging-$GITHUB_SHA" images.tar.gz --target "$GITHUB_SHA" \
+              --prerelease --title "Staging $GITHUB_SHA" --notes "Verified staging candidate from run $GITHUB_RUN_ID."
+          fi
+      - name: Verify public release and health
+        timeout-minutes: 12
+        run: |
+          for attempt in {1..60}; do
+            if [[ "$(curl -fsS --max-time 5 "$SITE/release.txt" || true)" == "$GITHUB_SHA" ]] &&
+               curl -fsS --max-time 5 "$SITE/healthz"; then exit 0; fi
+            sleep 10
+          done
+          exit 1

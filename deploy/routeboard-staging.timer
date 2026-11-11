@@ -1,0 +1,10 @@
+[Unit]
+Description=Poll for verified RouteBoard staging images
+
+[Timer]
+OnBootSec=2min
+OnUnitInactiveSec=3min
+Unit=routeboard-staging.service
+
+[Install]
+WantedBy=timers.target
