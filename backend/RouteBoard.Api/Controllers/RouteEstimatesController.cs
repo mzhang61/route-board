@@ -15,9 +15,11 @@ public sealed class RouteEstimatesController(RouteBoardDbContext db, RouteEstima
     public async Task<IActionResult> Get(long id, CancellationToken ct)
     {
         if (!await db.Routes.AnyAsync(r => r.Id == id && r.IsActive, ct)) return NotFound();
-        var coordinates = await db.RouteStops.AsNoTracking().Where(s => s.RouteId == id)
-            .OrderBy(s => s.StopOrder).Select(s => new Coordinate(s.Stop.Location.Y, s.Stop.Location.X))
+        var points = await db.RouteStops.AsNoTracking().Where(s => s.RouteId == id)
+            .OrderBy(s => s.StopOrder).Select(s => s.Stop.Location)
             .ToListAsync(ct);
+        // Read the geography points before accessing ordinates; PostGIS ST_X/ST_Y require geometry.
+        var coordinates = points.Select(point => new Coordinate(point.Y, point.X)).ToArray();
         return Ok(await provider.GetAsync(coordinates, ct));
     }
 }

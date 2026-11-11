@@ -13,7 +13,7 @@ Status is conservative: code existing is not the same as a grading pass. The sup
 | F7 | Code+PKCE/state/nonce browser wiring. Real provider registration and login HAR not available. |
 | F8 | RSA token failure tests for signature/issuer/audience/expiry and scope. Live JWKS discovery/rotation evidence pending. |
 | F9 | Server dispatcher role + write scope; viewer/anonymous denial tests. Real provider role assignment pending. |
-| F10 | Server Geoapify client and stub tests; no live API key/access/quota/cost confirmation. Cache stampede control and outage demo remain. |
+| F10 | Staging Key Vault integration and live fresh/cached responses verified. Local PostGIS test exercises provider timeout alongside schedule reads and dispatcher writes. See docs/evidence/staging-routing. |
 | F11 | Persistent snapshots, SSE cursor replay, browser ID deduplication, backend replay test. Full kill/reconnect multi-event browser demo remains. |
 | F12 | Three read tools, preview and bound confirmed write; explicit tool scopes, tool-call audits, HTTP transport denial tests. Real staging role, scope, override and replay checks passed. Independent host OAuth discovery remains pending. |
 | F13 | React/TS confirmation App and authenticated MCP resource bundled. Staging test-host recording and persisted confirmation verified in docs/evidence/staging-mcp. Independent host consent remains pending. |

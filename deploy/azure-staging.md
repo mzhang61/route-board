@@ -32,4 +32,12 @@ Staging is https://staging.mzcampuspulse.com on a small ARM VM. Production is no
 
 ## Remaining operational work
 
-CAA, demonstrated certificate-expiry alert, secret-store-backed Geoapify integration, real OIDC, backups and restore, immutable staging-to-production promotion, rollback, CDN, OTel and alert evidence remain separate requirements. The current manual staging release is not full CI/CD. Review docs/requirements-status.md before claiming a grading pass.
+CAA, demonstrated certificate-expiry alert, backups and restore, immutable staging-to-production promotion, rollback, CDN, OTel and alert evidence remain separate requirements. The current manual staging release is not full CI/CD. Review docs/requirements-status.md before claiming a grading pass.
+
+## Reference routing credential for a new deployment
+
+Create a Geoapify project and store its API key under the name geoapify-api-key in the environment's Key Vault. Use the Azure portal's Secrets form or a private secret-input mechanism. The host managed identity needs secret-read access. Run the loader with the routing flag on every release that enables routing:
+
+    sudo python3 <release>/deploy/load-secrets.py <vault-name> /etc/routeboard/staging --with-geoapify
+
+Recreate the API container with the environment's compose file and release.env after loading secrets. The runtime settings file is replaced atomically, so an existing single-file bind mount may still point to the previous file. The migration and web containers do not need the routing key. For grading, use your own Geoapify project and vault or access the configured staging site. Select the route ID from /api/catalog and request /api/routes/{id}/estimate twice.

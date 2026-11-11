@@ -1,0 +1,4 @@
+  2 passed (10.0s)
+  Passed RouteBoard.Api.Tests.RoutingOutageTests.Routing_timeout_preserves_schedule_reads_and_dispatch_writes [5 s]
+Total tests: 37
+     Passed: 37

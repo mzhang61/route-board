@@ -1,0 +1,16 @@
+[
+  {
+    "status": "fresh",
+    "seconds": 181.464,
+    "meters": 2047.0000000000002,
+    "retrievedAt": "2026-11-11T17:55:38.6465169+00:00",
+    "source": "Geoapify reference routing; not live traffic or vehicle GPS"
+  },
+  {
+    "status": "cached",
+    "seconds": 181.464,
+    "meters": 2047.0000000000002,
+    "retrievedAt": "2026-11-11T17:55:38.6465169+00:00",
+    "source": "Geoapify reference routing; not live traffic or vehicle GPS"
+  }
+]

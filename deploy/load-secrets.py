@@ -31,6 +31,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("vault", help="Environment-specific Azure Key Vault name")
     parser.add_argument("directory", type=Path, help="Root-owned settings directory")
+    parser.add_argument("--with-geoapify", action="store_true", help="Enable reference routing for this release")
     arguments = parser.parse_args()
     if os.geteuid() != 0:
         parser.error("Run as root on the deployment host.")
@@ -50,11 +51,20 @@ def main():
         raise ValueError("Managed identity did not return a token.")
 
     # Retrieve and validate everything before replacing any existing settings.
-    values = {}
-    for name in ("database-password", "runtime-password"):
+    def fetch_secret(name):
         url = f"https://{arguments.vault}.vault.azure.net/secrets/{name}?api-version=7.4"
         request = urllib.request.Request(url, headers={"Authorization": "Bearer " + token})
-        secret = read_json(opener, request).get("value")
+        return read_json(opener, request).get("value")
+
+    routing_key = None
+    if arguments.with_geoapify:
+        routing_key = fetch_secret("geoapify-api-key")
+        if not isinstance(routing_key, str) or not routing_key.strip():
+            raise ValueError("Expected a routing credential.")
+
+    values = {}
+    for name in ("database-password", "runtime-password"):
+        secret = fetch_secret(name)
         if not isinstance(secret, str) or not re.fullmatch(r"[a-f0-9]{64}", secret):
             raise ValueError("Expected a generated 32-byte hexadecimal database credential.")
         values[name] = secret
@@ -65,6 +75,8 @@ def main():
         settings = {"ConnectionStrings": {"RouteBoard": (
             f"Host=db;Database=routeboard;Username={username};Password={values[secret_name]}"
         )}}
+        if filename == "runtime.json" and routing_key:
+            settings["Geoapify"] = {"ApiKey": routing_key.strip()}
         # The API image runs as .NET's non-root UID/GID 1654.
         write_private(directory / filename, json.dumps(settings), group=1654)
     for name, value in values.items():
