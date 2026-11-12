@@ -1,0 +1,7 @@
+# Production role verification
+
+The production SPA uses Authorization Code with PKCE, a callback at https://routeboard.mzcampuspulse.com/auth/callback and audience https://routeboard.mzcampuspulse.com/api. The production audience has its own API registration. The production-viewer and production-dispatcher Auth0 roles map to viewer and dispatcher in the production roles claim. The production post-login action only emits this claim for that audience. Assign roles specifically to synthetic grading accounts.
+
+To reproduce, sign in at https://routeboard.mzcampuspulse.com in separate browser sessions with the two synthetic identities. For each, inspect the authorization request for code flow, S256, state and nonce presence. Read the public catalog and attempt to create a synthetic trip with a valid route, vehicle and future departure using the signed-in session. Expect 403 for the viewer and 201 for the dispatcher. A successful check creates a real synthetic operational record.
+
+The browser output captures the observed result for each role. No tokens, passwords, subject identifiers or authorization codes are included. Codex ran the browser verification after the production HTTPS health check passed. API version 72a41426553489940d4b91488af5e0a1bd0c9500 remained deployed. The production web image was rebuilt from source revision 20a9b8081b4d26ab8e0372bb6c4e9c29ba3df922 with the production SPA client and audience.

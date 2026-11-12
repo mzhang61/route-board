@@ -1,0 +1,4 @@
+viewer authorization request {"response":"code","pkce":"S256","state":true,"nonce":true,"audience":"https://routeboard.mzcampuspulse.com/api"}
+viewer POST /api/trips 403
+dispatcher authorization request {"response":"code","pkce":"S256","state":true,"nonce":true,"audience":"https://routeboard.mzcampuspulse.com/api"}
+dispatcher POST /api/trips 201
