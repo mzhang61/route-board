@@ -9,6 +9,8 @@ export const auth = typeof authority === 'string' && typeof clientId === 'string
     authority, client_id: clientId, scope: `openid ${scope}`,
     redirect_uri: `${window.location.origin}/auth/callback`, response_type: 'code',
     extraQueryParams: typeof audience === 'string' && audience ? { audience } : {},
+    // Route only the authorization navigation through the application's rate-limited entry point.
+    metadataSeed: { authorization_endpoint: new URL('/api/auth/authorize', window.location.origin).href },
     disablePKCE: false, loadUserInfo: false, automaticSilentRenew: false,
     userStore: new WebStorageStateStore({ store: window.sessionStorage }),
     stateStore: new WebStorageStateStore({ store: window.sessionStorage }),
