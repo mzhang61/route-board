@@ -1,0 +1,41 @@
+{
+  "site": "https://staging.mzcampuspulse.com",
+  "browser": "158.0.8127.18",
+  "samples": [
+    {
+      "run": 1,
+      "release": "92e1ad9fba84116eaa1ff9971e0bbb5c864b6869",
+      "LCP": 800,
+      "CLS": 0.05965516705167656,
+      "INP": 136
+    },
+    {
+      "run": 2,
+      "release": "92e1ad9fba84116eaa1ff9971e0bbb5c864b6869",
+      "LCP": 620,
+      "CLS": 0.05965516705167656,
+      "INP": 104
+    },
+    {
+      "run": 3,
+      "release": "92e1ad9fba84116eaa1ff9971e0bbb5c864b6869",
+      "LCP": 556,
+      "CLS": 0.05965516705167656,
+      "INP": 104
+    },
+    {
+      "run": 4,
+      "release": "92e1ad9fba84116eaa1ff9971e0bbb5c864b6869",
+      "LCP": 536,
+      "CLS": 0.05965516705167656,
+      "INP": 120
+    },
+    {
+      "run": 5,
+      "release": "92e1ad9fba84116eaa1ff9971e0bbb5c864b6869",
+      "LCP": 568,
+      "CLS": 0.05965516705167656,
+      "INP": 80
+    }
+  ]
+}

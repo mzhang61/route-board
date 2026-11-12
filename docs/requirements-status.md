@@ -24,7 +24,7 @@ Status is conservative: code existing is not the same as a grading pass. The sup
 | D5 | ARM images, fresh-volume smoke, Bicep deployment and cloud-init succeeded; host setup and secret retrieval are documented. Independent clean-clone reproduction remains pending. |
 | D6 | API no-store default. CDN and HIT/MISS/304/invalidation evidence pending. |
 | D7 | Security headers and exact-origin CORS; allowed/refused preflight integration tests pass. Deployed frontend CSP and browser/CDN evidence pending. |
-| D8 | No Core Web Vitals before/after claim. Measurement and improvement pending. |
+| D8 | Staging lab before/after measurements for LCP, INP and CLS are in docs/evidence/web-vitals. Median LCP decreased 800 ms; INP increased 40 ms. |
 | D9 | Empty-board axe check and keyboard form test pass locally. Full populated/dispatcher/MCP keyboard walkthrough pending. |
 | D10 | Basic framework logging only. OpenTelemetry, distributed trace, SLI/SLO and fired alert pending. |
 | D11 | Existing USD 20/month budget and thresholds checked; candidate VM compute price verified. Full cost model, credit balance and priced 1×/10×/100× analysis pending. |

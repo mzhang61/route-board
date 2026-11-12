@@ -38,7 +38,7 @@ Use these explanations as a study guide, not a script to memorize. Open the name
 
 **How would production rollback work?** Promote the same immutable image/build through staging, gate on health and smoke tests, then restore the previous image on failure. Use backward-compatible schema changes or a reviewed restore plan; a code rollback is not automatically a data rollback. This procedure has not yet been demonstrated on Azure.
 
-**Which evidence is still missing?** Real login HAR/JWKS rotation, real provider access/quota, full MCP-host recording, production URLs, DNS/TLS/CDN headers and alerts, Azure staging/production isolation, rollback, Core Web Vitals before/after, full keyboard walkthrough, distributed traces/SLO alert, and cost/budget evidence. Refer to the checklist instead of claiming completion.
+**Which evidence is still missing?** Real login HAR/JWKS rotation, real provider access/quota, full MCP-host recording, production URLs, DNS/TLS/CDN headers and alerts, Azure staging/production isolation, rollback, full keyboard walkthrough, distributed traces/SLO alert, and cost/budget evidence. Refer to the checklist instead of claiming completion.
 
 ## Live-change drills
 
@@ -68,3 +68,5 @@ The identity provider authenticates the person and issues an access token for th
 ### Why do preview and commit have separate MCP permissions?
 
 A preview discloses the trip and produces a five-minute confirmation bound to the actor, version and proposed change. Executing it also requires dispatcher role, trips.write and the record tool scope. The App passes the protected confirmation back through its host; the host keeps the OAuth bearer token. The API rejects extra override arguments. Replaying a successfully used confirmation fails the version check in the trip write transaction.
+
+**Why render the introduction in HTML?** The browser can paint the title and synthetic-data notice while the application script is still loading. In the five-visit staging lab comparison, median LCP fell from 1368 to 568 ms. INP increased from 64 to 104 ms, which is why we record interaction and layout metrics alongside paint.
