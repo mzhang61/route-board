@@ -1,0 +1,21 @@
+2026-11-12T01:14:16.434837+00:00
+$ dig @curitiba.ns.porkbun.com. +noall +answer staging.mzcampuspulse.com CAA
+staging.mzcampuspulse.com. 600	IN	CAA	0 issue "letsencrypt.org"
+$ dig @curitiba.ns.porkbun.com. +noall +answer routeboard.mzcampuspulse.com CAA
+routeboard.mzcampuspulse.com. 600 IN	CAA	0 issue "letsencrypt.org"
+$ dig @fortaleza.ns.porkbun.com. +noall +answer staging.mzcampuspulse.com CAA
+staging.mzcampuspulse.com. 600	IN	CAA	0 issue "letsencrypt.org"
+$ dig @fortaleza.ns.porkbun.com. +noall +answer routeboard.mzcampuspulse.com CAA
+routeboard.mzcampuspulse.com. 600 IN	CAA	0 issue "letsencrypt.org"
+$ dig @maceio.ns.porkbun.com. +noall +answer staging.mzcampuspulse.com CAA
+staging.mzcampuspulse.com. 600	IN	CAA	0 issue "letsencrypt.org"
+$ dig @maceio.ns.porkbun.com. +noall +answer routeboard.mzcampuspulse.com CAA
+routeboard.mzcampuspulse.com. 600 IN	CAA	0 issue "letsencrypt.org"
+$ dig @salvador.ns.porkbun.com. +noall +answer staging.mzcampuspulse.com CAA
+staging.mzcampuspulse.com. 600	IN	CAA	0 issue "letsencrypt.org"
+$ dig @salvador.ns.porkbun.com. +noall +answer routeboard.mzcampuspulse.com CAA
+routeboard.mzcampuspulse.com. 600 IN	CAA	0 issue "letsencrypt.org"
+$ dig @1.1.1.1 +noall +answer staging.mzcampuspulse.com CAA
+staging.mzcampuspulse.com. 600	IN	CAA	0 issue "letsencrypt.org"
+$ dig @1.1.1.1 +noall +answer routeboard.mzcampuspulse.com CAA
+routeboard.mzcampuspulse.com. 600 IN	CAA	0 issue "letsencrypt.org"
