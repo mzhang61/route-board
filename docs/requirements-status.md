@@ -28,7 +28,7 @@ Status is conservative: code existing is not the same as a grading pass. The sup
 | D9 | Seven staging states scanned with axe; keyboard-only search, recovery, dispatcher update and MCP confirmation verified. See docs/evidence/accessibility. |
 | D10 | Staging OpenTelemetry routing logs, metrics, linked external client and API spans; scheduled synthetic SLO, dashboard and alert evidence in docs/evidence/routing-observability. |
 | D11 | Verified budget and retail meters, modeled 1×/10×/100× costs and measured a short staging read workload. See docs/evidence/cost. Portal screenshot pending; remaining credit unknown. |
-| S1 | Application login start, dispatcher writes and provider-backed routing returned 429 on staging; the public catalog remained available. See docs/evidence/staging-rate-limits. Production promotion of the new login gate remains pending. |
+| S1 | Application login start, dispatcher writes and provider-backed routing returned 429 on staging; the public catalog remained available. See docs/evidence/staging-rate-limits. Production login promotion, browser flow, 429 and anonymous 401 are verified in docs/evidence/production-rate-limits. |
 | S2 | The runbook and the staging SSE Game Day postmortem link the induced failure, recovery, original browser observations and database history. Independent stranger walkthrough remains pending. |
 | Q1 | Unified command runs validation/auth/stubbed-provider/calculation and other tests. Hand predictions recorded. |
 | Q2 | Request-path and trust-boundary diagrams in maintenance guide; cloud nodes explicitly planned. |
