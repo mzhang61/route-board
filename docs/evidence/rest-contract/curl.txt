@@ -1,0 +1,267 @@
+curl -si --max-time 10 --noproxy * http://127.0.0.1:49508/healthz
+HTTP/1.1 200 OK
+Content-Type: text/plain
+Date: Thu, 12 Nov 2026 17:15:16 GMT
+Server: Kestrel
+Cache-Control: no-store, no-cache
+Expires: Thu, 01 Jan 1970 00:00:00 GMT
+Pragma: no-cache
+Transfer-Encoding: chunked
+X-Content-Type-Options: nosniff
+Referrer-Policy: no-referrer
+Content-Security-Policy: default-src 'none'; frame-ancestors 'none'
+
+Healthy
+curl -si --max-time 10 --noproxy * http://127.0.0.1:49508/api/system
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Date: Thu, 12 Nov 2026 17:15:16 GMT
+Server: Kestrel
+Cache-Control: no-store
+Transfer-Encoding: chunked
+X-Content-Type-Options: nosniff
+Referrer-Policy: no-referrer
+Content-Security-Policy: default-src 'none'; frame-ancestors 'none'
+
+{"service":"RouteBoard API","status":"running"}
+curl -si --max-time 10 --noproxy * http://127.0.0.1:49508/WeatherForecast
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Date: Thu, 12 Nov 2026 17:15:16 GMT
+Server: Kestrel
+Cache-Control: no-store
+Transfer-Encoding: chunked
+X-Content-Type-Options: nosniff
+Referrer-Policy: no-referrer
+Content-Security-Policy: default-src 'none'; frame-ancestors 'none'
+
+[{"date":"2026-11-13","temperatureC":39,"temperatureF":102,"summary":"Warm"},{"date":"2026-11-14","temperatureC":3,"temperatureF":37,"summary":"Chilly"},{"date":"2026-11-15","temperatureC":29,"temperatureF":84,"summary":"Sweltering"},{"date":"2026-11-16","temperatureC":-1,"temperatureF":31,"summary":"Warm"},{"date":"2026-11-17","temperatureC":25,"temperatureF":76,"summary":"Sweltering"}]
+curl -si --max-time 10 --noproxy * http://127.0.0.1:49508/api/catalog
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Date: Thu, 12 Nov 2026 17:15:17 GMT
+Server: Kestrel
+Cache-Control: no-store
+Transfer-Encoding: chunked
+X-Content-Type-Options: nosniff
+Referrer-Policy: no-referrer
+Content-Security-Policy: default-src 'none'; frame-ancestors 'none'
+
+{"routes":[{"id":1,"code":"DEMO","name":"Synthetic River Loop"}],"stops":[{"id":1,"code":"A","name":"Demo North"},{"id":2,"code":"B","name":"Demo South"}],"vehicles":[{"id":1,"code":"SYN-01","capacity":20}],"isSynthetic":true}
+curl -si --max-time 10 --noproxy * http://127.0.0.1:49508/api/positions
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Date: Thu, 12 Nov 2026 17:15:17 GMT
+Server: Kestrel
+Cache-Control: no-store
+Transfer-Encoding: chunked
+X-Content-Type-Options: nosniff
+Referrer-Policy: no-referrer
+Content-Security-Policy: default-src 'none'; frame-ancestors 'none'
+
+{"source":"Synthetic linear interpolation between fixed stops; not real GPS or a road-following model","items":[]}
+curl -si --max-time 10 --noproxy * http://127.0.0.1:49508/api/trips
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Date: Thu, 12 Nov 2026 17:15:17 GMT
+Server: Kestrel
+Cache-Control: no-store
+Transfer-Encoding: chunked
+X-Content-Type-Options: nosniff
+Referrer-Policy: no-referrer
+Content-Security-Policy: default-src 'none'; frame-ancestors 'none'
+
+{"items":[],"total":0,"page":1,"pageSize":20}
+curl -si --max-time 10 --noproxy * http://127.0.0.1:49508/api/trips?page=0
+HTTP/1.1 400 Bad Request
+Content-Type: application/problem+json; charset=utf-8
+Date: Thu, 12 Nov 2026 17:15:17 GMT
+Server: Kestrel
+Cache-Control: no-store
+Transfer-Encoding: chunked
+X-Content-Type-Options: nosniff
+Referrer-Policy: no-referrer
+Content-Security-Policy: default-src 'none'; frame-ancestors 'none'
+
+{"type":"https://tools.ietf.org/html/rfc9110#section-15.5.1","title":"One or more validation errors occurred.","status":400,"errors":{"page":["The field page must be between 1 and 10000."]},"traceId":"00-95b723d86089dbb7bfb2f2abbd5d0fc8-1c33fa332875c59a-02"}
+curl -si --max-time 10 --noproxy * http://127.0.0.1:49508/api/trips/999999
+HTTP/1.1 404 Not Found
+Content-Type: application/problem+json; charset=utf-8
+Date: Thu, 12 Nov 2026 17:15:17 GMT
+Server: Kestrel
+Cache-Control: no-store
+Transfer-Encoding: chunked
+X-Content-Type-Options: nosniff
+Referrer-Policy: no-referrer
+Content-Security-Policy: default-src 'none'; frame-ancestors 'none'
+
+{"type":"https://tools.ietf.org/html/rfc9110#section-15.5.5","title":"Not Found","status":404,"traceId":"00-0e78bdc10a002162ec56bb8238ae6418-3adb4b226e90cd6f-02"}
+curl -si --max-time 10 --noproxy * http://127.0.0.1:49508/api/routes/1/estimate
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Date: Thu, 12 Nov 2026 17:15:17 GMT
+Server: Kestrel
+Cache-Control: no-store
+Transfer-Encoding: chunked
+X-Content-Type-Options: nosniff
+Referrer-Policy: no-referrer
+Content-Security-Policy: default-src 'none'; frame-ancestors 'none'
+
+{"status":"unavailable","seconds":null,"meters":null,"retrievedAt":null,"source":"Geoapify reference routing; not live traffic or vehicle GPS"}
+curl -si --max-time 10 --noproxy * http://127.0.0.1:49508/api/routes/999999/estimate
+HTTP/1.1 404 Not Found
+Content-Type: application/problem+json; charset=utf-8
+Date: Thu, 12 Nov 2026 17:15:17 GMT
+Server: Kestrel
+Cache-Control: no-store
+Transfer-Encoding: chunked
+X-Content-Type-Options: nosniff
+Referrer-Policy: no-referrer
+Content-Security-Policy: default-src 'none'; frame-ancestors 'none'
+
+{"type":"https://tools.ietf.org/html/rfc9110#section-15.5.5","title":"Not Found","status":404,"traceId":"00-c9f5d6dbbae42323443e9d423404ed60-3beeebe9abb53435-03"}
+curl -si --max-time 10 --noproxy * http://127.0.0.1:49508/api/events?after=-1
+HTTP/1.1 400 Bad Request
+Content-Type: application/problem+json; charset=utf-8
+Date: Thu, 12 Nov 2026 17:15:17 GMT
+Server: Kestrel
+Cache-Control: no-store
+Transfer-Encoding: chunked
+X-Content-Type-Options: nosniff
+Referrer-Policy: no-referrer
+Content-Security-Policy: default-src 'none'; frame-ancestors 'none'
+
+{"type":"https://tools.ietf.org/html/rfc9110#section-15.5.1","title":"Invalid event cursor.","status":400,"traceId":"00-32c59fa2f2b87846b00aef30f79bfae4-68276ac720a63f44-02"}
+curl -si --max-time 10 --noproxy * http://127.0.0.1:49508/api/auth/authorize
+HTTP/1.1 302 Found
+Content-Length: 0
+Date: Thu, 12 Nov 2026 17:15:17 GMT
+Server: Kestrel
+Cache-Control: no-store
+Location: https://issuer.example.test/authorize
+X-Content-Type-Options: nosniff
+Referrer-Policy: no-referrer
+Content-Security-Policy: default-src 'none'; frame-ancestors 'none'
+
+
+curl -si --max-time 10 --noproxy * http://127.0.0.1:49508/api/trips -X OPTIONS -H Origin: https://board.example.test -H Access-Control-Request-Method: POST
+HTTP/1.1 204 No Content
+Date: Thu, 12 Nov 2026 17:15:17 GMT
+Server: Kestrel
+Access-Control-Allow-Headers: Authorization,Content-Type,Last-Event-ID
+Access-Control-Allow-Methods: GET,POST
+Access-Control-Allow-Origin: https://board.example.test
+Cache-Control: no-store
+X-Content-Type-Options: nosniff
+Referrer-Policy: no-referrer
+Content-Security-Policy: default-src 'none'; frame-ancestors 'none'
+
+
+curl -si --max-time 10 --noproxy * http://127.0.0.1:49508/api/trips --json {"routeId":1,"vehicleId":1,"scheduledDeparture":"2026-01-01T10:00:00Z"}
+HTTP/1.1 401 Unauthorized
+Content-Type: application/problem+json; charset=utf-8
+Date: Thu, 12 Nov 2026 17:15:17 GMT
+Server: Kestrel
+Cache-Control: no-store
+Transfer-Encoding: chunked
+WWW-Authenticate: Bearer
+X-Content-Type-Options: nosniff
+Referrer-Policy: no-referrer
+Content-Security-Policy: default-src 'none'; frame-ancestors 'none'
+
+{"type":"https://tools.ietf.org/html/rfc9110#section-15.5.2","title":"Unauthorized","status":401,"traceId":"00-ef01906f89c2760b766563a5a325e571-ae71977eca3d7a73-02"}
+curl -si --max-time 10 --noproxy * http://127.0.0.1:49508/api/trips --json {"routeId":1,"vehicleId":1,"scheduledDeparture":"2026-01-01T10:00:00Z"} -H @-
+HTTP/1.1 403 Forbidden
+Content-Type: application/problem+json; charset=utf-8
+Date: Thu, 12 Nov 2026 17:15:17 GMT
+Server: Kestrel
+Cache-Control: no-store
+Transfer-Encoding: chunked
+X-Content-Type-Options: nosniff
+Referrer-Policy: no-referrer
+Content-Security-Policy: default-src 'none'; frame-ancestors 'none'
+
+{"type":"https://tools.ietf.org/html/rfc9110#section-15.5.4","title":"Forbidden","status":403,"traceId":"00-5a0073542cf0b2aab8184015e6b0af3f-51931c356b297846-02"}
+curl -si --max-time 10 --noproxy * http://127.0.0.1:49508/api/trips --json { -H @-
+HTTP/1.1 400 Bad Request
+Content-Type: application/problem+json; charset=utf-8
+Date: Thu, 12 Nov 2026 17:15:18 GMT
+Server: Kestrel
+Cache-Control: no-store
+Transfer-Encoding: chunked
+X-Content-Type-Options: nosniff
+Referrer-Policy: no-referrer
+Content-Security-Policy: default-src 'none'; frame-ancestors 'none'
+
+{"type":"https://tools.ietf.org/html/rfc9110#section-15.5.1","title":"One or more validation errors occurred.","status":400,"errors":{"$":["Expected depth to be zero at the end of the JSON payload. There is an open JSON object or array that should be closed. Path: $ | LineNumber: 0 | BytePositionInLine: 1."],"request":["The request field is required."]},"traceId":"00-7bfbba368986106223d0303852808f25-c4ccae04891c7f7e-02"}
+curl -si --max-time 10 --noproxy * http://127.0.0.1:49508/api/trips --json {"routeId":1,"vehicleId":1,"scheduledDeparture":"2026-01-01T10:00:00Z"} -H @-
+HTTP/1.1 201 Created
+Content-Type: application/json; charset=utf-8
+Date: Thu, 12 Nov 2026 17:15:18 GMT
+Server: Kestrel
+Cache-Control: no-store
+Location: http://127.0.0.1:49508/api/trips/1
+Transfer-Encoding: chunked
+X-Content-Type-Options: nosniff
+Referrer-Policy: no-referrer
+Content-Security-Policy: default-src 'none'; frame-ancestors 'none'
+
+{"id":1,"routeId":1,"routeName":"Synthetic River Loop","vehicleId":1,"vehicleCode":"SYN-01","status":"scheduled","scheduledDeparture":"2026-01-01T10:00:00+00:00","simulatedDeparture":null,"delayMinutes":0,"version":1,"isSynthetic":true,"stops":[{"stopId":1,"name":"Demo North","order":1,"scheduled":"2026-01-01T10:08:00+00:00","estimated":"2026-01-01T10:08:00+00:00","simulatedObserved":null},{"stopId":2,"name":"Demo South","order":2,"scheduled":"2026-01-01T10:23:00+00:00","estimated":"2026-01-01T10:23:00+00:00","simulatedObserved":null}]}
+curl -si --max-time 10 --noproxy * http://127.0.0.1:49508/api/trips/1
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Date: Thu, 12 Nov 2026 17:15:18 GMT
+Server: Kestrel
+Cache-Control: no-store
+Transfer-Encoding: chunked
+X-Content-Type-Options: nosniff
+Referrer-Policy: no-referrer
+Content-Security-Policy: default-src 'none'; frame-ancestors 'none'
+
+{"id":1,"routeId":1,"routeName":"Synthetic River Loop","vehicleId":1,"vehicleCode":"SYN-01","status":"scheduled","scheduledDeparture":"2026-01-01T10:00:00+00:00","simulatedDeparture":null,"delayMinutes":0,"version":1,"isSynthetic":true,"stops":[{"stopId":1,"name":"Demo North","order":1,"scheduled":"2026-01-01T10:08:00+00:00","estimated":"2026-01-01T10:08:00+00:00","simulatedObserved":null},{"stopId":2,"name":"Demo South","order":2,"scheduled":"2026-01-01T10:23:00+00:00","estimated":"2026-01-01T10:23:00+00:00","simulatedObserved":null}]}
+curl -si --max-time 10 --noproxy * http://127.0.0.1:49508/api/trips/1/updates --json {"version":1,"kind":"delay","delayMinutes":4} -H @-
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Date: Thu, 12 Nov 2026 17:15:18 GMT
+Server: Kestrel
+Cache-Control: no-store
+Transfer-Encoding: chunked
+X-Content-Type-Options: nosniff
+Referrer-Policy: no-referrer
+Content-Security-Policy: default-src 'none'; frame-ancestors 'none'
+
+{"id":1,"routeId":1,"routeName":"Synthetic River Loop","vehicleId":1,"vehicleCode":"SYN-01","status":"delayed","scheduledDeparture":"2026-01-01T10:00:00+00:00","simulatedDeparture":null,"delayMinutes":4,"version":2,"isSynthetic":true,"stops":[{"stopId":1,"name":"Demo North","order":1,"scheduled":"2026-01-01T10:08:00+00:00","estimated":"2026-01-01T10:12:00+00:00","simulatedObserved":null},{"stopId":2,"name":"Demo South","order":2,"scheduled":"2026-01-01T10:23:00+00:00","estimated":"2026-01-01T10:27:00+00:00","simulatedObserved":null}]}
+curl -si --max-time 10 --noproxy * http://127.0.0.1:49508/api/trips/1/updates --json {"version":1,"kind":"delay","delayMinutes":4} -H @-
+HTTP/1.1 409 Conflict
+Content-Type: application/problem+json
+Date: Thu, 12 Nov 2026 17:15:18 GMT
+Server: Kestrel
+Cache-Control: no-cache,no-store
+Expires: -1
+Pragma: no-cache
+Transfer-Encoding: chunked
+
+{"type":"https://tools.ietf.org/html/rfc9110#section-15.5.10","title":"This trip changed. Refresh it before trying again.","status":409,"traceId":"00-14f9c848453dc8e2246c4ad55fa96b1a-0719755493fa3a8b-02"}
+curl -si --max-time 2 --noproxy * http://127.0.0.1:49508/api/events
+HTTP/1.1 200 OK
+Content-Type: text/event-stream
+Date: Thu, 12 Nov 2026 17:15:18 GMT
+Server: Kestrel
+Cache-Control: no-store
+Transfer-Encoding: chunked
+X-Content-Type-Options: nosniff
+Referrer-Policy: no-referrer
+Content-Security-Policy: default-src 'none'; frame-ancestors 'none'
+X-Accel-Buffering: no
+
+id: 1
+event: trip
+data: {"id": 1, "stops": [{"name": "Demo North", "order": 1, "stopId": 1, "estimated": "2026-01-01T10:08:00+00:00", "scheduled": "2026-01-01T10:08:00+00:00", "simulatedObserved": null}, {"name": "Demo South", "order": 2, "stopId": 2, "estimated": "2026-01-01T10:23:00+00:00", "scheduled": "2026-01-01T10:23:00+00:00", "simulatedObserved": null}], "status": "scheduled", "routeId": 1, "version": 1, "routeName": "Synthetic River Loop", "vehicleId": 1, "isSynthetic": true, "vehicleCode": "SYN-01", "delayMinutes": 0, "scheduledDeparture": "2026-01-01T10:00:00+00:00", "simulatedDeparture": null}
+
+id: 2
+event: trip
+data: {"id": 1, "stops": [{"name": "Demo North", "order": 1, "stopId": 1, "estimated": "2026-01-01T10:12:00+00:00", "scheduled": "2026-01-01T10:08:00+00:00", "simulatedObserved": null}, {"name": "Demo South", "order": 2, "stopId": 2, "estimated": "2026-01-01T10:27:00+00:00", "scheduled": "2026-01-01T10:23:00+00:00", "simulatedObserved": null}], "status": "delayed", "routeId": 1, "version": 2, "routeName": "Synthetic River Loop", "vehicleId": 1, "isSynthetic": true, "vehicleCode": "SYN-01", "delayMinutes": 4, "scheduledDeparture": "2026-01-01T10:00:00+00:00", "simulatedDeparture": null}
+
+: heartbeat
+
+
