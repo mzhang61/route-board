@@ -1,0 +1,22 @@
+git rule hits: 10 error lines: 0
+a850a4b120da docs/evidence/production-rate-limits/README.md 5 generic-api-key
+16d00471c519 docs/evidence/production-routing/README.md 3 generic-api-key
+69510b36cd9c docs/evidence/source-manifest.json 44 generic-api-key
+69510b36cd9c docs/evidence/source-manifest.json 47 generic-api-key
+69510b36cd9c docs/evidence/source-manifest.json 48 generic-api-key
+69510b36cd9c docs/evidence/source-manifest.json 71 generic-api-key
+69510b36cd9c docs/evidence/source-manifest.json 72 generic-api-key
+69510b36cd9c docs/evidence/source-manifest.json 84 generic-api-key
+69510b36cd9c docs/evidence/source-manifest.json 88 generic-api-key
+69510b36cd9c docs/evidence/source-manifest.json 92 generic-api-key
+logs rule hits: 44 error lines: 0
+{'image tag with commit SHA': 44}
+Workflow runs: 43327574778, 43321926174, 43310814092, 43296407957, 43286884275, 43283296706, 43279885111, 43269829134, 43268938964, 43267573718
+staging-api rule hits: 0 error lines: 17
+Image: sha256:9af30e0823968cba1848ac42ae4ccab1814ea73d8dff73697db8a42dd202a44f layers: 8
+staging-web rule hits: 0 error lines: 0
+Image: sha256:9714d881ec1c9edf8e989cd25bbc90e0c3d478ab42b4649f599d625ba9097d58 layers: 7
+production-api rule hits: 0 error lines: 17
+Image: sha256:d4f837302e6471f5507abc753530ac2709caaebbf04b13198682ee39a4aa6000 layers: 8
+production-web rule hits: 0 error lines: 0
+Image: sha256:de893418414cc836c4fb7bdcfe73033a8f24cf3abd3b78a1fc005938b96f0d90 layers: 7

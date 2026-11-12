@@ -37,7 +37,7 @@ Status is conservative: code existing is not the same as a grading pass. The sup
 
 ## Hard gates
 
-1. Secrets: local credentials stay ignored/server-side; no real keys added to client code. A full Git-history/image/log scan is still needed before submission.
+1. Secrets: local credentials stay ignored/server-side; no real keys added to client code. [Pre-submission review](evidence/secret-review/README.md) covers reachable Git history, both environments’ application images and ten Actions logs. Remaining exclusions and base-layer read diagnostics are documented.
 2. Evidence: Local and deployed results are labeled by environment. Earlier failed runs are retained honestly.
 3. Reproducibility: A fresh clone ran locally and the Azure environments were deployed. An independent clean-machine walkthrough remains pending.
 4. Authorization: public endpoints are reads; REST writes and every MCP tool enforce permissions. Tests cover representative denials. Staging and production used Auth0 for the recorded role checks.
