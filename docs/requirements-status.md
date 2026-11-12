@@ -23,7 +23,7 @@ Status is conservative: code existing is not the same as a grading pass. The sup
 | D4 | GitHub Actions builds, tests and deploys staging with public revision and health gates; controlled staging rollback verified. Fully automated production promotion remains pending. |
 | D5 | ARM images, fresh-volume smoke, Bicep deployment and cloud-init succeeded; host setup and secret retrieval are documented. Fresh public clone and isolated local startup verified in docs/evidence/clean-clone; independent human or fresh-OS reproduction remains pending. |
 | D6 | Staging and production Cloudflare checks cover HTML, hashed assets, public trip reads and signed-in trip reads. Single-URL purge verified on staging. |
-| D7 | Security headers and exact-origin CORS; allowed/refused preflight integration tests pass. Deployed frontend CSP and browser/CDN evidence pending. |
+| D7 | Security headers and exact-origin CORS; allowed/refused preflight integration tests pass. [Staging and production preflights, public response headers and Chromium checks](evidence/public-security/README.md) passed. |
 | D8 | Staging lab before/after measurements for LCP, INP and CLS are in docs/evidence/web-vitals. Median LCP decreased 800 ms; INP increased 40 ms. |
 | D9 | Seven staging states scanned with axe; keyboard-only search, recovery, dispatcher update and MCP confirmation verified. See docs/evidence/accessibility. |
 | D10 | Staging OpenTelemetry routing logs, metrics, linked external client and API spans; scheduled synthetic SLO, dashboard and alert evidence in docs/evidence/routing-observability. |

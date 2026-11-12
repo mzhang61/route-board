@@ -1,0 +1,2 @@
+staging.mzcampuspulse.com 200 default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self' https://dev-okl8jqszwoasg244.us.auth0.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self' React search control visible
+routeboard.mzcampuspulse.com 200 default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self' https://dev-okl8jqszwoasg244.us.auth0.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self' React search control visible

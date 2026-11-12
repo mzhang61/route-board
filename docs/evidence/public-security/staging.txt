@@ -1,0 +1,69 @@
+GET https://staging.mzcampuspulse.com/release.txt origin None -> 200
+content-security-policy: default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self' https://dev-okl8jqszwoasg244.us.auth0.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'
+referrer-policy: no-referrer
+strict-transport-security: max-age=31536000
+vary: Accept-Encoding
+x-content-type-options: nosniff
+CF-RAY: a59821ac18d772f9-DFW
+Release: 50a5afb448f7a00fe4f70ad066f3d6d257d01592
+GET https://staging.mzcampuspulse.com/healthz origin None -> 200
+content-security-policy: default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self' https://dev-okl8jqszwoasg244.us.auth0.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'
+content-security-policy: default-src 'none'; frame-ancestors 'none'
+referrer-policy: no-referrer
+referrer-policy: no-referrer
+strict-transport-security: max-age=31536000
+strict-transport-security: max-age=2592000
+x-content-type-options: nosniff
+x-content-type-options: nosniff
+CF-RAY: a59821ae4d6c4f40-DFW
+GET https://staging.mzcampuspulse.com/ origin None -> 200
+content-security-policy: default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self' https://dev-okl8jqszwoasg244.us.auth0.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'
+referrer-policy: no-referrer
+strict-transport-security: max-age=31536000
+vary: Accept-Encoding
+x-content-type-options: nosniff
+CF-RAY: a59821b619894864-DFW
+GET https://staging.mzcampuspulse.com/api/catalog origin None -> 200
+content-security-policy: default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self' https://dev-okl8jqszwoasg244.us.auth0.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'
+content-security-policy: default-src 'none'; frame-ancestors 'none'
+referrer-policy: no-referrer
+referrer-policy: no-referrer
+strict-transport-security: max-age=31536000
+strict-transport-security: max-age=2592000
+x-content-type-options: nosniff
+x-content-type-options: nosniff
+CF-RAY: a59821b8dafc6c7f-DFW
+OPTIONS https://staging.mzcampuspulse.com/api/trips origin https://staging.mzcampuspulse.com -> 204
+access-control-allow-headers: Authorization,Content-Type,Last-Event-ID
+access-control-allow-methods: GET,POST
+access-control-allow-origin: https://staging.mzcampuspulse.com
+content-security-policy: default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self' https://dev-okl8jqszwoasg244.us.auth0.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'
+content-security-policy: default-src 'none'; frame-ancestors 'none'
+referrer-policy: no-referrer
+referrer-policy: no-referrer
+strict-transport-security: max-age=31536000
+strict-transport-security: max-age=2592000
+x-content-type-options: nosniff
+x-content-type-options: nosniff
+CF-RAY: a59821be095c370f-ATL
+OPTIONS https://staging.mzcampuspulse.com/api/trips origin https://untrusted.example.test -> 204
+content-security-policy: default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self' https://dev-okl8jqszwoasg244.us.auth0.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'
+content-security-policy: default-src 'none'; frame-ancestors 'none'
+referrer-policy: no-referrer
+referrer-policy: no-referrer
+strict-transport-security: max-age=31536000
+strict-transport-security: max-age=2592000
+x-content-type-options: nosniff
+x-content-type-options: nosniff
+CF-RAY: a59821c0bb7ac36f-ATL
+OPTIONS https://staging.mzcampuspulse.com/api/trips origin https://staging.mzcampuspulse.com.example.test -> 204
+content-security-policy: default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self' https://dev-okl8jqszwoasg244.us.auth0.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'
+content-security-policy: default-src 'none'; frame-ancestors 'none'
+referrer-policy: no-referrer
+referrer-policy: no-referrer
+strict-transport-security: max-age=31536000
+strict-transport-security: max-age=2592000
+x-content-type-options: nosniff
+x-content-type-options: nosniff
+CF-RAY: a59821c248a169cb-DFW
+All checks passed.
