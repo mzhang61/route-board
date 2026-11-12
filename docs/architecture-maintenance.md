@@ -111,3 +111,9 @@ Fresh-volume verification caught two real packaging defects: executable scripts 
 Staging now runs on Azure with Caddy ingress, API and PostgreSQL/PostGIS containers. The host managed identity reads an environment-specific Key Vault. Only administrator-side secret loading may access Azure metadata; a Docker forwarding rule blocks application-container access so an API compromise cannot simply request the host's more privileged vault token. Runtime and migration settings are mounted separately. The root administrator and Docker daemon remain privileged trust boundaries. See deploy/azure-staging.md for exact operations and docs/evidence/azure-staging for executed checks.
 
 For a change to MCP permissions, update the identity provider's API permission list, role assignments, TripTools scope checks and transport tests together. Audit entries for preview and record identify which tool was authorized. Authorization evidence alone does not establish that a trip changed; check the committed trip version and event row as well.
+
+### Route observability
+
+The API configures OpenTelemetry in RoutingTelemetry. The ASP.NET listener exports route requests with a bounded tag set. Route result logs carry the active trace and span IDs. The meter counts the four provider outcomes using low-cardinality labels. The console exporter sends all three signals to container logs. There is no separate paid monitoring service. Limit retention according to the host disk budget and inspect usage before increasing sample frequency or enabling high-volume endpoints.
+
+The staging probe is a separate Python process. It injects W3C trace context into a public HTTPS request and records one client span per sample. The workflow summary acts as a per-run dashboard. Keep the seeded route, response schema, SLI definition and runbook aligned when changing route estimation.

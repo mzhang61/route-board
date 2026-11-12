@@ -1,0 +1,95 @@
+{
+    "name": "GET route estimate",
+    "context": {
+        "trace_id": "0xca1af69ee5276ca4cfa7d5daa8206c77",
+        "span_id": "0x1dbf8af3af43df6e",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.CLIENT",
+    "parent_id": null,
+    "start_time": "2026-11-12T05:58:17.353841Z",
+    "end_time": "2026-11-12T05:58:19.167741Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "http.response.status_code": 200,
+        "routing.outcome": "fresh"
+    },
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.45.2",
+            "service.instance.id": "adc17b8f-075c-4521-af84-a1260a9aa651",
+            "service.name": "routeboard-slo-probe"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "GET route estimate",
+    "context": {
+        "trace_id": "0xe5485808a48992fe189c6a83e14703ee",
+        "span_id": "0xe7008eef8d24a3d0",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.CLIENT",
+    "parent_id": null,
+    "start_time": "2026-11-12T05:58:19.168869Z",
+    "end_time": "2026-11-12T05:58:19.575652Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "http.response.status_code": 200,
+        "routing.outcome": "cached"
+    },
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.45.2",
+            "service.instance.id": "adc17b8f-075c-4521-af84-a1260a9aa651",
+            "service.name": "routeboard-slo-probe"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "GET route estimate",
+    "context": {
+        "trace_id": "0x9a20e34e00f300fd41b7cf34fe117efc",
+        "span_id": "0xb71155a23049a070",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.CLIENT",
+    "parent_id": null,
+    "start_time": "2026-11-12T05:58:19.576017Z",
+    "end_time": "2026-11-12T05:58:19.899902Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "http.response.status_code": 200,
+        "routing.outcome": "cached"
+    },
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.45.2",
+            "service.instance.id": "adc17b8f-075c-4521-af84-a1260a9aa651",
+            "service.name": "routeboard-slo-probe"
+        },
+        "schema_url": ""
+    }
+}
+[{"good": true, "status": 200, "outcome": "fresh", "seconds": 1.814, "trace_id": "ca1af69ee5276ca4cfa7d5daa8206c77", "client_span_id": "1dbf8af3af43df6e"}, {"good": true, "status": 200, "outcome": "cached", "seconds": 0.406, "trace_id": "e5485808a48992fe189c6a83e14703ee", "client_span_id": "e7008eef8d24a3d0"}, {"good": true, "status": 200, "outcome": "cached", "seconds": 0.324, "trace_id": "9a20e34e00f300fd41b7cf34fe117efc", "client_span_id": "b71155a23049a070"}]
+Staging route SLI: 3/3 valid estimates within 5s. Target: 3/3 per check.

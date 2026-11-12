@@ -19,7 +19,8 @@ SAMPLES = 3
 
 def measure(tracer, route_id):
     with tracer.start_as_current_span("GET route estimate", kind=trace.SpanKind.CLIENT) as span:
-        headers = {}
+        headers = {"User-Agent": "RouteBoard-SLO/1.0 (+https://github.com/mzhang61/route-board)",
+                   "Accept": "application/json"}
         propagate.inject(headers)
         request = urllib.request.Request(f"{SITE}/api/routes/{route_id}/estimate", headers=headers)
         start = time.monotonic()

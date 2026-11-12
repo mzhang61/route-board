@@ -1,0 +1,60 @@
+LogRecord.Timestamp:               2026-11-12T05:58:19.1527249Z
+LogRecord.TraceId:                 ca1af69ee5276ca4cfa7d5daa8206c77
+LogRecord.SpanId:                  54ef28917d6a8b91
+LogRecord.CategoryName:            RouteBoard.Routing
+LogRecord.Body:                    Route estimate returned {Outcome}
+    Outcome: fresh
+Activity.TraceId:            ca1af69ee5276ca4cfa7d5daa8206c77
+Activity.SpanId:             54ef28917d6a8b91
+Activity.ParentSpanId:       1dbf8af3af43df6e
+Activity.DisplayName:        GET api/routes/{id:long}/estimate
+Activity.Kind:               Server
+Activity.StartTime:          2026-11-12T05:58:17.6831487Z
+Activity.Duration:           00:00:01.5006276
+    routing.outcome: fresh
+    http.response.status_code: 200
+LogRecord.Timestamp:               2026-11-12T05:58:19.5832594Z
+LogRecord.TraceId:                 e5485808a48992fe189c6a83e14703ee
+LogRecord.SpanId:                  8c5ab3fbe73f9313
+LogRecord.CategoryName:            RouteBoard.Routing
+LogRecord.Body:                    Route estimate returned {Outcome}
+    Outcome: cached
+Activity.TraceId:            e5485808a48992fe189c6a83e14703ee
+Activity.SpanId:             8c5ab3fbe73f9313
+Activity.ParentSpanId:       e7008eef8d24a3d0
+Activity.DisplayName:        GET api/routes/{id:long}/estimate
+Activity.Kind:               Server
+Activity.StartTime:          2026-11-12T05:58:19.5015829Z
+Activity.Duration:           00:00:00.0829548
+    routing.outcome: cached
+    http.response.status_code: 200
+LogRecord.Timestamp:               2026-11-12T05:58:19.9122617Z
+LogRecord.TraceId:                 9a20e34e00f300fd41b7cf34fe117efc
+LogRecord.SpanId:                  4e739cdb9cd30044
+LogRecord.CategoryName:            RouteBoard.Routing
+LogRecord.Body:                    Route estimate returned {Outcome}
+    Outcome: cached
+Activity.TraceId:            9a20e34e00f300fd41b7cf34fe117efc
+Activity.SpanId:             4e739cdb9cd30044
+Activity.ParentSpanId:       b71155a23049a070
+Activity.DisplayName:        GET api/routes/{id:long}/estimate
+Activity.Kind:               Server
+Activity.StartTime:          2026-11-12T05:58:19.9051961Z
+Activity.Duration:           00:00:00.0075931
+    routing.outcome: cached
+    http.response.status_code: 200
+Metric Name: routeboard.routing.estimates, Metric Type: LongSum
+(2026-11-12T05:58:19.1431231Z, 2026-11-12T05:58:23.8942045Z] routing.outcome: fresh
+Value: 1
+(2026-11-12T05:58:19.1431231Z, 2026-11-12T05:58:23.8942045Z] routing.outcome: cached
+Value: 2
+Metric Name: routeboard.routing.estimates, Metric Type: LongSum
+(2026-11-12T05:58:19.1431231Z, 2026-11-12T05:58:33.8921808Z] routing.outcome: fresh
+Value: 1
+(2026-11-12T05:58:19.1431231Z, 2026-11-12T05:58:33.8921808Z] routing.outcome: cached
+Value: 2
+Metric Name: routeboard.routing.estimates, Metric Type: LongSum
+(2026-11-12T05:58:19.1431231Z, 2026-11-12T05:58:43.8914454Z] routing.outcome: fresh
+Value: 1
+(2026-11-12T05:58:19.1431231Z, 2026-11-12T05:58:43.8914454Z] routing.outcome: cached
+Value: 2

@@ -43,3 +43,11 @@ Write the postmortem only after the experiment: actual timeline, impact, trigger
 GitHub Actions checks the verified production and staging TLS certificates daily. The job fails and emits a GitHub error annotation for any certificate within 21 days of expiry or any failed TLS handshake. Inspect the failed run to identify the host. Check DNS, ports 80/443 and Caddy's certificate renewal logs, then rerun the normal check. Workflow notification delivery depends on the operator's GitHub notification settings.
 
 To reproduce, run python3 scripts/check-certificates.py. For a controlled alert, manually dispatch the Public certificate health workflow with drill enabled. Its 365-day threshold applies only to that run. Expect the job to fail on currently valid short-lived certificates. Repeat with drill disabled to verify normal status.
+
+### Staging route estimate SLO
+
+The external Staging route SLO workflow samples the seeded RB-DEMO route three times every six hours. The SLI is the fraction of samples returning HTTP 200, a positive estimate with a fresh, cached or stale status, and a total round trip of five seconds or less. The target is three good samples per check. This measures sampled availability of usable estimates, including cached fallback. It does not measure provider freshness or all production traffic.
+
+Open the workflow run summary for latency, status, outcome and trace ID. If it fails, check the public health endpoint and route catalog first. Confirm the fixed probe ID still identifies RB-DEMO. Inspect the API container logs for the matching trace ID; compare the request span, the routing log's outcome and the cumulative routeboard.routing.estimates counter. Compare client and server durations before attributing time to the provider. A failed workflow emits an error annotation. Delivery of email notifications depends on GitHub account settings.
+
+To practice, dispatch the workflow with drill=true. One call deliberately requests a missing route; expect one 404 and a failed check. Dispatch normally for recovery. No operational records are written. To reproduce manually, install scripts/observability/requirements.txt in a Python virtual environment and run python scripts/observability/routing_probe.py from the repository root.
