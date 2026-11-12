@@ -1,0 +1,7 @@
+{
+  "site": "https://routeboard.mzcampuspulse.com",
+  "health": "Healthy",
+  "route": "Synthetic River Loop",
+  "anonymousTripWrite": "401",
+  "httpRedirect": "308 https://routeboard.mzcampuspulse.com/"
+}
