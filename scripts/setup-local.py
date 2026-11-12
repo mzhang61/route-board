@@ -1,5 +1,6 @@
 """Create local development credentials without printing their values."""
 import json
+import os
 from pathlib import Path
 import secrets
 import subprocess
@@ -10,7 +11,8 @@ if not secret.exists():
     secret.write_text(secrets.token_urlsafe(32))
     secret.chmod(0o600)
 password = secret.read_text().strip().replace('"', '""')
-connection = f'Host=127.0.0.1;Port=5433;Database=routeboard_dev;Username=routeboard;Password="{password}"'
+port = int(os.environ.get("ROUTEBOARD_DB_PORT", "5433"))
+connection = f'Host=127.0.0.1;Port={port};Database=routeboard_dev;Username=routeboard;Password="{password}"'
 result = subprocess.run(["dotnet", "user-secrets", "set", "--project", "backend/RouteBoard.Api"],
     input=json.dumps({"ConnectionStrings:RouteBoard": connection}), text=True, capture_output=True)
 if result.returncode:

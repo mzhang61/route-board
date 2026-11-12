@@ -14,7 +14,7 @@ A fictional shuttle dispatch and arrival board built with ASP.NET Core 10, Postg
 - Expose scoped MCP read tools and a confirmed write tool, with a bundled React confirmation App.
 - Optionally generate synthetic coordinates by linear interpolation, persisting latest position and sequence.
 
-This is a local implementation increment, **not a completed course submission**. Real OIDC login, live provider access, MCP host interaction, Azure staging/production, DNS/TLS/CDN, operational alerts, and several required evidence artifacts remain unverified. See [the checklist](docs/requirements-status.md).
+Browse the [production board](https://routeboard.mzcampuspulse.com/) or [staging board](https://staging.mzcampuspulse.com/). For the current evidence and remaining submission work, see [the checklist](docs/requirements-status.md).
 
 ## Prerequisites
 
@@ -25,11 +25,13 @@ This is a local implementation increment, **not a completed course submission**.
 
 ## Clean-machine setup
 
+Start Docker before running these commands. The public local demo and automated suite use a generated database password and synthetic records. No Azure subscription, Auth0 account or Geoapify key is required for this path. Port 5433 must be free. To use a different port, export ROUTEBOARD_DB_PORT before setup and keep it set in every terminal running these commands. The setup script writes to the current OS user's .NET User Secrets store for this project; use a separate OS account for independent development installations on the same machine.
+
 ```bash
 git clone https://github.com/mzhang61/route-board.git
 cd route-board
 python3 scripts/setup-local.py
-docker compose up -d --build
+docker compose up -d --build --wait
 dotnet tool restore
 dotnet restore RouteBoard.slnx
 npm ci --prefix frontend
@@ -70,9 +72,9 @@ Tests deliberately use generated RSA keys and stubbed provider responses. They d
 
 ## Configuration
 
-Server secret/configuration sources: .NET User Secrets in development; an Azure secret store in the future deployment. Required public identity settings are `Authentication:Authority` and `Authentication:Audience`. The API accepts RS256 access tokens, `roles` claims, `sub`, and the space-delimited `scp` or `scope` claim. REST dispatcher operations require `dispatcher` and `trips.write`.
+Server secret/configuration sources: .NET User Secrets in development; an environment-specific Azure Key Vault on the deployed hosts. Required public identity settings are `Authentication:Authority` and `Authentication:Audience`. The API accepts RS256 access tokens, `roles` claims, `sub`, and the space-delimited `scp` or `scope` claim. REST dispatcher operations require `dispatcher` and `trips.write`.
 
-For the browser, configure public `VITE_OIDC_AUTHORITY`, `VITE_OIDC_CLIENT_ID`, and `VITE_OIDC_SCOPE` values. Register `/auth/callback` for each exact frontend origin. No client secret or provider API key belongs in a Vite variable. OIDC uses code + PKCE, a generated nonce, library-managed state, and session storage; it does not load user profiles from the user-info endpoint.
+For the browser, configure public `VITE_OIDC_AUTHORITY`, `VITE_OIDC_CLIENT_ID`, `VITE_OIDC_SCOPE`, and the API-specific `VITE_OIDC_AUDIENCE` values. Register `/auth/callback` for each exact frontend origin. No client secret or provider API key belongs in a Vite variable. OIDC uses code + PKCE, a generated nonce, library-managed state, and session storage; it does not load user profiles from the user-info endpoint.
 
 `Geoapify:ApiKey` is server-only. Do not enable live calls until account access, caching terms, quota, attribution, and cost have been confirmed. The current cache is fresh for one hour and retained for up to 24 hours in memory; restart loses it. Existing fixed synthetic timetables remain available when reference routing fails.
 
@@ -86,4 +88,4 @@ For the browser, configure public `VITE_OIDC_AUTHORITY`, `VITE_OIDC_CLIENT_ID`, 
 - [Hand predictions](docs/test-predictions.md)
 - [Local evidence](docs/evidence/README.md)
 
-The GitHub Actions definition runs verification only. The Dockerfile packages the API and MCP resource; the web bundle is a separate hosting artifact. Neither cloud CD nor a cloud container build has been demonstrated yet.
+GitHub Actions tests main and publishes verified ARM images for staging. Production promotion uses the verified API image and a web build with production-specific public OIDC settings. See [Azure deployment](deploy/azure-staging.md) and [production verification](docs/evidence/production-rate-limits/README.md).

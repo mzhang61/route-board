@@ -11,7 +11,7 @@ services:
       POSTGRES_PASSWORD_FILE: /run/secrets/postgres_password
 
     ports:
-      - "127.0.0.1:5433:5432"
+      - "127.0.0.1:${ROUTEBOARD_DB_PORT:-5433}:5432"
 
     volumes:
       - routeboard_pg_data:/var/lib/postgresql/data

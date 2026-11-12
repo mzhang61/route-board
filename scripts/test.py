@@ -10,8 +10,9 @@ if not environment.get("ROUTEBOARD_TEST_ADMIN_CONNECTION"):
     if not secret.is_file():
         sys.exit("Set ROUTEBOARD_TEST_ADMIN_CONNECTION to a test PostgreSQL administrator connection.")
     password = secret.read_text().strip().replace('"', '""')
+    port = int(os.environ.get("ROUTEBOARD_DB_PORT", "5433"))
     environment["ROUTEBOARD_TEST_ADMIN_CONNECTION"] = (
-        'Host=127.0.0.1;Port=5433;Database=postgres;Username=routeboard;'
+        f'Host=127.0.0.1;Port={port};Database=postgres;Username=routeboard;'
         f'Password="{password}";Include Error Detail=false'
     )
 for command, directory in [(["npm", "run", "build"], "frontend"),
