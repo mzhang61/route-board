@@ -7,12 +7,14 @@ deployment=/opt/routeboard/releases/staging-oidc/deploy
 repository=https://api.github.com/repos/mzhang61/route-board
 exec 9>"$settings/deploy.lock"
 flock -n 9 || exit 0
-sha=$(curl --fail --silent --show-error "$repository/git/ref/heads/main" | jq -er '.object.sha')
+# A tag can be published immediately after an earlier poll returned a cached 404.
+poll=$(date +%s)
+sha=$(curl --fail --silent --show-error "$repository/git/ref/heads/main?poll=$poll" | jq -er '.object.sha')
 [[ "$sha" =~ ^[0-9a-f]{40}$ ]]
 if [[ -f "$settings/deployed-sha" && $(cat "$settings/deployed-sha") == "$sha" ]]; then exit 0; fi
 temporary=$(mktemp -d "$settings/pull.XXXXXXXX")
 trap 'rm -rf -- "$temporary"' EXIT
-status=$(curl --silent --show-error -o "$temporary/release.json" -w '%{http_code}' "$repository/releases/tags/staging-$sha")
+status=$(curl --silent --show-error -o "$temporary/release.json" -w '%{http_code}' "$repository/releases/tags/staging-$sha?poll=$poll")
 if [[ "$status" == 404 ]]; then exit 0; fi
 [[ "$status" == 200 ]]
 asset=$(jq -er '.assets[] | select(.name == "images.tar.gz")' "$temporary/release.json")

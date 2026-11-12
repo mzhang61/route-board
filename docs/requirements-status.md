@@ -7,7 +7,7 @@ Status is conservative: code existing is not the same as a grading pass. The sup
 | F1 | Strict React/TS build; public search and route/stop/time/status filters. Full UX review pending. |
 | F2 | Browser tests for loading, empty, error; UI handles catalog, board, reference data, sign-in, writes, positions. Screenshots for every remote call still needed. |
 | F3 | [Local curl evidence](evidence/rest-contract/README.md) covers creation and Location retrieval, validation, authentication, role denial, missing records, and a concurrent conflict. The 204 is an OPTIONS preflight. |
-| F4 | PostgreSQL PK/FK/index model and disposable integration tests; local application restart preserved the exact trip response; the isolated clean-clone database-container restart preserved the seeded trip. Cloud redeploy persistence still needs a paired before/after capture. |
+| F4 | PostgreSQL PK/FK/index model and disposable integration tests; local application restart preserved the exact trip response; the isolated clean-clone database-container restart preserved the seeded trip. [Staging redeploy](evidence/staging-persistence/README.md) preserved the complete response for synthetic trip 4. |
 | F5 | Original migration preserved; additive migrations; disposable Up/Down/Up test. |
 | F6 | Atomic before/after audit with token-derived actor and mutation-blocking trigger; restricted runtime grants and real PostgreSQL denial test pass; cloud role setup and query dossier pending. |
 | F7 | Production and staging Auth0 browser login verified. Field-limited redacted HAR in docs/evidence/staging-replay. |
