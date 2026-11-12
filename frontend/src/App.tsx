@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import type { FormEvent } from 'react';
+import { createPortal } from 'react-dom';
 import { auth } from './auth';
 import { boardSchema, catalogSchema, estimateSchema, request, tripSchema } from './api';
 import type { Catalog, Trip } from './api';
@@ -8,7 +9,7 @@ import { DispatchForm } from './DispatchForm';
 
 function time(value: string): string { return new Date(value).toLocaleString(); }
 
-export function App() {
+export function App({ headerControls }: { headerControls: HTMLElement }) {
   const [catalog, setCatalog] = useState<Catalog | null>(null);
   const [catalogError, setCatalogError] = useState('');
   const [trips, setTrips] = useState<Trip[]>([]);
@@ -88,9 +89,8 @@ export function App() {
     setQuery(parameters.toString());
   }
 
-  return <main>
-    <header><p className="eyebrow">Fictional shuttle operations</p><h1>RouteBoard</h1>
-      <p>All vehicles, schedules and observations are synthetic. No real vehicle GPS or rider locations are collected.</p>
+  return <>
+    {createPortal(<>
       <p role="status">{connection}</p>
       {auth ? <button onClick={() => {
         if (!auth) return;
@@ -98,7 +98,7 @@ export function App() {
         void auth.signinRedirect({ nonce: crypto.randomUUID() }).catch(() => setAuthMessage('Could not open sign-in. Please retry.'));
       }}>Sign in</button> : <p>Dispatcher sign-in is not configured in this environment.</p>}
       <p role="status">{authMessage}</p>
-    </header>
+    </>, headerControls)}
     <section aria-labelledby="board-heading"><h2 id="board-heading">Trip board</h2>
       {!catalog && !catalogError && <p role="status">Loading route catalog…</p>}
       {catalogError && <p role="alert">{catalogError}</p>}
@@ -127,5 +127,5 @@ export function App() {
     {signedIn && catalog && <DispatchForm key={`${selected?.id ?? 'new'}-${selected?.version ?? 0}`} catalog={catalog} selected={selected} onSaved={() => setRevision(value => value + 1)} />}
     <Positions />
     <footer>Reference routing by Geoapify. External reference times are separate from the fixed synthetic timetable.</footer>
-  </main>;
+  </>;
 }
