@@ -1,0 +1,11 @@
+  ✓  1 tests/operator-states.spec.ts:27:1 › sign-in can be retried after discovery fails (2.0s)
+  ✓  3 tests/board.spec.ts:10:1 › shows an empty board and has no serious accessibility violations (2.1s)
+  ✓  5 tests/board.spec.ts:22:1 › shows loading and recoverable error states (1.4s)
+  ✓  4 tests/operator-states.spec.ts:51:1 › dispatch explains a forbidden creation and a conflicting update (2.7s)
+  ✓  6 tests/operator-states.spec.ts:80:1 › live status replaces the disconnect warning when the stream opens again (660ms)
+  ✓  2 tests/public-recovery.spec.ts:7:1 › catalog, trips and synthetic positions recover independently (6.9s)
+  ✓  7 tests/public-recovery.spec.ts:41:1 › the fixed timetable remains readable during a route estimate outage (769ms)
+  7 passed (11.5s)
+Test Run Successful.
+Total tests: 39
+     Passed: 39
