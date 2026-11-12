@@ -1,0 +1,31 @@
+name: Staging route SLO
+on:
+  schedule:
+    - cron: '17 */6 * * *'
+  workflow_dispatch:
+    inputs:
+      drill:
+        description: Send one request to a deliberately missing route
+        type: boolean
+        default: false
+permissions:
+  contents: read
+jobs:
+  measure:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -r scripts/observability/requirements.txt
+      - name: Sample route estimates
+        env:
+          DRILL: ${{ inputs.drill }}
+        run: |
+          if [[ "$DRILL" == "true" ]]; then
+            python scripts/observability/routing_probe.py --drill
+          else
+            python scripts/observability/routing_probe.py
+          fi

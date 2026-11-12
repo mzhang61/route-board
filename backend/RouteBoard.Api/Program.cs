@@ -18,6 +18,7 @@ using RouteBoard.Api.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
+RoutingTelemetry.Configure(builder);
 // Trust only the configured ingress address; clients cannot choose their own scheme.
 builder.Services.Configure<ForwardedHeadersOptions>(options =>
 {
