@@ -11,6 +11,7 @@ function time(value: string): string { return new Date(value).toLocaleString(); 
 
 export function App({ headerControls }: { headerControls: HTMLElement }) {
   const [catalog, setCatalog] = useState<Catalog | null>(null);
+  const [catalogAttempt, setCatalogAttempt] = useState(0);
   const [catalogError, setCatalogError] = useState('');
   const [trips, setTrips] = useState<Trip[]>([]);
   const [loading, setLoading] = useState(true);
@@ -27,10 +28,11 @@ export function App({ headerControls }: { headerControls: HTMLElement }) {
 
   useEffect(() => {
     const controller = new AbortController();
+    setCatalogError('');
     request('/api/catalog', catalogSchema, { signal: controller.signal }).then(setCatalog)
-      .catch(() => { if (!controller.signal.aborted) setCatalogError('The route catalog could not be loaded. Reload to retry.'); });
+      .catch(() => { if (!controller.signal.aborted) setCatalogError('The route catalog could not be loaded.'); });
     return () => controller.abort();
-  }, []);
+  }, [catalogAttempt]);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -101,7 +103,10 @@ export function App({ headerControls }: { headerControls: HTMLElement }) {
     </>, headerControls)}
     <section aria-labelledby="board-heading"><h2 id="board-heading">Trip board</h2>
       {!catalog && !catalogError && <p role="status">Loading route catalog…</p>}
-      {catalogError && <p role="alert">{catalogError}</p>}
+      {catalogError && <p role="alert">{catalogError}{' '}
+        <button onClick={() => setCatalogAttempt(value => value + 1)}>Retry catalog</button>
+      </p>}
+      {catalog && catalog.routes.length === 0 && <p>No routes are available in the catalog.</p>}
       <form onSubmit={search} className="filters">
         <label>Search route or vehicle<input name="search" maxLength={100} type="search" /></label>
         <label>Route<select name="routeId"><option value="">All routes</option>{catalog?.routes.map(route => <option key={route.id} value={route.id}>{route.name}</option>)}</select></label>
