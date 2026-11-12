@@ -51,3 +51,7 @@ The external Staging route SLO workflow samples the seeded RB-DEMO route three t
 Open the workflow run summary for latency, status, outcome and trace ID. If it fails, check the public health endpoint and route catalog first. Confirm the fixed probe ID still identifies RB-DEMO. Inspect the API container logs for the matching trace ID; compare the request span, the routing log's outcome and the cumulative routeboard.routing.estimates counter. Compare client and server durations before attributing time to the provider. A failed workflow emits an error annotation. Delivery of email notifications depends on GitHub account settings.
 
 To practice, dispatch the workflow with drill=true. One call deliberately requests a missing route; expect one 404 and a failed check. Dispatch normally for recovery. No operational records are written. To reproduce manually, install scripts/observability/requirements.txt in a Python virtual environment and run python scripts/observability/routing_probe.py from the repository root.
+
+### Arrival-board Game Day
+
+Follow docs/game-day-postmortem.md for the intentional staging client disconnect, expected ETA, recovery procedure and SQL verification. Use the synthetic dispatcher fixture. Each rehearsal creates a new synthetic trip.

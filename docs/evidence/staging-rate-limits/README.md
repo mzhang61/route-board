@@ -1,0 +1,7 @@
+# Staging rate-limit verification
+
+Revision c91cf3caf0e9be08b1eb09f049d09e20fb2fbd58. Before running the drill, expect the eleventh route estimate in a fresh minute to receive 429. The login entry allows ten starts per observed client IP per minute, including the initial interactive sign-in if it shares that partition. Dispatcher writes allow thirty per validated subject per minute. Each limiter lives in this API instance's memory. The application's observed client IP may be a CDN proxy address, so visitors can share a login partition. Direct access to the identity provider is governed by its own policies.
+
+From the repository root run bash scripts/test.sh, then node frontend/tests/staging-rate-limits.mjs against the deployed revision after a quiet minute. The staging harness signs in a synthetic dispatcher and explicitly checks the browser traversed the application login endpoint. It sends invalid trip bodies so no synthetic records are changed. It follows no login redirects during the burst. The routing budget applies even on a cache hit; this drill may briefly return 429 for other staging reference queries. Core reads remain available.
+
+The browser creates state, nonce and the PKCE challenge before navigating to /api/auth/authorize. The server enforces the login window and redirects to the configured Auth0 issuer. The rate-limit evidence records only status codes. No redirect query values, tokens or credentials are retained.

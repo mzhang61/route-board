@@ -1,0 +1,5 @@
+Browser sign-in used the application endpoint (302) and completed Auth0 login.
+Dispatcher invalid write HTTP statuses 400 400 400 400 400 400 400 400 400 400 400 400 400 400 400 400 400 400 400 400 400 400 400 400 400 400 400 400 400 400 429
+routing HTTP statuses 200 200 200 200 200 200 200 200 200 200 429
+login HTTP statuses 302 302 302 302 302 302 302 302 302 302 429
+Public catalog HTTP 200 after rate limits fired.

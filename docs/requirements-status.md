@@ -10,26 +10,26 @@ Status is conservative: code existing is not the same as a grading pass. The sup
 | F4 | PostgreSQL PK/FK/index model and disposable integration tests; local application restart preserved the exact trip response; database-container restart and cloud redeploy evidence pending. |
 | F5 | Original migration preserved; additive migrations; disposable Up/Down/Up test. |
 | F6 | Atomic before/after audit with token-derived actor and mutation-blocking trigger; restricted runtime grants and real PostgreSQL denial test pass; cloud role setup and query dossier pending. |
-| F7 | Code+PKCE/state/nonce browser wiring. Real provider registration and login HAR not available. |
+| F7 | Production and staging Auth0 browser login verified. Field-limited redacted HAR in docs/evidence/staging-replay. |
 | F8 | RSA token failure tests for signature/issuer/audience/expiry and scope. Live JWKS discovery/rotation evidence pending. |
-| F9 | Server dispatcher role + write scope; viewer/anonymous denial tests. Real provider role assignment pending. |
+| F9 | Production and staging synthetic role tests verify viewer denial and dispatcher creation; anonymous denial is also recorded. |
 | F10 | Staging Key Vault integration and live fresh/cached responses verified. Local PostGIS test exercises provider timeout alongside schedule reads and dispatcher writes. See docs/evidence/staging-routing. |
-| F11 | Persistent snapshots, SSE cursor replay, browser ID deduplication, backend replay test. Full kill/reconnect multi-event browser demo remains. |
+| F11 | Staging SSE drill verified Last-Event-ID, two ordered replayed events, no duplicate delay and database agreement. See docs/game-day-postmortem.md. |
 | F12 | Three read tools, preview and bound confirmed write; explicit tool scopes, tool-call audits, HTTP transport denial tests. Real staging role, scope, override and replay checks passed. Independent host OAuth discovery remains pending. |
 | F13 | React/TS confirmation App and authenticated MCP resource bundled. Staging test-host recording and persisted confirmation verified in docs/evidence/staging-mcp. Independent host consent remains pending. |
-| D1 | Staging A record resolves to Azure; DNS/public HTTP evidence captured. Production DNS and full zone/trace dossier remain pending. |
-| D2 | Real staging certificate, HTTPS health and HTTP redirect verified; automated renewal configured. CAA and fired expiry alert still pending. |
-| D3 | Staging VM, separate vault and application containers deployed. Production and staging-to-production gates are pending. |
-| D4 | CI builds/tests and builds images; local release script has migration and HTTPS health gates. Remote CI, promotion and rollback evidence pending. |
+| D1 | Public production and staging DNS verified. Authoritative CAA and public checks recorded. Full zone export and delegation trace dossier remain pending. |
+| D2 | Public HTTPS, redirects, Caddy automatic renewal configuration, CAA records and fired expiry alert verified. A subsequent automatic renewal has not been observed. |
+| D3 | Separate production and staging hosts, databases and vaults verified. Production bootstrap promoted the API previously verified on staging. Fully automated production promotion remains pending. |
+| D4 | GitHub Actions builds, tests and deploys staging with public revision and health gates; controlled staging rollback verified. Fully automated production promotion remains pending. |
 | D5 | ARM images, fresh-volume smoke, Bicep deployment and cloud-init succeeded; host setup and secret retrieval are documented. Independent clean-clone reproduction remains pending. |
-| D6 | API no-store default. CDN and HIT/MISS/304/invalidation evidence pending. |
+| D6 | Staging and production Cloudflare checks cover HTML, hashed assets, public trip reads and signed-in trip reads. Single-URL purge verified on staging. |
 | D7 | Security headers and exact-origin CORS; allowed/refused preflight integration tests pass. Deployed frontend CSP and browser/CDN evidence pending. |
 | D8 | Staging lab before/after measurements for LCP, INP and CLS are in docs/evidence/web-vitals. Median LCP decreased 800 ms; INP increased 40 ms. |
 | D9 | Seven staging states scanned with axe; keyboard-only search, recovery, dispatcher update and MCP confirmation verified. See docs/evidence/accessibility. |
 | D10 | Staging OpenTelemetry routing logs, metrics, linked external client and API spans; scheduled synthetic SLO, dashboard and alert evidence in docs/evidence/routing-observability. |
 | D11 | Verified budget and retail meters, modeled 1×/10×/100× costs and measured a short staging read workload. See docs/evidence/cost. Portal screenshot pending; remaining credit unknown. |
-| S1 | REST writes, MCP transport and provider-backed route limiter configured. HTTP write-rate test proves 429 after 30 requests. Provider-route/login throttle transcripts remain pending. |
-| S2 | Local runbook written. An actual intentional operational Game Day and postmortem remain. Unit-test failures are not a substitute. |
+| S1 | Application login start, dispatcher writes and provider-backed routing returned 429 on staging; the public catalog remained available. See docs/evidence/staging-rate-limits. Production promotion of the new login gate remains pending. |
+| S2 | The runbook and the staging SSE Game Day postmortem link the induced failure, recovery, original browser observations and database history. Independent stranger walkthrough remains pending. |
 | Q1 | Unified command runs validation/auth/stubbed-provider/calculation and other tests. Hand predictions recorded. |
 | Q2 | Request-path and trust-boundary diagrams in maintenance guide; cloud nodes explicitly planned. |
 | Q3 | Local raw output, base SHA and dirty-source manifest; AI log and challenged claims. Clean committed/pipeline evidence and full redaction attestation pending. |
