@@ -1,0 +1,16 @@
+GET https://staging.mzcampuspulse.com/assets/index-BAITdgRG.js
+HTTP/2 200
+date: Thu, 12 Nov 2026 03:00:02 GMT
+cache-control: public, max-age=31536000, immutable
+etag: W/"dmsu38teudxc-88rq-gzip"
+cf-cache-status: MISS
+cf-ray: a59248bc0eb5cca3-ORD
+
+GET https://staging.mzcampuspulse.com/assets/index-BAITdgRG.js
+HTTP/2 200
+date: Thu, 12 Nov 2026 03:00:02 GMT
+cache-control: public, max-age=31536000, immutable
+etag: W/"dmsu38teudxc-88rq-gzip"
+age: 0
+cf-cache-status: HIT
+cf-ray: a59248be2f60eac2-ORD

@@ -1,0 +1,1 @@
+Authenticated viewer GET /api/trips [{"status":200,"cache":"no-store","edge":"DYNAMIC","ray":"a5924955180a111d-ORD"},{"status":200,"cache":"no-store","edge":"DYNAMIC","ray":"a592495a08f9111d-ORD"}]
