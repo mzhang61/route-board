@@ -1,0 +1,134 @@
+[
+  {
+    "concurrency": 1,
+    "wallSeconds": 4.413,
+    "samples": [
+      {
+        "http": 200,
+        "seconds": 1.162537,
+        "bytes": 2820
+      },
+      {
+        "http": 200,
+        "seconds": 0.384887,
+        "bytes": 2820
+      },
+      {
+        "http": 200,
+        "seconds": 0.384526,
+        "bytes": 2820
+      },
+      {
+        "http": 200,
+        "seconds": 0.145686,
+        "bytes": 2820
+      },
+      {
+        "http": 200,
+        "seconds": 0.33402,
+        "bytes": 2820
+      },
+      {
+        "http": 200,
+        "seconds": 0.349847,
+        "bytes": 2820
+      },
+      {
+        "http": 200,
+        "seconds": 0.28483,
+        "bytes": 2820
+      },
+      {
+        "http": 200,
+        "seconds": 0.400082,
+        "bytes": 2820
+      },
+      {
+        "http": 200,
+        "seconds": 0.180853,
+        "bytes": 2820
+      },
+      {
+        "http": 200,
+        "seconds": 0.165295,
+        "bytes": 2820
+      },
+      {
+        "http": 200,
+        "seconds": 0.146688,
+        "bytes": 2820
+      },
+      {
+        "http": 200,
+        "seconds": 0.160705,
+        "bytes": 2820
+      }
+    ]
+  },
+  {
+    "concurrency": 4,
+    "wallSeconds": 0.724,
+    "samples": [
+      {
+        "http": 200,
+        "seconds": 0.155127,
+        "bytes": 2820
+      },
+      {
+        "http": 200,
+        "seconds": 0.145747,
+        "bytes": 2820
+      },
+      {
+        "http": 200,
+        "seconds": 0.172561,
+        "bytes": 2820
+      },
+      {
+        "http": 200,
+        "seconds": 0.197576,
+        "bytes": 2820
+      },
+      {
+        "http": 200,
+        "seconds": 0.193241,
+        "bytes": 2820
+      },
+      {
+        "http": 200,
+        "seconds": 0.169227,
+        "bytes": 2820
+      },
+      {
+        "http": 200,
+        "seconds": 0.34231,
+        "bytes": 2820
+      },
+      {
+        "http": 200,
+        "seconds": 0.335939,
+        "bytes": 2820
+      },
+      {
+        "http": 200,
+        "seconds": 0.147568,
+        "bytes": 2820
+      },
+      {
+        "http": 200,
+        "seconds": 0.159204,
+        "bytes": 2820
+      },
+      {
+        "http": 200,
+        "seconds": 0.172509,
+        "bytes": 2820
+      },
+      {
+        "http": 200,
+        "seconds": 0.151207,
+        "bytes": 2820
+      }
+    ]
+  }
+]

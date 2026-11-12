@@ -1,0 +1,168 @@
+{
+  "observedAt": "2026-11-12T06:47:28.166767+00:00",
+  "budget": [
+    {
+      "alerts": [
+        {
+          "enabled": true,
+          "percent": "50.0"
+        },
+        {
+          "enabled": true,
+          "percent": "80.0"
+        },
+        {
+          "enabled": true,
+          "percent": "100.0"
+        }
+      ],
+      "amount": "20.0",
+      "name": "azure_student_account_monthly_budget",
+      "period": "Monthly",
+      "spend": {
+        "amount": "0.4749731943813252",
+        "unit": "USD"
+      }
+    }
+  ],
+  "environments": {
+    "staging": {
+      "vm": {
+        "region": "westus",
+        "size": "Standard_B2pts_v2"
+      },
+      "disks": [
+        {
+          "sizeGB": 32,
+          "sku": "StandardSSD_LRS"
+        }
+      ],
+      "ips": [
+        {
+          "allocation": "Static",
+          "sku": "Standard"
+        }
+      ]
+    },
+    "production": {
+      "vm": {
+        "region": "westus",
+        "size": "Standard_B2pts_v2"
+      },
+      "disks": [
+        {
+          "sizeGB": 32,
+          "sku": "StandardSSD_LRS"
+        }
+      ],
+      "ips": [
+        {
+          "allocation": "Static",
+          "sku": "Standard"
+        }
+      ]
+    }
+  },
+  "retail": [
+    {
+      "query": "https://prices.azure.com/api/retail/prices?%24filter=armRegionName+eq+%27westus%27+and+priceType+eq+%27Consumption%27+and+armSkuName+eq+%27Standard_B2pts_v2%27+and+meterName+eq+%27B2pts+v2%27",
+      "rates": [
+        {
+          "productName": "Bpsv2 Series Cloud Services",
+          "skuName": "B2pts v2",
+          "meterName": "B2pts v2",
+          "retailPrice": 0.0192,
+          "unitOfMeasure": "1 Hour",
+          "currencyCode": "USD"
+        },
+        {
+          "productName": "Virtual Machines Bpsv2 Series",
+          "skuName": "B2pts v2",
+          "meterName": "B2pts v2",
+          "retailPrice": 0.01,
+          "unitOfMeasure": "1 Hour",
+          "currencyCode": "USD"
+        }
+      ]
+    },
+    {
+      "query": "https://prices.azure.com/api/retail/prices?%24filter=armRegionName+eq+%27westus%27+and+priceType+eq+%27Consumption%27+and+productName+eq+%27Standard+SSD+Managed+Disks%27+and+skuName+eq+%27E4+LRS%27",
+      "rates": [
+        {
+          "productName": "Standard SSD Managed Disks",
+          "skuName": "E4 LRS",
+          "meterName": "E4 LRS Disk",
+          "retailPrice": 2.4,
+          "unitOfMeasure": "1/Month",
+          "currencyCode": "USD"
+        },
+        {
+          "productName": "Standard SSD Managed Disks",
+          "skuName": "E4 LRS",
+          "meterName": "E4 LRS Disk Operations",
+          "retailPrice": 0.002,
+          "unitOfMeasure": "10K",
+          "currencyCode": "USD"
+        },
+        {
+          "productName": "Standard SSD Managed Disks",
+          "skuName": "E4 LRS",
+          "meterName": "E4 LRS Disk Mount",
+          "retailPrice": 0.338,
+          "unitOfMeasure": "1/Month",
+          "currencyCode": "USD"
+        }
+      ]
+    },
+    {
+      "query": "https://prices.azure.com/api/retail/prices?%24filter=armRegionName+eq+%27westus%27+and+priceType+eq+%27Consumption%27+and+serviceName+eq+%27Virtual+Network%27+and+meterName+eq+%27Standard+IPv4+Static+Public+IP%27",
+      "rates": [
+        {
+          "productName": "IP Addresses",
+          "skuName": "Standard",
+          "meterName": "Standard IPv4 Static Public IP",
+          "retailPrice": 0.005,
+          "unitOfMeasure": "1 Hour",
+          "currencyCode": "USD"
+        }
+      ]
+    },
+    {
+      "query": "https://prices.azure.com/api/retail/prices?%24filter=armRegionName+eq+%27westus%27+and+priceType+eq+%27Consumption%27+and+serviceName+eq+%27Key+Vault%27+and+contains%28meterName%2C%27Operations%27%29",
+      "rates": [
+        {
+          "productName": "Key Vault",
+          "skuName": "Standard",
+          "meterName": "Advanced Key Operations",
+          "retailPrice": 0.15,
+          "unitOfMeasure": "10K",
+          "currencyCode": "USD"
+        },
+        {
+          "productName": "Key Vault",
+          "skuName": "Premium",
+          "meterName": "Advanced Key Operations",
+          "retailPrice": 0.15,
+          "unitOfMeasure": "10K",
+          "currencyCode": "USD"
+        },
+        {
+          "productName": "Key Vault",
+          "skuName": "Standard",
+          "meterName": "Operations",
+          "retailPrice": 0.03,
+          "unitOfMeasure": "10K",
+          "currencyCode": "USD"
+        },
+        {
+          "productName": "Key Vault",
+          "skuName": "Premium",
+          "meterName": "Operations",
+          "retailPrice": 0.03,
+          "unitOfMeasure": "10K",
+          "currencyCode": "USD"
+        }
+      ]
+    }
+  ]
+}

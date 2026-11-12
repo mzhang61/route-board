@@ -27,7 +27,7 @@ Status is conservative: code existing is not the same as a grading pass. The sup
 | D8 | Staging lab before/after measurements for LCP, INP and CLS are in docs/evidence/web-vitals. Median LCP decreased 800 ms; INP increased 40 ms. |
 | D9 | Seven staging states scanned with axe; keyboard-only search, recovery, dispatcher update and MCP confirmation verified. See docs/evidence/accessibility. |
 | D10 | Staging OpenTelemetry routing logs, metrics, linked external client and API spans; scheduled synthetic SLO, dashboard and alert evidence in docs/evidence/routing-observability. |
-| D11 | Existing USD 20/month budget and thresholds checked; candidate VM compute price verified. Full cost model, credit balance and priced 1×/10×/100× analysis pending. |
+| D11 | Verified budget and retail meters, modeled 1×/10×/100× costs and measured a short staging read workload. See docs/evidence/cost. Portal screenshot pending; remaining credit unknown. |
 | S1 | REST writes, MCP transport and provider-backed route limiter configured. HTTP write-rate test proves 429 after 30 requests. Provider-route/login throttle transcripts remain pending. |
 | S2 | Local runbook written. An actual intentional operational Game Day and postmortem remain. Unit-test failures are not a substitute. |
 | Q1 | Unified command runs validation/auth/stubbed-provider/calculation and other tests. Hand predictions recorded. |
