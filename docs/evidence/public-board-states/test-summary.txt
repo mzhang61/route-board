@@ -1,0 +1,8 @@
+  ✓  2 tests/board.spec.ts:10:1 › shows an empty board and has no serious accessibility violations (1.1s)
+  ✓  3 tests/board.spec.ts:22:1 › shows loading and recoverable error states (228ms)
+  ✓  1 tests/public-recovery.spec.ts:7:1 › catalog, trips and synthetic positions recover independently (5.9s)
+  ✓  4 tests/public-recovery.spec.ts:41:1 › the fixed timetable remains readable during a route estimate outage (588ms)
+  4 passed (8.3s)
+Test Run Successful.
+Total tests: 39
+     Passed: 39
