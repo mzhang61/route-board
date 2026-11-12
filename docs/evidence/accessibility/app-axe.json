@@ -1,0 +1,35 @@
+{
+  "engine": {
+    "name": "axe-core",
+    "version": "4.14.0"
+  },
+  "timestamp": "2026-11-12T05:44:17.085Z",
+  "violations": [],
+  "incompleteRules": [],
+  "passedRules": [
+    "aria-allowed-role",
+    "aria-deprecated-role",
+    "aria-hidden-body",
+    "aria-required-attr",
+    "aria-roles",
+    "avoid-inline-spacing",
+    "button-name",
+    "color-contrast",
+    "document-title",
+    "empty-heading",
+    "heading-order",
+    "html-has-lang",
+    "html-lang-valid",
+    "landmark-main-is-top-level",
+    "landmark-no-duplicate-main",
+    "landmark-one-main",
+    "landmark-unique",
+    "list",
+    "listitem",
+    "meta-viewport-large",
+    "meta-viewport",
+    "nested-interactive",
+    "page-has-heading-one",
+    "region"
+  ]
+}

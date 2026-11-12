@@ -1,9 +1,9 @@
 import assert from 'node:assert/strict';
-import { readFile } from 'node:fs/promises';
+import { readFile, writeFile } from 'node:fs/promises';
 import { chromium, expect } from '@playwright/test';
 
 const site = 'https://staging.mzcampuspulse.com';
-const evidence = 'docs/evidence/staging-mcp';
+const evidence = process.env.MCP_EVIDENCE_DIR || 'docs/evidence/staging-mcp';
 const browser = await chromium.launch();
 const readScopes = ['mcp.search_trips', 'mcp.get_trip', 'mcp.get_stop_arrivals'];
 const writeScopes = ['trips.write', 'mcp.preview_trip_update', 'mcp.record_trip_update'];
@@ -113,7 +113,24 @@ try {
   }, {html: resource.contents[0].text, preview});
   const app = host.frameLocator('iframe');
   await expect(app.getByText(/Total delay: 4 minutes/)).toBeVisible();
-  await app.getByRole('button', {name:'Confirm this exact update'}).click();
+  const frame = host.frames().find(child => child.parentFrame() === host.mainFrame());
+  const axe = await readFile(new URL('../node_modules/axe-core/axe.min.js', import.meta.url), 'utf8');
+  await frame.evaluate(axe);
+  const audit = await frame.evaluate(async () => {
+    const result = await window.axe.run(document);
+    return {engine:result.testEngine, timestamp:result.timestamp, violations:result.violations,
+      incompleteRules:result.incomplete.map(rule => rule.id), passedRules:result.passes.map(rule => rule.id)};
+  });
+  await writeFile(evidence+'/app-axe.json', JSON.stringify(audit,null,2)+'\n');
+  assert.ok(!audit.violations.some(rule => ['serious','critical'].includes(rule.impact)));
+  const confirm = app.getByRole('button', {name:'Confirm this exact update'});
+  await host.keyboard.press('Tab');
+  await expect(confirm).toBeFocused();
+  await host.keyboard.press('Tab');
+  await expect(app.getByRole('button',{name:'Cancel'})).toBeFocused();
+  await host.keyboard.press('Shift+Tab');
+  await expect(confirm).toBeFocused();
+  await host.keyboard.press('Enter');
   await expect(app.getByText('The confirmed update was saved.')).toBeVisible();
   await host.close();
   await video.saveAs(evidence + '/host-confirmation.webm');

@@ -25,7 +25,7 @@ Status is conservative: code existing is not the same as a grading pass. The sup
 | D6 | API no-store default. CDN and HIT/MISS/304/invalidation evidence pending. |
 | D7 | Security headers and exact-origin CORS; allowed/refused preflight integration tests pass. Deployed frontend CSP and browser/CDN evidence pending. |
 | D8 | Staging lab before/after measurements for LCP, INP and CLS are in docs/evidence/web-vitals. Median LCP decreased 800 ms; INP increased 40 ms. |
-| D9 | Empty-board axe check and keyboard form test pass locally. Full populated/dispatcher/MCP keyboard walkthrough pending. |
+| D9 | Seven staging states scanned with axe; keyboard-only search, recovery, dispatcher update and MCP confirmation verified. See docs/evidence/accessibility. |
 | D10 | Basic framework logging only. OpenTelemetry, distributed trace, SLI/SLO and fired alert pending. |
 | D11 | Existing USD 20/month budget and thresholds checked; candidate VM compute price verified. Full cost model, credit balance and priced 1×/10×/100× analysis pending. |
 | S1 | REST writes, MCP transport and provider-backed route limiter configured. HTTP write-rate test proves 429 after 30 requests. Provider-route/login throttle transcripts remain pending. |

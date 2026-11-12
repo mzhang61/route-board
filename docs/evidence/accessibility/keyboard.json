@@ -1,0 +1,13 @@
+{
+  "site": "https://staging.mzcampuspulse.com",
+  "release": "ae17c4c5dd12159edf4a858d5c72999667e5aaee",
+  "browser": "158.0.8127.18",
+  "steps": [
+    "Tab to search, type an unmatched route, press Enter: empty state appears.",
+    "Replace search, select a route with the arrow key, submit, open a trip with Enter.",
+    "Tab to Close trip and press Enter: detail closes.",
+    "Force one trip-list 503 in the browser. Tab to Retry, press Enter: trips return.",
+    "Activate Sign in and complete synthetic dispatcher login using the keyboard.",
+    "Open fresh synthetic trip 6, enter a four-minute delay, Tab to Save trip, press Enter. Public readback confirmed version 2 and delay 4."
+  ]
+}
