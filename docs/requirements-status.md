@@ -9,7 +9,7 @@ Status is conservative: code existing is not the same as a grading pass. The sup
 | F3 | [Local curl evidence](evidence/rest-contract/README.md) covers creation and Location retrieval, validation, authentication, role denial, missing records, and a concurrent conflict. The 204 is an OPTIONS preflight. |
 | F4 | PostgreSQL PK/FK/index model and disposable integration tests; local application restart preserved the exact trip response; the isolated clean-clone database-container restart preserved the seeded trip. [Staging redeploy](evidence/staging-persistence/README.md) preserved the complete response for synthetic trip 4. |
 | F5 | Original migration preserved; additive migrations; disposable Up/Down/Up test. |
-| F6 | Atomic before/after audit with token-derived actor and mutation-blocking trigger; restricted runtime grants and real PostgreSQL denial test pass; cloud role setup and query dossier pending. |
+| F6 | Atomic before/after audit with token-derived actor and mutation-blocking trigger; [staging query and permission checks](evidence/staging-audit/README.md) verify the stored changes and the runtime role’s UPDATE and DELETE denials. |
 | F7 | Production and staging Auth0 browser login verified. Field-limited redacted HAR in docs/evidence/staging-replay. |
 | F8 | RSA token failure tests for signature/issuer/audience/expiry and scope. Live JWKS discovery/rotation evidence pending. |
 | F9 | Production and staging synthetic role tests verify viewer denial and dispatcher creation; anonymous denial is also recorded. |

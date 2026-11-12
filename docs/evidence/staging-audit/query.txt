@@ -1,0 +1,14 @@
+    current_user    | current_database | can_append | can_update | can_delete | can_truncate 
+--------------------+------------------+------------+------------+------------+--------------
+ routeboard_runtime | routeboard       | t          | f          | f          | f
+(1 row)
+
+ Id | TripId |          OccurredAt           | Action | actor_fingerprint | previous_version | new_version | previous_delay | new_delay 
+----+--------+-------------------------------+--------+-------------------+------------------+-------------+----------------+-----------
+  8 |      4 | 2026-11-11 04:43:50.630027+00 | create | 4c746f08b2b161ba  |                  | 1           |                | 0
+ 16 |      4 | 2026-11-11 04:43:51.691085+00 | delay  | 4c746f08b2b161ba  | 1                | 2           | 0              | 4
+(2 rows)
+
+DO
+NOTICE:  UPDATE rejected: 42501 permission denied for table audit_events
+NOTICE:  DELETE rejected: 42501 permission denied for table audit_events
