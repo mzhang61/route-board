@@ -17,16 +17,16 @@ The design is a modular monolith. A single student can follow one request withou
 
 ```mermaid
 flowchart LR
-  Browser[Untrusted browser] --> DNS[DNS: mzcampuspulse.com]
-  DNS --> CDN[Planned Azure CDN / edge TLS]
-  CDN --> Web[Static React bundle]
-  Browser --> API[ASP.NET Core API]
-  Host[OAuth-authenticated MCP host] --> API
-  API --> Rules[Shared TripService and TripRules]
-  Rules --> DB[(PostgreSQL / PostGIS)]
-  API --> Routing[Geoapify reference API]
-  Browser --> Identity[Real OIDC provider: not configured]
-  Identity --> Browser
+  Browser[Browser running React] -->|Resolve hostname| DNS[Cloudflare authoritative DNS]
+  Browser -->|HTTPS| Edge[Cloudflare CDN]
+  Host[MCP host] -->|HTTPS| Edge
+  Edge -->|Origin request| Web[Caddy on the environment's Azure VM]
+  Web -->|Static files| Assets[React bundle]
+  Web -->|API, SSE and MCP| API[ASP.NET Core]
+  API --> DB[(Private PostgreSQL with PostGIS)]
+  API -->|Baseline travel time| Routing[Geoapify]
+  Browser -->|Authorization code with PKCE| Identity[Auth0]
+  API -->|Discovery and signing keys| Identity
 ```
 
 ```mermaid
@@ -50,7 +50,9 @@ flowchart TB
   PG --> Reads
 ```
 
-Cloud components in these diagrams are a target design, not a deployment claim. All provider responses and browser/MCP parameters are untrusted. The API never accepts an actor identifier from a request body. It derives `issuer|subject` from a validated token. The database stores no imported user directory or profile.
+Staging and production each have their own host, database and Key Vault. DNS returns Cloudflare edge addresses. A cache miss reaches Caddy, which serves static files and forwards application requests to the API. The host retrieves configuration from Key Vault using its managed identity. [DNS evidence](evidence/public-dns/README.md) · [Production deployment](evidence/production-bootstrap/README.md) · [Staging identity flow](evidence/staging-oidc/README.md)
+
+All provider responses and browser/MCP parameters are untrusted. The API never accepts an actor identifier from a request body. It derives `issuer|subject` from a validated token. The database stores no imported user directory or profile.
 
 ## Writes, concurrency, and event ordering
 

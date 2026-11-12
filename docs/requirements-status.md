@@ -31,21 +31,17 @@ Status is conservative: code existing is not the same as a grading pass. The sup
 | S1 | Application login start, dispatcher writes and provider-backed routing returned 429 on staging; the public catalog remained available. See docs/evidence/staging-rate-limits. Production login promotion, browser flow, 429 and anonymous 401 are verified in docs/evidence/production-rate-limits. |
 | S2 | The runbook and the staging SSE Game Day postmortem link the induced failure, recovery, original browser observations and database history. Independent stranger walkthrough remains pending. |
 | Q1 | Unified command runs validation/auth/stubbed-provider/calculation and other tests. Hand predictions recorded. |
-| Q2 | Request-path and trust-boundary diagrams in maintenance guide; cloud nodes explicitly planned. |
+| Q2 | [Request path and trust boundaries](architecture-maintenance.md#request-path-and-trust-boundaries) document the deployed Cloudflare, Caddy, Azure, Auth0 and PostgreSQL components. |
 | Q3 | Local raw output, base SHA and dirty-source manifest; AI log and challenged claims. Clean committed/pipeline evidence and full redaction attestation pending. |
 | Q4 | Maintenance and oral-defense guide written. Student must personally demonstrate explanations and live changes. |
 
 ## Hard gates
 
 1. Secrets: local credentials stay ignored/server-side; no real keys added to client code. A full Git-history/image/log scan is still needed before submission.
-2. Evidence: only executed local results are labeled verified. Earlier failed runs are retained honestly.
-3. Reproducibility: instructions and CI exist, but a clean-machine and Azure reproduction have not been run.
-4. Authorization: public endpoints are reads; REST writes and every MCP tool enforce permissions. Tests cover representative denials. Real provider configuration remains necessary.
+2. Evidence: Local and deployed results are labeled by environment. Earlier failed runs are retained honestly.
+3. Reproducibility: A fresh clone ran locally and the Azure environments were deployed. An independent clean-machine walkthrough remains pending.
+4. Authorization: public endpoints are reads; REST writes and every MCP tool enforce permissions. Tests cover representative denials. Staging and production used Auth0 for the recorded role checks.
 5. Synthetic data: demo/test operational data and simulated positions are fictional; authentication retains only issuer/subject for attribution.
-
-## Next deployment prerequisites
-
-The user owns mzcampuspulse.com through Porkbun and has an enabled Azure for Students subscription. The staging VM, Key Vault and public HTTPS application are running. The school tenant refused app registration, so a separate identity provider account is needed. Geoapify access, CDN, production, CAA and operational evidence remain pending. Secrets belong in secret stores, not this document or chat.
 
 ## Staging identity update
 
