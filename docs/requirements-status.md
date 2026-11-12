@@ -17,7 +17,7 @@ Status is conservative: code existing is not the same as a grading pass. The sup
 | F11 | Staging SSE drill verified Last-Event-ID, two ordered replayed events, no duplicate delay and database agreement. See docs/game-day-postmortem.md. |
 | F12 | Three read tools, preview and bound confirmed write; explicit tool scopes, tool-call audits, HTTP transport denial tests. Real staging role, scope, override and replay checks passed. Independent host OAuth discovery remains pending. |
 | F13 | React/TS confirmation App and authenticated MCP resource bundled. Staging test-host recording and persisted confirmation verified in docs/evidence/staging-mcp. Independent host consent remains pending. |
-| D1 | Public production and staging DNS verified. Authoritative CAA and public checks recorded. Full zone export and delegation trace dossier remain pending. |
+| D1 | Public production and staging DNS verified. Authoritative CAA and public checks recorded. [Both delegation traces, TTL rationale and redacted Cloudflare zone export](evidence/public-dns/README.md) recorded; original export retained locally for private submission. |
 | D2 | Public HTTPS, redirects, Caddy automatic renewal configuration, CAA records and fired expiry alert verified. A subsequent automatic renewal has not been observed. |
 | D3 | Separate production and staging hosts, databases and vaults verified. Production bootstrap promoted the API previously verified on staging. Fully automated production promotion remains pending. |
 | D4 | GitHub Actions builds, tests and deploys staging with public revision and health gates; controlled staging rollback verified. Fully automated production promotion remains pending. |

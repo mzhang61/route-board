@@ -1,0 +1,54 @@
+;;
+;; Domain:     mzcampuspulse.com.
+;; Exported:   2026-11-12 22:38:23
+;;
+;; This file is intended for use for informational and archival
+;; purposes ONLY and MUST be edited before use on a production
+;; DNS server.  In particular, you must:
+;;   -- update the SOA record with the correct authoritative name server
+;;   -- update the SOA record with the contact e-mail address information
+;;   -- update the NS record(s) with the authoritative name servers for this domain.
+;;
+;; For further information, please consult the BIND documentation
+;; located on the following website:
+;;
+;; http://www.isc.org/
+;;
+;; And RFC 1035:
+;;
+;; http://www.ietf.org/rfc/rfc1035.txt
+;;
+;; Please note that we do NOT offer technical support for any use
+;; of this zone data, the BIND name server, or any other third-party
+;; DNS software.
+;;
+;; Use at your own risk.
+;; SOA Record
+mzcampuspulse.com	3600	IN	SOA	amos.ns.cloudflare.com. dns.cloudflare.com. 2054618970 10000 2400 604800 3600
+
+;; NS Records
+mzcampuspulse.com.	86400	IN	NS	amos.ns.cloudflare.com.
+mzcampuspulse.com.	86400	IN	NS	romina.ns.cloudflare.com.
+
+;; A Records
+routeboard.mzcampuspulse.com.	1	IN	A	[REDACTED]
+staging.mzcampuspulse.com.	1	IN	A	[REDACTED]
+
+;; CAA Records
+routeboard.mzcampuspulse.com.	1	IN	CAA	0 issue "letsencrypt.org"
+staging.mzcampuspulse.com.	1	IN	CAA	0 issue "letsencrypt.org"
+
+;; CNAME Records
+*.mzcampuspulse.com.	1	IN	CNAME	uixie.porkbun.com. ; cf_tags=cf-proxied:false
+mzcampuspulse.com.	1	IN	CNAME	uixie.porkbun.com. ; cf_tags=cf-proxied:false
+www.mzcampuspulse.com.	1	IN	CNAME	uixie.porkbun.com. ; cf_tags=cf-proxied:false
+
+;; MX Records
+mzcampuspulse.com.	1	IN	MX	20 fwd2.porkbun.com.
+mzcampuspulse.com.	1	IN	MX	10 fwd1.porkbun.com.
+
+;; TXT Records
+_acme-challenge.mzcampuspulse.com.	1	IN	TXT	[REDACTED]
+_acme-challenge.mzcampuspulse.com.	1	IN	TXT	[REDACTED]
+mzcampuspulse.com.	1	IN	TXT	"v=spf1 include:_spf.porkbun.com ~all"
+mzcampuspulse.com.	1	IN	TXT	[REDACTED]

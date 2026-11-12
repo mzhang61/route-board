@@ -1,0 +1,94 @@
+
+; <<>> DiG 9.18.39-0ubuntu0.24.04.9-Ubuntu <<>> -4 +trace +time=4 +tries=2 staging.mzcampuspulse.com A
+;; global options: +cmd
+.			62	IN	NS	b.root-servers.net.
+.			62	IN	NS	j.root-servers.net.
+.			62	IN	NS	d.root-servers.net.
+.			62	IN	NS	k.root-servers.net.
+.			62	IN	NS	c.root-servers.net.
+.			62	IN	NS	e.root-servers.net.
+.			62	IN	NS	l.root-servers.net.
+.			62	IN	NS	f.root-servers.net.
+.			62	IN	NS	m.root-servers.net.
+.			62	IN	NS	h.root-servers.net.
+.			62	IN	NS	a.root-servers.net.
+.			62	IN	NS	g.root-servers.net.
+.			62	IN	NS	i.root-servers.net.
+;; Received 811 bytes from 127.0.0.53#53(127.0.0.53) in 0 ms
+
+com.			172800	IN	NS	m.gtld-servers.net.
+com.			172800	IN	NS	c.gtld-servers.net.
+com.			172800	IN	NS	f.gtld-servers.net.
+com.			172800	IN	NS	e.gtld-servers.net.
+com.			172800	IN	NS	l.gtld-servers.net.
+com.			172800	IN	NS	k.gtld-servers.net.
+com.			172800	IN	NS	d.gtld-servers.net.
+com.			172800	IN	NS	i.gtld-servers.net.
+com.			172800	IN	NS	j.gtld-servers.net.
+com.			172800	IN	NS	b.gtld-servers.net.
+com.			172800	IN	NS	g.gtld-servers.net.
+com.			172800	IN	NS	a.gtld-servers.net.
+com.			172800	IN	NS	h.gtld-servers.net.
+com.			86400	IN	DS	19718 13 2 8ACBB0CD28F41250A80A491389424D341522D946B0DA0C0291F2D3D7 71D7805A
+com.			86400	IN	RRSIG	DS 8 1 86400 20261125210000 20261112200000 8763 . oKOPADXfkO2SPEqyk52lSAwABTBm152VIjucIUAdsE5nA9QqVC3cZ6ua agg69n48UkWzct23IAp+KPrGCisNiboWo09MC741HPDJ6m528Q0xDyQo i4JwOcZGIQqoD54GDOcMBpTvjIYFLecnnM36yi6qRRCLxH0kQAPqTf2F WyvqMggnJRx0E54Ww1NSiDJV7kgP8FL4omVOiwe5Gu6qVnE9xPxdL763 P78rjYijsIv8Y4DJUsaar7C83kLYn3nzJsJ9teGG+B9WEhGff2LzxXqu o37zdoHwefD+TYph37u6ouipArNHMo8ofsSIGWFAP6+B/CviZ0IVQQz7 zhHwNA==
+;; Received 1213 bytes from 192.112.36.4#53(g.root-servers.net) in 44 ms
+
+mzcampuspulse.com.	172800	IN	NS	romina.ns.cloudflare.com.
+mzcampuspulse.com.	172800	IN	NS	amos.ns.cloudflare.com.
+CK0POJMG874LJREF7EFN8430QVIT8BSM.com. 900 IN NSEC3 1 1 0 - CK0Q35HRS4H76G6CHNB9414CJN6S5UPL NS SOA RRSIG DNSKEY NSEC3PARAM
+CK0POJMG874LJREF7EFN8430QVIT8BSM.com. 900 IN RRSIG NSEC3 13 2 900 20261118002605 20261110231605 65344 com. ZlJH4zBTd8732a1sdMrM1t1uuJ5HV9bhZ2nkKH/fObF0lZ4F2Xq3/iVy jLN99usMe6ipC1s+h7vgkJN6UzsdYA==
+5EK23LNS66VJQ3DVV1U65LOM8UFS0A34.com. 900 IN NSEC3 1 1 0 - 5EK2J8HI2B3LUS94FE3M8633IDP5OG1H NS DS RRSIG
+5EK23LNS66VJQ3DVV1U65LOM8UFS0A34.com. 900 IN RRSIG NSEC3 13 2 900 20261118002338 20261110231338 65344 com. fno4S8O6cdD+nEQb9ezG9m4wcJASVXceX7XO4XyZ66BRIT8lvcDIcQlr lDwmtjgK2ugFssuwTrmZ+NYBIU9iZQ==
+;; Received 729 bytes from 192.42.93.30#53(g.gtld-servers.net) in 45 ms
+
+staging.mzcampuspulse.com. 300	IN	A	104.21.26.130
+staging.mzcampuspulse.com. 300	IN	A	172.67.168.73
+;; Received 86 bytes from 172.64.34.159#53(romina.ns.cloudflare.com) in 4 ms
+
+
+; <<>> DiG 9.18.39-0ubuntu0.24.04.9-Ubuntu <<>> -4 +trace +time=4 +tries=2 routeboard.mzcampuspulse.com A
+;; global options: +cmd
+.			62	IN	NS	h.root-servers.net.
+.			62	IN	NS	c.root-servers.net.
+.			62	IN	NS	m.root-servers.net.
+.			62	IN	NS	i.root-servers.net.
+.			62	IN	NS	b.root-servers.net.
+.			62	IN	NS	a.root-servers.net.
+.			62	IN	NS	j.root-servers.net.
+.			62	IN	NS	e.root-servers.net.
+.			62	IN	NS	g.root-servers.net.
+.			62	IN	NS	k.root-servers.net.
+.			62	IN	NS	d.root-servers.net.
+.			62	IN	NS	l.root-servers.net.
+.			62	IN	NS	f.root-servers.net.
+;; Received 811 bytes from 127.0.0.53#53(127.0.0.53) in 0 ms
+
+com.			172800	IN	NS	m.gtld-servers.net.
+com.			172800	IN	NS	b.gtld-servers.net.
+com.			172800	IN	NS	i.gtld-servers.net.
+com.			172800	IN	NS	d.gtld-servers.net.
+com.			172800	IN	NS	h.gtld-servers.net.
+com.			172800	IN	NS	j.gtld-servers.net.
+com.			172800	IN	NS	c.gtld-servers.net.
+com.			172800	IN	NS	e.gtld-servers.net.
+com.			172800	IN	NS	g.gtld-servers.net.
+com.			172800	IN	NS	f.gtld-servers.net.
+com.			172800	IN	NS	k.gtld-servers.net.
+com.			172800	IN	NS	l.gtld-servers.net.
+com.			172800	IN	NS	a.gtld-servers.net.
+com.			86400	IN	DS	19718 13 2 8ACBB0CD28F41250A80A491389424D341522D946B0DA0C0291F2D3D7 71D7805A
+com.			86400	IN	RRSIG	DS 8 1 86400 20261125210000 20261112200000 8763 . oKOPADXfkO2SPEqyk52lSAwABTBm152VIjucIUAdsE5nA9QqVC3cZ6ua agg69n48UkWzct23IAp+KPrGCisNiboWo09MC741HPDJ6m528Q0xDyQo i4JwOcZGIQqoD54GDOcMBpTvjIYFLecnnM36yi6qRRCLxH0kQAPqTf2F WyvqMggnJRx0E54Ww1NSiDJV7kgP8FL4omVOiwe5Gu6qVnE9xPxdL763 P78rjYijsIv8Y4DJUsaar7C83kLYn3nzJsJ9teGG+B9WEhGff2LzxXqu o37zdoHwefD+TYph37u6ouipArNHMo8ofsSIGWFAP6+B/CviZ0IVQQz7 zhHwNA==
+;; Received 1191 bytes from 202.12.27.33#53(m.root-servers.net) in 105 ms
+
+mzcampuspulse.com.	172800	IN	NS	romina.ns.cloudflare.com.
+mzcampuspulse.com.	172800	IN	NS	amos.ns.cloudflare.com.
+CK0POJMG874LJREF7EFN8430QVIT8BSM.com. 900 IN NSEC3 1 1 0 - CK0Q35HRS4H76G6CHNB9414CJN6S5UPL NS SOA RRSIG DNSKEY NSEC3PARAM
+CK0POJMG874LJREF7EFN8430QVIT8BSM.com. 900 IN RRSIG NSEC3 13 2 900 20261118002605 20261110231605 65344 com. ZlJH4zBTd8732a1sdMrM1t1uuJ5HV9bhZ2nkKH/fObF0lZ4F2Xq3/iVy jLN99usMe6ipC1s+h7vgkJN6UzsdYA==
+5EK23LNS66VJQ3DVV1U65LOM8UFS0A34.com. 900 IN NSEC3 1 1 0 - 5EK2J8HI2B3LUS94FE3M8633IDP5OG1H NS DS RRSIG
+5EK23LNS66VJQ3DVV1U65LOM8UFS0A34.com. 900 IN RRSIG NSEC3 13 2 900 20261118002338 20261110231338 65344 com. fno4S8O6cdD+nEQb9ezG9m4wcJASVXceX7XO4XyZ66BRIT8lvcDIcQlr lDwmtjgK2ugFssuwTrmZ+NYBIU9iZQ==
+;; Received 732 bytes from 192.52.178.30#53(k.gtld-servers.net) in 40 ms
+
+routeboard.mzcampuspulse.com. 300 IN	A	104.21.26.130
+routeboard.mzcampuspulse.com. 300 IN	A	172.67.168.73
+;; Received 89 bytes from 172.64.35.120#53(amos.ns.cloudflare.com) in 10 ms
+
