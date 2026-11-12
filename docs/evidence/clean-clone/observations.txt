@@ -1,0 +1,20 @@
+e0f61e463d4c1327c3eec4b97364874e0b4ec904
+10.0.403
+v26.13.0
+Docker Compose version v2.18.1
+Local credentials configured. No secret values were printed.
+Tool 'dotnet-ef' (version '10.0.4') was restored. Available commands: dotnet-ef
+Applying migration '20261110012628_InitialCoreSchema'.
+Applying migration '20261110015910_AddTripOperations'.
+Applying migration '20261110021626_AddSyntheticPositions'.
+Clean browser: seeded board and trip details visible.
+  2 passed (2.5s)
+Test Run Successful.
+Total tests: 38
+     Passed: 38
+GET /healthz: Healthy
+Anonymous POST /api/trips: HTTP 401
+Before database restart:
+1|1|1|2026-11-12 18:06:01.673122+00|scheduled|1
+After database restart:
+1|1|1|2026-11-12 18:06:01.673122+00|scheduled|1

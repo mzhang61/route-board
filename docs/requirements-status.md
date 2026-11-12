@@ -7,7 +7,7 @@ Status is conservative: code existing is not the same as a grading pass. The sup
 | F1 | Strict React/TS build; public search and route/stop/time/status filters. Full UX review pending. |
 | F2 | Browser tests for loading, empty, error; UI handles catalog, board, reference data, sign-in, writes, positions. Screenshots for every remote call still needed. |
 | F3 | Validated REST, Problem Details, 200/201+Location/400/401/403/404/409 paths. Per-route curl dossier and any course-required 204 contract remain to be settled. |
-| F4 | PostgreSQL PK/FK/index model and disposable integration tests; local application restart preserved the exact trip response; database-container restart and cloud redeploy evidence pending. |
+| F4 | PostgreSQL PK/FK/index model and disposable integration tests; local application restart preserved the exact trip response; the isolated clean-clone database-container restart preserved the seeded trip. Cloud redeploy persistence still needs a paired before/after capture. |
 | F5 | Original migration preserved; additive migrations; disposable Up/Down/Up test. |
 | F6 | Atomic before/after audit with token-derived actor and mutation-blocking trigger; restricted runtime grants and real PostgreSQL denial test pass; cloud role setup and query dossier pending. |
 | F7 | Production and staging Auth0 browser login verified. Field-limited redacted HAR in docs/evidence/staging-replay. |
@@ -21,7 +21,7 @@ Status is conservative: code existing is not the same as a grading pass. The sup
 | D2 | Public HTTPS, redirects, Caddy automatic renewal configuration, CAA records and fired expiry alert verified. A subsequent automatic renewal has not been observed. |
 | D3 | Separate production and staging hosts, databases and vaults verified. Production bootstrap promoted the API previously verified on staging. Fully automated production promotion remains pending. |
 | D4 | GitHub Actions builds, tests and deploys staging with public revision and health gates; controlled staging rollback verified. Fully automated production promotion remains pending. |
-| D5 | ARM images, fresh-volume smoke, Bicep deployment and cloud-init succeeded; host setup and secret retrieval are documented. Independent clean-clone reproduction remains pending. |
+| D5 | ARM images, fresh-volume smoke, Bicep deployment and cloud-init succeeded; host setup and secret retrieval are documented. Fresh public clone and isolated local startup verified in docs/evidence/clean-clone; independent human or fresh-OS reproduction remains pending. |
 | D6 | Staging and production Cloudflare checks cover HTML, hashed assets, public trip reads and signed-in trip reads. Single-URL purge verified on staging. |
 | D7 | Security headers and exact-origin CORS; allowed/refused preflight integration tests pass. Deployed frontend CSP and browser/CDN evidence pending. |
 | D8 | Staging lab before/after measurements for LCP, INP and CLS are in docs/evidence/web-vitals. Median LCP decreased 800 ms; INP increased 40 ms. |
