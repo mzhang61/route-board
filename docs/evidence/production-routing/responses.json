@@ -1,0 +1,20 @@
+{
+  "endpoint": "https://routeboard.mzcampuspulse.com/api/routes/1/estimate",
+  "health": "Healthy",
+  "responses": [
+    {
+      "status": "fresh",
+      "seconds": 181.464,
+      "meters": 2047.0000000000002,
+      "retrievedAt": "2026-11-12T00:49:02.9466202+00:00",
+      "source": "Geoapify reference routing; not live traffic or vehicle GPS"
+    },
+    {
+      "status": "cached",
+      "seconds": 181.464,
+      "meters": 2047.0000000000002,
+      "retrievedAt": "2026-11-12T00:49:02.9466202+00:00",
+      "source": "Geoapify reference routing; not live traffic or vehicle GPS"
+    }
+  ]
+}
