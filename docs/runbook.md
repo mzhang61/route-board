@@ -37,3 +37,9 @@ Build/test → immutable artifact → staging migration → staging deploy → `
 In staging, disconnect an arrival-board client, record multiple authorized changes, reconnect, and compare its recovered state with the database. Force provider timeouts while performing a dispatch update. Observe bounded failures, accurate stale labels, consistent audit/event counts, and live-state recovery. Trigger the SLO alert and record time to detection/recovery.
 
 Write the postmortem only after the experiment: actual timeline, impact, trigger, detection, root cause, recovery, and corrective actions, with raw logs. No prewritten outcome is evidence.
+
+### Certificate expiry alert
+
+GitHub Actions checks the verified production and staging TLS certificates daily. The job fails and emits a GitHub error annotation for any certificate within 21 days of expiry or any failed TLS handshake. Inspect the failed run to identify the host. Check DNS, ports 80/443 and Caddy's certificate renewal logs, then rerun the normal check. Workflow notification delivery depends on the operator's GitHub notification settings.
+
+To reproduce, run python3 scripts/check-certificates.py. For a controlled alert, manually dispatch the Public certificate health workflow with drill enabled. Its 365-day threshold applies only to that run. Expect the job to fail on currently valid short-lived certificates. Repeat with drill disabled to verify normal status.

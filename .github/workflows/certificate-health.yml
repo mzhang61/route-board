@@ -1,0 +1,26 @@
+name: Public certificate health
+on:
+  schedule:
+    - cron: '23 14 * * *'
+  workflow_dispatch:
+    inputs:
+      drill:
+        description: Exercise the expiry alert with a wider threshold
+        type: boolean
+        default: false
+permissions:
+  contents: read
+jobs:
+  expiry:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check trusted HTTPS certificates
+        env:
+          DRILL: ${{ inputs.drill }}
+        run: |
+          if [[ "$DRILL" == "true" ]]; then
+            python3 scripts/check-certificates.py --drill
+          else
+            python3 scripts/check-certificates.py
+          fi
