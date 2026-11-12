@@ -23,6 +23,7 @@ services:
     restart: unless-stopped
     environment:
       ASPNETCORE_ENVIRONMENT: Production
+      Cors__Origins__0: https://${SITE_ADDRESS:-localhost}
       Authentication__Authority: ${OIDC_AUTHORITY:-}
       Authentication__Audience: ${OIDC_AUDIENCE:-}
       Authentication__RoleClaimType: ${OIDC_ROLE_CLAIM:-roles}
