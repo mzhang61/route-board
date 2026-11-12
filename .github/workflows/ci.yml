@@ -3,6 +3,10 @@ on:
   pull_request:
   push:
     branches: [main]
+# The staging host follows the current main commit. Superseded runs cannot deploy.
+concurrency:
+  group: build-and-verify-${{ github.ref }}
+  cancel-in-progress: true
 permissions:
   contents: read
 jobs:
@@ -56,9 +60,6 @@ jobs:
     runs-on: ubuntu-24.04-arm
     permissions:
       contents: write
-    concurrency:
-      group: staging-release
-      cancel-in-progress: false
     env:
       GH_TOKEN: ${{ github.token }}
       SITE: https://staging.mzcampuspulse.com
