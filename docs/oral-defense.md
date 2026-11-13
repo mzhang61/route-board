@@ -1,6 +1,22 @@
 # Oral-defense practice
 
-Use these explanations as a study guide, not a script to memorize. Open the named files and perform the exercises yourself.
+## Opening script
+
+RouteBoard is a dispatch board for a fictional shuttle operator. Anyone can search the schedule and see estimated arrivals. A dispatcher can record a departure, a stop arrival, or a delay. The vehicles and observations are simulated. Geoapify supplies reference distances and travel times between fixed stops.
+
+Here is how I would check an arrival by hand. Start at ten o’clock. Add eight minutes to the first stop, three minutes of dwell time, and twelve minutes to the final stop. That gives ten twenty-three. With a four-minute total delay, the board should show ten twenty-seven. The automated test checks those same numbers.
+
+The React board receives changes through server-sent events. A disconnected browser can resume using the last event ID. The API saves the trip, its audit entry, and its replay event in one PostgreSQL transaction. That gives the board a committed change to display and the dispatcher a history to review.
+
+## If two dispatchers edit the same trip
+
+Both dispatchers opened version three. A saves a four-minute delay first. The database now holds version four and a total delay of four minutes. B submits seven minutes with version three. The API checks the version inside the write transaction and returns HTTP 409 Conflict. B’s request creates no trip change, audit entry, or replay event. B can reopen the trip, review A’s change, and decide whether seven minutes is still appropriate.
+
+## If asked whether everything is finished
+
+The core application is deployed on Azure in staging and production. The repository includes tests, failure demonstrations, and their results. Production promotion currently includes a manual step. The interactive MCP demonstration used the staging test host. Independent MCP host verification and the final submission-wide evidence review are still open. The checklist links the evidence for each requirement.
+
+## Follow-up answers
 
 **Why ASP.NET Core and PostgreSQL/PostGIS?** ASP.NET provides mature authentication, validation, DI, and HTTP infrastructure. PostgreSQL supplies transactions, constraints, indexes, and advisory locks. PostGIS stores geographic stop points in SRID 4326 and supports spatial indexing. The current app does not yet perform a proximity search, so do not claim measured spatial-query speedups.
 
@@ -18,7 +34,7 @@ Use these explanations as a study guide, not a script to memorize. Open the name
 
 **Why SSE?** Public updates mostly flow server to client, so SSE is simpler than bidirectional sockets. It supplies a reconnection cursor. The app stores committed events and the browser deduplicates IDs. Snapshots contain total delay, so reconnecting does not add the same four minutes twice.
 
-**How do you prove authentication?** Automated tests use locally generated RSA tokens to reject wrong signature, issuer, audience, and expiry. Role/scope tests reject a viewer or missing write scope. They do not prove real provider login or live JWKS rotation. Those require the actual provider and redacted login evidence, which is still pending.
+**How do you prove authentication?** Automated tests use locally generated RSA tokens to reject wrong signature, issuer, audience, and expiry. Role/scope tests reject a viewer or missing write scope. They do not prove real provider login or live JWKS rotation. Staging and production browser runs separately verified real Auth0 login. The staging replay dossier includes the redacted login trace. Live signing-key rotation remains unverified.
 
 **What do PKCE, state, and nonce do?** PKCE binds the authorization-code exchange to the initiating client. State associates the callback with the initiated login. Nonce binds the ID token to that login. The browser uses an OIDC library instead of implementing the protocol by hand. Access tokens are still validated independently by the API.
 
