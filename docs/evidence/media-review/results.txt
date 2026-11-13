@@ -1,0 +1,24 @@
+docs/evidence/accessibility/host-confirmation.webm 38 frames, 38 distinct images checked
+docs/evidence/operator-states/dispatch-conflict.png OCR checked
+docs/evidence/operator-states/dispatch-forbidden.png OCR checked
+docs/evidence/operator-states/dispatch-saving.png OCR checked
+docs/evidence/operator-states/live-disconnected.png OCR checked
+docs/evidence/operator-states/live-reconnected.png OCR checked
+docs/evidence/operator-states/sign-in-failed.png OCR checked
+docs/evidence/operator-states/sign-in-opening.png OCR checked
+docs/evidence/production-login/README.md text checked
+docs/evidence/production-login/browser.txt text checked
+docs/evidence/public-board-states/estimate-failure.png OCR checked
+docs/evidence/public-board-states/estimate-loading.png OCR checked
+docs/evidence/public-board-states/estimate-recovered.png OCR checked
+docs/evidence/public-board-states/loading.png OCR checked
+docs/evidence/public-board-states/provider-failures.png OCR checked
+docs/evidence/public-board-states/recovered-empty.png OCR checked
+docs/evidence/staging-mcp/host-confirmation.webm 37 frames, 37 distinct images checked
+docs/evidence/staging-oidc/README.md text checked
+docs/evidence/staging-oidc/browser-verification.txt text checked
+docs/evidence/staging-replay/README.md text checked
+docs/evidence/staging-replay/browser.txt text checked
+docs/evidence/staging-replay/database.txt text checked
+docs/evidence/staging-replay/login.redacted.har 3 HAR entries checked
+Pattern hits: 0
