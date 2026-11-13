@@ -1,0 +1,28 @@
+staging-api lines 2232 from 2026-11-13T03:45:46.727935930Z to 2026-11-13T04:36:37.705798088Z
+provider query credential 0
+callback code 0
+JWT 0
+bearer credential 0
+invalid probe value 0
+Gitleaks findings 0
+staging-web lines 21 from 2026-11-13T03:45:46.531601147Z to 2026-11-13T03:45:46.850236105Z
+provider query credential 0
+callback code 0
+JWT 0
+bearer credential 0
+invalid probe value 0
+Gitleaks findings 0
+production-api lines 125401 from 2026-11-12T20:02:15.888954693Z to 2026-11-13T04:36:49.187379086Z
+provider query credential 0
+callback code 0
+JWT 0
+bearer credential 0
+invalid probe value 0
+Gitleaks findings 0
+production-web lines 73 from 2026-11-12T07:00:47.522927777Z to 2026-11-13T03:37:30.201980977Z
+provider query credential 0
+callback code 0
+JWT 0
+bearer credential 0
+invalid probe value 0
+Gitleaks findings 0
