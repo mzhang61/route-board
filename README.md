@@ -2,6 +2,21 @@
 
 A fictional shuttle dispatch and arrival board built with ASP.NET Core 10, PostgreSQL/PostGIS, and strict React/TypeScript. All schedules, vehicles, observations, and positions are synthetic. External routing is reference information, not real GPS or live traffic.
 
+## Instructor review
+
+1. Open the [production board](https://routeboard.mzcampuspulse.com/), select a route, and choose **Search trips**. Open a trip to compare its scheduled, estimated and simulated observed times. Public browsing requires no account.
+2. For the live role demonstration, request the synthetic staging viewer and dispatcher credentials from the project owner through the private course channel. Use separate browser sessions on the [staging board](https://staging.mzcampuspulse.com/). Try creating a synthetic trip as each role. Expect a permission denial for the viewer and a saved trip for the dispatcher. The hosted app supplies its own database and routing credentials. [Recorded role checks](docs/evidence/staging-oidc/README.md)
+3. For a local review, follow [clean-machine setup](#clean-machine-setup) and [run locally](#run-locally). From the repository root, run `bash scripts/test.sh` with the local database running. Compare the results with the [hand predictions](docs/test-predictions.md). [Clean-clone evidence](docs/evidence/clean-clone/README.md)
+
+| Review topic | Where to verify it |
+| --- | --- |
+| Coverage and outstanding proof | [Requirement checklist and five hard gates](docs/requirements-status.md) |
+| REST, concurrency and audit | [HTTP transcripts](docs/evidence/rest-contract/README.md) · [Database audit](docs/evidence/staging-audit/README.md) |
+| Live updates and interactive MCP | [Disconnect and replay](docs/game-day-postmortem.md) · [MCP demo and recording](docs/evidence/staging-mcp/README.md) |
+| Deployment and operations | [GitHub Actions](https://github.com/mzhang61/route-board/actions/workflows/ci.yml) · [Infrastructure configuration](deploy/host.bicep) · [Runbook](docs/runbook.md) |
+| Load, scaling and cost | [Workload assumptions and measurements](docs/evidence/cost/README.md) |
+| Architecture and individual defense | [Request path and trust boundaries](docs/architecture-maintenance.md) · [Oral-defense Q&A](docs/oral-defense.md) · [AI-use log](docs/ai-provenance.md) |
+
 ## Current implementation
 
 - Search trips by route/vehicle text, route, stop, departure interval, and status.
