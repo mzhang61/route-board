@@ -1,0 +1,9 @@
+staging sha256:3a54d67ed9be4f9c8e50f297919d686a458c034b18a28255559bc545a877b1a2 /docker-entrypoint-initdb.d/10-runtime.sql /var/lib/postgresql/data /run/secrets/database_password /run/secrets/runtime_password
+production sha256:3a54d67ed9be4f9c8e50f297919d686a458c034b18a28255559bc545a877b1a2 /docker-entrypoint-initdb.d/10-runtime.sql /var/lib/postgresql/data /run/secrets/database_password /run/secrets/runtime_password
+Distinct current password fingerprints: 4
+Layers: 15 regular file entries: 9233
+Current password matches: 0
+    ░    gitleaks
+
+10:53PM INF scanned ~10608 bytes (10.61 KB) in 20.7ms
+10:53PM INF no leaks found
