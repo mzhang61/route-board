@@ -69,7 +69,7 @@ jobs:
         run: |
           docker build -t "routeboard-api:$GITHUB_SHA" .
           mkdir -p frontend/public
-          echo "$GITHUB_SHA" > frontend/public/release.txt
+          echo "rollback-drill-mismatch" > frontend/public/release.txt
           docker build -f deploy/web.Dockerfile -t "routeboard-web:$GITHUB_SHA" \
             --build-arg VITE_OIDC_AUTHORITY=https://dev-okl8jqszwoasg244.us.auth0.com \
             --build-arg VITE_OIDC_CLIENT_ID=7RxLaeq6FzsyZey6iPig0RA6OmEWLgFX \
