@@ -1,5 +1,7 @@
 Current committed verification: [Milestone 1](milestone-1/README.md).
 
+Current operational evidence: [staging rollback drill](staging-rollback/README.md), [staging-versus-production release proof](staging-gate/README.md), [cost report](cost/README.md), [F2 screenshots](f2-screenshots.md), [media review](media-review/README.md), [current local secret scan](secret-review/current-local-scan.txt), and [current cloud and remote-history secret review](secret-review/current-cloud-review.md).
+
 # Historical local verification evidence
 
 Base commit: `63cfda1e3d546d5dfcbf9c4aad67b945f307c6be` (also the observed remote HEAD).
@@ -19,7 +21,7 @@ At the time of this historical run, the tested changes were an uncommitted local
 
 The automated suite covers the hand calculation, request validation, token/role/scope failures, concurrent stale writes, append-only audits, migration reversal, SSE cursor replay, stubbed reference routing, synthetic position ordering, MCP scope/confirmation checks, exact-origin CORS, and write-rate 429 rejection.
 
-The browser tests use stubbed API responses. Backend integration tests use real disposable PostgreSQL/PostGIS databases, locally generated RSA signing keys, and stubbed external routing. Real OIDC login/JWKS rotation, live Geoapify access, full MCP-host App interactions, Azure deployments and operational course evidence remain pending.
+At the time of this historical local run, the browser tests used stubbed API responses and backend integration tests used disposable PostgreSQL/PostGIS databases, locally generated RSA signing keys, and stubbed external routing. Real OIDC login/JWKS rotation, live Geoapify access, full MCP-host App interactions, Azure deployments and operational course evidence were still pending; later evidence is in the environment-specific folders.
 
 ## Deliberate failures and provenance
 

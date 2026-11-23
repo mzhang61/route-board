@@ -1,0 +1,159 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1120" viewBox="0 0 1600 1120" role="img" aria-labelledby="title desc">
+  <title id="title">RouteBoard system design and trust boundaries</title>
+  <desc id="desc">A visible system design showing the browser and MCP host, Cloudflare DNS and CDN, separate staging and production Azure environments, application API, private PostgreSQL, Key Vault, Auth0, Geoapify, and the trust boundaries around clients, application services, and data.</desc>
+  <defs>
+    <marker id="arrow-blue" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M1,1 L11,6 L1,11 Z" fill="#315d73"/></marker>
+    <marker id="arrow-green" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M1,1 L11,6 L1,11 Z" fill="#3f7655"/></marker>
+    <marker id="arrow-orange" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M1,1 L11,6 L1,11 Z" fill="#b56832"/></marker>
+    <style>
+      text{font-family:Arial,Helvetica,sans-serif;fill:#19323c}
+      .title{font-size:34px;font-weight:700}.subtitle{font-size:17px;fill:#49636d}
+      .zone-title{font-size:19px;font-weight:700}.node-title{font-size:17px;font-weight:700}
+      .body{font-size:14px}.small{font-size:12px;fill:#49636d}.flow{font-size:12px;font-weight:700}
+      .node{stroke-width:2;rx:12}.edge{stroke:#315d73;stroke-width:3;fill:none;marker-end:url(#arrow-blue)}
+      .external{stroke:#3f7655;stroke-width:3;fill:none;marker-end:url(#arrow-green)}
+      .identity{stroke:#b56832;stroke-width:3;fill:none;marker-end:url(#arrow-orange);stroke-dasharray:8 6}
+    </style>
+  </defs>
+  <rect width="1600" height="1120" fill="#f4f7f8"/>
+  <text x="800" y="52" text-anchor="middle" class="title">RouteBoard — System Design</text>
+  <text x="800" y="82" text-anchor="middle" class="subtitle">Request path, external services, storage, and trust boundaries · staging and production use separate environments</text>
+
+  <!-- Upper architecture view -->
+  <rect x="32" y="112" width="1536" height="548" rx="20" fill="#ffffff" stroke="#b7c8ce" stroke-width="2"/>
+  <text x="58" y="146" class="zone-title">1. System components and request paths</text>
+
+  <!-- Client zone -->
+  <rect x="54" y="170" width="298" height="452" rx="16" fill="#edf5fa" stroke="#6a9bb6" stroke-width="2" stroke-dasharray="9 6"/>
+  <text x="74" y="201" class="zone-title">Client boundary</text>
+  <text x="74" y="222" class="small">Untrusted browser and MCP host</text>
+  <rect x="78" y="245" width="250" height="136" class="node" fill="#ffffff" stroke="#5790ad"/>
+  <text x="203" y="276" text-anchor="middle" class="node-title">Public browser</text>
+  <text x="203" y="303" text-anchor="middle" class="body">React + TypeScript</text>
+  <text x="203" y="326" text-anchor="middle" class="body">Trip board · filters · detail</text>
+  <text x="203" y="349" text-anchor="middle" class="body">Dispatcher form · SSE updates</text>
+  <rect x="78" y="420" width="250" height="143" class="node" fill="#ffffff" stroke="#5790ad"/>
+  <text x="203" y="451" text-anchor="middle" class="node-title">MCP host</text>
+  <text x="203" y="478" text-anchor="middle" class="body">Compatible AI client</text>
+  <text x="203" y="501" text-anchor="middle" class="body">Embeds the React MCP App</text>
+  <text x="203" y="532" text-anchor="middle" class="small">Requires OAuth and tool scopes</text>
+
+  <!-- Edge zone -->
+  <rect x="384" y="205" width="220" height="350" rx="16" fill="#eef4fb" stroke="#6284b7" stroke-width="2"/>
+  <text x="494" y="238" text-anchor="middle" class="zone-title">Cloudflare edge</text>
+  <rect x="408" y="270" width="172" height="108" class="node" fill="#ffffff" stroke="#6284b7"/>
+  <text x="494" y="303" text-anchor="middle" class="node-title">DNS</text>
+  <text x="494" y="329" text-anchor="middle" class="body">Public hostname</text>
+  <text x="494" y="352" text-anchor="middle" class="body">TTL per record</text>
+  <rect x="408" y="411" width="172" height="108" class="node" fill="#ffffff" stroke="#6284b7"/>
+  <text x="494" y="444" text-anchor="middle" class="node-title">CDN / HTTPS</text>
+  <text x="494" y="470" text-anchor="middle" class="body">Cache rules</text>
+  <text x="494" y="493" text-anchor="middle" class="body">Personal data bypasses</text>
+
+  <!-- Azure boundary -->
+  <rect x="636" y="170" width="646" height="452" rx="18" fill="#edf7f2" stroke="#4e8c6b" stroke-width="3" stroke-dasharray="10 6"/>
+  <text x="660" y="201" class="zone-title">Azure environment trust boundary</text>
+  <text x="660" y="222" class="small">Separate staging and production VMs, databases, and Key Vaults</text>
+  <rect x="666" y="250" width="178" height="112" class="node" fill="#ffffff" stroke="#4e8c6b"/>
+  <text x="755" y="283" text-anchor="middle" class="node-title">Caddy ingress</text>
+  <text x="755" y="310" text-anchor="middle" class="body">TLS termination</text>
+  <text x="755" y="333" text-anchor="middle" class="body">Static files / proxy</text>
+  <rect x="878" y="250" width="176" height="112" class="node" fill="#ffffff" stroke="#4e8c6b"/>
+  <text x="966" y="283" text-anchor="middle" class="node-title">React assets</text>
+  <text x="966" y="310" text-anchor="middle" class="body">Public web UI</text>
+  <text x="966" y="333" text-anchor="middle" class="body">Hashed static files</text>
+  <rect x="1078" y="250" width="176" height="112" class="node" fill="#fff8e8" stroke="#c6913b"/>
+  <text x="1166" y="283" text-anchor="middle" class="node-title">ASP.NET Core API</text>
+  <text x="1166" y="310" text-anchor="middle" class="body">REST · SSE · MCP</text>
+  <text x="1166" y="333" text-anchor="middle" class="body">Validate role and scope</text>
+  <rect x="878" y="432" width="176" height="126" class="node" fill="#ffffff" stroke="#4e8c6b"/>
+  <text x="966" y="465" text-anchor="middle" class="node-title">Private database</text>
+  <text x="966" y="492" text-anchor="middle" class="body">PostgreSQL + PostGIS</text>
+  <text x="966" y="515" text-anchor="middle" class="body">Trips · events · audit</text>
+  <text x="966" y="539" text-anchor="middle" class="small">Persistent synthetic data</text>
+  <rect x="1078" y="432" width="176" height="126" class="node" fill="#ffffff" stroke="#4e8c6b"/>
+  <text x="1166" y="465" text-anchor="middle" class="node-title">Azure Key Vault</text>
+  <text x="1166" y="492" text-anchor="middle" class="body">Server-side secrets</text>
+  <text x="1166" y="515" text-anchor="middle" class="body">Managed identity</text>
+  <text x="1166" y="539" text-anchor="middle" class="small">Not exposed to browser</text>
+
+  <!-- External providers -->
+  <rect x="1314" y="205" width="228" height="350" rx="16" fill="#fbf3e9" stroke="#c28a55" stroke-width="2" stroke-dasharray="8 6"/>
+  <text x="1428" y="238" text-anchor="middle" class="zone-title">External services</text>
+  <rect x="1338" y="270" width="180" height="106" class="node" fill="#ffffff" stroke="#c28a55"/>
+  <text x="1428" y="303" text-anchor="middle" class="node-title">Auth0</text>
+  <text x="1428" y="330" text-anchor="middle" class="body">OIDC login</text>
+  <text x="1428" y="353" text-anchor="middle" class="body">JWKS signing keys</text>
+  <rect x="1338" y="411" width="180" height="108" class="node" fill="#ffffff" stroke="#c28a55"/>
+  <text x="1428" y="444" text-anchor="middle" class="node-title">Geoapify</text>
+  <text x="1428" y="471" text-anchor="middle" class="body">Driving-time reference</text>
+  <text x="1428" y="494" text-anchor="middle" class="body">Not live GPS or traffic</text>
+
+  <!-- Data and auth flows -->
+  <path d="M328 303 H380" class="edge"/>
+  <text x="354" y="289" text-anchor="middle" class="flow">HTTPS</text>
+  <path d="M328 474 C355 474 357 471 380 471" class="edge"/>
+  <text x="354" y="455" text-anchor="middle" class="flow">MCP / OAuth</text>
+  <path d="M604 463 H628 Q636 463 646 463 H655 V306 H662" class="edge"/>
+  <text x="632" y="447" text-anchor="middle" class="flow">Origin HTTPS</text>
+  <path d="M844 306 H872" class="edge"/>
+  <text x="858" y="291" text-anchor="middle" class="flow">Web</text>
+  <path d="M844 332 H1072" class="edge"/>
+  <text x="958" y="350" text-anchor="middle" class="flow">API / SSE / MCP</text>
+  <path d="M966 362 V425" class="external"/>
+  <text x="978" y="401" class="flow">SQL</text>
+  <path d="M1166 362 V425" class="external"/>
+  <text x="1178" y="401" class="flow">Managed identity</text>
+  <path d="M1254 306 H1308" class="identity"/>
+  <text x="1281" y="291" text-anchor="middle" class="flow">OIDC / JWKS</text>
+  <path d="M1254 334 C1284 334 1290 465 1332 465" class="external"/>
+  <text x="1293" y="406" text-anchor="middle" class="flow">Server call</text>
+  <path d="M328 359 V590 H1428 V383" class="identity"/>
+  <text x="800" y="582" text-anchor="middle" class="flow">Browser login redirect to Auth0 · Authorization Code + PKCE</text>
+  <text x="800" y="644" text-anchor="middle" class="small">Browser and MCP clients are untrusted. The API validates tokens, permissions, and provider responses before protected use.</text>
+
+  <!-- Lower trust-boundary sequence -->
+  <rect x="32" y="685" width="1536" height="396" rx="20" fill="#ffffff" stroke="#b7c8ce" stroke-width="2"/>
+  <text x="58" y="721" class="zone-title">2. Trust boundaries for a protected write</text>
+  <text x="58" y="747" class="small">Example: a dispatcher confirms a trip update through the web form or the MCP App.</text>
+
+  <rect x="74" y="796" width="254" height="148" rx="16" fill="#edf5fa" stroke="#6a9bb6" stroke-width="2" stroke-dasharray="9 6"/>
+  <text x="201" y="830" text-anchor="middle" class="node-title">Untrusted client</text>
+  <text x="201" y="860" text-anchor="middle" class="body">Browser or MCP host</text>
+  <text x="201" y="884" text-anchor="middle" class="body">User input and parameters</text>
+  <text x="201" y="915" text-anchor="middle" class="small">Never trust client-supplied actor</text>
+
+  <rect x="398" y="796" width="278" height="148" rx="16" fill="#fff8e8" stroke="#c6913b" stroke-width="2"/>
+  <text x="537" y="830" text-anchor="middle" class="node-title">Identity validation</text>
+  <text x="537" y="860" text-anchor="middle" class="body">Verify issuer, signature, audience</text>
+  <text x="537" y="884" text-anchor="middle" class="body">Check expiry, role, and scope</text>
+  <text x="537" y="915" text-anchor="middle" class="small">401 / 403 when access is denied</text>
+
+  <rect x="748" y="796" width="278" height="148" rx="16" fill="#f4f0fb" stroke="#866dad" stroke-width="2"/>
+  <text x="887" y="830" text-anchor="middle" class="node-title">Application rules</text>
+  <text x="887" y="860" text-anchor="middle" class="body">Validate update and trip version</text>
+  <text x="887" y="884" text-anchor="middle" class="body">Require exact MCP confirmation</text>
+  <text x="887" y="915" text-anchor="middle" class="small">Actor comes from validated token</text>
+
+  <rect x="1098" y="796" width="394" height="148" rx="16" fill="#edf7f2" stroke="#4e8c6b" stroke-width="2"/>
+  <text x="1295" y="830" text-anchor="middle" class="node-title">Private data boundary</text>
+  <text x="1295" y="860" text-anchor="middle" class="body">One transaction saves trip, audit, and event</text>
+  <text x="1295" y="884" text-anchor="middle" class="body">Database persists the change</text>
+  <text x="1295" y="915" text-anchor="middle" class="small">Public readers receive filtered trip data</text>
+
+  <path d="M328 870 H390" class="edge"/>
+  <text x="359" y="853" text-anchor="middle" class="flow">HTTPS</text>
+  <path d="M676 870 H740" class="identity"/>
+  <text x="708" y="853" text-anchor="middle" class="flow">claims</text>
+  <path d="M1026 870 H1090" class="external"/>
+  <text x="1058" y="853" text-anchor="middle" class="flow">authorized write</text>
+
+  <line x1="78" y1="1002" x2="1522" y2="1002" stroke="#d7e0e3" stroke-width="2"/>
+  <line x1="88" y1="1035" x2="150" y2="1035" class="edge"/>
+  <text x="164" y="1040" class="small">Application data flow</text>
+  <line x1="397" y1="1035" x2="459" y2="1035" class="identity"/>
+  <text x="473" y="1040" class="small">Identity / token flow</text>
+  <line x1="722" y1="1035" x2="784" y2="1035" class="external"/>
+  <text x="798" y="1040" class="small">Server-side data flow</text>
+  <text x="1518" y="1040" text-anchor="end" class="small">Detailed editable diagrams follow below.</text>
+</svg>

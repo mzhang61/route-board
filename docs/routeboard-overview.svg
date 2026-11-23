@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="650" viewBox="0 0 1200 650">
+<defs>
+  <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M2,2 L10,6 L2,10 Z" fill="#315b68"/></marker>
+  <style>
+    .title{font:700 30px sans-serif;fill:#16313b}.label{font:700 22px sans-serif;fill:#16313b}.body{font:18px sans-serif;fill:#294650}.small{font:16px sans-serif;fill:#294650}.box{stroke:#315b68;stroke-width:3;rx:18}.arrow{stroke:#315b68;stroke-width:4;fill:none;marker-end:url(#arrow)}
+  </style>
+</defs>
+<rect width="1200" height="650" fill="#f5f8f8"/>
+<text x="600" y="55" text-anchor="middle" class="title">RouteBoard：四个主要部分如何协作</text>
+<!-- four main boxes -->
+<rect x="35" y="160" width="245" height="220" class="box" fill="#e5f2f4"/>
+<text x="157" y="205" text-anchor="middle" class="label">1. 用户 / 浏览器</text>
+<text x="157" y="250" text-anchor="middle" class="body">查看班车与到站时间</text>
+<text x="157" y="282" text-anchor="middle" class="body">搜索、筛选行程</text>
+<text x="157" y="314" text-anchor="middle" class="body">调度员登录后提交操作</text>
+
+<rect x="340" y="160" width="245" height="220" class="box" fill="#eaf3e8"/>
+<text x="462" y="205" text-anchor="middle" class="label">2. React 前端</text>
+<text x="462" y="250" text-anchor="middle" class="body">显示网页与交互界面</text>
+<text x="462" y="282" text-anchor="middle" class="body">调用 API、显示状态</text>
+<text x="462" y="314" text-anchor="middle" class="body">接收实时事件（SSE）</text>
+
+<rect x="645" y="160" width="245" height="220" class="box" fill="#fff0d9"/>
+<text x="767" y="205" text-anchor="middle" class="label">3. ASP.NET 后端</text>
+<text x="767" y="250" text-anchor="middle" class="body">提供 REST API 与 MCP</text>
+<text x="767" y="282" text-anchor="middle" class="body">验证请求、身份与权限</text>
+<text x="767" y="314" text-anchor="middle" class="body">计算到站、记录审计</text>
+
+<rect x="950" y="160" width="215" height="220" class="box" fill="#eee9f7"/>
+<text x="1057" y="205" text-anchor="middle" class="label">4. PostgreSQL</text>
+<text x="1057" y="250" text-anchor="middle" class="body">保存路线、行程</text>
+<text x="1057" y="282" text-anchor="middle" class="body">保存审计与事件</text>
+<text x="1057" y="314" text-anchor="middle" class="body">数据重启后保留</text>
+
+<path d="M280 270 H330" class="arrow"/><path d="M585 270 H635" class="arrow"/><path d="M890 270 H940" class="arrow"/>
+<text x="305" y="248" text-anchor="middle" class="small">操作</text><text x="610" y="248" text-anchor="middle" class="small">API 请求</text><text x="915" y="248" text-anchor="middle" class="small">读写</text>
+
+<!-- external services -->
+<rect x="270" y="465" width="270" height="115" class="box" fill="#fff"/>
+<text x="405" y="505" text-anchor="middle" class="label">Auth0 身份登录</text>
+<text x="405" y="540" text-anchor="middle" class="small">确认用户身份；后端检查角色和权限</text>
+<rect x="650" y="465" width="300" height="115" class="box" fill="#fff"/>
+<text x="800" y="505" text-anchor="middle" class="label">Geoapify 路线参考</text>
+<text x="800" y="540" text-anchor="middle" class="small">提供参考距离/时间；不是实时 GPS</text>
+<path d="M405 455 C455 420 655 420 720 385" class="arrow"/>
+<path d="M800 455 V390" class="arrow"/>
+<text x="600" y="625" text-anchor="middle" class="small">班车、路线、位置均为合成演示数据；所有访客查看共享数据，登录用于授权调度操作，不是个人路线账户。</text>
+</svg>

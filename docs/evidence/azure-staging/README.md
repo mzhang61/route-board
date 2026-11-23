@@ -1,5 +1,7 @@
 # First Azure staging deployment
 
+This is a historical first-deployment snapshot. Its pending list below describes that point in time, not the current deployment. See [the current requirement status](../../requirements-status.md) and later environment evidence for updates.
+
 Application source: `4a6a94332cec65fbfeb80e66e7eff41fe11950b1`. Infrastructure source hashes are in source-manifest.txt; the infrastructure changes were uncommitted during provisioning. The user corrected the actual domain from `.net` to `.com` and added its staging A record.
 
 ## Verified
@@ -20,7 +22,7 @@ Follow deploy/azure-staging.md for infrastructure, image transfer, secret loadin
 
 The first HTTPS checks failed while the certificate was being issued; release.txt retains those failures followed by the successful health gate. Earlier `.net` DNS never resolved and was corrected to the user's `.com` domain. An Entra app-registration request was refused because the user lacks directory permission; no authentication bypass was added.
 
-This is a manual staging deployment, not production, a CDN, a full CI/CD promotion or a complete rubric pass. The public board is empty until a controlled synthetic catalog is initialized. Real OIDC login, Geoapify credentials, CAA, expiry alerts, backup/restore, staging-to-production promotion, rollback, SLOs and load evidence remain outstanding. A single memory snapshot does not prove capacity. Automated renewal is configured, but renewal/expiry alert demonstrations are not complete.
+At this milestone, this was a manual staging deployment; production, CDN, full CI/CD promotion and many rubric checks were not yet complete. The public board was empty until a controlled synthetic catalog was initialized. OIDC login, Geoapify credentials, CAA, expiry alerts, backup/restore, rollback, SLOs and load evidence were then outstanding. Those statements are historical; see the current status table for later results. A single memory snapshot does not prove capacity.
 
 ## Cost and redaction
 

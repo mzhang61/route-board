@@ -1,6 +1,6 @@
 # Azure staging runbook
 
-Staging is https://staging.mzcampuspulse.com on a small ARM VM. Production is not deployed. Keep its future resource group, vault, database, credentials and identity audience separate.
+Staging is https://staging.mzcampuspulse.com and production is https://routeboard.mzcampuspulse.com. The environments use separate resources and secret stores. This file began as a staging provisioning runbook; consult [the current status table](../docs/requirements-status.md) for what has since been deployed and what remains incomplete.
 
 ## Provision a new environment
 
@@ -32,7 +32,7 @@ Staging is https://staging.mzcampuspulse.com on a small ARM VM. Production is no
 
 ## Remaining operational work
 
-CAA, demonstrated certificate-expiry alert, backups and restore, immutable staging-to-production promotion, rollback, CDN, OTel and alert evidence remain separate requirements. The current manual staging release is not full CI/CD. Review docs/requirements-status.md before claiming a grading pass.
+Backups and restore, fully automated staging-to-production promotion, and independent verification remain open. DNS, TLS/CAA, fired expiry alert, CDN, OpenTelemetry and staging release/rollback checks have separate evidence. Production still has a manual promotion step. Review docs/requirements-status.md before claiming a grading pass.
 
 ## Reference routing credential for a new deployment
 

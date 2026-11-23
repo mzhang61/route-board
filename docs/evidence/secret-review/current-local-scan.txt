@@ -1,0 +1,11 @@
+# Current local secret scan
+
+Date: 2026-11-19 (UTC). Tool: Gitleaks 8.30.1.
+
+- Current project working tree at base commit `02a8388d32b85d232b4ac2addc5dc1fffa84fa51`: scanned after documentation updates; 11 matches. Eight are source-manifest SHA-256 file checksums, two are public image/revision identifiers, and one is a public commit ID. The matches were reviewed; none is a credential.
+- Local Git history: 52 commits through `02a8388d32b85d232b4ac2addc5dc1fffa84fa51`; the history scan had 10 matches, all reviewed as public checksums or revision identifiers.
+- Current frontend build output: scanned; 0 matches.
+
+No credential value was printed or added to this report. The redacted Gitleaks JSON report, including paths, line numbers, and rule IDs, is `current-local-findings.json`. Reproduce the working-tree scan with `gitleaks dir --redact=100 --report-format=json --report-path=docs/evidence/secret-review/current-local-findings.json .`.
+
+Scope limits: this local Git database does not contain later GitHub web commits. The complementary [current cloud and remote-history review](current-cloud-review.md) covers the remote history, recent GitHub Actions logs, deployed API/web images, and 30-day Azure runtime logs. Media OCR/HAR checking is recorded separately in `../media-review/README.md`. These are scoped pattern scans, not a mathematical guarantee about arbitrary external systems or unknown encoded credentials.

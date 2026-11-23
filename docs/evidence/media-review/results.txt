@@ -1,4 +1,5 @@
 docs/evidence/accessibility/host-confirmation.webm 38 frames, 38 distinct images checked
+docs/evidence/cost/azure-budget-nov-2026.png OCR checked
 docs/evidence/operator-states/dispatch-conflict.png OCR checked
 docs/evidence/operator-states/dispatch-forbidden.png OCR checked
 docs/evidence/operator-states/dispatch-saving.png OCR checked

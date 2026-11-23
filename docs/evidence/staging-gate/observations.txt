@@ -1,0 +1,28 @@
+Observed in the public browser on 2026-11-19 02:08 UTC.
+
+GET https://staging.mzcampuspulse.com/release.txt
+02a8388d32b85d232b4ac2addc5dc1fffa84fa51
+
+GET https://routeboard.mzcampuspulse.com/release.txt
+c91cf3caf0e9be08b1eb09f049d09e20fb2fbd58
+
+GET https://staging.mzcampuspulse.com/healthz
+Healthy
+
+GET https://routeboard.mzcampuspulse.com/healthz
+Healthy
+
+GitHub Actions run 43381922323 (Build and verify, push event, main, commit 02a8388d32b85d232b4ac2addc5dc1fffa84fa51): overall success; verify job success; staging job success. The run summary lists artifact verification-02a8388d32b85d232b4ac2addc5dc1fffa84fa51, 13.7 KB, digest sha256:050bf3b0e9a017dd3a901a160a6899c4fd68b6371786c38086e85b7f9ef0adfb.
+
+## Functional staging-only comparison, observed 2026-11-19 04:46 UTC
+
+GitHub commit db7ef584d6fe98978a9846d8c7515e957d589c3d changes `frontend/src/DispatchForm.tsx` to explain that newly created trips use synthetic data and appear on the public demonstration board. It is a small user-facing copy change; it does not change API behavior or data.
+
+GitHub Actions run 44459864295 (Build and verify, push event, main, commit db7ef584d6fe98978a9846d8c7515e957d589c3d): overall success; verify and staging jobs succeeded.
+
+GET https://staging.mzcampuspulse.com/release.txt -> db7ef584d6fe98978a9846d8c7515e957d589c3d
+GET https://staging.mzcampuspulse.com/healthz -> Healthy
+GET https://routeboard.mzcampuspulse.com/release.txt -> c91cf3caf0e9be08b1eb09f049d09e20fb2fbd58
+GET https://routeboard.mzcampuspulse.com/healthz -> Healthy
+
+The staging commit was not promoted to production. The dispatcher form requires sign-in; the public revision endpoints and successful CI run verify deployment separation without exposing an account session in this evidence.

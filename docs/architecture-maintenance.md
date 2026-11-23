@@ -13,6 +13,85 @@
 
 The design is a modular monolith. A single student can follow one request without tracing through microservices, a message broker, a generic repository, or an unnecessary mediator. EF Core already provides change tracking and a unit of work. Introduce additional layers only when repeated logic makes them useful.
 
+## Visible system design and trust boundaries
+
+The diagram below is an embedded SVG so it displays as an actual image in common Markdown viewers. It shows the public browser and MCP host, Cloudflare edge, separate Azure environments, application services, private storage, and external providers. The editable Mermaid versions below provide the component and boundary details.
+
+![RouteBoard system design showing request flows and trust boundaries](system-design.svg)
+
+*Figure: RouteBoard system design and trust boundaries. Staging and production are separate copies of the Azure environment. Browser and MCP-host inputs cross into the API boundary, where tokens, roles, scopes, update versions, and provider responses are checked.*
+
+## Database ER diagram and index rationale
+
+```mermaid
+erDiagram
+  ROUTES ||--o{ ROUTE_STOPS : contains
+  STOPS ||--o{ ROUTE_STOPS : appears_on
+  ROUTES ||--o{ TRIPS : schedules
+  VEHICLES ||--o{ TRIPS : assigned_to
+  TRIPS ||--o{ TRIP_EVENTS : records
+  TRIPS ||--o{ VEHICLE_POSITIONS : has_position
+  VEHICLES ||--o| VEHICLE_POSITIONS : has_position
+  ROUTES {
+    bigint Id PK
+    string Code UK
+    string Name
+  }
+  STOPS {
+    bigint Id PK
+    string Code UK
+    geography Location
+  }
+  ROUTE_STOPS {
+    bigint Id PK
+    bigint RouteId FK
+    bigint StopId FK
+    int StopOrder
+    int DwellMinutes
+    int TravelMinutesFromPreviousStop
+  }
+  VEHICLES {
+    bigint Id PK
+    string Code UK
+    int Capacity
+  }
+  TRIPS {
+    bigint Id PK
+    bigint RouteId FK
+    bigint VehicleId FK
+    datetime ScheduledDeparture
+    string Status
+    int DelayMinutes
+    bigint Version
+  }
+  TRIP_EVENTS {
+    bigint Id PK
+    bigint TripId FK
+    string Kind
+    datetime OccurredAt
+    jsonb Snapshot
+  }
+  VEHICLE_POSITIONS {
+    bigint VehicleId PK, FK
+    bigint TripId FK
+    double Latitude
+    double Longitude
+    datetime ObservedAt
+    bigint Sequence
+  }
+  AUDIT_EVENTS {
+    bigint Id PK
+    bigint TripId
+    string Actor
+    string Action
+    datetime OccurredAt
+    jsonb Before
+    jsonb After
+  }
+```
+
+`trips(RouteId, ScheduledDeparture)` supports the board's route and departure filtering. `trip_events(TripId, Id)` and `audit_events(TripId, Id)` support ordered per-trip history. Composite unique indexes on `(RouteId, StopOrder)` and `(RouteId, StopId)` prevent duplicate route-stop definitions; the GiST index on stop geography supports spatial lookups. `audit_events.TripId` is only a logical reference: the existing schema does not enforce it with a foreign key, which is a documented limitation.
+
 ## Request path and trust boundaries
 
 ```mermaid
@@ -76,7 +155,7 @@ SSE publishes committed full trip snapshots with increasing IDs. The server repl
 
 Geoapify cache keys include ordered coordinates and drive mode. Fresh results last one hour; the previous result is available for up to 24 hours and marked stale when refresh fails. At most two attempts use two-second deadlines. 429 is not retried. Response size and numeric durations/distances are bounded. Provider URLs contain credentials, so HTTP client logging is disabled for this client; do not add raw request-URL tracing later. Live quota and terms remain to be confirmed. Single-flight refresh and a shared/persistent cache are future scaling work.
 
-HTTP responses currently use `no-store`. A CDN must never override this for authenticated, MCP, SSE, or audit-related content. Proposed policies: HTML revalidate, hashed assets immutable, public API initially bypass, authenticated API no-store. None of the CDN HIT/MISS/304 evidence exists yet.
+Cloudflare fronts both deployed sites. HTML revalidates, hashed assets are immutable, and API/authenticated responses are not shared-cached; SSE and MCP remain dynamic. Staging and production evidence records cache headers, an asset MISS/HIT, conditional 304, signed-in no-store responses, and a staging purge. Recheck the environment-specific cache dossiers before changing edge rules.
 
 Confirmation tokens use ASP.NET Data Protection. Azure replicas need a shared, protected, persisted key ring; the current local default is not a completed multi-replica configuration.
 
@@ -96,9 +175,9 @@ REST errors use Problem Details and avoid raw exception text. A provider outage 
 
 See `requirements-status.md` for unresolved work. This guide describes what exists and labels future controls explicitly.
 
-## Container ingress increment
+## Container ingress
 
-Caddy serves the strict React bundle and forwards API/MCP/SSE requests to a private API container. Forwarded scheme and client address are accepted only from the explicitly configured ingress IP. Public callers must not be able to bypass that ingress. SSE responses use Caddy's automatic event-stream flushing so disconnect cancellation remains enabled. Hashed assets are immutable; HTML revalidates; API responses remain no-store. CDN deployment is still pending.
+Caddy serves the strict React bundle and forwards API/MCP/SSE requests to a private API container. Forwarded scheme and client address are accepted only from the explicitly configured ingress IP. Public callers must not be able to bypass that ingress. SSE responses use Caddy's automatic event-stream flushing so disconnect cancellation remains enabled. Hashed assets are immutable; HTML revalidates; API responses are not shared-cached at Cloudflare.
 
 `deploy/host.bicep` describes a small Linux host with a managed identity, SSH public-key authentication, source-restricted SSH, and web ports. Separate resource groups/hosts provide straightforward staging/production isolation but double fixed host costs. Do not call a compiled template an operational deployment.
 
@@ -108,9 +187,9 @@ The explicit `--migrate` command exits after applying versioned migrations. Norm
 
 Fresh-volume verification caught two real packaging defects: executable scripts on the local bind mount could not run, and Docker allocated the proxy's fixed IP to a dynamic container. SQL initialization and a separate dynamic address range fixed these. Neither error justifies deleting a persistent environment's database volume.
 
-## First deployed staging environment
+## Deployed Azure environments
 
-Staging now runs on Azure with Caddy ingress, API and PostgreSQL/PostGIS containers. The host managed identity reads an environment-specific Key Vault. Only administrator-side secret loading may access Azure metadata; a Docker forwarding rule blocks application-container access so an API compromise cannot simply request the host's more privileged vault token. Runtime and migration settings are mounted separately. The root administrator and Docker daemon remain privileged trust boundaries. See deploy/azure-staging.md for exact operations and docs/evidence/azure-staging for executed checks.
+Staging and production run on separate Azure VMs with Caddy ingress, API and PostgreSQL/PostGIS containers, separate Key Vaults, and separate Auth0 API audiences. Each host's managed identity reads only its environment's secrets. A Docker forwarding rule blocks application-container access to Azure metadata. Runtime and migration settings are mounted separately. The root administrator and Docker daemon remain privileged trust boundaries. Production promotion is manual; consult `requirements-status.md` for the remaining D3 evidence limitation.
 
 For a change to MCP permissions, update the identity provider's API permission list, role assignments, TripTools scope checks and transport tests together. Audit entries for preview and record identify which tool was authorized. Authorization evidence alone does not establish that a trip changed; check the committed trip version and event row as well.
 

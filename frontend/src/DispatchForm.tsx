@@ -33,6 +33,7 @@ export function DispatchForm({ catalog, selected, onSaved }: {
   return <section aria-labelledby="dispatch-heading">
     <h2 id="dispatch-heading">{selected ? `Update trip ${selected.id}` : 'Create a synthetic trip'}</h2>
     <p>Dispatcher role and write scope are checked by the server.</p>
+    {!selected && <p>Trips created here use synthetic data and appear on the public demonstration board.</p>}
     <form onSubmit={submit}>
       {selected ? <>
         <label>Update<select name="kind"><option value="delay">Set total delay</option><option value="depart">Record simulated departure</option><option value="arrive">Record simulated stop arrival</option><option value="cancel">Cancel trip</option></select></label>

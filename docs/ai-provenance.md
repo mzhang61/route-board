@@ -1,36 +1,31 @@
-# AI provenance and challenged claims
+# AI use log and challenged claim
 
-The implementation in this local increment was generated with a Codex assistant and reviewed through builds and automated tests. The student supplied the project domain, existing code/migration, complete course requirements, English-documentation rule, readability preference, and domain name. The assistant inspected the actual local repository and preserved the previously applied InitialCoreSchema.
+## Student work
 
-AI-generated work includes trip rules/services, REST endpoints, test fixtures, JWT configuration, replay, reference routing, simulation, React views, MCP tools/App, CI definition and documentation. This is not a claim that the student independently wrote those files or has already mastered them.
+I manually designed the project direction, domain, requirements, feature priorities, and overall approach. I chose the technology stack and made the final technical and deployment decisions. I manually initiated the first Azure deployment, handled the domain correction through the registrar, used the Auth0/Azure dashboards, and personally signed in to the application. I reviewed the evidence and remain responsible for explaining and defending the submitted work.
 
-## Challenged claims and corrections
+## AI assistance
 
-1. Earlier conversation text claimed Work Mode had been opened. This session did not verify a mode switch, so it makes no such claim; actual work occurred against the local repository.
-2. The first generated request records put validation metadata on properties. Real integration tests failed because ASP.NET required constructor-parameter metadata for positional records. Attributes were corrected and tests rerun.
-3. Test-host configuration was initially read before its override existed. The initial integration run failed. Configuration resolution was deferred to the registered database service.
-4. MCP setup initially used mutable JSON options without a type-info resolver. Startup tests caught it; standard web serializer options fixed it.
-5. A test assumed a shared fixture was empty and another used an unsupported GET for stateless MCP. Both assumptions were corrected rather than altering evidence to show success.
-6. Sequence IDs were not assumed to prove commit order. The implementation serializes trip-event writers with a transaction lock and documents its throughput tradeoff.
+AI helped by suggesting technical options, providing code templates and drafts, explaining errors, and proposing fixes. I decided which suggestions to use. Some evidence documents identify commands, tests, scans, or captures that AI executed during user-directed work; they do not imply independent or unattended AI work. The first Azure deployment was manually initiated by me. AI did not independently initiate the original cloud deployment.
 
-## Evidence and review limits
+## AI-assisted D4 rollback evidence
 
-Original failed local runs and the final successful run are retained in the evidence folder. No real login, Azure deployment, provider access, MCP host recording, performance improvement, budget, or fired alert has been claimed. A source manifest identifies the dirty working tree separately from its base commit SHA.
+At the student's request to complete the D4 evidence, AI assisted with a controlled staging-only rollback drill. It temporarily changed the staging release marker in the CI workflow, inspected the GitHub Actions and Azure VM journal results, then restored the original workflow in a follow-up commit. The staging VM timer performed its configured deployment and recovery. The student supplied the signed-in browser session and authorized this work. Production was not changed. The drill, cancelled workflow status, restore pipeline and observed limits are recorded in `docs/evidence/staging-rollback/README.md`.
 
-Operational credentials are loaded from .NET User Secrets or the ignored local Docker secret file. Test keys and the CI-only disposable database password are synthetic. A full independent scan of Git history, images, traces, screenshots, and client bundles is still required before final submission. That pending scan is not described as completed.
+## AI-assisted D3 evidence
 
-## Container deployment increment
+At the student's request to finish remaining checklist evidence, AI suggested and added one explanatory sentence to the dispatcher form clarifying that new trips use synthetic data and appear on the public demo board. AI ran the strict frontend build, then submitted the copy change through the signed-in GitHub web editor. GitHub Actions passed `verify` and `staging`; production was not promoted. The student should review and be able to explain the change. The observed SHAs and health checks are in `docs/evidence/staging-gate/`.
 
-AI authored ingress, Compose and Bicep scaffolding and ran real builds and local smoke checks. A mistaken HTTP/1-only status assertion failed against HTTP/2 and was corrected; both outputs are retained. Cloud runtime, real identity login, CDN and deployment gates remain unverified.
+## Challenged AI claim
 
-## Fresh-volume release increment
+An AI-generated local smoke check assumed a successful HTTP response would contain the HTTP/1 reason text `200 OK`. The proxy negotiated HTTP/2, where that text was absent. I challenged the check against the raw response and corrected it to inspect the numeric status. The first failure and corrected output are retained in `docs/evidence/container-deployment/`.
 
-AI added explicit migration execution, restricted runtime grants and release scripts. Actual testing exposed bind-mount script execution and dynamic/static IP collision failures; SQL initialization and a reserved dynamic range corrected them. The permission test rejects audit tampering, trigger disabling, schema creation and replay deletion. A North Central US B1ms quota did not prove SKU availability: the subscription SKU API explicitly restricted it, challenging the assumption that quota alone means a machine can deploy. West US ARM alternatives were checked instead.
+## Other debugging examples
 
-## First remote CI failure
+- An HTTP smoke check expected the HTTP/1 text `200 OK`; the local proxy negotiated HTTP/2, so the check was corrected to parse the numeric status.
+- A Linux CI test assumed PostgreSQL preserved .NET timestamp precision below a microsecond. The remote run failed; the comparison was corrected to the precision actually stored by PostgreSQL, and a regression case was retained.
+- A staging SSE observer did not see `Last-Event-ID` in the ordinary browser request event. The wire-level browser event exposed the header; the original failed assertion and corrected run are retained.
 
-GitHub run 42756859693 failed on Linux because a simulation test expected PostgreSQL to retain 100-nanosecond .NET ticks. The local macOS run did not expose that assumption. Normalizing observation timestamps to database microsecond precision before comparison also prevents a replay within the same stored microsecond from incrementing the sequence. The regression test deliberately includes sub-microsecond ticks and keeps exact assertions. The original remote failure is retained.
+## Evidence and limits
 
-## Azure staging milestone
-
-AI provisioned the authorized low-cost ARM environment and Key Vault, verified the SSH host key through Azure Run Command, loaded secrets without printing values, and deployed immutable local image IDs. The user's registrar screenshots corrected the domain from .net to .com. Actual public TLS, health and anonymous write denials were verified. Initial certificate checks failed during issuance; the successful release log retains those errors. The school directory refused app registration; no fake login or authorization bypass was introduced.
+See the requirement-to-proof map and per-increment evidence folders for commands, outcomes, environment and source revisions. Original failures remain labeled as failures. The current review covers local source and build output, the 55-commit remote history, recent GitHub Actions logs, deployed API/web images, 30-day Azure runtime and database logs, screenshots, recordings, and the redacted HAR. The scan scope and detector limits are documented in `evidence/secret-review/current-cloud-review.md` and `evidence/media-review/README.md`; do not present a scoped scan as proof that every historical artifact or external service was scanned.

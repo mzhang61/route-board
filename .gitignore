@@ -504,6 +504,7 @@ appsettings.Local.json
 .local-data/
 
 # Local Docker credentials
+.local-secrets
 .local-secrets/
 # Generated web and MCP bundles
 frontend/dist/

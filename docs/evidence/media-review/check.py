@@ -16,7 +16,7 @@ patterns = {
     "JWT": r"eyJ[\w-]{10,}\.[\w-]{10,}\.[\w-]+",
     "credential": r"(?:Bearer\s+[\w.-]{12,}|(?:api[_ -]?key|password|access_token|refresh_token|client_secret|set-cookie)\s*[:=]\s*[^\s]{6,})",
 }
-files = [Path(name) for name in subprocess.check_output(["git", "ls-files", "docs/evidence"], text=True).splitlines()]
+files = sorted(path for path in Path("docs/evidence").rglob("*") if path.is_file())
 alerts = []
 
 

@@ -12,31 +12,46 @@
 8. If positions stop, the UI labels old timestamps stale. Check `Simulation:Enabled`, running trips, and worker error categories. The simulator never creates real GPS observations.
 9. Run `bash scripts/test.sh` before changing code. Test databases have unique `routeboard_test_` names; cleanup runs after tests. Inspect any leftovers before deleting only confirmed test databases.
 
-## Planned Azure layout (not provisioned)
+## Deployed Azure layout
 
-- Production frontend: `https://mzcampuspulse.com`.
-- Staging frontend: `https://staging.mzcampuspulse.com`.
-- API ingress, database, secret store, identity audiences, storage and configuration separated by environment.
-- Separate migration identity and limited runtime database identity.
-- Use a static-web host for the React bundle and a container host for the API/MCP resource. Disable proxy buffering and verify timeout support for SSE.
-- Put the selected Azure edge/CDN in front. Do not select a paid tier until its current cost is reviewed against the student's budget.
-- Use Azure workload identity for CI deployment rather than a long-lived publish password. Protect production with an environment approval/gate and promote the tested build unchanged.
+- Production: `https://routeboard.mzcampuspulse.com/`; staging: `https://staging.mzcampuspulse.com/`.
+- Each environment has its own Azure host, PostgreSQL/PostGIS data, Key Vault, and Auth0 API audience. Cloudflare provides DNS and CDN; Caddy terminates HTTPS and forwards to the private API.
+- The host managed identity reads only that environment's secrets. Runtime and migration database settings are mounted separately.
+- Staging receives tested releases through the automated workflow/timer. Production promotion is operator-triggered and has not been fully automated.
+- See `requirements-status.md` and the environment evidence folders before claiming a control is complete.
 
-## DNS/TLS steps after resources exist
+## DNS/TLS operations
 
-Export the current Porkbun zone before editing it. Record exact Azure-provided target names instead of inventing A/CNAME targets. Begin staging cutover with 300-second TTL so mistakes can be corrected promptly; after stability use 3600 seconds to reduce resolver traffic. Use an apex alias/flattening feature only if supported by the actual hosting/registrar combination.
+The current DNS delegation, record export, TTL rationale, CAA, public certificate checks and fired expiry alert are recorded in `evidence/public-dns/` and `evidence/public-tls/`. Before editing the zone, export its current records and record why each TTL is appropriate. Do not replace deployment targets or certificate policy from an example. Reproduce the recorded DNS traces with the commands in the DNS evidence README. Certificate checks use normal TLS validation; never disable verification to make a release appear healthy.
 
-Add provider validation records, confirm certificate issuance requirements, and configure CAA to authorize the actual certificate issuer. Do not guess an issuer or add a restrictive CAA record before the certificate service is chosen. Demonstrate HTTP redirect, certificate chain, renewal automation, and a deliberately triggered expiry alert. Capture `dig +trace` and the redacted zone export.
+## Release gates and rollback evidence
 
-## Deployment gates and rollback to demonstrate
+The staging release records its revision/image information and checks `/healthz`. The staging timer keeps the prior image configuration and restores it after a candidate health/revision failure. The raw VM journal and successful restore pipeline are indexed in [staging rollback evidence](evidence/staging-rollback/README.md). Production promotion remains manual. A code rollback does not revert database contents, so migrations must remain backward-compatible.
 
-Build/test → immutable artifact → staging migration → staging deploy → `/healthz` + auth/replay smoke tests → production approval → production migration/deploy → smoke tests. Save commit SHA and image digest/build ID at every step. Force one staging failure and show production did not change. Deploy a deliberate bad app version in staging and restore the previous image. Backward-compatible migrations avoid making rollback dependent on data destruction.
+### Staging release check and recovery
 
-## Required Game Day (not yet performed)
+1. Open the [GitHub Actions workflow](https://github.com/mzhang61/route-board/actions) and select the run for the commit under review. Confirm `verify` passed before checking the `staging` job.
+2. Check the public revision and health endpoints:
 
-In staging, disconnect an arrival-board client, record multiple authorized changes, reconnect, and compare its recovered state with the database. Force provider timeouts while performing a dispatch update. Observe bounded failures, accurate stale labels, consistent audit/event counts, and live-state recovery. Trigger the SLO alert and record time to detection/recovery.
+       curl -fsS https://staging.mzcampuspulse.com/release.txt
+       curl -fsS https://staging.mzcampuspulse.com/healthz
 
-Write the postmortem only after the experiment: actual timeline, impact, trigger, detection, root cause, recovery, and corrective actions, with raw logs. No prewritten outcome is evidence.
+   The release file must contain the run's full commit SHA, and health must return `Healthy`. Check production separately at `https://routeboard.mzcampuspulse.com/release.txt` and `/healthz`; the staging workflow does not promote production.
+3. If the staging candidate fails, do not promote it and do not edit the production host or either database. The staging timer polls every three minutes. It restores the previously active image configuration after a candidate health or revision failure.
+4. In Azure Portal, open **Virtual machines → routeboard-staging-host → Operations → Run command → RunShellScript**. Use these read-only commands to inspect timer state and the recovery log:
+
+       sudo systemctl status routeboard-staging.timer routeboard-staging.service --no-pager
+       sudo journalctl -u routeboard-staging.service --since '30 minutes ago' --no-pager | grep -E 'Candidate failed|Previous staging release recovered|Release health check passed|Deployed '
+
+   Do not include environment files, Key Vault values, access tokens, or full unfiltered application logs in evidence.
+5. Recheck `/release.txt` and `/healthz` on staging. A recovered service should report the prior successful commit SHA and `Healthy`. If those checks do not pass after the timer's next poll, keep production unchanged and follow the Azure incident steps in `deploy/azure-staging.md`.
+6. The recorded revision-mismatch exercise and the exact sanitized output are in [the D4 evidence](evidence/staging-rollback/README.md). The GitHub drill run is labeled cancelled because the restore commit superseded it; the Azure VM journal records the actual rollback.
+
+## Completed Game Day
+
+The staging Game Day deliberately interrupted the public browser connection while a dispatcher committed two synthetic trip updates. On recovery, the browser sent its previous `Last-Event-ID`, replayed both events in order, and matched the final trip and database state. The exact observations and limitation (it did not test a full browser restart) are in `game-day-postmortem.md` and `evidence/staging-replay/`.
+
+The SLO alert drill is separately recorded in `evidence/routing-observability/`. Do not describe it as part of the SSE Game Day; the two drills exercised different failure paths.
 
 ### Certificate expiry alert
 

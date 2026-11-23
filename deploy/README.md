@@ -1,6 +1,6 @@
 # Deployment tooling
 
-Status: local container and fresh-database verification completed; no public application deployment yet.
+This guide describes the deployment tooling. Current staging/production state and remaining rubric gaps are tracked in [the requirements status](../docs/requirements-status.md). Historical evidence files retain the status that applied when each milestone was recorded.
 
 ## Build and verify
 
@@ -20,7 +20,7 @@ OIDC authority, client ID and scopes are public web build arguments. Never pass 
 
 ## Release inputs
 
-Use separate Compose project names, databases, credentials, settings files, certificates and network ranges per environment. Required environment-file values are API_IMAGE, WEB_IMAGE, DB_IMAGE, SITE_ADDRESS (domain only), OIDC_ORIGIN, SETTINGS_FILE, MIGRATION_SETTINGS_FILE, DATABASE_PASSWORD_FILE and RUNTIME_PASSWORD_FILE. Settings files contain the runtime or migration connection string respectively. The runtime username is `routeboard_runtime`; the database administrator is `routeboard_migrator`. Keep all settings/password files outside Git and in an owner-only directory. Mounted settings are not a substitute for the required Azure secret-store integration, which remains pending.
+Use separate Compose project names, databases, credentials, settings files, certificates and network ranges per environment. Required environment-file values are API_IMAGE, WEB_IMAGE, DB_IMAGE, SITE_ADDRESS (domain only), OIDC_ORIGIN, SETTINGS_FILE, MIGRATION_SETTINGS_FILE, DATABASE_PASSWORD_FILE and RUNTIME_PASSWORD_FILE. Settings files contain the runtime or migration connection string respectively. The runtime username is `routeboard_runtime`; the database administrator is `routeboard_migrator`. Keep all settings/password files outside Git and in an owner-only directory. Azure Key Vault is used by the documented cloud environments; never copy production or staging secrets into this local setup.
 
 Promote immutable image digests. For a configured host, run:
 
@@ -28,7 +28,7 @@ Promote immutable image digests. For a configured host, run:
 bash deploy/release.sh staging /absolute/path/release.env
 ```
 
-The command validates configuration, waits for PostgreSQL, runs the explicit `--migrate` maintenance command, applies restricted runtime grants, starts API/ingress, and checks public HTTPS `/healthz`. A failed check exits nonzero and must stop promotion. Automatic rollback is not implemented yet. The API never applies schema migrations as part of normal startup.
+The command validates configuration, waits for PostgreSQL, runs the explicit `--migrate` maintenance command, applies restricted runtime grants, starts API/ingress, and checks public HTTPS `/healthz`. A failed check exits nonzero and must stop promotion. This script itself does not perform rollback; the staging release timer has separate rollback behavior. Production still has a manual promotion step. The API never applies schema migrations as part of normal startup.
 
 The SQL initializer creates the runtime login only on a fresh database volume. Never delete an existing volume to fix a failed initialization. Diagnose and repair the specific failure with the administrator account. Credential rotation requires an explicit administrator password update and replacement runtime configuration; changing a Docker secret alone does not rotate an existing PostgreSQL login.
 
@@ -38,12 +38,12 @@ The runtime can read the catalog, update trips/positions and append audit/replay
 
 Only web ports are published. Caddy terminates HTTPS, serves React and proxies API/MCP/SSE. The API accepts forwarded headers only from PROXY_IP. APP_DYNAMIC_RANGE excludes that static address; otherwise Docker can allocate it to the database first and prevent ingress startup. For additional stacks, choose nonoverlapping APP_SUBNET, APP_DYNAMIC_RANGE and PROXY_IP values.
 
-HTML revalidates; fingerprinted assets are immutable; API responses remain no-store. Caddy automatically flushes event-stream responses while preserving disconnect cancellation. CDN public cache policy and HIT/MISS/invalidation evidence remain pending. Two ingress containers cannot bind the same host ports; use separate hosts or implement a shared ingress before colocating environments.
+HTML revalidates; fingerprinted assets are immutable; API responses remain no-store. Caddy automatically flushes event-stream responses while preserving disconnect cancellation. Cloudflare CDN cache behavior is documented in the staging and production evidence folders. Two ingress containers cannot bind the same host ports; use separate hosts or implement a shared ingress before colocating environments.
 
 ## Azure host and costs
 
 The template targets a pinned Ubuntu 24.04 ARM image in West US. Region/SKU availability was checked against the student's subscription. Older B1ms was restricted; B2pts_v2 and B2pls_v2 were listed without location restrictions. Actual allocation can still fail due to capacity or quota.
 
-The official retail API returned USD 0.01/hour for standard Linux B2pts_v2 in West US: 730 × 0.01 = USD 7.30/month compute. Disk, public IPv4, traffic, backup and telemetry are additional. Do not interpret this as an all-in quote or a guarantee of remaining student credit. The smaller VM needs memory/load validation before production use. No billable VM was created.
+The Azure Retail Prices API returned USD 0.01/hour for standard Linux B2pts_v2 in West US: 730 × 0.01 = USD 7.30/month compute, before disk, public IPv4, traffic, backup and telemetry. This is a retail meter input, not an all-in bill or the student's out-of-pocket charge. The project uses an Azure for Students subscription; eligible charges may draw on its credit. The remaining credit must be read from the Azure portal and is not inferred from this estimate. The current resource inventory and modeled totals are in [the cost report](../docs/evidence/cost/README.md). The smaller VM needs memory/load validation before higher traffic.
 
-The Bicep template is not a complete deployment: host package installation, secret retrieval, backup, CI release gating and rollback still need implementation. Real DNS/CAA/certificate renewal, alert and CDN evidence must come from an actual deployment.
+The Bicep template is infrastructure source, not a one-command full deployment. Host setup and secret retrieval are documented and used in the cloud deployment. Backups/restore and full automatic production promotion remain open; staging release and rollback behavior, DNS/TLS/CAA, CDN, and alerts have separate evidence. Check the current status table before describing completion.
